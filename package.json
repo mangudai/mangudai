@@ -1,0 +1,30 @@
+{
+  "name": "mangudai",
+  "version": "0.1.0",
+  "description": "AoE2 Random Map Scripting stuff",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deltaidea/mangudai.git"
+  },
+  "keywords": [
+    "aoe2",
+    "age-of-empires",
+    "age-of-empires-2",
+    "random-map",
+    "scripting"
+  ],
+  "author": "Nikita Litvin <n@deltaidea.com> (https://github.com/deltaidea)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deltaidea/mangudai/issues"
+  },
+  "homepage": "https://github.com/deltaidea/mangudai#readme",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}
