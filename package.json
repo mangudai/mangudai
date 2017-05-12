@@ -2,10 +2,11 @@
   "name": "mangudai",
   "version": "0.1.0",
   "description": "AoE2 Random Map Scripting stuff",
-  "main": "index.js",
+  "main": "./build/index.js",
   "scripts": {
-    "build": "tsc index.ts",
-    "test": "mocha --require ts-node/register index.spec.ts"
+    "build": "tsc src",
+    "lint": "tslint --type-check --project src && tslint --type-check --project test",
+    "test": "npm run lint && mocha"
   },
   "repository": {
     "type": "git",

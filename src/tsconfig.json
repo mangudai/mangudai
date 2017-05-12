@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "strict": true,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "../build/",
+    "newLine": "LF"
+  },
+  "include": [
+    "./**/*.ts"
+  ]
+}

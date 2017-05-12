@@ -1,8 +1,10 @@
-type Command = { name: string, options?: Object | string }
+export type CommandOptions = { [x: string]: string } | string
+export type Command = { name: string, options: CommandOptions }
 
 export class Mangudai {
-  private readonly sections: {[x: string]: Command[]} = {}
-  addCommand (section: string, name: string, options: Object = {}): this {
+  private readonly sections: { [x: string]: Command[] } = {}
+
+  addCommand (section: string, name: string, options: CommandOptions = {}): this {
     this.sections[section] = this.sections[section] || []
     this.sections[section].push({ name, options })
     return this
