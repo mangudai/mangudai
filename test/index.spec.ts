@@ -1,6 +1,3 @@
-import { should } from 'chai'
-should()
-
 import { Mangudai } from '../src/index'
 
 describe('Mangudai', () => {
