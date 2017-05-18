@@ -1,27 +1,5 @@
-import { Token, Parser, IParserConfig, CstNode, CstChildrenDictionary } from 'chevrotain'
-import { lex, allTokenTypes, Whitespace, MultilineComment } from './lex'
-
-class RmsCstParser extends Parser {
-  public script = this.RULE('script', () => {
-    this.OPTION(() => { this.CONSUME1(Whitespace) })
-    this.MANY_SEP({
-      SEP: Whitespace,
-      DEF: () => { this.SUBRULE(this.statement) }
-    })
-    this.OPTION2(() => { this.CONSUME2(Whitespace) })
-  })
-
-  private statement = this.RULE('statement', () => {
-    this.OR([
-      { ALT: () => { this.CONSUME(MultilineComment) }}
-    ])
-  })
-
-  constructor (input: Token[]) {
-    super(input, allTokenTypes, { outputCst: true })
-    Parser.performSelfAnalysis(this)
-  }
-}
+import { Token, CstNode, CstChildrenDictionary } from 'chevrotain'
+import { RmsCstParser } from './cst'
 
 const parser = new RmsCstParser([])
 
