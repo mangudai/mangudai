@@ -2,21 +2,35 @@ import { parse } from '../src/parse'
 import { expect } from 'chai'
 
 describe('parse', () => {
-  const scripts: { [key: string]: string } = {
-    'empty input': '',
-    'spaces': '   \n\n   \n \t ',
-    'comments': '/* comment one */ /* comment two */'
-  }
+  const NO_ERRORS = { lexer: [], parser: [] }
 
-  Object.keys(scripts).forEach(key => {
-    it(`works on ${key}`, () => {
-      const rms = scripts[key]
-      const { ast, errors } = parse(rms)
-      expect(ast).to.be.an.instanceOf(Object)
-      expect(errors).to.deep.equal({
-        lexer: [],
-        parser: []
-      })
-    })
+  it('works on empty input', () => {
+    const { ast, errors } = parse('')
+    expect(ast).to.be.an.instanceOf(Object)
+    expect(errors).to.deep.equal(NO_ERRORS)
+  })
+
+  it('works on empty input', () => {
+    const { ast, errors } = parse('')
+    expect(ast).to.be.an.instanceOf(Object)
+    expect(errors).to.deep.equal(NO_ERRORS)
+  })
+
+  it('works on spaces', () => {
+    const { ast, errors } = parse('   \n\n   \n \t ')
+    expect(ast).to.be.an.instanceOf(Object)
+    expect(errors).to.deep.equal(NO_ERRORS)
+  })
+
+  it('works on comments', () => {
+    const { ast, errors } = parse('/* comment one */ /* comment two */')
+    expect(ast).to.be.an.instanceOf(Object)
+    expect(errors).to.deep.equal(NO_ERRORS)
+  })
+
+  it('returns errors on illegal tokens', () => {
+    const { ast, errors } = parse('--- wtf is this even ---')
+    expect(ast).to.be.an.instanceOf(Object)
+    expect(errors).to.not.deep.equal(NO_ERRORS)
   })
 })
