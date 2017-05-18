@@ -1,5 +1,4 @@
 import { parse } from '../src/parse'
-import { lex } from '../src/lex'
 import { expect } from 'chai'
 
 describe('parse', () => {
@@ -12,10 +11,12 @@ describe('parse', () => {
   Object.keys(scripts).forEach(key => {
     it(`works on ${key}`, () => {
       const rms = scripts[key]
-      const tokens = lex(rms).tokens
-      const { ast, errors } = parse(tokens)
+      const { ast, errors } = parse(rms)
       expect(ast).to.be.an.instanceOf(Object)
-      expect(errors).to.deep.equal([])
+      expect(errors).to.deep.equal({
+        lexer: [],
+        parser: []
+      })
     })
   })
 })
