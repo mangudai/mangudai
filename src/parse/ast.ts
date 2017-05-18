@@ -15,12 +15,22 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, {}> {
     }
 
     private statement (ctx: CstChildrenDictionary) {
-      if ('MultilineComment' in ctx) {
+      if (ctx.MultilineComment.length) {
         return {
           type: 'MultilineComment',
           comment: (ctx.MultilineComment[0] as Token).image
         }
+      } else if (ctx.sectionHeader.length) {
+        return this.visit(ctx.sectionHeader[0] as CstNode)
       }
+    }
+
+    private sectionHeader (ctx: CstChildrenDictionary) {
+      const result = {
+        type: 'SectionHeader',
+        name: (ctx.UpperIdentifier[0] as Token).image
+      }
+      return result
     }
   }
 

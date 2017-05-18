@@ -28,6 +28,12 @@ describe('parse', () => {
     expect(errors).to.deep.equal(NO_ERRORS)
   })
 
+  it('works on sections', () => {
+    const { ast, errors } = parse('<PLAYER_SETUP>\n<OBJECTS_GENERATION>')
+    expect(ast).to.be.an.instanceOf(Object)
+    expect(errors).to.deep.equal(NO_ERRORS)
+  })
+
   it('returns errors on illegal tokens', () => {
     const { ast, errors } = parse('--- wtf is this even ---')
     expect(ast).to.be.an.instanceOf(Object)
