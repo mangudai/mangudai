@@ -11,7 +11,10 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, {}> {
 
     private script (ctx: CstChildrenDictionary) {
       const statements = (ctx.statement as CstNode[]).map(s => this.visit(s))
-      return statements
+      return {
+        type: 'Script',
+        statements
+      }
     }
 
     private statement (ctx: CstChildrenDictionary) {
