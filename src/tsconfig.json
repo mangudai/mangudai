@@ -5,6 +5,8 @@
     "declaration": true,
     "sourceMap": true,
     "outDir": "../build/",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "newLine": "LF"
   },
   "include": [

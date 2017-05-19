@@ -9,7 +9,7 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, {}> {
       this.validateVisitor()
     }
 
-    private script (ctx: CstChildrenDictionary) {
+    script (ctx: CstChildrenDictionary) {
       const statements = (ctx.statement as CstNode[]).map(s => this.visit(s))
       return {
         type: 'Script',
@@ -17,7 +17,7 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, {}> {
       }
     }
 
-    private statement (ctx: CstChildrenDictionary) {
+    statement (ctx: CstChildrenDictionary) {
       if (ctx.MultilineComment.length) {
         return {
           type: 'MultilineComment',
@@ -28,7 +28,7 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, {}> {
       }
     }
 
-    private sectionHeader (ctx: CstChildrenDictionary) {
+    sectionHeader (ctx: CstChildrenDictionary) {
       const result = {
         type: 'SectionHeader',
         name: (ctx.UpperIdentifier[0] as Token).image
