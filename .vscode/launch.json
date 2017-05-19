@@ -13,6 +13,17 @@
         "--no-timeouts"
       ],
       "protocol": "inspector"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Tests Watch",
+      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--no-timeouts",
+        "--watch"
+      ],
+      "protocol": "inspector"
     }
   ]
 }
