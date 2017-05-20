@@ -8,6 +8,10 @@ clearCache()
 
 import { parse } from '../src/parse'
 import { expect } from 'chai'
+import { join } from 'path'
+import { readFileSync } from 'fs'
+
+const readSample = (name: string) => readFileSync(join(__dirname, 'samples', `${name}.rms`), 'utf8')
 
 describe('parse', () => {
   const NO_ERRORS = { lexer: [], parser: [] }
@@ -37,7 +41,7 @@ describe('parse', () => {
   })
 
   it('works on sections', () => {
-    const { ast, errors } = parse('<PLAYER_SETUP>\n<OBJECTS_GENERATION>')
+    const { ast, errors } = parse(readSample('basic'))
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })
