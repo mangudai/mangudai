@@ -1,5 +1,5 @@
 import { Token, Parser } from 'chevrotain'
-import { allTokenTypes, Whitespace, MultilineComment, LArrow, RArrow, UpperIdentifier } from './lex'
+import { allTokenTypes, Whitespace, LArrow, RArrow, UpperIdentifier } from './lex'
 
 export class RmsCstParser extends Parser {
   public script = this.RULE('script', () => {
@@ -13,8 +13,7 @@ export class RmsCstParser extends Parser {
 
   private statement = this.RULE('statement', () => {
     this.OR([
-      { ALT: () => { this.SUBRULE(this.sectionHeader) }},
-      { ALT: () => { this.CONSUME(MultilineComment) }}
+      { ALT: () => { this.SUBRULE(this.sectionHeader) }}
     ])
   })
 

@@ -11,7 +11,7 @@ export class Number extends Token { static PATTERN = /[0-9]+/ }
 
 export class Whitespace extends Token { static PATTERN = /\s+/ }
 export class Semicolon extends Token { static PATTERN = /;/ }
-export class MultilineComment extends Token { static PATTERN = /\/\*[\s\S]*?\*\// }
+export class MultilineComment extends Token { static PATTERN = /\/\*[\s\S]*?\*\//; static GROUP = Lexer.SKIPPED }
 
 export const allTokenTypes: typeof Token[] = [RArrow, LArrow, LCurly, RCurly, Hash, LowerIdentifier,
   UpperIdentifier, Number, Whitespace, Semicolon, MultilineComment]

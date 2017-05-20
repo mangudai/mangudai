@@ -5,12 +5,7 @@ export type RmsAst = {
   statements: RmsAstStatement[]
 }
 
-export type RmsAstStatement = RmsAstMultilineComment | RmsAstSectionHeader
-
-export type RmsAstMultilineComment = {
-  type: 'MultilineComment',
-  comment: string
-}
+export type RmsAstStatement = RmsAstSectionHeader
 
 export type RmsAstSectionHeader = {
   type: 'SectionHeader',
@@ -35,14 +30,7 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
     }
 
     statement (ctx: CstChildrenDictionary): RmsAstStatement {
-      if (ctx.MultilineComment.length) {
-        return {
-          type: 'MultilineComment',
-          comment: (ctx.MultilineComment[0] as Token).image
-        }
-      } else {
-        return this.visit(ctx.sectionHeader[0] as CstNode)
-      }
+      return this.visit(ctx.sectionHeader[0] as CstNode)
     }
 
     sectionHeader (ctx: CstChildrenDictionary): RmsAstSectionHeader {
