@@ -9,7 +9,7 @@ export class LowerIdentifier extends Token { static PATTERN = /[a-z_]+/ }
 export class UpperIdentifier extends Token { static PATTERN = /[A-Z_]+/ }
 export class Number extends Token { static PATTERN = /[0-9]+/ }
 
-export class Whitespace extends Token { static PATTERN = /\s+/ }
+export class Whitespace extends Token { static PATTERN = /\s+/; static GROUP = Lexer.SKIPPED }
 export class Semicolon extends Token { static PATTERN = /;/ }
 export class MultilineComment extends Token { static PATTERN = /\/\*[\s\S]*?\*\//; static GROUP = Lexer.SKIPPED }
 
