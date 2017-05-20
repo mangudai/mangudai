@@ -1,14 +1,21 @@
 import { Token, Parser } from 'chevrotain'
-import { allTokenTypes, LArrow, RArrow, LCurly, RCurly, UpperIdentifier, LowerIdentifier, Integer } from './lex'
+import { allTokenTypes, LArrow, RArrow, LCurly, RCurly, Const, UpperIdentifier, LowerIdentifier, Integer } from './lex'
 
 export class RmsCstParser extends Parser {
   public script = this.RULE('script', () => {
-    this.MANY(() => { this.SUBRULE(this.section) })
+    this.MANY(() => { this.SUBRULE(this.topLevelStatement) })
+  })
+
+  private topLevelStatement = this.RULE('topLevelStatement', () => {
+    this.OR([
+      { ALT: () => { this.SUBRULE(this.section) } },
+      { ALT: () => { this.SUBRULE(this.const) } }
+    ])
   })
 
   private section = this.RULE('section', () => {
     this.SUBRULE(this.sectionHeader)
-    this.AT_LEAST_ONE(() => { this.SUBRULE(this.property) })
+    this.AT_LEAST_ONE(() => { this.SUBRULE(this.sectionStatement) })
   })
 
   private sectionHeader = this.RULE('sectionHeader', () => {
@@ -17,10 +24,11 @@ export class RmsCstParser extends Parser {
     this.CONSUME(RArrow)
   })
 
-  private property = this.RULE('property', () => {
+  private sectionStatement = this.RULE('sectionStatement', () => {
     this.OR([
       { ALT: () => { this.SUBRULE(this.propertyBlock) } },
-      { ALT: () => { this.SUBRULE(this.simpleProperty) } }
+      { ALT: () => { this.SUBRULE(this.simpleProperty) } },
+      { ALT: () => { this.SUBRULE(this.const) } }
     ])
   })
 
@@ -39,6 +47,12 @@ export class RmsCstParser extends Parser {
         { ALT: () => { this.CONSUME(UpperIdentifier) } }
       ])
     })
+  })
+
+  private const = this.RULE('const', () => {
+    this.CONSUME(Const)
+    this.CONSUME(UpperIdentifier)
+    this.CONSUME(Integer)
   })
 
   constructor (input: Token[]) {

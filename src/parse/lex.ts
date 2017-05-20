@@ -4,7 +4,7 @@ export class RArrow extends Token { static PATTERN = />/ }
 export class LArrow extends Token { static PATTERN = /</ }
 export class LCurly extends Token { static PATTERN = /{/ }
 export class RCurly extends Token { static PATTERN = /}/ }
-export class Hash extends Token { static PATTERN = /#/ }
+export class Const extends Token { static PATTERN = /#const/ }
 export class LowerIdentifier extends Token { static PATTERN = /[a-z_]+/ }
 export class UpperIdentifier extends Token { static PATTERN = /[A-Z_]+/ }
 export class Integer extends Token { static PATTERN = /[0-9]+/ }
@@ -13,7 +13,7 @@ export class Whitespace extends Token { static PATTERN = /\s+/; static GROUP = L
 export class Semicolon extends Token { static PATTERN = /;/ }
 export class MultilineComment extends Token { static PATTERN = /\/\*[\s\S]*?\*\//; static GROUP = Lexer.SKIPPED }
 
-export const allTokenTypes: typeof Token[] = [RArrow, LArrow, LCurly, RCurly, Hash, LowerIdentifier,
+export const allTokenTypes: typeof Token[] = [RArrow, LArrow, LCurly, RCurly, Const, LowerIdentifier,
   UpperIdentifier, Integer, Whitespace, Semicolon, MultilineComment]
 
 const lexer = new Lexer(allTokenTypes)

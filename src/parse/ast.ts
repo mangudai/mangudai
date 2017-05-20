@@ -2,16 +2,18 @@ import { Parser, ICstVisitor, CstChildrenDictionary, CstNode, Token } from 'chev
 
 export type RmsAst = {
   type: 'Script',
-  sections: RmsSection[]
+  statements: RmsTopLevelStatement[]
 }
+
+export type RmsTopLevelStatement = RmsSection | RmsConstDefinition
 
 export type RmsSection = {
   type: 'Section',
   name: string,
-  properties: RmsProperty[]
+  statements: RmsSectionStatement[]
 }
 
-export type RmsProperty = RmsSimpleProperty | RmsPropertyBlock
+export type RmsSectionStatement = RmsSimpleProperty | RmsPropertyBlock | RmsConstDefinition
 
 export type RmsSimpleProperty = {
   type: 'SimpleProperty',
@@ -26,6 +28,12 @@ export type RmsPropertyBlock = {
   properties: RmsSimpleProperty[]
 }
 
+export type RmsConstDefinition = {
+  type: 'ConstDefinition',
+  name: string,
+  value: number
+}
+
 export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
   const BaseCstVisitor = parser.getBaseCstVisitorConstructor()
 
@@ -38,15 +46,21 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
     script (ctx: CstChildrenDictionary): RmsAst {
       return {
         type: 'Script',
-        sections: (ctx.section as CstNode[]).map(s => this.visit(s))
+        statements: (ctx.topLevelStatement as CstNode[]).map(s => this.visit(s))
       }
+    }
+
+    topLevelStatement (ctx: CstChildrenDictionary): RmsTopLevelStatement {
+      return ctx.section.length ?
+        this.visit(ctx.section[0] as CstNode) :
+        this.visit(ctx.const[0] as CstNode)
     }
 
     section (ctx: CstChildrenDictionary): RmsSection {
       return {
         type: 'Section',
         name: this.visit(ctx.sectionHeader[0] as CstNode),
-        properties: (ctx.property as CstNode[]).map(s => this.visit(s))
+        statements: (ctx.sectionStatement as CstNode[]).map(s => this.visit(s))
       }
     }
 
@@ -54,19 +68,16 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
       return (ctx.UpperIdentifier[0] as Token).image
     }
 
-    property (ctx: CstChildrenDictionary): RmsProperty {
-      return ctx.simpleProperty.length ?
-        this.visit(ctx.simpleProperty[0] as CstNode) :
-        this.visit(ctx.propertyBlock[0] as CstNode)
+    sectionStatement (ctx: CstChildrenDictionary): RmsSectionStatement {
+      if (ctx.propertyBlock.length) return this.visit(ctx.propertyBlock[0] as CstNode)
+      else if (ctx.simpleProperty.length) return this.visit(ctx.simpleProperty[0] as CstNode)
+      else return this.visit(ctx.const[0] as CstNode)
     }
 
     simpleProperty (ctx: CstChildrenDictionary): RmsSimpleProperty {
       let value = undefined
-      if (ctx.Integer.length) {
-        value = parseInt((ctx.Integer[0] as Token).image, 10)
-      } else if (ctx.UpperIdentifier.length) {
-        value = (ctx.UpperIdentifier[0] as Token).image
-      }
+      if (ctx.Integer.length) value = parseInt((ctx.Integer[0] as Token).image, 10)
+      else if (ctx.UpperIdentifier.length) value = (ctx.UpperIdentifier[0] as Token).image
 
       return {
         type: 'SimpleProperty',
@@ -82,6 +93,14 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
         name: base.name,
         value: base.value,
         properties: properties
+      }
+    }
+
+    const (ctx: CstChildrenDictionary): RmsConstDefinition {
+      return {
+        type: 'ConstDefinition',
+        name: (ctx.UpperIdentifier[0] as Token).image,
+        value: parseInt((ctx.Integer[0] as Token).image, 10)
       }
     }
   }

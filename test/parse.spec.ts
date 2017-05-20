@@ -41,7 +41,13 @@ describe('parse', () => {
   })
 
   it('works on sections', () => {
-    const { ast, errors } = parse(readSample('basic'))
+    const { ast, errors } = parse(readSample('sections'))
+    expect(ast).to.be.an.instanceOf(Object)
+    expect(errors).to.deep.equal(NO_ERRORS)
+  })
+
+  it('works on constant definitions', () => {
+    const { ast, errors } = parse(readSample('constants'))
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })
