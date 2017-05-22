@@ -46,8 +46,8 @@ describe('parse', () => {
     expect(errors).to.deep.equal(NO_ERRORS)
   })
 
-  it('works on constant definitions', () => {
-    const { ast, errors } = parse(readSample('constants'))
+  it('works on #const and #define, both global and in sections', () => {
+    const { ast, errors } = parse(readSample('const-and-define'))
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })

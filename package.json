@@ -29,6 +29,7 @@
     "@types/chai": "^3.5.2",
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18",
+    "@types/xregexp": "^3.0.28",
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
     "ts-node": "^3.0.4",
@@ -37,6 +38,7 @@
     "typescript": "^2.3.2"
   },
   "dependencies": {
-    "chevrotain": "^0.28.3"
+    "chevrotain": "^0.28.3",
+    "xregexp": "^3.2.0"
   }
 }

@@ -5,7 +5,7 @@ export type RmsAst = {
   statements: RmsTopLevelStatement[]
 }
 
-export type RmsTopLevelStatement = RmsSection | RmsConstDefinition
+export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition
 
 export type RmsSection = {
   type: 'Section',
@@ -13,25 +13,30 @@ export type RmsSection = {
   statements: RmsSectionStatement[]
 }
 
-export type RmsSectionStatement = RmsSimpleProperty | RmsPropertyBlock | RmsConstDefinition
+export type RmsSectionStatement = RmsProperty | RmsConstDefinition | RmsFlagDefinition
 
-export type RmsSimpleProperty = {
-  type: 'SimpleProperty',
-  name: string,
-  value?: string | number
-}
-
-export type RmsPropertyBlock = {
-  type: 'PropertyBlock',
+export type RmsProperty = {
+  type: 'Property',
   name: string,
   value?: string | number,
-  properties: RmsSimpleProperty[]
+  attributes?: RmsAttribute[]
+}
+
+export type RmsAttribute = {
+  type: 'Attribute',
+  name: string,
+  value?: string | number
 }
 
 export type RmsConstDefinition = {
   type: 'ConstDefinition',
   name: string,
   value: number
+}
+
+export type RmsFlagDefinition = {
+  type: 'FlagDefinition',
+  flag: string
 }
 
 export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
@@ -51,9 +56,9 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
     }
 
     topLevelStatement (ctx: CstChildrenDictionary): RmsTopLevelStatement {
-      return ctx.section.length ?
-        this.visit(ctx.section[0] as CstNode) :
-        this.visit(ctx.const[0] as CstNode)
+      if (ctx.section.length) return this.visit(ctx.section[0] as CstNode)
+      if (ctx.const.length) return this.visit(ctx.const[0] as CstNode)
+      return this.visit(ctx.define[0] as CstNode)
     }
 
     section (ctx: CstChildrenDictionary): RmsSection {
@@ -65,43 +70,56 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
     }
 
     sectionHeader (ctx: CstChildrenDictionary): string {
-      return (ctx.UpperIdentifier[0] as Token).image
+      return (ctx.Identifier[0] as Token).image
     }
 
     sectionStatement (ctx: CstChildrenDictionary): RmsSectionStatement {
-      if (ctx.propertyBlock.length) return this.visit(ctx.propertyBlock[0] as CstNode)
-      else if (ctx.simpleProperty.length) return this.visit(ctx.simpleProperty[0] as CstNode)
-      else return this.visit(ctx.const[0] as CstNode)
+      if (ctx.property.length) return this.visit(ctx.property[0] as CstNode)
+      if (ctx.const.length) return this.visit(ctx.const[0] as CstNode)
+      return this.visit(ctx.define[0] as CstNode)
     }
 
-    simpleProperty (ctx: CstChildrenDictionary): RmsSimpleProperty {
-      let value = undefined
-      if (ctx.Integer.length) value = parseInt((ctx.Integer[0] as Token).image, 10)
-      else if (ctx.UpperIdentifier.length) value = (ctx.UpperIdentifier[0] as Token).image
+    property (ctx: CstChildrenDictionary): RmsProperty {
+      const { name, value } = this.visit(ctx.attribute[0] as CstNode)
+      const attributes = ctx.propertyBlock.length ? this.visit(ctx.propertyBlock[0] as CstNode) : undefined
 
+      return { type: 'Property', name, value, attributes }
+    }
+
+    attribute (ctx: CstChildrenDictionary): RmsAttribute {
       return {
-        type: 'SimpleProperty',
-        name: (ctx.LowerIdentifier[0] as Token).image,
-        value
+        type: 'Attribute',
+        name: (ctx.Identifier[0] as Token).image,
+        value: this.$parseAttributeValue(ctx)
       }
     }
 
-    propertyBlock (ctx: CstChildrenDictionary): RmsPropertyBlock {
-      let [base, ...properties] = (ctx.simpleProperty as CstNode[]).map(s => this.visit(s)) as RmsSimpleProperty[]
-      return {
-        type: 'PropertyBlock',
-        name: base.name,
-        value: base.value,
-        properties: properties
-      }
+    propertyBlock (ctx: CstChildrenDictionary): RmsAttribute[] {
+      return (ctx.attribute as CstNode[]).map(s => this.visit(s))
     }
 
     const (ctx: CstChildrenDictionary): RmsConstDefinition {
       return {
         type: 'ConstDefinition',
-        name: (ctx.UpperIdentifier[0] as Token).image,
+        name: (ctx.Identifier[0] as Token).image,
         value: parseInt((ctx.Integer[0] as Token).image, 10)
       }
+    }
+
+    define (ctx: CstChildrenDictionary): RmsFlagDefinition {
+      return {
+        type: 'FlagDefinition',
+        flag: (ctx.Identifier[0] as Token).image
+      }
+    }
+
+    lineBreaks () {
+      return undefined
+    }
+
+    private $parseAttributeValue (ctx: CstChildrenDictionary): string | number | undefined {
+      if (ctx.Identifier.length === 2) return (ctx.Identifier[1] as Token).image
+      if (ctx.Integer.length) return parseInt((ctx.Integer[0] as Token).image, 10)
     }
   }
 

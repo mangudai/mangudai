@@ -9,3 +9,11 @@
     min_distance_to_players 0
     max_distance_to_players 0
   }
+
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER
+  {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
