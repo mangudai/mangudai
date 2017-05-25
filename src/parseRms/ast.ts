@@ -114,7 +114,7 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
     }
 
     lineBreaks () {
-      return undefined
+      return
     }
 
     private $parseAttributeValue (ctx: CstChildrenDictionary): string | number | undefined {
