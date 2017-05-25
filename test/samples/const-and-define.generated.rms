@@ -1,0 +1,19 @@
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+<PLAYER_SETUP>
+  random_placement
+  #const BAR 777
+  #define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }

@@ -5,12 +5,22 @@
 import { readdirSync, readFileSync, writeFileSync } from 'fs'
 import { basename, extname, join } from 'path'
 import { parse } from '../../src/parseRms'
+import { serialize } from '../../src/serializeRms'
 
-readdirSync(__dirname).filter(str => extname(str) === '.rms').forEach(filename => {
-  console.log(`Updating AST for ${filename}`)
+const samples = readdirSync(__dirname)
+  .filter(str => extname(str) === '.rms')
+  .filter(str => !basename(str, '.rms').endsWith('.generated'))
+
+samples.forEach(filename => {
   const rms = readFileSync(join(__dirname, filename), 'utf8')
   const ast = parse(rms).ast
+  console.log(`Updating AST and RMS for ${filename}`)
+
   const serializedAst = JSON.stringify(ast, null, 2)
   const astFilename = basename(filename, '.rms') + '.ast'
   writeFileSync(join(__dirname, astFilename), serializedAst + '\n')
+
+  const generatedRms = serialize(ast)
+  const generatedRmsFilename = basename(filename, '.rms') + '.generated.rms'
+  writeFileSync(join(__dirname, generatedRmsFilename), generatedRms + '\n')
 })

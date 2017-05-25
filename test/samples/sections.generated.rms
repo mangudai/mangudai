@@ -1,0 +1,17 @@
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  create_object TOWN_CENTER {
+
+  }
