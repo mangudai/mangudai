@@ -6,14 +6,14 @@ import { clearCache } from 'chevrotain'
 // because unknown tokens suddenly appear.
 clearCache()
 
-import { parse } from '../src/parse'
+import { parse } from '../src/parseRms'
 import { expect } from 'chai'
 import { join } from 'path'
 import { readFileSync } from 'fs'
 
 const readSample = (name: string) => readFileSync(join(__dirname, 'samples', `${name}.rms`), 'utf8')
 
-describe('parse', () => {
+describe('parseRms', () => {
   const NO_ERRORS = { lexer: [], parser: [] }
 
   it('returns errors on illegal tokens', () => {
