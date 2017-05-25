@@ -42,10 +42,12 @@ export class RmsCstParser extends Parser {
   })
 
   private propertyBlock = this.RULE('propertyBlock', () => {
-    this.OPTION(() => { this.CONSUME1(LineBreak) })
+    this.OPTION1(() => { this.CONSUME1(LineBreak) })
     this.CONSUME(LCurly)
-    this.CONSUME2(LineBreak)
-    this.AT_LEAST_ONE(() => { this.SUBRULE(this.attribute); this.CONSUME3(LineBreak) })
+    this.OPTION2(() => {
+      this.CONSUME2(LineBreak)
+      this.AT_LEAST_ONE(() => { this.SUBRULE(this.attribute); this.CONSUME3(LineBreak) })
+    })
     this.CONSUME(RCurly)
   })
 
