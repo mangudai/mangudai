@@ -13,10 +13,10 @@ export type RmsSection = {
   statements: RmsSectionStatement[]
 }
 
-export type RmsSectionStatement = RmsProperty | RmsConstDefinition | RmsFlagDefinition
+export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition
 
-export type RmsProperty = {
-  type: 'Property',
+export type RmsCommand = {
+  type: 'Command',
   name: string,
   value?: string | number,
   attributes?: RmsAttribute[]
@@ -74,16 +74,16 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
     }
 
     sectionStatement (ctx: CstChildrenDictionary): RmsSectionStatement {
-      if (ctx.property.length) return this.visit(ctx.property[0] as CstNode)
+      if (ctx.command.length) return this.visit(ctx.command[0] as CstNode)
       if (ctx.const.length) return this.visit(ctx.const[0] as CstNode)
       return this.visit(ctx.define[0] as CstNode)
     }
 
-    property (ctx: CstChildrenDictionary): RmsProperty {
+    command (ctx: CstChildrenDictionary): RmsCommand {
       const { name, value } = this.visit(ctx.attribute[0] as CstNode)
-      const attributes = ctx.propertyBlock.length ? this.visit(ctx.propertyBlock[0] as CstNode) : undefined
+      const attributes = ctx.attributeList.length ? this.visit(ctx.attributeList[0] as CstNode) : undefined
 
-      return { type: 'Property', name, value, attributes }
+      return { type: 'Command', name, value, attributes }
     }
 
     attribute (ctx: CstChildrenDictionary): RmsAttribute {
@@ -94,7 +94,7 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
       }
     }
 
-    propertyBlock (ctx: CstChildrenDictionary): RmsAttribute[] {
+    attributeList (ctx: CstChildrenDictionary): RmsAttribute[] {
       return (ctx.attribute as CstNode[]).map(s => this.visit(s))
     }
 

@@ -29,19 +29,19 @@ export class RmsCstParser extends Parser {
 
   private sectionStatement = this.RULE('sectionStatement', () => {
     this.OR([
-      { ALT: () => { this.SUBRULE(this.property) } },
+      { ALT: () => { this.SUBRULE(this.command) } },
       { ALT: () => { this.SUBRULE(this.define) } },
       { ALT: () => { this.SUBRULE(this.const) } }
     ])
   })
 
-  private property = this.RULE('property', () => {
+  private command = this.RULE('command', () => {
     this.SUBRULE(this.attribute)
-    this.OPTION(() => { this.SUBRULE(this.propertyBlock) })
+    this.OPTION(() => { this.SUBRULE(this.attributeList) })
     this.SUBRULE(this.lineBreaks)
   })
 
-  private propertyBlock = this.RULE('propertyBlock', () => {
+  private attributeList = this.RULE('attributeList', () => {
     this.OPTION1(() => { this.CONSUME1(LineBreak) })
     this.CONSUME(LCurly)
     this.OPTION2(() => {
