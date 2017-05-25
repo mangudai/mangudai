@@ -1,0 +1,69 @@
+{
+  "type": "Script",
+  "statements": [
+    {
+      "type": "ConstDefinition",
+      "name": "FOO",
+      "value": 555
+    },
+    {
+      "type": "ConstDefinition",
+      "name": "meaning-of-life",
+      "value": 42
+    },
+    {
+      "type": "FlagDefinition",
+      "flag": "IS_SOME_TYPE_OF_MAP"
+    },
+    {
+      "type": "FlagDefinition",
+      "flag": "IS_ANOTHER_TYPE"
+    },
+    {
+      "type": "Section",
+      "name": "PLAYER_SETUP",
+      "statements": [
+        {
+          "type": "Command",
+          "name": "random_placement"
+        },
+        {
+          "type": "ConstDefinition",
+          "name": "BAR",
+          "value": 777
+        },
+        {
+          "type": "FlagDefinition",
+          "flag": "laterInFile"
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "name": "OBJECTS_GENERATION",
+      "statements": [
+        {
+          "type": "Command",
+          "name": "create_object",
+          "value": "TOWN_CENTER",
+          "attributes": [
+            {
+              "type": "Attribute",
+              "name": "set_place_for_every_player"
+            },
+            {
+              "type": "Attribute",
+              "name": "min_distance_to_players",
+              "value": 0
+            },
+            {
+              "type": "Attribute",
+              "name": "max_distance_to_players",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
