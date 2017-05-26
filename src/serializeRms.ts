@@ -19,7 +19,7 @@ const serializers: { [x: string]: (n: RmsAstNode) => string } = {
 }
 
 function indent (str: string): string {
-  return str.split('\n').map(s => s ? '  ' + s : s).join('\n')
+  return str.split('\n').map(s => `  ${s}`).join('\n')
 }
 
 function serializeNode (node: RmsAstNode): string {

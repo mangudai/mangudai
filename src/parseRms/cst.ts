@@ -42,11 +42,11 @@ export class RmsCstParser extends Parser {
   })
 
   private attributeList = this.RULE('attributeList', () => {
-    this.OPTION1(() => { this.CONSUME1(LineBreak) })
+    this.OPTION1(() => { this.SUBRULE1(this.lineBreaks) })
     this.CONSUME(LCurly)
     this.OPTION2(() => {
-      this.CONSUME2(LineBreak)
-      this.AT_LEAST_ONE(() => { this.SUBRULE(this.attribute); this.CONSUME3(LineBreak) })
+      this.SUBRULE2(this.lineBreaks)
+      this.AT_LEAST_ONE(() => { this.SUBRULE(this.attribute); this.SUBRULE3(this.lineBreaks) })
     })
     this.CONSUME(RCurly)
   })
