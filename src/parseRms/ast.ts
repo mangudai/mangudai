@@ -113,6 +113,11 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
       }
     }
 
+    // We have a convenience CST rule for multiple line breaks. As any other rule, it outputs CST nodes.
+    // They are useless, but `validateVisitor` complains if there's no method for a rule.
+    // Because I'm lazy, I'm not gonna deal with this properly and instead just ignore it in coverage reports.
+    // Relevant upstream discussion: SAP/chevrotain#475.
+    /* istanbul ignore next */
     lineBreaks () {
       return
     }
