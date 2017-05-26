@@ -6,7 +6,7 @@ import { clearCache } from 'chevrotain'
 // because unknown tokens suddenly appear.
 clearCache()
 
-import { parse } from '../src/parseRms'
+import { parse } from '../lib/parseRms'
 import { expect } from 'chai'
 import { join } from 'path'
 import { readFileSync } from 'fs'

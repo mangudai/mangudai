@@ -1,4 +1,4 @@
-import { serialize } from '../src/serializeRms'
+import { serialize } from '../lib/serializeRms'
 import { join } from 'path'
 import { readFileSync } from 'fs'
 
