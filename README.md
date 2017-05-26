@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://img.shields.io/badge/greenkeeper-enabled-brightgreen.svg)](https://greenkeeper.io/)
 [![Travis status](https://img.shields.io/travis/deltaidea/mangudai/master.svg)](https://travis-ci.org/deltaidea/mangudai)
+[![Test coverage](https://img.shields.io/codecov/c/github/deltaidea/mangudai/master.svg)](https://codecov.io/gh/deltaidea/mangudai)
 [![TypeScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 [![Standard Readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
