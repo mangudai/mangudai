@@ -12,6 +12,4 @@
     min_distance_to_players 0
     max_distance_to_players 0
   }
-  create_object TOWN_CENTER {
-
-  }
+  create_object TOWN_CENTER {}

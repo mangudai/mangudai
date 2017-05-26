@@ -22,5 +22,5 @@ samples.forEach(filename => {
 
   const generatedRms = serialize(ast)
   const generatedRmsFilename = basename(filename, '.rms') + '.generated.rms'
-  writeFileSync(join(__dirname, generatedRmsFilename), generatedRms + '\n')
+  writeFileSync(join(__dirname, generatedRmsFilename), generatedRms)
 })
