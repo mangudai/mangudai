@@ -28,8 +28,7 @@ Use a tool like [Webpack](https://webpack.js.org) or [Rollup](https://rollupjs.o
 ## Usage
 
 ```JavaScript
-import { parse } from 'mangudai/src/parseRms'
-import { serialize } from 'mangudai/src/serializeRms'
+import { parseRms, serializeRms } from 'mangudai/src'
 
 // ast: { type: 'Script', statements: ... }
 const { ast, errors } = parse('<PLAYER_SETUP> \n random_placement')
