@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --project src",
     "lint": "tslint --type-check --project src && tslint --type-check --project test",
-    "test": "npm run lint && npm run build && mocha",
+    "test": "npm run build && npm run lint && mocha",
     "update-samples": "ts-node --project test ./test/samples/generateSamples"
   },
   "repository": {
