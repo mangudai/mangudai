@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --project src",
     "lint": "tslint --type-check --project src && tslint --type-check --project test",
-    "test": "npm run build && npm run lint && mocha",
+    "test": "npm run build && npm run lint && nyc --reporter=lcov mocha",
     "update-samples": "ts-node --project test ./test/samples/generateSamples"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "@types/xregexp": "^3.0.28",
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
+    "nyc": "^10.3.2",
     "ts-node": "^3.0.4",
     "tslint": "^5.2.0",
     "tslint-config-standard": "^5.0.2",
