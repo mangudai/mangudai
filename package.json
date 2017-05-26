@@ -1,7 +1,7 @@
 {
   "name": "mangudai",
   "version": "0.1.0",
-  "description": "AoE2 Random Map Scripting stuff",
+  "description": "AoE2 Random Map Scripting for humans",
   "main": "./lib/index.js",
   "scripts": {
     "build": "tsc --project src",

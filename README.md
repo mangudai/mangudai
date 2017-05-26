@@ -5,7 +5,7 @@
 [![TypeScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 [![Standard Readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
-> Accessible AoE2 Random Map Scripting
+> AoE2 Random Map Scripting for humans
 
 JavaScript library for working with [Random Map Scripts](http://aok.heavengames.com/cgi-bin/forums/display.cgi?action=ct&f=28,42485,,30) (RMS) for the [Age of Empires II](https://en.wikipedia.org/wiki/Age_of_Empires_II) video game.
 
