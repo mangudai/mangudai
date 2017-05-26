@@ -14,7 +14,7 @@ Currently Mangudai can parse an RMS script into an [Abstract Syntax Tree](https:
 
 Motivation for this project comes from the lack of open-source tooling: syntax highlighting, linting, parsing into AST for advanced third-party tools.
 
-The goal of this project is to make writing random maps accessible to the AoE2 community at large by making it as straight-forward and pleasant as possible. There's also a potential to bring all the necessary tools online since this is a JavaScript project.
+The goal of this project is to make writing random maps accessible to the AoE2 community at large by making it as straight-forward and pleasant as possible. There's also potential to bring all the necessary tools online since this is a JavaScript project.
 
 ## Install
 
