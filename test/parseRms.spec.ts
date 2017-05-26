@@ -6,7 +6,7 @@ import { clearCache } from 'chevrotain'
 // because unknown tokens suddenly appear.
 clearCache()
 
-import { parse } from '../lib/parseRms'
+import { parseRms } from '../lib/index'
 import { expect } from 'chai'
 import { join } from 'path'
 import { readFileSync } from 'fs'
@@ -17,37 +17,37 @@ describe('parseRms', () => {
   const NO_ERRORS = { lexer: [], parser: [] }
 
   it('returns errors on illegal tokens', () => {
-    const { ast, errors } = parse('--- wtf is this even ---')
+    const { ast, errors } = parseRms('--- wtf is this even ---')
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.not.deep.equal(NO_ERRORS)
   })
 
   it('works on empty input', () => {
-    const { ast, errors } = parse('')
+    const { ast, errors } = parseRms('')
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })
 
   it('works on spaces', () => {
-    const { ast, errors } = parse('   \n\n   \n \t ')
+    const { ast, errors } = parseRms('   \n\n   \n \t ')
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })
 
   it('works on comments', () => {
-    const { ast, errors } = parse('/* comment one */ /* comment two */')
+    const { ast, errors } = parseRms('/* comment one */ /* comment two */')
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })
 
   it('works on sections', () => {
-    const { ast, errors } = parse(readSample('sections'))
+    const { ast, errors } = parseRms(readSample('sections'))
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })
 
   it('works on #const and #define, both global and in sections', () => {
-    const { ast, errors } = parse(readSample('const-and-define'))
+    const { ast, errors } = parseRms(readSample('const-and-define'))
     expect(ast).to.be.an.instanceOf(Object)
     expect(errors).to.deep.equal(NO_ERRORS)
   })

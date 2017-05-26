@@ -1,4 +1,4 @@
-import { serialize } from '../lib/serializeRms'
+import { serializeRms } from '../lib/index'
 import { join } from 'path'
 import { readFileSync } from 'fs'
 
@@ -10,11 +10,11 @@ const readSample = (name: string) => ({
 describe('serializeRms', () => {
   it('works on sections', () => {
     const { ast, correctRms } = readSample('sections')
-    serialize(ast).should.equal(correctRms)
+    serializeRms(ast).should.equal(correctRms)
   })
 
   it('works on #const and #define', () => {
     const { ast, correctRms } = readSample('const-and-define')
-    serialize(ast).should.equal(correctRms)
+    serializeRms(ast).should.equal(correctRms)
   })
 })
