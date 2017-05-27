@@ -16,13 +16,13 @@ const readSample = (name: string) => readFileSync(join(__dirname, 'samples', `${
 describe('parseRms', () => {
   it('returns errors on illegal tokens', () => {
     const { ast, errors } = parseRms('=== wtf is this even ===')
-    expect(ast).to.be.an.instanceOf(Object)
+    expect(ast).to.equal(undefined)
     expect(errors).to.not.deep.equal([])
   })
 
   it('returns CST visitor errors instead of throwing them', () => {
     const { ast, errors } = parseRms('<PLAYER_SETUP> whatever { #define }')
-    expect(ast).to.be.an.instanceOf(Object)
+    expect(ast).to.equal(undefined)
     expect(errors).to.not.deep.equal([])
   })
 
