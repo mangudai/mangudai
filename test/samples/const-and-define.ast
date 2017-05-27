@@ -1,5 +1,5 @@
 {
-  "type": "Script",
+  "type": "RandomMapScript",
   "statements": [
     {
       "type": "ConstDefinition",

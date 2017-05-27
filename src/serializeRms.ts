@@ -4,7 +4,7 @@ import { RmsAst, RmsTopLevelStatement, RmsSectionStatement, RmsAttribute, RmsSec
 type RmsAstNode = RmsAst | RmsTopLevelStatement | RmsSectionStatement | RmsAttribute
 
 const serializers: { [x: string]: (n: RmsAstNode) => string } = {
-  Script: (ast: RmsAst) => ast.statements.map(serializeNode).join('\n\n') + '\n',
+  RandomMapScript: (ast: RmsAst) => ast.statements.map(serializeNode).join('\n\n') + '\n',
   Section: ({ name, statements}: RmsSection) =>
     `<${name}>\n` +
     statements.map(serializeNode).map(indent).join('\n'),

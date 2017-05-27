@@ -1,7 +1,7 @@
 import { Parser, ICstVisitor, CstChildrenDictionary, CstNode, Token } from 'chevrotain'
 
 export type RmsAst = {
-  type: 'Script',
+  type: 'RandomMapScript',
   statements: RmsTopLevelStatement[]
 }
 
@@ -50,7 +50,7 @@ export function createVisitor (parser: Parser): ICstVisitor<undefined, RmsAst> {
 
     script (ctx: CstChildrenDictionary): RmsAst {
       return {
-        type: 'Script',
+        type: 'RandomMapScript',
         statements: (ctx.topLevelStatement as CstNode[]).map(s => this.visit(s))
       }
     }
