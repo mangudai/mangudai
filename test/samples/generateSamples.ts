@@ -13,14 +13,14 @@ const samples = readdirSync(__dirname)
 
 samples.forEach(filename => {
   const rms = readFileSync(join(__dirname, filename), 'utf8')
-  const ast = parse(rms).ast
+  const ast = parse(rms).ast || null
   console.log(`Updating AST and RMS for ${filename}`)
 
   const serializedAst = JSON.stringify(ast, null, 2)
   const astFilename = basename(filename, '.rms') + '.ast'
   writeFileSync(join(__dirname, astFilename), serializedAst + '\n')
 
-  const generatedRms = serialize(ast)
+  const generatedRms = ast ? serialize(ast) : ''
   const generatedRmsFilename = basename(filename, '.rms') + '.generated.rms'
   writeFileSync(join(__dirname, generatedRmsFilename), generatedRms)
 })
