@@ -4,9 +4,12 @@
   "description": "AoE2 Random Map Scripting for humans",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "tsc --project src",
-    "lint": "tslint --type-check --project src && tslint --type-check --project test",
+    "build": "npm run gen-grammar && tsc --project src",
+    "lint-src": "tslint --type-check --project src --exclude src/parseRms/grammar.ts \"src/**/*.ts\"",
+    "lint-test": "tslint --type-check --project test \"test/**/*.ts\"",
+    "lint": "npm run lint-src && npm run lint-test",
     "test": "npm run build && npm run lint && nyc --reporter=lcov mocha",
+    "gen-grammar": "nearleyc src/parseRms/grammar.ne --out src/parseRms/grammar.ts",
     "update-samples": "ts-node --project test ./test/samples/generateSamples"
   },
   "repository": {
@@ -40,7 +43,8 @@
     "typescript": "^2.3.2"
   },
   "dependencies": {
-    "chevrotain": "^0.28.3",
+    "moo": "^0.3.2",
+    "nearley": "github:deltaidea/nearley#ts-generator-fixes",
     "xregexp": "^3.2.0"
   }
 }

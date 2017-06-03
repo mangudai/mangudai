@@ -1,5 +1,5 @@
 import { RmsAst, RmsTopLevelStatement, RmsSectionStatement, RmsAttribute, RmsSection, RmsCommand,
-  RmsConstDefinition, RmsFlagDefinition } from './parseRms/ast'
+  RmsConstDefinition, RmsFlagDefinition } from './parseRms'
 
 type RmsAstNode = RmsAst | RmsTopLevelStatement | RmsSectionStatement | RmsAttribute
 

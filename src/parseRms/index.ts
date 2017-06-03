@@ -1,20 +1,57 @@
-import { lex } from './lex'
-import { RmsCstParser } from './cst'
-import { createVisitor, RmsAst } from './ast'
-import { ILexingError, exceptions } from 'chevrotain'
+// Nearley doesn't provide type definitions.
+const { Parser } = require('nearley') as any
+import * as grammar from './grammar'
 
-const parser = new RmsCstParser([])
-const visitor = createVisitor(parser)
+export function parse (input: string): { errors: Object[], ast?: RmsAst } {
+  const parser = new Parser(grammar.ParserRules, grammar.ParserStart)
+  try {
+    parser.feed(input)
+    return {
+      ast: parser.results[0],
+      errors: []
+    }
+  } catch (error) {
+    return {
+      errors: [error]
+    }
+  }
+}
 
-export type ParseError = ILexingError | exceptions.IRecognitionException
+export type RmsAst = {
+  type: 'RandomMapScript',
+  statements: RmsTopLevelStatement[]
+}
 
-export function parse (input: string): { errors: ParseError[], ast?: RmsAst } {
-  const { tokens, errors } = lex(input)
-  if (errors.length) return { errors }
+export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition
 
-  parser.input = tokens
-  const cst = parser.script()
-  if (parser.errors.length) return { errors: parser.errors }
+export type RmsSection = {
+  type: 'Section',
+  name: string,
+  statements: RmsSectionStatement[]
+}
 
-  return { ast: visitor.visit(cst), errors: [] }
+export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition
+
+export type RmsCommand = {
+  type: 'Command',
+  name: string,
+  value?: string | number,
+  attributes?: RmsAttribute[]
+}
+
+export type RmsAttribute = {
+  type: 'Attribute',
+  name: string,
+  value?: string | number
+}
+
+export type RmsConstDefinition = {
+  type: 'ConstDefinition',
+  name: string,
+  value: number
+}
+
+export type RmsFlagDefinition = {
+  type: 'FlagDefinition',
+  flag: string
 }

@@ -1,11 +1,3 @@
-import { clearCache } from 'chevrotain'
-
-// Chevrotain builds a cache of tokens that may appear in grammar.
-// Re-running our files on `mocha --watch` creates same tokens
-// with different ids which messes up CST parsing
-// because unknown tokens suddenly appear.
-clearCache()
-
 import { parseRms } from '../lib/index'
 import { expect } from 'chai'
 import { join } from 'path'
