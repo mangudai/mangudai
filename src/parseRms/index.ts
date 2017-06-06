@@ -1,5 +1,4 @@
-// Nearley doesn't provide type definitions.
-const { Parser } = require('nearley') as any
+import { Parser } from 'nearley'
 import * as grammar from './grammar'
 
 export function parse (input: string): { errors: Object[], ast?: RmsAst } {

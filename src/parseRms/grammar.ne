@@ -1,7 +1,9 @@
 @preprocessor typescript
 
 @{%
-  const lexer = require('moo').compile({
+  import { compile } from 'moo'
+
+  const lexer = compile({
     LineBreak: { match: /\s*\n\s*/, lineBreaks: true },
     Space: /[\t ]+/,
     MultilineComment: /\/\*[\s\S]*?\*\//,
@@ -18,7 +20,6 @@
     Integer: /[0-9]+/,
     Identifier: require('xregexp')('[\\p{Letter}-_]+')
   })
-  lexer.has = (name: string) => lexer.groups.find((t: any) => t.tokenType === name)
 
   // Extract flat array of rule results from this: (rule __):* rule
   const combineLast = (many: any[], last: any) => many.map(x => x[0]).concat([last])
