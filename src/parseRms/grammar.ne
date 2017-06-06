@@ -6,7 +6,7 @@
   const lexer = compile({
     LineBreak: { match: /\s*\n\s*/, lineBreaks: true },
     Space: /[\t ]+/,
-    MultilineComment: /\/\*[\s\S]*?\*\//,
+    MultilineComment: { match: /\/\*[\s\S]*?\*\//, lineBreaks: true },
     LArrow: '<',
     RArrow: '>',
     LCurly: '{',
