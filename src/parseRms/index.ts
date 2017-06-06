@@ -1,8 +1,8 @@
 import { Parser } from 'nearley'
-import * as grammar from './grammar'
+import { Lexer, ParserRules, ParserStart } from './grammar'
 
 export function parse (input: string): { errors: Object[], ast?: RmsAst } {
-  const parser = new Parser(grammar.ParserRules, grammar.ParserStart)
+  const parser = new Parser(ParserRules, ParserStart, { lexer: Lexer })
   try {
     parser.feed(input)
     return {
