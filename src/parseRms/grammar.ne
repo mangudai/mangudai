@@ -69,9 +69,9 @@ Attribute -> %Identifier (ws (%Identifier | int)):?
 # ==============================================================================
 int -> %Integer           {% parts => parseInt(parts[0]) %}
 
-eol ->  %LineBreak        {% () => null %}
-eol? -> eol:?             {% () => null %}
-ws ->  %Space             {% () => null %}
-ws? -> ws:?               {% () => null %}
-__ -> %LineBreak | %Space {% () => null %}
-_ ->  __:?                {% () => null %}
+eol  -> (%LineBreak | %MultilineComment):* %LineBreak (%LineBreak | %MultilineComment):* {% () => null %}
+eol? -> eol:?                                       {% () => null %}
+ws   -> %Space                                      {% () => null %}
+ws?  -> ws:?                                        {% () => null %}
+__   -> (%LineBreak | %Space | %MultilineComment):+ {% () => null %}
+_    -> __:?                                        {% () => null %}
