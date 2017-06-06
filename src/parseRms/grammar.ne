@@ -27,10 +27,10 @@
 
 @lexer lexer
 
-Script -> _ (TopLevelStatement eol):* TopLevelStatement
-  {% parts => ({
-    type: 'Script',
-    statements: combineLast(parts[1], parts[2])
+Script -> _ ((TopLevelStatement eol):* TopLevelStatement eol?):?
+  {% ([, parts]) => ({
+    type: 'RandomMapScript',
+    statements: parts ? combineLast(parts[1], parts[2]) : []
   }) %}
 
 TopLevelStatement -> Section
