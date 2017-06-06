@@ -28,46 +28,47 @@
 @lexer lexer
 
 Script -> _ ((TopLevelStatement eol):* TopLevelStatement eol?):?
-  {% ([, parts]) => ({
+  {% ([, statements]) => ({
     type: 'RandomMapScript',
-    statements: parts ? combineLast(parts[1], parts[2]) : []
+    statements: statements ? combineLast(statements[0], statements[1]) : []
   }) %}
 
 TopLevelStatement -> Section
   {% id %}
 
-Section -> %LArrow %Identifier %RArrow eol (SectionStatement eol):* SectionStatement
-  {% parts => ({
+Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatement
+  {% ([, name, , , statements, last]) => ({
     type: 'Section',
-    name: parts[1],
-    statements: combineLast(parts[4], parts[5])
+    name,
+    statements: combineLast(statements, last)
   }) %}
 
 SectionStatement -> Command
   {% id %}
 
 Command -> Attribute (_ %LCurly eol (CommandStatement eol):* CommandStatement eol %RCurly):?
-  {% parts => ({
+  {% ([attr, list]) => ({
     type: 'Command',
-    name: parts[0].name,
-    value: parts[0].value,
-    attributes: parts[1].length ? combineLast(parts[1][3], parts[1][4]) : undefined
+    name: attr.name,
+    value: attr.value,
+    attributes: (list && list.length) ? combineLast(list[3], list[4]) : undefined
   }) %}
 
 CommandStatement -> Attribute
   {% id %}
 
-Attribute -> %Identifier (ws (%Identifier | int)):?
-  {% parts => ({
+Attribute -> identifier (ws (identifier | int)):?
+  {% ([name, optionalValue]) => ({
     type: 'Attribute',
-    name: parts[0],
-    value: parts[1][1]
+    name,
+    value: optionalValue ? optionalValue[1] : undefined
   }) %}
 
 # ==============================================================================
 # Terminals
 # ==============================================================================
-int -> %Integer           {% parts => parseInt(parts[0]) %}
+int -> %Integer           {% ([token]) => parseInt(token.value) %}
+identifier -> %Identifier {% ([token]) => token.value %}
 
 eol  -> (%LineBreak | %MultilineComment):* %LineBreak (%LineBreak | %MultilineComment):* {% () => null %}
 eol? -> eol:?                                       {% () => null %}
