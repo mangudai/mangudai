@@ -2,6 +2,7 @@
 
 @{%
   import { compile } from 'moo'
+  import { Parser } from 'nearley'
   import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement,
     RmsCommand, RmsCommandStatement, RmsAttribute, RmsConstDefinition, RmsFlagDefinition } from './index'
 
@@ -25,15 +26,28 @@
 
   // Extract flat array of rule results from this: (rule __):* rule
   const combineLast = (many: any[], last: any) => many.map(x => x[0]).concat([last])
+
+  const validateAst = (ast: RmsAst): boolean => {
+    let isValid = true
+    let sawSection = false
+    ast.statements.forEach(s => {
+      if (sawSection && ['ConstDefinition', 'FlagDefinition'].indexOf(s.type) !== -1) isValid = false
+      else if (s.type === 'Section') sawSection = true
+    })
+    return isValid
+  }
 %}
 
 @lexer lexer
 
 Script -> _ ((TopLevelStatement eol):* TopLevelStatement eol?):?
-  {% ([, statements]): RmsAst => ({
-    type: 'RandomMapScript',
-    statements: statements ? combineLast(statements[0], statements[1]) : []
-  }) %}
+  {% ([, statements]: any, _: any, reject: typeof Parser.fail) => {
+    const ast: RmsAst = {
+      type: 'RandomMapScript',
+      statements: statements ? combineLast(statements[0], statements[1]) : []
+    }
+    return validateAst(ast) ? ast : reject
+  } %}
 
 GenericIf[Child] -> %If ws identifier __
                     ($Child eol):*
