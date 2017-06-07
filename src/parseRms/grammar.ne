@@ -46,12 +46,12 @@ Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatem
 SectionStatement -> Command
   {% id %}
 
-Command -> Attribute (_ %LCurly eol (CommandStatement eol):* CommandStatement eol %RCurly):?
-  {% ([attr, list]) => ({
+Command -> Attribute (_ %LCurly eol? ((CommandStatement eol):* CommandStatement eol?):? %RCurly):?
+  {% ([attr, statements]) => ({
     type: 'Command',
     name: attr.name,
     value: attr.value,
-    attributes: (list && list.length) ? combineLast(list[3], list[4]) : undefined
+    attributes: (statements && statements[3]) ? combineLast(statements[3][0], statements[3][1]) : undefined
   }) %}
 
 CommandStatement -> Attribute
@@ -61,7 +61,7 @@ Attribute -> identifier (ws (identifier | int)):?
   {% ([name, optionalValue]) => ({
     type: 'Attribute',
     name,
-    value: optionalValue ? optionalValue[1] : undefined
+    value: optionalValue ? optionalValue[1][0] : undefined
   }) %}
 
 # ==============================================================================
