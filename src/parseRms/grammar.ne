@@ -2,6 +2,8 @@
 
 @{%
   import { compile } from 'moo'
+  import { RmsAst, RmsTopLevelStatement, RmsSection, RmsSectionStatement,
+    RmsCommand, RmsAttribute, RmsConstDefinition, RmsFlagDefinition } from './index'
 
   const lexer = compile({
     LineBreak: { match: /\s*\n\s*/, lineBreaks: true },
@@ -28,51 +30,52 @@
 @lexer lexer
 
 Script -> _ ((TopLevelStatement eol):* TopLevelStatement eol?):?
-  {% ([, statements]) => ({
+  {% ([, statements]): RmsAst => ({
     type: 'RandomMapScript',
     statements: statements ? combineLast(statements[0], statements[1]) : []
   }) %}
 
 TopLevelStatement -> (Section | ConstDefinition | FlagDefinition)
-  {% ([[statement]]) => statement %}
+  {% ([[statement]]): RmsTopLevelStatement => statement %}
 
 Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatement
-  {% ([, name, , , statements, last]) => ({
+  {% ([, name, , , statements, last]): RmsSection => ({
     type: 'Section',
     name,
     statements: combineLast(statements, last)
   }) %}
 
 SectionStatement -> (Command | ConstDefinition | FlagDefinition)
-  {% ([[statement]]) => statement %}
+  {% ([[statement]]): RmsSectionStatement => statement %}
 
 Command -> Attribute (_ %LCurly eol? ((CommandStatement eol):* CommandStatement eol?):? %RCurly):?
-  {% ([attr, statements]) => ({
-    type: 'Command',
-    name: attr.name,
-    value: attr.value,
-    attributes: (statements && statements[3]) ? combineLast(statements[3][0], statements[3][1]) : undefined
-  }) %}
+  {% ([attr, statements]): RmsCommand => {
+    const node: RmsCommand = { type: 'Command', name: attr.name }
+    if (attr.value) node.value = attr.value
+    if (statements && statements[3]) node.attributes = combineLast(statements[3][0], statements[3][1])
+    else if (statements) node.attributes = []
+    return node
+  } %}
 
 CommandStatement -> Attribute
   {% id %}
 
 Attribute -> identifier (ws (identifier | int)):?
-  {% ([name, optionalValue]) => ({
-    type: 'Attribute',
-    name,
-    value: optionalValue ? optionalValue[1][0] : undefined
-  }) %}
+  {% ([name, value]): RmsAttribute => {
+    const node: RmsAttribute = { type: 'Attribute', name }
+    if (value) node.value = value[1][0]
+    return node
+  } %}
 
 ConstDefinition -> %Const ws identifier ws int
-  {% ([, , name, , value]) => ({
+  {% ([, , name, , value]): RmsConstDefinition => ({
     type: 'ConstDefinition',
     name,
     value
   }) %}
 
 FlagDefinition -> %Define ws identifier
-  {% ([, , flag]) => ({
+  {% ([, , flag]): RmsFlagDefinition => ({
     type: 'FlagDefinition',
     flag
   }) %}
