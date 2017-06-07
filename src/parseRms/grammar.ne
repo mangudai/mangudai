@@ -20,7 +20,7 @@
     Else: 'else',
     Endif: 'endif',
     Integer: /[0-9]+/,
-    Identifier: require('xregexp')('[\\p{Letter}-_]+')
+    Identifier: /[^\s0-9!@#\$%\^&\*\(\)\-\+=;:'"<>{}\[\]\?\/\\][^\s;'"<>{}\[\]\/\\]*/
   })
 
   // Extract flat array of rule results from this: (rule __):* rule
