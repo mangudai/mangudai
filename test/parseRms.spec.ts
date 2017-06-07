@@ -4,6 +4,7 @@ import { join } from 'path'
 import { readFileSync } from 'fs'
 
 const readSample = (name: string) => readFileSync(join(__dirname, 'samples', `${name}.rms`), 'utf8')
+const readSampleAst = (name: string) => JSON.parse(readFileSync(join(__dirname, 'samples', `${name}.ast`), 'utf8'))
 
 describe('parseRms', () => {
   it('returns errors on illegal tokens', () => {
@@ -39,12 +40,12 @@ describe('parseRms', () => {
   it('works on sections', () => {
     const { ast, errors } = parseRms(readSample('sections'))
     expect(errors).to.deep.equal([])
-    expect(ast).to.be.an.instanceOf(Object)
+    expect(ast).to.deep.equal(readSampleAst('sections'))
   })
 
   it('works on #const and #define, both global and in sections', () => {
     const { ast, errors } = parseRms(readSample('const-and-define'))
     expect(errors).to.deep.equal([])
-    expect(ast).to.be.an.instanceOf(Object)
+    expect(ast).to.deep.equal(readSampleAst('const-and-define'))
   })
 })
