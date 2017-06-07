@@ -33,8 +33,8 @@ Script -> _ ((TopLevelStatement eol):* TopLevelStatement eol?):?
     statements: statements ? combineLast(statements[0], statements[1]) : []
   }) %}
 
-TopLevelStatement -> Section
-  {% id %}
+TopLevelStatement -> (Section | ConstDefinition | FlagDefinition)
+  {% ([[statement]]) => statement %}
 
 Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatement
   {% ([, name, , , statements, last]) => ({
@@ -43,8 +43,8 @@ Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatem
     statements: combineLast(statements, last)
   }) %}
 
-SectionStatement -> Command
-  {% id %}
+SectionStatement -> (Command | ConstDefinition | FlagDefinition)
+  {% ([[statement]]) => statement %}
 
 Command -> Attribute (_ %LCurly eol? ((CommandStatement eol):* CommandStatement eol?):? %RCurly):?
   {% ([attr, statements]) => ({
@@ -62,6 +62,19 @@ Attribute -> identifier (ws (identifier | int)):?
     type: 'Attribute',
     name,
     value: optionalValue ? optionalValue[1][0] : undefined
+  }) %}
+
+ConstDefinition -> %Const ws identifier ws int
+  {% ([, , name, , value]) => ({
+    type: 'ConstDefinition',
+    name,
+    value
+  }) %}
+
+FlagDefinition -> %Define ws identifier
+  {% ([, , flag]) => ({
+    type: 'FlagDefinition',
+    flag
   }) %}
 
 # ==============================================================================
