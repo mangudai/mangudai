@@ -44,13 +44,27 @@ Matches this AST:
 
 Represents the whole script. This is always the root AST node. Even an empty RMS script is considered a `RandomMapScript` node without children.
 
-An RMS script consists of statements. Types of statements are explored below.
+An RMS script consists of statements. Possible types of these statements are explored below.
 
 ### TopLevelStatement
 
 ```TypeScript
-Section | ConstDefinition | FlagDefinition
+Section | ConstDefinition | FlagDefinition | If<TopLevelStatement>
 ```
+
+### If<Child>
+
+```TypeScript
+{
+  type: 'If',
+  condition: string,
+  statements?: Child[],
+  elseifs?: { condition: string, statements?: Child[] }[],
+  elseStatements?: Child[]
+}
+```
+
+There're three places where an `if` statement can appear: as a top-level statement, in a section, and in a command. Statements inside the `if` must be of the same type as the siblings outside, i.e. an `if` inside a section can only contain statements that are legal inside a section. This is what `<Child>` refers to in this generic definition.
 
 ### Section
 
@@ -62,10 +76,12 @@ Section | ConstDefinition | FlagDefinition
 }
 ```
 
+Represents a section that starts with `<SECTION_NAME>` and contains commands.
+
 ### SectionStatement
 
 ```TypeScript
-Command | ConstDefinition | FlagDefinition
+Command | ConstDefinition | FlagDefinition | If<SectionStatement>
 ```
 
 ### Command
@@ -75,8 +91,20 @@ Command | ConstDefinition | FlagDefinition
   type: 'Command',
   name: string,
   value?: string | number,
-  attributes?: Attribute[]
+  statements?: CommandStatement[]
 }
+```
+
+Represents a command (instruction) related to the current section, e.g. `random_placement` or `create_object`.
+
+A command optionally has a value, e.g. `base_terrain DIRT`: `base_terrain` is the command name, `DIRT` is the value.
+
+A command can also have an optional set of attributes in curly brackets, e.g. `create_object TOWN_CENTER { ... }`.
+
+### CommandStatement
+
+```TypeScript
+Attribute | If<CommandStatement>
 ```
 
 ### Attribute
@@ -99,6 +127,8 @@ Command | ConstDefinition | FlagDefinition
 }
 ```
 
+Represents definition of a custom constant, e.g. `#const FOO 10`.
+
 ### FlagDefinition
 
 ```TypeScript
@@ -107,3 +137,5 @@ Command | ConstDefinition | FlagDefinition
   flag: string
 }
 ```
+
+Represents definition of a custom bool flag, e.g. `#define IS_WATER_MAP`.
