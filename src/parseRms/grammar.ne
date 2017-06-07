@@ -83,7 +83,7 @@ FlagDefinition -> %Define ws identifier
 # ==============================================================================
 # Terminals
 # ==============================================================================
-int -> %Integer           {% ([token]) => parseInt(token.value) %}
+int -> %Integer           {% ([token]) => parseInt(token.value, 10) %}
 identifier -> %Identifier {% ([token]) => token.value %}
 
 eol  -> (%LineBreak | %MultilineComment):* %LineBreak (%LineBreak | %MultilineComment):* {% () => null %}
