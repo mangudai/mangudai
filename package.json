@@ -46,6 +46,6 @@
   },
   "dependencies": {
     "moo": "^0.3.2",
-    "nearley": "github:deltaidea/nearley#ts-generator-fixes"
+    "nearley": "^2.10.0"
   }
 }
