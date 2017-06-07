@@ -126,7 +126,7 @@ FlagDefinition -> %Define ws identifier
 int -> %Integer           {% ([token]) => parseInt(token.value, 10) %}
 identifier -> %Identifier {% ([token]) => token.value %}
 
-eol  -> (%LineBreak | %MultilineComment):* %LineBreak (%LineBreak | %MultilineComment):* {% () => null %}
+eol  -> (%LineBreak | %MultilineComment):* %LineBreak %MultilineComment:* {% () => null %}
 eol? -> eol:?                                       {% () => null %}
 ws   -> %Space                                      {% () => null %}
 ws?  -> ws:?                                        {% () => null %}
