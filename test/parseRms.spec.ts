@@ -48,4 +48,10 @@ describe('parseRms', () => {
     expect(errors).to.deep.equal([])
     expect(ast).to.deep.equal(readSampleAst('const-and-define'))
   })
+
+  it('works on if, elseif, else', () => {
+    const { ast, errors } = parseRms(readSample('conditions'))
+    expect(errors).to.deep.equal([])
+    expect(ast).to.be.an.instanceOf(Object)
+  })
 })

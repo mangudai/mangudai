@@ -2,8 +2,8 @@
 
 @{%
   import { compile } from 'moo'
-  import { RmsAst, RmsTopLevelStatement, RmsSection, RmsSectionStatement,
-    RmsCommand, RmsAttribute, RmsConstDefinition, RmsFlagDefinition } from './index'
+  import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement,
+    RmsCommand, RmsCommandStatement, RmsAttribute, RmsConstDefinition, RmsFlagDefinition } from './index'
 
   const lexer = compile({
     LineBreak: { match: /\s*\n\s*/, lineBreaks: true },
@@ -35,8 +35,28 @@ Script -> _ ((TopLevelStatement eol):* TopLevelStatement eol?):?
     statements: statements ? combineLast(statements[0], statements[1]) : []
   }) %}
 
-TopLevelStatement -> (Section | ConstDefinition | FlagDefinition)
+GenericIf[Child] -> %If ws identifier __
+                    ($Child eol):*
+                    (%Elseif ws identifier __ ($Child eol):*):*
+                    (%Else __ ($Child eol):+):?
+                    %Endif
+  {% ([, , condition, , statements, elseifs, elseStatements]): RmsIf<any> => {
+    const node: RmsIf<any> = { type: 'If', condition }
+    if (statements.length) node.statements = statements.map((s: any) => s[0][0])
+    if (elseifs.length) node.elseifs = elseifs.map(([, , condition, , statements]: any) => {
+      const obj: { condition: string, statements?: any[] } = { condition }
+      if (statements.length) obj.statements = statements.map((s: any) => s[0][0])
+      return obj
+    })
+    if (elseStatements) node.elseStatements = elseStatements[2].map((s: any) => s[0][0])
+    return node
+  } %}
+
+TopLevelStatement -> (Section | ConstDefinition | FlagDefinition | TopLevelIf)
   {% ([[statement]]): RmsTopLevelStatement => statement %}
+
+TopLevelIf -> GenericIf[TopLevelStatement]
+  {% id %}
 
 Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatement
   {% ([, name, , , statements, last]): RmsSection => ({
@@ -45,19 +65,25 @@ Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatem
     statements: combineLast(statements, last)
   }) %}
 
-SectionStatement -> (Command | ConstDefinition | FlagDefinition)
+SectionStatement -> (Command | ConstDefinition | FlagDefinition | SectionIf)
   {% ([[statement]]): RmsSectionStatement => statement %}
+
+SectionIf -> GenericIf[SectionStatement]
+  {% id %}
 
 Command -> Attribute (_ %LCurly eol? ((CommandStatement eol):* CommandStatement eol?):? %RCurly):?
   {% ([attr, statements]): RmsCommand => {
     const node: RmsCommand = { type: 'Command', name: attr.name }
     if (attr.value) node.value = attr.value
-    if (statements && statements[3]) node.attributes = combineLast(statements[3][0], statements[3][1])
-    else if (statements) node.attributes = []
+    if (statements && statements[3]) node.statements = combineLast(statements[3][0], statements[3][1])
+    else if (statements) node.statements = []
     return node
   } %}
 
-CommandStatement -> Attribute
+CommandStatement -> (Attribute | CommandIf)
+  {% ([[statement]]): RmsCommandStatement => statement %}
+
+CommandIf -> GenericIf[CommandStatement]
   {% id %}
 
 Attribute -> identifier (ws (identifier | int)):?

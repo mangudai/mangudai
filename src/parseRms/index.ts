@@ -21,7 +21,16 @@ export type RmsAst = {
   statements: RmsTopLevelStatement[]
 }
 
-export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition
+export type RmsIf<Child> = {
+  type: 'If',
+  condition: string,
+  statements?: Child[],
+  elseifs?: { condition: string, statements?: Child[] }[],
+  elseStatements?: Child[]
+}
+
+export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition | RmsTopLevelIf
+export interface RmsTopLevelIf extends RmsIf<RmsTopLevelStatement> {} // Microsoft/TypeScript#6230
 
 export type RmsSection = {
   type: 'Section',
@@ -29,14 +38,18 @@ export type RmsSection = {
   statements: RmsSectionStatement[]
 }
 
-export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition
+export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition | RmsSectionIf
+export interface RmsSectionIf extends RmsIf<RmsSectionStatement> {} // Microsoft/TypeScript#6230
 
 export type RmsCommand = {
   type: 'Command',
   name: string,
   value?: string | number,
-  attributes?: RmsAttribute[]
+  statements?: RmsCommandStatement[]
 }
+
+export type RmsCommandStatement = RmsAttribute | RmsCommandIf
+export interface RmsCommandIf extends RmsIf<RmsCommandStatement> {} // Microsoft/TypeScript#6230
 
 export type RmsAttribute = {
   type: 'Attribute',

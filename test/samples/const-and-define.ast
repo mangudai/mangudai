@@ -46,7 +46,7 @@
           "type": "Command",
           "name": "create_object",
           "value": "TOWN_CENTER",
-          "attributes": [
+          "statements": [
             {
               "type": "Attribute",
               "name": "set_place_for_every_player"
