@@ -3,8 +3,8 @@ import { join } from 'path'
 import { readFileSync } from 'fs'
 
 const readSample = (name: string) => ({
-  ast: JSON.parse(readFileSync(join(__dirname, 'samples', `${name}.ast`), 'utf8')),
-  correctRms: readFileSync(join(__dirname, 'samples', `${name}.generated.rms`), 'utf8')
+  ast: JSON.parse(readFileSync(join(__dirname, 'samples', 'generated', `${name}.ast`), 'utf8')),
+  correctRms: readFileSync(join(__dirname, 'samples', 'generated', `${name}.generated.rms`), 'utf8')
 })
 
 describe('serializeRms', () => {

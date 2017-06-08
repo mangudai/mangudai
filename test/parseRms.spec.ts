@@ -4,7 +4,7 @@ import { join } from 'path'
 import { readFileSync } from 'fs'
 
 const readSample = (name: string) => readFileSync(join(__dirname, 'samples', `${name}.rms`), 'utf8')
-const readSampleAst = (name: string) => JSON.parse(readFileSync(join(__dirname, 'samples', `${name}.ast`), 'utf8'))
+const readSampleAst = (name: string) => JSON.parse(readFileSync(join(__dirname, 'samples', 'generated', `${name}.ast`), 'utf8'))
 
 describe('parseRms', () => {
   it('returns errors on illegal tokens', () => {

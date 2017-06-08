@@ -9,7 +9,6 @@ import { serialize } from '../../src/serializeRms'
 
 const samples = readdirSync(__dirname)
   .filter(str => extname(str) === '.rms')
-  .filter(str => !basename(str, '.rms').endsWith('.generated'))
 
 samples.forEach(filename => {
   const rms = readFileSync(join(__dirname, filename), 'utf8')
@@ -18,9 +17,9 @@ samples.forEach(filename => {
 
   const serializedAst = JSON.stringify(ast, null, 2)
   const astFilename = basename(filename, '.rms') + '.ast'
-  writeFileSync(join(__dirname, astFilename), serializedAst + '\n')
+  writeFileSync(join(__dirname, 'generated', astFilename), serializedAst + '\n')
 
   const generatedRms = ast ? serialize(ast) : ''
   const generatedRmsFilename = basename(filename, '.rms') + '.generated.rms'
-  writeFileSync(join(__dirname, generatedRmsFilename), generatedRms)
+  writeFileSync(join(__dirname, 'generated', generatedRmsFilename), generatedRms)
 })
