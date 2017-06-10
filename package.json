@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deltaidea/mangudai.git"
+    "url": "git+https://github.com/mangudai/mangudai.git"
   },
   "keywords": [
     "aoe2",
@@ -26,9 +26,9 @@
   "author": "Nikita Litvin <n@deltaidea.com> (https://github.com/deltaidea)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/deltaidea/mangudai/issues"
+    "url": "https://github.com/mangudai/mangudai/issues"
   },
-  "homepage": "https://github.com/deltaidea/mangudai#readme",
+  "homepage": "https://github.com/mangudai/mangudai#readme",
   "devDependencies": {
     "@types/chai": "^3.5.2",
     "@types/mocha": "^2.2.41",

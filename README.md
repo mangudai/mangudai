@@ -1,8 +1,8 @@
 # Mangudai
 
 [![Greenkeeper badge](https://img.shields.io/badge/greenkeeper-enabled-brightgreen.svg)](https://greenkeeper.io/)
-[![Travis status](https://img.shields.io/travis/deltaidea/mangudai/master.svg)](https://travis-ci.org/deltaidea/mangudai)
-[![Test coverage](https://img.shields.io/codecov/c/github/deltaidea/mangudai/master.svg)](https://codecov.io/gh/deltaidea/mangudai)
+[![Travis status](https://img.shields.io/travis/mangudai/mangudai/master.svg)](https://travis-ci.org/mangudai/mangudai)
+[![Test coverage](https://img.shields.io/codecov/c/github/mangudai/mangudai/master.svg)](https://codecov.io/gh/mangudai/mangudai)
 [![TypeScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 [![Standard Readme](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 
@@ -49,4 +49,4 @@ This project is still in its early development stage. Any help is greatly apprec
 
 ## License
 
-[MIT](./LICENSE.md) © Nikita Litvin
+[MIT](./LICENSE.md) © Mangudai contributors
