@@ -38,7 +38,7 @@
     "@types/xregexp": "^3.0.28",
     "chai": "^4.0.0",
     "mocha": "^3.3.0",
-    "nyc": "^10.3.2",
+    "nyc": "^11.0.1",
     "ts-node": "^3.0.4",
     "tslint": "^5.2.0",
     "tslint-config-standard": "^5.0.2",
