@@ -23,7 +23,8 @@ Matches this AST:
       "statements": [
         {
           "type": "Command",
-          "name": "random_placement"
+          "name": "random_placement",
+          "args" []
         }
       ]
     }
@@ -90,14 +91,14 @@ Command | ConstDefinition | FlagDefinition | If<SectionStatement>
 {
   type: 'Command',
   name: string,
-  value?: string | number,
+  args: (string | number)[],
   statements?: CommandStatement[]
 }
 ```
 
 Represents a command (instruction) related to the current section, e.g. `random_placement` or `create_object`.
 
-A command optionally has a value, e.g. `base_terrain DIRT`: `base_terrain` is the command name, `DIRT` is the value.
+A command optionally has arguments, e.g. `base_terrain DIRT`: `base_terrain` is a command name, `DIRT` is an argument.
 
 A command can also have an optional set of attributes in curly brackets, e.g. `create_object TOWN_CENTER { ... }`.
 
@@ -113,7 +114,7 @@ Attribute | If<CommandStatement>
 {
   type: 'Attribute',
   name: string,
-  value?: string | number
+  args: (string | number)[]
 }
 ```
 

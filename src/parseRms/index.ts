@@ -44,7 +44,7 @@ export interface RmsSectionIf extends RmsIf<RmsSectionStatement> {} // Microsoft
 export type RmsCommand = {
   type: 'Command',
   name: string,
-  value?: string | number,
+  args: (string | number)[],
   statements?: RmsCommandStatement[]
 }
 
@@ -54,7 +54,7 @@ export interface RmsCommandIf extends RmsIf<RmsCommandStatement> {} // Microsoft
 export type RmsAttribute = {
   type: 'Attribute',
   name: string,
-  value?: string | number
+  args: (string | number)[]
 }
 
 export type RmsConstDefinition = {

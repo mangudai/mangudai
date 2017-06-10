@@ -54,4 +54,10 @@ describe('parseRms', () => {
     expect(errors).to.deep.equal([])
     expect(ast).to.be.an.instanceOf(Object)
   })
+
+  it('parses attributes with multiple arguments', () => {
+    const { ast, errors } = parseRms(readSample('attribute-multiple-arguments'))
+    expect(errors).to.deep.equal([])
+    expect(ast).to.be.deep.equal(readSampleAst('attribute-multiple-arguments'))
+  })
 })

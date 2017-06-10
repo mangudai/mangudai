@@ -10,13 +10,13 @@ const serializers: { [x: string]: (n: RmsAstNode) => string } = {
     `<${name}>\n` +
     statements.map(serializeNode).map(indent).join('\n'),
 
-  Command: ({ name, value, statements }: RmsCommand) =>
+  Command: ({ name, args, statements }: RmsCommand) =>
     name +
-    (value === undefined ? '' : ' ' + value) +
+    args.map(a => ' ' + a).join('') +
     (statements === undefined ? '' :
       statements.length ? ' {\n' + statements.map(serializeNode).map(indent).join('\n') + '\n}' : ' {}'),
 
-  Attribute: ({ name, value }: RmsAttribute) => name + (value === undefined ? '' : ' ' + value),
+  Attribute: ({ name, args }: RmsAttribute) => name + args.map(a => ' ' + a).join(''),
 
   ConstDefinition: ({ name, value }: RmsConstDefinition) => '#const ' + name + ' ' + value,
 

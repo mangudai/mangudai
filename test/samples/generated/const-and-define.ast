@@ -25,7 +25,8 @@
       "statements": [
         {
           "type": "Command",
-          "name": "random_placement"
+          "name": "random_placement",
+          "args": []
         },
         {
           "type": "ConstDefinition",
@@ -45,21 +46,28 @@
         {
           "type": "Command",
           "name": "create_object",
-          "value": "TOWN_CENTER",
+          "args": [
+            "TOWN_CENTER"
+          ],
           "statements": [
             {
               "type": "Attribute",
-              "name": "set_place_for_every_player"
+              "name": "set_place_for_every_player",
+              "args": []
             },
             {
               "type": "Attribute",
               "name": "min_distance_to_players",
-              "value": 0
+              "args": [
+                0
+              ]
             },
             {
               "type": "Attribute",
               "name": "max_distance_to_players",
-              "value": 0
+              "args": [
+                0
+              ]
             }
           ]
         }

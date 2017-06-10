@@ -12,20 +12,25 @@
             {
               "type": "Command",
               "name": "base_terrain",
-              "value": "DIRT"
+              "args": [
+                "DIRT"
+              ]
             }
           ],
           "elseStatements": [
             {
               "type": "Command",
               "name": "base_terrain",
-              "value": "GRASS3"
+              "args": [
+                "GRASS3"
+              ]
             }
           ]
         },
         {
           "type": "Command",
           "name": "create_player_lands",
+          "args": [],
           "statements": [
             {
               "type": "If",
@@ -34,21 +39,27 @@
                 {
                   "type": "Attribute",
                   "name": "terrain_type",
-                  "value": "DIRT"
+                  "args": [
+                    "DIRT"
+                  ]
                 }
               ],
               "elseStatements": [
                 {
                   "type": "Attribute",
                   "name": "terrain_type",
-                  "value": "GRASS3"
+                  "args": [
+                    "GRASS3"
+                  ]
                 }
               ]
             },
             {
               "type": "Attribute",
               "name": "land_percent",
-              "value": 25
+              "args": [
+                25
+              ]
             }
           ]
         }
@@ -64,7 +75,8 @@
           "statements": [
             {
               "type": "Command",
-              "name": "random_placement"
+              "name": "random_placement",
+              "args": []
             }
           ]
         }
@@ -76,7 +88,8 @@
           "statements": [
             {
               "type": "Command",
-              "name": "random_placement"
+              "name": "random_placement",
+              "args": []
             }
           ]
         }
@@ -96,7 +109,8 @@
               "statements": [
                 {
                   "type": "Command",
-                  "name": "random_placement"
+                  "name": "random_placement",
+                  "args": []
                 }
               ]
             }
@@ -108,7 +122,8 @@
               "statements": [
                 {
                   "type": "Command",
-                  "name": "random_placement"
+                  "name": "random_placement",
+                  "args": []
                 }
               ]
             }
@@ -129,7 +144,8 @@
                   "statements": [
                     {
                       "type": "Command",
-                      "name": "random_placement"
+                      "name": "random_placement",
+                      "args": []
                     }
                   ]
                 }
@@ -141,7 +157,8 @@
                   "statements": [
                     {
                       "type": "Command",
-                      "name": "random_placement"
+                      "name": "random_placement",
+                      "args": []
                     }
                   ]
                 }
@@ -161,7 +178,8 @@
               "statements": [
                 {
                   "type": "Command",
-                  "name": "random_placement"
+                  "name": "random_placement",
+                  "args": []
                 }
               ]
             }
@@ -173,7 +191,8 @@
               "statements": [
                 {
                   "type": "Command",
-                  "name": "random_placement"
+                  "name": "random_placement",
+                  "args": []
                 }
               ]
             }

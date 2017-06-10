@@ -87,8 +87,7 @@ SectionIf -> GenericIf[SectionStatement]
 
 Command -> Attribute (_ %LCurly eol? ((CommandStatement eol):* CommandStatement eol?):? %RCurly):?
   {% ([attr, statements]): RmsCommand => {
-    const node: RmsCommand = { type: 'Command', name: attr.name }
-    if (attr.value) node.value = attr.value
+    const node: RmsCommand = { type: 'Command', name: attr.name, args: attr.args }
     if (statements && statements[3]) node.statements = combineLast(statements[3][0], statements[3][1])
     else if (statements) node.statements = []
     return node
@@ -100,12 +99,12 @@ CommandStatement -> (Attribute | CommandIf)
 CommandIf -> GenericIf[CommandStatement]
   {% id %}
 
-Attribute -> identifier (ws (identifier | int)):?
-  {% ([name, value]): RmsAttribute => {
-    const node: RmsAttribute = { type: 'Attribute', name }
-    if (value) node.value = value[1][0]
-    return node
-  } %}
+Attribute -> identifier (ws (identifier | int)):*
+  {% ([name, args]): RmsAttribute => ({
+    type: 'Attribute',
+    name: name,
+    args: args.map((x: any) => x[1][0])
+  }) %}
 
 ConstDefinition -> %Const ws identifier ws int
   {% ([, , name, , value]): RmsConstDefinition => ({

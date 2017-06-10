@@ -1,0 +1,101 @@
+{
+  "type": "RandomMapScript",
+  "statements": [
+    {
+      "type": "Section",
+      "name": "TERRAIN_GENERATION",
+      "statements": [
+        {
+          "type": "Command",
+          "name": "create_terrain",
+          "args": [
+            "GRASS3"
+          ],
+          "statements": [
+            {
+              "type": "Attribute",
+              "name": "height_limits",
+              "args": [
+                7,
+                7
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "name": "CONNECTION_GENERATION",
+      "statements": [
+        {
+          "type": "Command",
+          "name": "create_connect_all_players_land",
+          "args": [],
+          "statements": [
+            {
+              "type": "Attribute",
+              "name": "replace_terrain",
+              "args": [
+                "WATER",
+                "SHALLOW"
+              ]
+            },
+            {
+              "type": "Attribute",
+              "name": "replace_terrain",
+              "args": [
+                "MED_WATER",
+                "SHALLOW"
+              ]
+            },
+            {
+              "type": "Attribute",
+              "name": "replace_terrain",
+              "args": [
+                "DEEP_WATER",
+                "SHALLOW"
+              ]
+            },
+            {
+              "type": "Attribute",
+              "name": "terrain_size",
+              "args": [
+                "WATER",
+                3,
+                1
+              ]
+            },
+            {
+              "type": "Attribute",
+              "name": "terrain_size",
+              "args": [
+                "MED_WATER",
+                3,
+                1
+              ]
+            },
+            {
+              "type": "Attribute",
+              "name": "terrain_size",
+              "args": [
+                "DEEP_WATER",
+                3,
+                1
+              ]
+            },
+            {
+              "type": "Attribute",
+              "name": "terrain_size",
+              "args": [
+                "PINE_FOREST",
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
