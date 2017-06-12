@@ -2,6 +2,10 @@
   "type": "RandomMapScript",
   "statements": [
     {
+      "type": "MultilineComment",
+      "comment": "/* The only interpreter options that could be found in the random maps\n * published to Steam Workshop are `#const` and `#define`.\n * Rarely mentioned `#include_drs` in only used in built-in maps and\n * has no effect in custom scripts. It's left out to cause a lexer error.\n */"
+    },
+    {
       "type": "ConstDefinition",
       "name": "FOO",
       "value": 555
@@ -27,17 +31,17 @@
           "type": "Command",
           "name": "random_placement",
           "args": []
-        },
-        {
-          "type": "ConstDefinition",
-          "name": "BAR",
-          "value": 777
-        },
-        {
-          "type": "FlagDefinition",
-          "flag": "laterInFile"
         }
       ]
+    },
+    {
+      "type": "ConstDefinition",
+      "name": "BAR",
+      "value": 777
+    },
+    {
+      "type": "FlagDefinition",
+      "flag": "laterInFile"
     },
     {
       "type": "Section",

@@ -31,12 +31,6 @@ describe('parseRms', () => {
     expect(ast).to.be.an.instanceOf(Object)
   })
 
-  it('works on comments', () => {
-    const { ast, errors } = parseRms('/* comment one */ /* comment two */')
-    expect(errors).to.deep.equal([])
-    expect(ast).to.be.an.instanceOf(Object)
-  })
-
   it('works on sections', () => {
     const { ast, errors } = parseRms(readSample('sections'))
     expect(errors).to.deep.equal([])
@@ -59,5 +53,11 @@ describe('parseRms', () => {
     const { ast, errors } = parseRms(readSample('attribute-multiple-arguments'))
     expect(errors).to.deep.equal([])
     expect(ast).to.be.deep.equal(readSampleAst('attribute-multiple-arguments'))
+  })
+
+  it('parses comments everywhere', () => {
+    const { ast, errors } = parseRms(readSample('comments-galore'))
+    expect(errors).to.deep.equal([])
+    expect(ast).to.be.deep.equal(readSampleAst('comments-galore'))
   })
 })

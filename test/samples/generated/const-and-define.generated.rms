@@ -1,3 +1,9 @@
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
 #const FOO 555
 
 #const meaning-of-life 42
@@ -8,8 +14,10 @@
 
 <PLAYER_SETUP>
   random_placement
-  #const BAR 777
-  #define laterInFile
+
+#const BAR 777
+
+#define laterInFile
 
 <OBJECTS_GENERATION>
   create_object TOWN_CENTER {

@@ -2,6 +2,10 @@
   "type": "RandomMapScript",
   "statements": [
     {
+      "type": "MultilineComment",
+      "comment": "/* comment */"
+    },
+    {
       "type": "Section",
       "name": "PLAYER_SETUP",
       "statements": [
@@ -45,6 +49,10 @@
           ]
         },
         {
+          "type": "MultilineComment",
+          "comment": "/* Should support both styles: inline curly and separate curly. */"
+        },
+        {
           "type": "Command",
           "name": "create_object",
           "args": [
@@ -71,6 +79,10 @@
               ]
             }
           ]
+        },
+        {
+          "type": "MultilineComment",
+          "comment": "/* Curly brackets can be empty */"
         },
         {
           "type": "Command",

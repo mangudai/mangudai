@@ -33,7 +33,7 @@ export type RmsIf<Child> = {
   elseStatements?: Child[]
 }
 
-export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition | RmsTopLevelIf
+export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition | RmsTopLevelIf | RmsMultilineComment
 export interface RmsTopLevelIf extends RmsIf<RmsTopLevelStatement> {} // Microsoft/TypeScript#6230
 
 export type RmsSection = {
@@ -42,7 +42,7 @@ export type RmsSection = {
   statements: RmsSectionStatement[]
 }
 
-export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition | RmsSectionIf
+export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition | RmsSectionIf | RmsMultilineComment
 export interface RmsSectionIf extends RmsIf<RmsSectionStatement> {} // Microsoft/TypeScript#6230
 
 export type RmsCommand = {
@@ -52,7 +52,7 @@ export type RmsCommand = {
   statements?: RmsCommandStatement[]
 }
 
-export type RmsCommandStatement = RmsAttribute | RmsCommandIf
+export type RmsCommandStatement = RmsAttribute | RmsCommandIf | RmsMultilineComment
 export interface RmsCommandIf extends RmsIf<RmsCommandStatement> {} // Microsoft/TypeScript#6230
 
 export type RmsAttribute = {
@@ -70,4 +70,9 @@ export type RmsConstDefinition = {
 export type RmsFlagDefinition = {
   type: 'FlagDefinition',
   flag: string
+}
+
+export type RmsMultilineComment = {
+  type: 'MultilineComment',
+  comment: string
 }

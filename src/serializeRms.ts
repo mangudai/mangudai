@@ -1,5 +1,5 @@
-import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement,
-    RmsCommand, RmsCommandStatement, RmsAttribute, RmsConstDefinition, RmsFlagDefinition } from './parseRms'
+import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
+  RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsMultilineComment } from './parseRms'
 
 type RmsAstNode = RmsAst | RmsTopLevelStatement | RmsSectionStatement | RmsCommandStatement
 
@@ -29,7 +29,9 @@ const serializers: { [x: string]: (n: RmsAstNode) => string } = {
     if (elseStatements && elseStatements.length) str += '\nelse\n' + elseStatements.map(serializeNode).map(indent).join('\n')
     str += '\nendif'
     return str
-  }
+  },
+
+  MultilineComment: ({ comment }: RmsMultilineComment) => comment
 }
 
 function serializeElseif ({ condition, statements }: { condition: string, statements: RmsAstNode[] }) {

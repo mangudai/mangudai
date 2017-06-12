@@ -3,8 +3,8 @@
 @{%
   import { compile } from 'moo'
   import { Parser } from 'nearley'
-  import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement,
-    RmsCommand, RmsCommandStatement, RmsAttribute, RmsConstDefinition, RmsFlagDefinition } from './index'
+  import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
+    RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsMultilineComment } from './index'
 
   const lexer = compile({
     LineBreak: { match: /\s*\n\s*/, lineBreaks: true },
@@ -27,24 +27,26 @@
   // Extract flat array of rule results from this: (rule __):* rule
   const combineLast = (many: any[], last: any) => many.map(x => x[0]).concat([last])
 
+  const flatten = <T>(arrays: T[][]): T[] => ([] as T[]).concat(...arrays)
+
+  // Eliminate ambiguity: reject parsings with const/define/comment as the last section statement,
+  // as it's usually intended to be a top-level statement instead and we have to decide one way or another.
   const validateAst = (ast: RmsAst): boolean => {
-    let isValid = true
-    let sawSection = false
-    ast.statements.forEach(s => {
-      if (sawSection && ['ConstDefinition', 'FlagDefinition'].indexOf(s.type) !== -1) isValid = false
-      else if (s.type === 'Section') sawSection = true
-    })
-    return isValid
+    let hasGreedySections = ast.statements
+      .filter(x => x.type === 'Section')
+      .some(({ statements }: RmsSection) => ['ConstDefinition', 'FlagDefinition', 'MultilineComment']
+        .includes((statements.slice(-1).pop() || {} as any).type))
+    return !hasGreedySections
   }
 %}
 
 @lexer lexer
 
-Script -> _ ((TopLevelStatement eol):* TopLevelStatement eol?):?
+Script -> _ ((TopLevelStatementsLine eol):* TopLevelStatementsLine eol?):?
   {% ([, statements]: any, _: any, reject: typeof Parser.fail) => {
     const ast: RmsAst = {
       type: 'RandomMapScript',
-      statements: statements ? combineLast(statements[0], statements[1]) : []
+      statements: statements ? flatten<RmsTopLevelStatement>(combineLast(statements[0], statements[1])) : []
     }
     return validateAst(ast) ? ast : reject
   } %}
@@ -56,47 +58,56 @@ GenericIf[Child] -> %If ws identifier __
                     %Endif
   {% ([, , condition, , statements, elseifs, elseStatements]): RmsIf<any> => {
     const node: RmsIf<any> = { type: 'If', condition }
-    if (statements.length) node.statements = statements.map((s: any) => s[0][0])
+    if (statements.length) node.statements = flatten<any>(statements.map((s: any) => s[0][0]))
     if (elseifs.length) node.elseifs = elseifs.map(([, , condition, , statements]: any) => {
       const obj: { condition: string, statements?: any[] } = { condition }
-      if (statements.length) obj.statements = statements.map((s: any) => s[0][0])
+      if (statements.length) obj.statements = flatten<any>(statements.map((s: any) => s[0][0]))
       return obj
     })
-    if (elseStatements) node.elseStatements = elseStatements[2].map((s: any) => s[0][0])
+    if (elseStatements) node.elseStatements = flatten<any>(elseStatements[2].map((s: any) => s[0][0]))
     return node
   } %}
 
-TopLevelStatement -> (Section | ConstDefinition | FlagDefinition | TopLevelIf)
-  {% ([[statement]]): RmsTopLevelStatement => statement %}
+GenericAllowInlineComments[Statement] -> (MultilineComment ws?):* ($Statement (ws? MultilineComment):* | MultilineComment)
+  {% ([beforeComments, commentOrParts]): any[] => {
+    let statements: any[] = beforeComments.map((x: any) => x[0])
+    // commentOrParts is either [statement, comments] or [comment].
+    if (commentOrParts.length === 1) statements.push(commentOrParts[0])
+    else statements = statements.concat([commentOrParts[0][0][0]], commentOrParts[1].map((x: any) => x[1]))
+    return statements
+  } %}
 
-TopLevelIf -> GenericIf[TopLevelStatement]
+TopLevelStatementsLine -> GenericAllowInlineComments[(Section | ConstDefinition | FlagDefinition | TopLevelIf)]
   {% id %}
 
-Section -> %LArrow identifier %RArrow eol (SectionStatement eol):* SectionStatement
+TopLevelIf -> GenericIf[TopLevelStatementsLine]
+  {% id %}
+
+Section -> %LArrow identifier %RArrow eol (SectionStatementsLine eol):* SectionStatementsLine
   {% ([, name, , , statements, last]): RmsSection => ({
     type: 'Section',
     name,
-    statements: combineLast(statements, last)
+    statements: flatten<RmsSectionStatement>(combineLast(statements, last))
   }) %}
 
-SectionStatement -> (Command | ConstDefinition | FlagDefinition | SectionIf)
-  {% ([[statement]]): RmsSectionStatement => statement %}
-
-SectionIf -> GenericIf[SectionStatement]
+SectionStatementsLine -> GenericAllowInlineComments[(Command | ConstDefinition | FlagDefinition | SectionIf)]
   {% id %}
 
-Command -> Attribute (_ %LCurly eol? ((CommandStatement eol):* CommandStatement eol?):? %RCurly):?
+SectionIf -> GenericIf[SectionStatementsLine]
+  {% id %}
+
+Command -> Attribute (_ %LCurly eol? ((CommandStatementsLine eol):* CommandStatementsLine eol?):? %RCurly):?
   {% ([attr, statements]): RmsCommand => {
     const node: RmsCommand = { type: 'Command', name: attr.name, args: attr.args }
-    if (statements && statements[3]) node.statements = combineLast(statements[3][0], statements[3][1])
+    if (statements && statements[3]) node.statements = flatten<RmsCommandStatement>(combineLast(statements[3][0], statements[3][1]))
     else if (statements) node.statements = []
     return node
   } %}
 
-CommandStatement -> (Attribute | CommandIf)
-  {% ([[statement]]): RmsCommandStatement => statement %}
+CommandStatementsLine -> GenericAllowInlineComments[(Attribute | CommandIf)]
+  {% id %}
 
-CommandIf -> GenericIf[CommandStatement]
+CommandIf -> GenericIf[CommandStatementsLine]
   {% id %}
 
 Attribute -> identifier (ws (identifier | int)):*
@@ -107,27 +118,24 @@ Attribute -> identifier (ws (identifier | int)):*
   }) %}
 
 ConstDefinition -> %Const ws identifier ws int
-  {% ([, , name, , value]): RmsConstDefinition => ({
-    type: 'ConstDefinition',
-    name,
-    value
-  }) %}
+  {% ([, , name, , value]): RmsConstDefinition => ({ type: 'ConstDefinition', name, value }) %}
 
 FlagDefinition -> %Define ws identifier
-  {% ([, , flag]): RmsFlagDefinition => ({
-    type: 'FlagDefinition',
-    flag
-  }) %}
+  {% ([, , flag]): RmsFlagDefinition => ({ type: 'FlagDefinition', flag }) %}
+
+MultilineComment -> %MultilineComment
+ {% ([{ value }]): RmsMultilineComment => ({ type: 'MultilineComment', comment: value }) %}
 
 # ==============================================================================
 # Terminals
 # ==============================================================================
+
 int -> %Integer           {% ([token]) => parseInt(token.value, 10) %}
 identifier -> %Identifier {% ([token]) => token.value %}
 
-eol  -> (%LineBreak | %MultilineComment):* %LineBreak %MultilineComment:* {% () => null %}
-eol? -> eol:?                                       {% () => null %}
-ws   -> %Space                                      {% () => null %}
-ws?  -> ws:?                                        {% () => null %}
-__   -> (%LineBreak | %Space | %MultilineComment):+ {% () => null %}
-_    -> __:?                                        {% () => null %}
+eol  -> %LineBreak              {% () => null %}
+eol? -> eol:?                   {% () => null %}
+ws   -> %Space                  {% () => null %}
+ws?  -> ws:?                    {% () => null %}
+__   -> (%LineBreak | %Space):+ {% () => null %}
+_    -> __:?                    {% () => null %}

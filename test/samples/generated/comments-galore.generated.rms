@@ -1,0 +1,71 @@
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
