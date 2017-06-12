@@ -14,6 +14,13 @@
   }
 
 if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
   <PLAYER_SETUP>
     random_placement
 else

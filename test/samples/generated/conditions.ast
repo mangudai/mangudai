@@ -68,6 +68,28 @@
     {
       "type": "If",
       "condition": "FOO",
+      "elseifs": [
+        {
+          "condition": "BAR"
+        }
+      ],
+      "elseStatements": [
+        {
+          "type": "Section",
+          "name": "PLAYER_SETUP",
+          "statements": [
+            {
+              "type": "Command",
+              "name": "random_placement",
+              "args": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "If",
+      "condition": "FOO",
       "statements": [
         {
           "type": "Section",
