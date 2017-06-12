@@ -9,6 +9,10 @@
       "type": "IncludeDrs",
       "filename": "random_map.def",
       "id": 54000
+    },
+    {
+      "type": "IncludeDrs",
+      "filename": "random_map.def"
     }
   ]
 }

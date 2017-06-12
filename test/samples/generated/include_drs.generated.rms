@@ -6,3 +6,5 @@
  */
 
 #include_drs random_map.def 54000
+
+#include_drs random_map.def
