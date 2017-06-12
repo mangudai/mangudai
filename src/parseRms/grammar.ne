@@ -4,7 +4,7 @@
   import { compile } from 'moo'
   import { Parser } from 'nearley'
   import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
-    RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsMultilineComment } from './index'
+    RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsMultilineComment, RmsIncludeDrs } from './index'
 
   const lexer = compile({
     LineBreak: { match: /\s*\n\s*/, lineBreaks: true },
@@ -16,6 +16,7 @@
     RCurly: '}',
     Const: '#const',
     Define: '#define',
+    IncludeDrs: '#include_drs',
     If: 'if',
     Elseif: 'elseif',
     Else: 'else',
@@ -77,7 +78,7 @@ GenericAllowInlineComments[Statement] -> (MultilineComment ws?):* ($Statement (w
     return statements
   } %}
 
-TopLevelStatementsLine -> GenericAllowInlineComments[(Section | ConstDefinition | FlagDefinition | TopLevelIf)]
+TopLevelStatementsLine -> GenericAllowInlineComments[(Section | ConstDefinition | FlagDefinition | IncludeDrs | TopLevelIf)]
   {% id %}
 
 TopLevelIf -> GenericIf[TopLevelStatementsLine]
@@ -124,7 +125,14 @@ FlagDefinition -> %Define ws identifier
   {% ([, , flag]): RmsFlagDefinition => ({ type: 'FlagDefinition', flag }) %}
 
 MultilineComment -> %MultilineComment
- {% ([{ value }]): RmsMultilineComment => ({ type: 'MultilineComment', comment: value }) %}
+  {% ([{ value }]): RmsMultilineComment => ({ type: 'MultilineComment', comment: value }) %}
+
+IncludeDrs -> %IncludeDrs ws identifier (ws int):?
+  {% ([, , filename, id]): RmsIncludeDrs => {
+    const node: RmsIncludeDrs = { type: 'IncludeDrs', filename }
+    if (id) node.id = id[1]
+    return node
+  } %}
 
 # ==============================================================================
 # Terminals

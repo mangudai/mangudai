@@ -1,0 +1,8 @@
+/**
+ * #include_drs directives are used in the built-in random maps to load standard resources and stuff.
+ * They are ignored when used in custom maps. However, some people still copy them by mistake.
+ * It might be a good idea to parse them with a warning.
+ * It should be possible to feed Mangudai any map, so this directive shouldn't cause an error.
+ */
+
+#include_drs random_map.def 54000

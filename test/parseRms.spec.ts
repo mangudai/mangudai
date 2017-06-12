@@ -31,6 +31,12 @@ describe('parseRms', () => {
     expect(ast).to.be.an.instanceOf(Object)
   })
 
+  it('parses #include_drs directive', () => {
+    const { ast, errors } = parseRms(readSample('include_drs'))
+    expect(errors).to.deep.equal([])
+    expect(ast).to.deep.equal(readSampleAst('include_drs'))
+  })
+
   it('works on sections', () => {
     const { ast, errors } = parseRms(readSample('sections'))
     expect(errors).to.deep.equal([])
