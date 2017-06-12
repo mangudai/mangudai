@@ -1,20 +1,21 @@
 import { serializeRms } from '../lib/index'
-import { join } from 'path'
-import { readFileSync } from 'fs'
+import { readdirSync, readFileSync } from 'fs'
+import { basename, extname, resolve } from 'path'
 
+const readSampleFile = (name: string) => readFileSync(resolve(__dirname, 'samples', name), 'utf8')
 const readSample = (name: string) => ({
-  ast: JSON.parse(readFileSync(join(__dirname, 'samples', 'generated', `${name}.ast`), 'utf8')),
-  correctRms: readFileSync(join(__dirname, 'samples', 'generated', `${name}.generated.rms`), 'utf8')
+  name,
+  ast: JSON.parse(readSampleFile(`generated/${name}.ast`)),
+  correctSerialized: readSampleFile(`generated/${name}.generated.rms`)
 })
 
 describe('serializeRms', () => {
-  it('works on sections', () => {
-    const { ast, correctRms } = readSample('sections')
-    serializeRms(ast).should.equal(correctRms)
-  })
-
-  it('works on #const and #define', () => {
-    const { ast, correctRms } = readSample('const-and-define')
-    serializeRms(ast).should.equal(correctRms)
-  })
+  readdirSync(resolve(__dirname, 'samples'))
+    .filter(str => extname(str) === '.rms')
+    .map(filename => readSample(basename(filename, '.rms')))
+    .forEach(({ name, ast, correctSerialized }) => {
+      it(`serializes example ${name}`, () => {
+        serializeRms(ast).should.equal(correctSerialized)
+      })
+    })
 })

@@ -10,7 +10,7 @@
     "lint": "npm run lint-src && npm run lint-test",
     "test": "npm run build && npm run lint && nyc --reporter=lcov mocha",
     "gen-grammar": "nearleyc src/parseRms/grammar.ne --out src/parseRms/grammar.ts",
-    "update-samples": "ts-node --project test ./test/samples/generateSamples"
+    "update-samples": "ts-node --project test ./test/samples/generated/generateSamples"
   },
   "repository": {
     "type": "git",
