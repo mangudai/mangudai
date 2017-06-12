@@ -5,6 +5,10 @@ export function parse (input: string): { errors: Object[], ast?: RmsAst } {
   const parser = new Parser(ParserRules, ParserStart, { lexer: Lexer })
   try {
     parser.feed(input)
+    if (parser.results.length > 1) {
+      throw new Error('Ambiguous grammar! This is likely a problem with Mangudai itself, ' +
+        'not your script. Please report this issue along with the script that caused it.')
+    }
     return {
       ast: parser.results[0],
       errors: []
