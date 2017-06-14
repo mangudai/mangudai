@@ -1,51 +1,52 @@
 import { Visitor } from './nearleyMiddleware'
+import { CstNode } from './cst'
 import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsIncludeDrs, RmsMultilineComment } from './astTypes'
 
 export const cstToAstVisitor: Visitor<any> = {
-  Script: ([, statements]: any[]): RmsAst => ({
+  Script: ({ children: [, statements] }: CstNode): RmsAst => ({
     type: 'RandomMapScript',
     statements: statements ? flatten<RmsTopLevelStatement>(combineLast(statements[0], statements[1])) : []
   }),
 
-  TopLevelStatementsLine: ([parts]) => visitGenericAllowInlineComments(parts),
-  TopLevelIf: ([parts]) => visitGenericIf(parts),
+  TopLevelStatementsLine: ({ children: [parts] }: CstNode) => visitGenericAllowInlineComments(parts),
+  TopLevelIf: ({ children: [parts] }: CstNode) => visitGenericIf(parts),
 
-  Section: ([, name, , , statements, last]): RmsSection => ({
+  Section: ({ children: [, name, , , statements, last] }: CstNode): RmsSection => ({
     type: 'Section',
     name,
     statements: flatten<RmsSectionStatement>(combineLast(statements, last))
   }),
-  SectionStatementsLine: ([parts]) => visitGenericAllowInlineComments(parts),
-  SectionIf: ([parts]) => visitGenericIf(parts),
+  SectionStatementsLine: ({ children: [parts] }: CstNode) => visitGenericAllowInlineComments(parts),
+  SectionIf: ({ children: [parts] }: CstNode) => visitGenericIf(parts),
 
-  Command: ([attr, statements]): RmsCommand => {
+  Command: ({ children: [attr, statements] }: CstNode): RmsCommand => {
     const node: RmsCommand = { type: 'Command', name: attr.name, args: attr.args }
     if (statements && statements[3]) node.statements = flatten<RmsCommandStatement>(combineLast(statements[3][0], statements[3][1]))
     else if (statements) node.statements = []
     return node
   },
-  CommandStatementsLine: ([parts]) => visitGenericAllowInlineComments(parts),
-  CommandIf: ([parts]) => visitGenericIf(parts),
+  CommandStatementsLine: ({ children: [parts] }: CstNode) => visitGenericAllowInlineComments(parts),
+  CommandIf: ({ children: [parts] }: CstNode) => visitGenericIf(parts),
 
-  Attribute: ([name, args]): RmsAttribute => ({
+  Attribute: ({ children: [name, args] }: CstNode): RmsAttribute => ({
     type: 'Attribute',
     name: name,
     args: args.map((x: any) => x[1][0])
   }),
 
-  ConstDefinition: ([, , name, , value]): RmsConstDefinition => ({ type: 'ConstDefinition', name, value }),
-  FlagDefinition: ([, , flag]): RmsFlagDefinition => ({ type: 'FlagDefinition', flag }),
-  IncludeDrs: ([, , filename, id]): RmsIncludeDrs => {
+  ConstDefinition: ({ children: [, , name, , value] }: CstNode): RmsConstDefinition => ({ type: 'ConstDefinition', name, value }),
+  FlagDefinition: ({ children: [, , flag] }: CstNode): RmsFlagDefinition => ({ type: 'FlagDefinition', flag }),
+  IncludeDrs: ({ children: [, , filename, id] }: CstNode): RmsIncludeDrs => {
     const node: RmsIncludeDrs = { type: 'IncludeDrs', filename }
     if (id) node.id = id[1]
     return node
   },
 
-  MultilineComment: ([{ value }]): RmsMultilineComment => ({ type: 'MultilineComment', comment: value }),
+  MultilineComment: ({ children: [{ value }] }: CstNode): RmsMultilineComment => ({ type: 'MultilineComment', comment: value }),
 
-  int: ([token]) => parseInt(token.value, 10),
-  identifier: ([token]) => token.value,
+  int: ({ children: [token] }: CstNode) => parseInt(token.value, 10),
+  identifier: ({ children: [token] }: CstNode) => token.value,
 
   'eol': () => null,
   'eol?': () => null,

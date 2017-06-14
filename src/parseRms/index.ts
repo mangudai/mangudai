@@ -1,11 +1,13 @@
 import { Parser } from 'nearley'
 import { Lexer, ParserRules, ParserStart } from './grammar'
 import { visitorMiddleware, rejectMiddleware } from './nearleyMiddleware'
+import { cstMiddleware } from './cst'
 import { cstToAstVisitor } from './ast'
 import { RmsAst, RmsSection } from './astTypes'
 
 export * from './astTypes'
 
+cstMiddleware(ParserRules)
 visitorMiddleware(ParserRules, cstToAstVisitor)
 // Eliminate ambiguity: reject parsings with const/define/comment as the last section statement,
 // as it's usually intended to be a top-level statement instead and we have to decide one way or another.
