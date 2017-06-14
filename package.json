@@ -45,7 +45,7 @@
     "typescript": "^2.3.2"
   },
   "dependencies": {
-    "moo": "github:deltaidea/moo#fix-has",
+    "moo": "^0.3.3",
     "nearley": "^2.10.0"
   }
 }
