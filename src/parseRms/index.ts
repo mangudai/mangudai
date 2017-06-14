@@ -1,5 +1,23 @@
 import { Parser } from 'nearley'
 import { Lexer, ParserRules, ParserStart } from './grammar'
+import { visitorMiddleware, rejectMiddleware } from './nearleyMiddleware'
+import { cstToAstVisitor } from './ast'
+import { RmsAst, RmsSection } from './astTypes'
+
+export * from './astTypes'
+
+visitorMiddleware(ParserRules, cstToAstVisitor)
+// Eliminate ambiguity: reject parsings with const/define/comment as the last section statement,
+// as it's usually intended to be a top-level statement instead and we have to decide one way or another.
+rejectMiddleware(ParserRules, {
+  Script: (ast: RmsAst) => {
+    let hasGreedySections = ast.statements
+      .filter(x => x.type === 'Section')
+      .some(({ statements }: RmsSection) => ['ConstDefinition', 'FlagDefinition', 'MultilineComment']
+        .includes((statements.slice(-1).pop() || {} as any).type))
+    return hasGreedySections
+  }
+})
 
 export function parse (input: string): { errors: Object[], ast?: RmsAst } {
   const parser = new Parser(ParserRules, ParserStart, { lexer: Lexer })
@@ -18,67 +36,4 @@ export function parse (input: string): { errors: Object[], ast?: RmsAst } {
       errors: [error]
     }
   }
-}
-
-export type RmsAst = {
-  type: 'RandomMapScript',
-  statements: RmsTopLevelStatement[]
-}
-
-export type RmsIf<Child> = {
-  type: 'If',
-  condition: string,
-  statements?: Child[],
-  elseifs?: { condition: string, statements?: Child[] }[],
-  elseStatements?: Child[]
-}
-
-export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition | RmsIncludeDrs | RmsTopLevelIf | RmsMultilineComment
-export interface RmsTopLevelIf extends RmsIf<RmsTopLevelStatement> {} // Microsoft/TypeScript#6230
-
-export type RmsSection = {
-  type: 'Section',
-  name: string,
-  statements: RmsSectionStatement[]
-}
-
-export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition | RmsSectionIf | RmsMultilineComment
-export interface RmsSectionIf extends RmsIf<RmsSectionStatement> {} // Microsoft/TypeScript#6230
-
-export type RmsCommand = {
-  type: 'Command',
-  name: string,
-  args: (string | number)[],
-  statements?: RmsCommandStatement[]
-}
-
-export type RmsCommandStatement = RmsAttribute | RmsCommandIf | RmsMultilineComment
-export interface RmsCommandIf extends RmsIf<RmsCommandStatement> {} // Microsoft/TypeScript#6230
-
-export type RmsAttribute = {
-  type: 'Attribute',
-  name: string,
-  args: (string | number)[]
-}
-
-export type RmsConstDefinition = {
-  type: 'ConstDefinition',
-  name: string,
-  value: number
-}
-
-export type RmsFlagDefinition = {
-  type: 'FlagDefinition',
-  flag: string
-}
-
-export type RmsMultilineComment = {
-  type: 'MultilineComment',
-  comment: string
-}
-
-export type RmsIncludeDrs = {
-  type: 'IncludeDrs',
-  filename: string,
-  id?: number
 }
