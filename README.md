@@ -31,15 +31,15 @@ Use a tool like [Webpack](https://webpack.js.org) or [Rollup](https://rollupjs.o
 ```JavaScript
 import { parseRms, serializeRms } from 'mangudai'
 
-const { ast, errors } = parse('<PLAYER_SETUP> \n random_placement')
-const generatedRms = serialize(ast)
+const { ast, errors } = parseRms('<PLAYER_SETUP> \n random_placement')
+const generatedRms = serializeRms(ast)
 ```
 
 Mangudai is written in [TypeScript](https://www.typescriptlang.org/) and exports all relevant typings.
 
 ## API
 
-#### parseRms( script: `string` ) => { ast: [`RmsAst`](docs/rms-ast.md), errors: `ParseError[]` }
+#### parseRms( script: `string` ) => { ast: [`RmsAst`](docs/rms-ast.md), errors: `Error[]` }
 
 #### serializeRms( ast: [`RmsAst`](docs/rms-ast.md) ) => `string`
 
