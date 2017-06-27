@@ -15,7 +15,7 @@ GenericAllowInlineComments[Statement] -> (MultilineComment ws?):* ($Statement (w
 TopLevelStatementsLine -> GenericAllowInlineComments[(Section | ConstDefinition | FlagDefinition | IncludeDrs | TopLevelIf)]
 TopLevelIf -> GenericIf[TopLevelStatementsLine]
 
-Section -> %LArrow identifier %RArrow eol (SectionStatementsLine eol):* SectionStatementsLine
+Section -> %LArrow identifier %RArrow eol ((SectionStatementsLine eol):* SectionStatementsLine):?
 SectionStatementsLine -> GenericAllowInlineComments[(Command | ConstDefinition | FlagDefinition | SectionIf)]
 SectionIf -> GenericIf[SectionStatementsLine]
 

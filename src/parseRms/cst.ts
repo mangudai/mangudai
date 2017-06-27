@@ -27,9 +27,9 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   TopLevelStatementsLine: parts => partsToCstNodes(parts),
   TopLevelIf: parts => visitGenericIf(parts),
 
-  Section: ([larrow, name, rarrow, ws, st1, st2]) => simpleCstNode([
+  Section: ([larrow, name, rarrow, ws, statements]) => simpleCstNode([
     simpleCstNode([larrow, name, rarrow, ws], 'SectionHeader'),
-    simpleCstNode([st1, st2], 'StatementsBlock')
+    simpleCstNode([statements], 'StatementsBlock')
   ], 'Section'),
   SectionStatementsLine: parts => partsToCstNodes(parts),
   SectionIf: parts => visitGenericIf(parts),
