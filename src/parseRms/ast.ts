@@ -1,96 +1,116 @@
-import { Visitor } from './nearleyMiddleware'
-import { CstNode } from './cst'
-import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
+import { Token } from 'moo'
+import { CstNode, CstNodeChild } from './cst'
+import { AstNode, RmsAst, RmsIf, ElseIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsIncludeDrs, RmsMultilineComment } from './astTypes'
 
-export const cstToAstVisitor: Visitor<any> = {
-  Script: ({ children: [, statements] }: CstNode): RmsAst => ({
+export function toAst (root: CstNode) {
+  return nodeToAst(root) as RmsAst
+}
+
+const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
+  RandomMapScript: ({ children }): RmsAst => ({
     type: 'RandomMapScript',
-    statements: statements ? flatten<RmsTopLevelStatement>(combineLast(statements[0], statements[1])) : []
+    statements: children.filter(noTokens).map(nodeToAst) as RmsTopLevelStatement[]
   }),
 
-  TopLevelStatementsLine: ({ children: [parts] }: CstNode) => visitGenericAllowInlineComments(parts),
-  TopLevelIf: ({ children: [parts] }: CstNode) => visitGenericIf(parts),
+  If: (ifNode): RmsIf<any> => {
+    const node: RmsIf<AstNode> = {
+      type: 'If',
+      condition: getCondition(ifNode)
+    }
+    addStatementsIfAny(node, 'statements', ifNode)
 
-  Section: ({ children: [, name, , , statements, last] }: CstNode): RmsSection => ({
-    type: 'Section',
-    name,
-    statements: flatten<RmsSectionStatement>(combineLast(statements, last))
-  }),
-  SectionStatementsLine: ({ children: [parts] }: CstNode) => visitGenericAllowInlineComments(parts),
-  SectionIf: ({ children: [parts] }: CstNode) => visitGenericIf(parts),
+    if ('ElseIf' in ifNode.childrenByType) {
+      node.elseifs = (ifNode.childrenByType.ElseIf as CstNode[]).map(elseIf => {
+        const node: ElseIf<AstNode> = { condition: getCondition(elseIf) }
+        addStatementsIfAny(node, 'statements', elseIf)
+        return node
+      })
+    }
 
-  Command: ({ children: [attr, statements] }: CstNode): RmsCommand => {
-    const node: RmsCommand = { type: 'Command', name: attr.name, args: attr.args }
-    if (statements && statements[3]) node.statements = flatten<RmsCommandStatement>(combineLast(statements[3][0], statements[3][1]))
-    else if (statements) node.statements = []
+    if ('Else' in ifNode.childrenByType) {
+      const elseNode = ifNode.childrenByType.Else[0] as CstNode
+      addStatementsIfAny(node, 'elseStatements', elseNode)
+    }
+
     return node
-  },
-  CommandStatementsLine: ({ children: [parts] }: CstNode) => visitGenericAllowInlineComments(parts),
-  CommandIf: ({ children: [parts] }: CstNode) => visitGenericIf(parts),
 
-  Attribute: ({ children: [name, args] }: CstNode): RmsAttribute => ({
+    function getCondition (node: CstNode) {
+      return ((node.childrenByType.ConditionExpression[0] as CstNode).children[0] as Token).value
+    }
+  },
+
+  Section: (node): RmsSection => {
+    return {
+      type: 'Section',
+      name: ((node.childrenByType.SectionHeader[0] as CstNode).childrenByType.Identifier[0] as Token).value,
+      statements: (node.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens).map(nodeToAst) as RmsSectionStatement[]
+    }
+  },
+
+  Command: (cstNode): RmsCommand => {
+    const astNode: RmsCommand = {
+      type: 'Command',
+      ...getNameAndArgs(cstNode.childrenByType.CommandHeader[0] as CstNode)
+    }
+    if ('CommandStatementsBlock' in cstNode.childrenByType) {
+      astNode.statements = [] as RmsCommandStatement[]
+      addStatementsIfAny(astNode, 'statements', cstNode.childrenByType.CommandStatementsBlock[0] as CstNode)
+    }
+    return astNode
+  },
+
+  Attribute: (cstNode): RmsAttribute => ({
     type: 'Attribute',
-    name: name,
-    args: args.map((x: any) => x[1][0])
+    ...getNameAndArgs(cstNode)
   }),
 
-  ConstDefinition: ({ children: [, , name, , value] }: CstNode): RmsConstDefinition => ({ type: 'ConstDefinition', name, value }),
-  FlagDefinition: ({ children: [, , flag] }: CstNode): RmsFlagDefinition => ({ type: 'FlagDefinition', flag }),
-  IncludeDrs: ({ children: [, , filename, id] }: CstNode): RmsIncludeDrs => {
-    const node: RmsIncludeDrs = { type: 'IncludeDrs', filename }
-    if (id) node.id = id[1]
-    return node
+  ConstDefinition: (node): RmsConstDefinition => {
+    const { name, args } = getNameAndArgs(node)
+    return { type: 'ConstDefinition', name, value: args[0] as number }
   },
 
-  MultilineComment: ({ children: [{ value }] }: CstNode): RmsMultilineComment => ({ type: 'MultilineComment', comment: value }),
+  FlagDefinition: (node): RmsFlagDefinition => ({
+    type: 'FlagDefinition',
+    flag: getNameAndArgs(node).name
+  }),
 
-  int: ({ children: [token] }: CstNode) => parseInt(token.value, 10),
-  identifier: ({ children: [token] }: CstNode) => token.value,
+  IncludeDrs: (cstNode): RmsIncludeDrs => {
+    const { name, args } = getNameAndArgs(cstNode)
+    const astNode: RmsIncludeDrs = { type: 'IncludeDrs', filename: name }
+    if (args.length) astNode.id = args[0] as number
+    return astNode
+  },
 
-  'eol': () => null,
-  'eol?': () => null,
-  'ws': () => null,
-  'ws?': () => null,
-  '__': () => null,
-  '_': () => null
+  MultilineComment: (node): RmsMultilineComment => ({
+    type: 'MultilineComment',
+    comment: (node.childrenByType.MultilineComment[0] as Token).value
+  })
 }
 
-/**
- * Extract flat array of rule results from this: `(rule __):* rule`
- */
-function combineLast (many: any[], last: any) { return many.map(x => x[0]).concat([last]) }
-
-/**
- * Flatten an array or arrays.
- */
-function flatten<T> (arrays: T[][]): T[] { return ([] as T[]).concat(...arrays) }
-
-/**
- * In the grammar, `if` statements are written as a macro which is expanded in each place where it's used
- * during `.ne` compilation and isn't a real rule. Therefore, we can't visit `GenericIf` directly.
- */
-function visitGenericIf ([, , condition, , statements, elseifs, elseStatements]: any): RmsIf<any> {
-  const node: RmsIf<any> = { type: 'If', condition }
-  if (statements.length) node.statements = flatten<any>(statements.map((s: any) => s[0][0]))
-  if (elseifs.length) {
-    node.elseifs = elseifs.map(([, , condition, , statements]: any) => {
-      const obj: { condition: string, statements?: any[] } = { condition }
-      if (statements.length) obj.statements = flatten<any>(statements.map((s: any) => s[0][0]))
-      return obj
-    })
-  }
-  if (elseStatements) node.elseStatements = flatten<any>(elseStatements[2].map((s: any) => s[0][0]))
-  return node
+function nodeToAst (node: CstNode) {
+  return astVisitorMap[node.type](node)
 }
 
-/**
- * `GenericAllowInlineComments` is a macro, not a real rule. See `visitGenericIf` above for details.
- */
-function visitGenericAllowInlineComments ([beforeComments, commentOrParts]: any): any[] {
-  let statements: any[] = beforeComments.map((x: any) => x[0])
-  // commentOrParts is either [statement, comments] or [comment].
-  if (commentOrParts.length === 1) statements.push(commentOrParts[0])
-  else statements = statements.concat([commentOrParts[0][0][0]], commentOrParts[1].map((x: any) => x[1]))
-  return statements
+function addStatementsIfAny (targetAstNode: any, propName: string, sourceCstNode: CstNode) {
+  const statements = (sourceCstNode.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens)
+  if (statements.length) targetAstNode[propName] = statements.map(nodeToAst)
+}
+
+function getNameAndArgs (node: CstNode) {
+  const [name, ...args] = node.children.filter(isValueToken).map(getTokenValue)
+  return { name: name as string, args }
+}
+
+function getTokenValue (token: Token) {
+  if (token.type === 'Integer') return parseInt(token.value, 10)
+  else return token.value
+}
+
+function isValueToken (token: Token) {
+  return ['Integer', 'Identifier'].includes(token.type as string)
+}
+
+function noTokens (node: CstNodeChild): node is CstNode {
+  return 'children' in node
 }

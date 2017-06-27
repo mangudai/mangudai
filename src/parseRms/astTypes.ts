@@ -1,13 +1,19 @@
+export type AstNode = RmsAst | RmsTopLevelStatement | RmsSectionStatement | RmsCommandStatement
+
 export type RmsAst = {
   type: 'RandomMapScript',
   statements: RmsTopLevelStatement[]
 }
 
+export type ElseIf<Child> = {
+  condition: string,
+  statements?: Child[]
+}
 export type RmsIf<Child> = {
   type: 'If',
   condition: string,
   statements?: Child[],
-  elseifs?: { condition: string, statements?: Child[] }[],
+  elseifs?: ElseIf<Child>[],
   elseStatements?: Child[]
 }
 
