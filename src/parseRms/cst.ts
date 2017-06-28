@@ -1,7 +1,7 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
 import { Token } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
-import { getChildren } from './cstHelpers'
+import { getChildren, getDescendants } from './cstHelpers'
 
 export function toCst (root: RuleNode) {
   return nodeToCst(root) as CstNode
@@ -11,15 +11,15 @@ export function toCst (root: RuleNode) {
 // as it's usually intended to be a top-level statement instead and
 // we have to decide one way or another.
 export function isNotAmbiguousCst (cst: CstNode): boolean {
-  const ambiguousTypes = ['ConstDefinition', 'FlagDefinition', 'MultilineComment']
+  return !getChildren(cst, 'Section').some(isAmbiguousSection)
 
-  return !getChildren(cst, 'Section').some((s: CstNode) => {
-    const statements = (getChildren(s, 'StatementsBlock')[0] as CstNode).children.filter(notToken) as CstNode[]
+  function isAmbiguousSection (section: CstNode): boolean {
+    const statements = (getChildren(section, 'StatementsBlock')[0] as CstNode).children.filter(notToken) as CstNode[]
     if (!statements.length) return false
 
     const last = statements.pop() as CstNode
-    return ambiguousTypes.includes(last.type)
-  })
+    return last.type !== 'Command' && !getDescendants(last, 'Command').length
+  }
 }
 
 const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNodeChild[] } = {
@@ -27,8 +27,8 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   TopLevelStatementsLine: parts => partsToCstNodes(parts),
   TopLevelIf: parts => visitGenericIf(parts),
 
-  Section: ([larrow, name, rarrow, ws, statements]) => simpleCstNode([
-    simpleCstNode([larrow, name, rarrow, ws], 'SectionHeader'),
+  Section: ([larrow, name, rarrow, statements]) => simpleCstNode([
+    simpleCstNode([larrow, name, rarrow], 'SectionHeader'),
     simpleCstNode([statements], 'StatementsBlock')
   ], 'Section'),
   SectionStatementsLine: parts => partsToCstNodes(parts),

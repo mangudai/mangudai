@@ -1,0 +1,90 @@
+{
+  "type": "RandomMapScript",
+  "statements": [
+    {
+      "type": "Section",
+      "name": "TERRAIN_GENERATION",
+      "statements": [
+        {
+          "type": "If",
+          "condition": "FOO",
+          "statements": [
+            {
+              "type": "If",
+              "condition": "BAR",
+              "statements": [
+                {
+                  "type": "If",
+                  "condition": "QUX",
+                  "elseStatements": [
+                    {
+                      "type": "Command",
+                      "name": "create_terrain",
+                      "args": [
+                        "GRASS3"
+                      ],
+                      "statements": [
+                        {
+                          "type": "Attribute",
+                          "name": "height_limits",
+                          "args": [
+                            7,
+                            7
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "MultilineComment",
+              "comment": "/* Last statement is a comment but this must be inside the section. */"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "name": "TERRAIN_GENERATION",
+      "statements": []
+    },
+    {
+      "type": "If",
+      "condition": "FOO",
+      "statements": [
+        {
+          "type": "If",
+          "condition": "BAR",
+          "statements": [
+            {
+              "type": "If",
+              "condition": "QUX",
+              "elseStatements": [
+                {
+                  "type": "MultilineComment",
+                  "comment": "/* This should be parsed as a top-level if. */"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "name": "TERRAIN_GENERATION",
+      "statements": []
+    },
+    {
+      "type": "MultilineComment",
+      "comment": "/* Empty if should be parsed outside as well. */"
+    },
+    {
+      "type": "If",
+      "condition": "FOO"
+    }
+  ]
+}

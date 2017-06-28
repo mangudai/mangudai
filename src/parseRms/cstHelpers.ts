@@ -8,6 +8,12 @@ export function getChildren (node: CstNode, type: string): CstNodeChild[] {
   else return []
 }
 
+export function getFirstChild (node: CstNode, type: string): CstNodeChild | undefined {
+  if (type in node.childrenByType && node.childrenByType[type].length) {
+    return node.childrenByType[type][0]
+  }
+}
+
 export function getDescendants (node: CstNode, type: string): CstNodeChild[] {
   if (descendantsCache.has(node)) return descendantsCache.get(node) as CstNode[] | Token[]
 
@@ -18,4 +24,9 @@ export function getDescendants (node: CstNode, type: string): CstNodeChild[] {
   })
   descendantsCache.set(node, descendants)
   return descendants
+}
+
+export function getFirstDescendant (node: CstNode, type: string): CstNodeChild | undefined {
+  const all = getDescendants(node, type)
+  return all.length ? all[0] : undefined
 }

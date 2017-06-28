@@ -1,0 +1,30 @@
+<TERRAIN_GENERATION>
+
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+  if FOO
+    if BAR
+      if QUX
+      else
+        /* This should be parsed as a top-level if. */
+      endif
+    endif
+  endif
+
+<TERRAIN_GENERATION>
+
+  /* Empty if should be parsed outside as well. */
+  if FOO
+  endif
