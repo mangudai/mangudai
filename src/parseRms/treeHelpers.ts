@@ -30,3 +30,13 @@ export function getFirstDescendant (node: CstNode, type: string): CstNodeChild |
   const all = getDescendants(node, type)
   return all.length ? all[0] : undefined
 }
+
+export function addHiddenCst (astNode: any, cstNode: CstNode): any {
+  Object.defineProperty(astNode, 'children', { enumerable: false, value: cstNode.children })
+  Object.defineProperty(astNode, 'childrenByType', { enumerable: false, value: cstNode.childrenByType })
+  return astNode
+}
+
+export function notToken (node: any): node is CstNode {
+  return 'children' in node
+}

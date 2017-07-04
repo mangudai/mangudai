@@ -1,7 +1,7 @@
-import { parseRms } from '../lib/index'
 import { expect } from 'chai'
 import { readdirSync, readFileSync } from 'fs'
 import { basename, extname, resolve } from 'path'
+import { parseRms } from '../lib/index'
 
 const readSampleFile = (name: string) => readFileSync(resolve(__dirname, 'samples', name), 'utf8')
 const readSample = (name: string) => ({
