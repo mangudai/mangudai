@@ -27,7 +27,7 @@ export function check (ast: RmsAst): LintError[] {
 
   return invalidConditionIdentifiers.map<LintError>(x => ({
     name: 'LintError',
-    message: `Condition ${x.value} is always true.`,
+    message: `Condition '${x.value}' is always true.`,
     boundaries: getBoundaries(x)
   }))
 }

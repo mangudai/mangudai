@@ -1,11 +1,13 @@
 import { RmsAst } from '../parseRms'
 import * as eolLast from './rules/eol-last'
 import * as noConstantCondition from './rules/no-constant-condition'
+import * as noDupeAttributes from './rules/no-dupe-attributes'
 import { TextSpan } from '../tokenHelpers'
 
-const rules = {
-  eolLast,
-  noConstantCondition
+const rules: { [x: string]: { check: (ast: RmsAst, options: any) => LintError[] } } = {
+  noConstantCondition,
+  noDupeAttributes,
+  eolLast
 }
 
 export function lint (ast: RmsAst, options: LinterOptions = {}): LintError[] {
