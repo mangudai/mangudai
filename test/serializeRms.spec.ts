@@ -5,7 +5,7 @@ import { basename, extname, resolve } from 'path'
 const readSampleFile = (name: string) => readFileSync(resolve(__dirname, 'samples', name), 'utf8')
 const readSample = (name: string) => ({
   name,
-  ast: JSON.parse(readSampleFile(`generated/${name}.ast`)),
+  ast: JSON.parse(readSampleFile(`generated/${name}.ast.json`)),
   correctSerialized: readSampleFile(`generated/${name}.generated.rms`)
 })
 

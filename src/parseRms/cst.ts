@@ -1,7 +1,7 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
 import { Token } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
-import { getChildren, getDescendants, notToken } from './treeHelpers'
+import { getChildren, getDescendants, isToken } from '../treeHelpers'
 
 export function toCst (root: RuleNode) {
   return nodeToCst(root) as CstNode
@@ -14,7 +14,7 @@ export function isNotAmbiguousCst (cst: CstNode): boolean {
   return !getChildren(cst, 'Section').some(isAmbiguousSection)
 
   function isAmbiguousSection (section: CstNode): boolean {
-    const statements = (getChildren(section, 'StatementsBlock')[0] as CstNode).children.filter(notToken)
+    const statements = (getChildren(section, 'StatementsBlock')[0] as CstNode).children.filter(x => !isToken(x))
     if (!statements.length) return false
 
     const last = statements.pop() as CstNode
@@ -105,10 +105,7 @@ function visitGenericIf ([[ifToken, ws1, condition, ws2, statements, elseifs, el
 }
 
 function unwrapTokens (parts: RuleNodeChildren): Token[] {
-  const onlyTokens = flattenParts(parts).map(part => {
-    if (notToken(part)) return unwrapTokens(part.children)
-    else return part
-  })
+  const onlyTokens = flattenParts(parts).map(part => isToken(part) ? part : unwrapTokens(part.children))
   return flattenDeep(onlyTokens) as Token[]
 }
 

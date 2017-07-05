@@ -1,6 +1,6 @@
 import { Token } from 'moo'
 import { CstNode, CstNodeChild } from './cst'
-import { addHiddenCst } from './treeHelpers'
+import { addHiddenCst } from '../treeHelpers'
 import { AstNode, RmsAst, RmsIf, ElseIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsIncludeDrs, RmsMultilineComment } from './astTypes'
 

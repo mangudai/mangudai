@@ -7,7 +7,7 @@ const readSampleFile = (name: string) => readFileSync(resolve(__dirname, 'sample
 const readSample = (name: string) => ({
   name,
   script: readSampleFile(`${name}.rms`),
-  correctAst: JSON.parse(readSampleFile(`generated/${name}.ast`))
+  correctAst: JSON.parse(readSampleFile(`generated/${name}.ast.json`))
 })
 
 describe('parseRms', () => {
