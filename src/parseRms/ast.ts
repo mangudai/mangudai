@@ -1,7 +1,7 @@
 import { Token } from 'moo'
 import { CstNode, CstNodeChild } from './cst'
-import { addHiddenCst } from '../treeHelpers'
-import { AstNode, RmsAst, RmsIf, ElseIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
+import { hideCstProperties, getFirstChildNode } from '../treeHelpers'
+import { AstNode, RmsAst, RmsIf, ElseIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsIncludeDrs, RmsMultilineComment } from './astTypes'
 
 export function toAst (root: CstNode) {
@@ -9,24 +9,24 @@ export function toAst (root: CstNode) {
 }
 
 const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
-  RandomMapScript: (cstNode): RmsAst => addHiddenCst({
+  RandomMapScript: (cstNode): RmsAst => hideCstProperties(Object.assign(cstNode, {
     type: 'RandomMapScript',
-    statements: cstNode.children.filter(noTokens).map(nodeToAst) as RmsTopLevelStatement[]
-  }, cstNode),
+    statements: (getFirstChildNode(cstNode, 'StatementsBlock') as CstNode).children.filter(noTokens).map(nodeToAst) as RmsTopLevelStatement[]
+  } as RmsAst)),
 
-  If: (ifNode): RmsIf<any> => {
-    const node: RmsIf<AstNode> = addHiddenCst({
+  If: (ifNode): RmsIf<AstNode> => {
+    const node: RmsIf<AstNode> = hideCstProperties(Object.assign(ifNode, {
       type: 'IfStatement',
       condition: getCondition(ifNode)
-    }, ifNode)
+    } as RmsIf<AstNode>))
     addStatementsIfAny(node, 'statements', ifNode)
 
     if ('ElseIf' in ifNode.childrenByType) {
       node.elseifs = (ifNode.childrenByType.ElseIf as CstNode[]).map(elseIf => {
-        const node: ElseIf<AstNode> = addHiddenCst({
+        const node: ElseIf<AstNode> = hideCstProperties(Object.assign(elseIf, {
           type: 'ElseIfStatement',
           condition: getCondition(elseIf)
-        }, elseIf)
+        } as ElseIf<AstNode>))
         addStatementsIfAny(node, 'statements', elseIf)
         return node
       })
@@ -45,58 +45,58 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
   },
 
   Section: (cstNode): RmsSection => {
-    return addHiddenCst({
+    return hideCstProperties(Object.assign(cstNode, {
       type: 'Section',
       name: ((cstNode.childrenByType.SectionHeader[0] as CstNode).childrenByType.Identifier[0] as Token).value,
       statements: (cstNode.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens).map(nodeToAst) as RmsSectionStatement[]
-    }, cstNode)
+    } as RmsSection))
   },
 
   Command: (cstNode): RmsCommand => {
-    const astNode: RmsCommand = addHiddenCst({
+    const astNode: RmsCommand = hideCstProperties(Object.assign(cstNode, {
       type: 'Command',
       ...getNameAndArgs(cstNode.childrenByType.CommandHeader[0] as CstNode)
-    }, cstNode)
+    } as RmsCommand))
     if ('CommandStatementsBlock' in cstNode.childrenByType) {
-      astNode.statements = [] as RmsCommandStatement[]
+      astNode.statements = []
       addStatementsIfAny(astNode, 'statements', cstNode.childrenByType.CommandStatementsBlock[0] as CstNode)
     }
     return astNode
   },
 
-  Attribute: (cstNode): RmsAttribute => addHiddenCst({
+  Attribute: (cstNode): RmsAttribute => hideCstProperties(Object.assign(cstNode, {
     type: 'Attribute',
     ...getNameAndArgs(cstNode)
-  }, cstNode),
+  } as RmsAttribute)),
 
   ConstDefinition: (cstNode): RmsConstDefinition => {
     const { name, args } = getNameAndArgs(cstNode)
-    return addHiddenCst({
+    return hideCstProperties(Object.assign(cstNode, {
       type: 'ConstDefinition',
       name,
       value: args[0] as number
-    }, cstNode)
+    } as RmsConstDefinition))
   },
 
-  FlagDefinition: (cstNode): RmsFlagDefinition => addHiddenCst({
+  FlagDefinition: (cstNode): RmsFlagDefinition => hideCstProperties(Object.assign(cstNode, {
     type: 'FlagDefinition',
     flag: getNameAndArgs(cstNode).name
-  }, cstNode),
+  } as RmsFlagDefinition)),
 
   IncludeDrs: (cstNode): RmsIncludeDrs => {
     const { name, args } = getNameAndArgs(cstNode)
-    const astNode: RmsIncludeDrs = addHiddenCst({
+    const astNode: RmsIncludeDrs = hideCstProperties(Object.assign(cstNode, {
       type: 'IncludeDrs',
       filename: name
-    }, cstNode)
+    } as RmsIncludeDrs))
     if (args.length) astNode.id = args[0] as number
     return astNode
   },
 
-  MultilineComment: (cstNode): RmsMultilineComment => addHiddenCst({
+  MultilineComment: (cstNode): RmsMultilineComment => hideCstProperties(Object.assign(cstNode, {
     type: 'MultilineComment',
     comment: (cstNode.childrenByType.MultilineComment[0] as Token).value
-  }, cstNode)
+  } as RmsMultilineComment))
 }
 
 function nodeToAst (node: CstNode) {

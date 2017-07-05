@@ -1,16 +1,1 @@
-[
-  {
-    "name": "LintError",
-    "message": "Duplicate attribute 'terrain_type'.",
-    "boundaries": {
-      "start": {
-        "line": 10,
-        "col": 7
-      },
-      "end": {
-        "line": 10,
-        "col": 19
-      }
-    }
-  }
-]
+[]

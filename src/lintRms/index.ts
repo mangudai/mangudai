@@ -2,11 +2,13 @@ import { RmsAst } from '../parseRms'
 import * as eolLast from './rules/eol-last'
 import * as noConstantCondition from './rules/no-constant-condition'
 import * as noDupeAttributes from './rules/no-dupe-attributes'
+import * as noDupeCommands from './rules/no-dupe-commands'
 import { TextSpan } from '../tokenHelpers'
 
 const rules: { [x: string]: { check: (ast: RmsAst, options: any) => LintError[] } } = {
   noConstantCondition,
   noDupeAttributes,
+  noDupeCommands,
   eolLast
 }
 

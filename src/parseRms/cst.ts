@@ -1,7 +1,7 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
 import { Token } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
-import { getChildren, getDescendants, isToken } from '../treeHelpers'
+import { getDescendants, isToken, getNodes, getFirstChildNode, getLastChildNode } from '../treeHelpers'
 
 export function toCst (root: RuleNode) {
   return nodeToCst(root) as CstNode
@@ -11,19 +11,14 @@ export function toCst (root: RuleNode) {
 // as it's usually intended to be a top-level statement instead and
 // we have to decide one way or another.
 export function isNotAmbiguousCst (cst: CstNode): boolean {
-  return !getChildren(cst, 'Section').some(isAmbiguousSection)
-
-  function isAmbiguousSection (section: CstNode): boolean {
-    const statements = (getChildren(section, 'StatementsBlock')[0] as CstNode).children.filter(x => !isToken(x))
-    if (!statements.length) return false
-
-    const last = statements.pop() as CstNode
-    return last.type !== 'Command' && !getDescendants(last, 'Command').length
-  }
+  return getNodes(cst, 'Section').every(section => {
+    const last = getLastChildNode(getFirstChildNode(section, 'StatementsBlock') as CstNode)
+    return !last || last.type === 'Command' || getDescendants(last, 'Command').length > 0
+  })
 }
 
 const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNodeChild[] } = {
-  Script: parts => simpleCstNode(parts, 'RandomMapScript'),
+  Script: parts => simpleCstNode([simpleCstNode(parts, 'StatementsBlock')], 'RandomMapScript'),
   TopLevelStatementsLine: parts => partsToCstNodes(parts),
   TopLevelIf: parts => visitGenericIf(parts),
 

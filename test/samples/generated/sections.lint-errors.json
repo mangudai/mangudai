@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "name": "LintError",
+    "message": "Duplicate command 'create_object' with exactly the same arguments and attibutes.",
+    "boundaries": {
+      "start": {
+        "line": 14,
+        "col": 3
+      },
+      "end": {
+        "line": 19,
+        "col": 4
+      }
+    }
+  }
+]
