@@ -1,7 +1,40 @@
-import { CstNode, CstNodeChild } from './parseRms/cst'
 import { Token } from 'moo'
+import { AstNode, RmsIf } from './parseRms/astTypes'
+import { CstNode, CstNodeChild } from './parseRms/cst'
 
-const descendantsCache = new WeakMap<CstNode, CstNodeChild[]>()
+const cstDescendantsCache = new WeakMap<CstNode, CstNodeChild[]>()
+const astDescendantsCache = new WeakMap<AstNode, AstNode[]>()
+
+export function getAstChildren (node: AstNode, type?: string): AstNode[] {
+  const children: AstNode[] = []
+  switch (node.type) {
+    case 'IfStatement':
+      children.push(...((node as RmsIf<any>).elseifs || []))
+      children.push(...((node as RmsIf<any>).elseStatements || []))
+      /* falls through */
+    case 'RandomMapScript':
+    case 'ElseIfStatement':
+    case 'Section':
+    case 'Command':
+      children.push(...((node as any).statements || []))
+  }
+  return type ? children.filter(x => x.type === type) : children
+}
+
+export function getAstDescendants (node: AstNode, type?: string): AstNode[] {
+  let all: AstNode[] = []
+
+  if (astDescendantsCache.has(node)) {
+    all = astDescendantsCache.get(node) || []
+  } else {
+    getAstChildren(node).forEach(x => {
+      all.push(x, ...getAstDescendants(x))
+    })
+    astDescendantsCache.set(node, all)
+  }
+
+  return type ? all.filter(x => x.type === type) : all
+}
 
 export function getChildren (node: CstNode, type?: string): CstNodeChild[] {
   if (!type) {
@@ -32,14 +65,14 @@ export function getLastChild (node: CstNode, type?: string): CstNodeChild | unde
 export function getDescendants (node: CstNode, type?: string): CstNodeChild[] {
   let all: CstNodeChild[] = []
 
-  if (descendantsCache.has(node)) {
-    all = descendantsCache.get(node) as CstNodeChild[]
+  if (cstDescendantsCache.has(node)) {
+    all = cstDescendantsCache.get(node) || []
   } else {
     node.children.forEach(x => {
       all.push(x)
-      if ('children' in x) all = [...all, ...getDescendants(x as CstNode, type)]
+      if (!isToken(x)) all.push(...getDescendants(x))
     })
-    descendantsCache.set(node, all)
+    cstDescendantsCache.set(node, all)
   }
 
   return type ? all.filter(x => x.type === type) : all
@@ -66,6 +99,20 @@ export function getFirstToken (node: CstNode, type?: string): Token | undefined 
 
 export function getLastToken (node: CstNode, type?: string): Token | undefined {
   const all = getTokens(node, type)
+  return all.length ? all[all.length - 1] : undefined
+}
+
+export function getNodes (node: CstNode, type?: string): CstNode[] {
+  return getDescendants(node, type).filter(x => !isToken(x)) as CstNode[]
+}
+
+export function getFirstNode (node: CstNode, type?: string): CstNode | undefined {
+  const all = getNodes(node, type)
+  return all.length ? all[0] : undefined
+}
+
+export function getLastNode (node: CstNode, type?: string): CstNode | undefined {
+  const all = getNodes(node, type)
   return all.length ? all[all.length - 1] : undefined
 }
 

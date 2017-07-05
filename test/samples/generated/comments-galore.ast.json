@@ -140,7 +140,7 @@
               "comment": "/* comment 21 */"
             },
             {
-              "type": "If",
+              "type": "IfStatement",
               "condition": "CONDITION",
               "statements": [
                 {

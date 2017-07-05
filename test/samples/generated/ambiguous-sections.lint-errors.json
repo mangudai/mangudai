@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "name": "LintError",
+    "message": "Condition FOO is always true.",
+    "boundaries": {
+      "start": {
+        "line": 5,
+        "col": 6
+      },
+      "end": {
+        "line": 5,
+        "col": 9
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Condition FOO is always true.",
+    "boundaries": {
+      "start": {
+        "line": 19,
+        "col": 6
+      },
+      "end": {
+        "line": 19,
+        "col": 9
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Condition FOO is always true.",
+    "boundaries": {
+      "start": {
+        "line": 31,
+        "col": 6
+      },
+      "end": {
+        "line": 31,
+        "col": 9
+      }
+    }
+  }
+]

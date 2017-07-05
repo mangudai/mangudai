@@ -6,15 +6,19 @@
       "name": "TERRAIN_GENERATION",
       "statements": [
         {
-          "type": "If",
+          "type": "FlagDefinition",
+          "flag": "FOO"
+        },
+        {
+          "type": "IfStatement",
           "condition": "FOO",
           "statements": [
             {
-              "type": "If",
+              "type": "IfStatement",
               "condition": "BAR",
               "statements": [
                 {
-                  "type": "If",
+                  "type": "IfStatement",
                   "condition": "QUX",
                   "elseStatements": [
                     {
@@ -52,15 +56,15 @@
       "statements": []
     },
     {
-      "type": "If",
+      "type": "IfStatement",
       "condition": "FOO",
       "statements": [
         {
-          "type": "If",
+          "type": "IfStatement",
           "condition": "BAR",
           "statements": [
             {
-              "type": "If",
+              "type": "IfStatement",
               "condition": "QUX",
               "elseStatements": [
                 {
@@ -83,7 +87,7 @@
       "comment": "/* Empty if should be parsed outside as well. */"
     },
     {
-      "type": "If",
+      "type": "IfStatement",
       "condition": "FOO"
     }
   ]

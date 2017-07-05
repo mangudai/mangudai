@@ -1,4 +1,4 @@
-import { RmsAst, RmsIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
+import { RmsAst, RmsIf, ElseIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsMultilineComment, RmsIncludeDrs } from './parseRms'
 
 type RmsAstNode = RmsAst | RmsTopLevelStatement | RmsSectionStatement | RmsCommandStatement
@@ -22,7 +22,7 @@ const serializers: { [x: string]: (n: RmsAstNode) => string } = {
 
   FlagDefinition: ({ flag }: RmsFlagDefinition) => `#define ${flag}`,
 
-  If: ({ condition, statements, elseifs, elseStatements }: RmsIf<any>) => {
+  IfStatement: ({ condition, statements, elseifs, elseStatements }: RmsIf<any>) => {
     let str = `if ${condition}`
     if (statements && statements.length) str += '\n' + statements.map(serializeNode).map(indent).join('\n')
     if (elseifs && elseifs.length) str += '\n' + elseifs.map(serializeElseif).join('\n')
@@ -36,7 +36,7 @@ const serializers: { [x: string]: (n: RmsAstNode) => string } = {
   IncludeDrs: ({ filename, id }: RmsIncludeDrs) => `#include_drs ${filename}` + (id ? ` ${id}` : '')
 }
 
-function serializeElseif ({ condition, statements }: { condition: string, statements: RmsAstNode[] }) {
+function serializeElseif ({ condition, statements }: ElseIf<any>) {
   let str = `elseif ${condition}`
   if (statements && statements.length) str += '\n' + statements.map(serializeNode).map(indent).join('\n')
   return str

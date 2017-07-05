@@ -6,7 +6,7 @@
       "name": "LAND_GENERATION",
       "statements": [
         {
-          "type": "If",
+          "type": "IfStatement",
           "condition": "DESERT_MAP",
           "statements": [
             {
@@ -33,7 +33,7 @@
           "args": [],
           "statements": [
             {
-              "type": "If",
+              "type": "IfStatement",
               "condition": "DESERT_MAP",
               "statements": [
                 {
@@ -66,10 +66,11 @@
       ]
     },
     {
-      "type": "If",
+      "type": "IfStatement",
       "condition": "FOO",
       "elseifs": [
         {
+          "type": "ElseIfStatement",
           "condition": "BAR"
         }
       ],
@@ -88,7 +89,7 @@
       ]
     },
     {
-      "type": "If",
+      "type": "IfStatement",
       "condition": "FOO",
       "statements": [
         {
@@ -118,11 +119,11 @@
       ]
     },
     {
-      "type": "If",
+      "type": "IfStatement",
       "condition": "FOO",
       "statements": [
         {
-          "type": "If",
+          "type": "IfStatement",
           "condition": "FOO",
           "statements": [
             {
@@ -154,10 +155,11 @@
       ],
       "elseifs": [
         {
+          "type": "ElseIfStatement",
           "condition": "BAR",
           "statements": [
             {
-              "type": "If",
+              "type": "IfStatement",
               "condition": "FOO",
               "statements": [
                 {
@@ -191,7 +193,7 @@
       ],
       "elseStatements": [
         {
-          "type": "If",
+          "type": "IfStatement",
           "condition": "FOO",
           "statements": [
             {

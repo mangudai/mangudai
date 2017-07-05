@@ -1,9 +1,11 @@
 import { RmsAst } from '../parseRms'
-import * as eolLast from './rules/eolLast'
+import * as eolLast from './rules/eol-last'
+import * as noConstantCondition from './rules/no-constant-condition'
 import { TextSpan } from '../tokenHelpers'
 
 const rules = {
-  eolLast
+  eolLast,
+  noConstantCondition
 }
 
 export function lint (ast: RmsAst, options: LinterOptions = {}): LintError[] {

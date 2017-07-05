@@ -16,14 +16,17 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
 
   If: (ifNode): RmsIf<any> => {
     const node: RmsIf<AstNode> = addHiddenCst({
-      type: 'If',
+      type: 'IfStatement',
       condition: getCondition(ifNode)
     }, ifNode)
     addStatementsIfAny(node, 'statements', ifNode)
 
     if ('ElseIf' in ifNode.childrenByType) {
       node.elseifs = (ifNode.childrenByType.ElseIf as CstNode[]).map(elseIf => {
-        const node: ElseIf<AstNode> = { condition: getCondition(elseIf) }
+        const node: ElseIf<AstNode> = addHiddenCst({
+          type: 'ElseIfStatement',
+          condition: getCondition(elseIf)
+        }, elseIf)
         addStatementsIfAny(node, 'statements', elseIf)
         return node
       })

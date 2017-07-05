@@ -1,4 +1,5 @@
 <TERRAIN_GENERATION>
+  #define FOO
   if FOO
     if BAR
       if QUX

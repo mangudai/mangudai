@@ -8,14 +8,15 @@ export interface RmsAst extends AstNode {
 }
 
 export interface RmsIf<Child> extends AstNode {
-  type: 'If',
+  type: 'IfStatement',
   condition: string,
   statements?: Child[],
   elseifs?: ElseIf<Child>[],
   elseStatements?: Child[]
 }
 
-export type ElseIf<Child> = {
+export interface ElseIf<Child> extends AstNode {
+  type: 'ElseIfStatement'
   condition: string,
   statements?: Child[]
 }
