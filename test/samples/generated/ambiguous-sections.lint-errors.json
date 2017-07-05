@@ -1,7 +1,7 @@
 [
   {
     "name": "LintError",
-    "message": "Condition FOO is always true.",
+    "message": "Condition 'FOO' is always true.",
     "boundaries": {
       "start": {
         "line": 5,
@@ -15,7 +15,7 @@
   },
   {
     "name": "LintError",
-    "message": "Condition FOO is always true.",
+    "message": "Condition 'FOO' is always true.",
     "boundaries": {
       "start": {
         "line": 19,
@@ -29,7 +29,7 @@
   },
   {
     "name": "LintError",
-    "message": "Condition FOO is always true.",
+    "message": "Condition 'FOO' is always true.",
     "boundaries": {
       "start": {
         "line": 31,
