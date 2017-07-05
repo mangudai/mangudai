@@ -1,4 +1,4 @@
-import { CstNode, CstNodeChild } from './cst'
+import { CstNode, CstNodeChild } from './parseRms/cst'
 import { Token } from 'moo'
 
 const descendantsCache = new WeakMap<CstNode, CstNodeChild[]>()

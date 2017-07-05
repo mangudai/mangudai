@@ -20,7 +20,7 @@ samples.forEach(filename => {
   const astFilename = basename(filename, '.rms') + '.ast.json'
   writeFileSync(join(__dirname, astFilename), serializedAst + '\n')
 
-  const lintErrors = JSON.stringify(ast ? lint(ast) : [])
+  const lintErrors = JSON.stringify(ast ? lint(ast) : [], null, 2)
   const lintFilename = basename(filename, '.rms') + '.lint-errors.json'
   writeFileSync(join(__dirname, lintFilename), lintErrors)
 

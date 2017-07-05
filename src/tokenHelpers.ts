@@ -1,5 +1,4 @@
 import { Token } from 'moo'
-import { ErrorBoundaries } from './'
 
 const EMPTY_TOKEN: Token = {
   value: '',
@@ -10,7 +9,7 @@ const EMPTY_TOKEN: Token = {
   col: 1
 }
 
-export function getBoundaries (token: Token = EMPTY_TOKEN): ErrorBoundaries {
+export function getBoundaries (token: Token = EMPTY_TOKEN): TextSpan {
   const tokenLines = token.value.split('\n')
   return {
     start: {
@@ -19,7 +18,18 @@ export function getBoundaries (token: Token = EMPTY_TOKEN): ErrorBoundaries {
     },
     end: {
       line: token.line + tokenLines.length - 1,
-      col: token.col + tokenLines[tokenLines.length - 1].length - 1
+      col: token.col + tokenLines[tokenLines.length - 1].length
     }
+  }
+}
+
+export interface TextSpan {
+  start: {
+    line: number,
+    col: number
+  },
+  end: {
+    line: number,
+    col: number
   }
 }

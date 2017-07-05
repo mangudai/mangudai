@@ -1,29 +1,26 @@
 import { RmsAst } from '../parseRms'
 import * as eolLast from './rules/eolLast'
+import { TextSpan } from '../tokenHelpers'
 
-const rules = [
+const rules = {
   eolLast
-]
+}
 
-export function lint (ast: RmsAst): LintError[] {
+export function lint (ast: RmsAst, options: LinterOptions = {}): LintError[] {
   const errors: LintError[] = []
-  rules.forEach(rule => errors.push(...rule.check(ast)))
+  Object.entries(rules).forEach(([name, rule]) => errors.push(...rule.check(ast, options[name])))
   return errors
+}
+
+export interface LinterOptions {
+  // Hack to make options accessible via options[name].
+  [x: string]: any
+
+  eolLast?: eolLast.RuleOptions
 }
 
 export interface LintError extends Error {
   name: 'LintError',
   message: string,
-  boundaries: ErrorBoundaries
-}
-
-export interface ErrorBoundaries {
-  start: {
-    line: number,
-    col: number
-  },
-  end: {
-    line: number,
-    col: number
-  }
+  boundaries: TextSpan
 }
