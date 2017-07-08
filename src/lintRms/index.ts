@@ -7,6 +7,7 @@ const rules: { [x: string]: { check: (ast: RmsAst, options: any) => LintError[] 
   noDupeAttributes: require('./rules/no-dupe-attributes'),
   noDupeCommands: require('./rules/no-dupe-commands'),
   noEmptyElse: require('./rules/no-empty-else'),
+  noEmptySections: require('./rules/no-empty-sections'),
 
   // Stylistic issues
   eolLast: require('./rules/eol-last')

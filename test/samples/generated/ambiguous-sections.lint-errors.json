@@ -40,5 +40,33 @@
         "col": 9
       }
     }
+  },
+  {
+    "name": "LintError",
+    "message": "Empty section 'TERRAIN_GENERATION'.",
+    "boundaries": {
+      "start": {
+        "line": 17,
+        "col": 1
+      },
+      "end": {
+        "line": 17,
+        "col": 21
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Empty section 'TERRAIN_GENERATION'.",
+    "boundaries": {
+      "start": {
+        "line": 28,
+        "col": 1
+      },
+      "end": {
+        "line": 28,
+        "col": 21
+      }
+    }
   }
 ]
