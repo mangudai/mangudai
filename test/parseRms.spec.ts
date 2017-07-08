@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { readdirSync, readFileSync } from 'fs'
-import { basename, extname, resolve } from 'path'
+import { basename, resolve } from 'path'
 import { parseRms } from '../lib/index'
 
 const readSampleFile = (name: string) => readFileSync(resolve(__dirname, 'samples', name), 'utf8')
@@ -24,7 +24,7 @@ describe('parseRms', () => {
   })
 
   readdirSync(resolve(__dirname, 'samples'))
-    .filter(str => extname(str) === '.rms')
+    .filter(str => str.endsWith('.rms'))
     .map(filename => readSample(basename(filename, '.rms')))
     .forEach(({ name, script, correctAst }) => {
       it(`parses example ${name}`, () => {

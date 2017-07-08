@@ -15,6 +15,9 @@ export const lexer = compile({
   Elseif: 'elseif',
   Else: 'else',
   Endif: 'endif',
+  StartRandom: 'start_random',
+  PercentChance: 'percent_chance',
+  EndRandom: 'end_random',
   Integer: /[0-9]+/,
   Identifier: /[^\s0-9!@#\$%\^&\*\(\)\-\+=;:'"<>{}\[\]\?\/\\][^\s;'"<>{}\[\]\/\\]*/
 })

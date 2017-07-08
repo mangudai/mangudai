@@ -21,8 +21,20 @@ export interface ElseIf<Child> extends AstNode {
   statements?: Child[]
 }
 
-export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition | RmsIncludeDrs | RmsTopLevelIf | RmsMultilineComment
+export interface RandomStatement<Child> extends AstNode {
+  type: 'RandomStatement',
+  statements: (RmsMultilineComment | ChanceStatement<Child>)[]
+}
+
+export interface ChanceStatement<Child> extends AstNode {
+  type: 'ChanceStatement',
+  chance: number,
+  statements: Child[]
+}
+
+export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition | RmsIncludeDrs | RmsTopLevelIf | TopLevelRandomStatement | RmsMultilineComment
 export interface RmsTopLevelIf extends RmsIf<RmsTopLevelStatement> {} // Microsoft/TypeScript#6230
+export interface TopLevelRandomStatement extends RandomStatement<RmsTopLevelStatement> {}
 
 export interface RmsSection extends AstNode {
   type: 'Section',
@@ -30,8 +42,9 @@ export interface RmsSection extends AstNode {
   statements: RmsSectionStatement[]
 }
 
-export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition | RmsSectionIf | RmsMultilineComment
+export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition | RmsSectionIf | SectionRandomStatement | RmsMultilineComment
 export interface RmsSectionIf extends RmsIf<RmsSectionStatement> {} // Microsoft/TypeScript#6230
+export interface SectionRandomStatement extends RandomStatement<RmsSectionStatement> {}
 
 export interface RmsCommand extends AstNode {
   type: 'Command',
@@ -40,8 +53,9 @@ export interface RmsCommand extends AstNode {
   statements?: RmsCommandStatement[]
 }
 
-export type RmsCommandStatement = RmsAttribute | RmsCommandIf | RmsMultilineComment
+export type RmsCommandStatement = RmsAttribute | RmsCommandIf | CommandRandomStatement | RmsMultilineComment
 export interface RmsCommandIf extends RmsIf<RmsCommandStatement> {} // Microsoft/TypeScript#6230
+export interface CommandRandomStatement extends RandomStatement<RmsCommandStatement> {}
 
 export interface RmsAttribute extends AstNode {
   type: 'Attribute',

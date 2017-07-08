@@ -1,7 +1,7 @@
 import { Token } from 'moo'
 import { CstNode, CstNodeChild } from './cst'
-import { hideCstProperties, getFirstChildNode } from '../treeHelpers'
-import { AstNode, RmsAst, RmsIf, ElseIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand,
+import { hideCstProperties, getFirstChildNode, getFirstToken } from '../treeHelpers'
+import { AstNode, RmsAst, RmsIf, ElseIf, RandomStatement, ChanceStatement, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsIncludeDrs, RmsMultilineComment } from './astTypes'
 
 export function toAst (root: CstNode) {
@@ -19,7 +19,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
       type: 'IfStatement',
       condition: getCondition(ifNode)
     } as RmsIf<AstNode>))
-    addStatementsIfAny(node, 'statements', ifNode)
+    addStatements(node, 'statements', ifNode)
 
     if ('ElseIf' in ifNode.childrenByType) {
       node.elseifs = (ifNode.childrenByType.ElseIf as CstNode[]).map(elseIf => {
@@ -27,14 +27,14 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
           type: 'ElseIfStatement',
           condition: getCondition(elseIf)
         } as ElseIf<AstNode>))
-        addStatementsIfAny(node, 'statements', elseIf)
+        addStatements(node, 'statements', elseIf)
         return node
       })
     }
 
     if ('Else' in ifNode.childrenByType) {
       const elseNode = ifNode.childrenByType.Else[0] as CstNode
-      addStatementsIfAny(node, 'elseStatements', elseNode)
+      addStatements(node, 'elseStatements', elseNode)
     }
 
     return node
@@ -44,13 +44,24 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
     }
   },
 
-  Section: (cstNode): RmsSection => {
-    return hideCstProperties(Object.assign(cstNode, {
-      type: 'Section',
-      name: ((cstNode.childrenByType.SectionHeader[0] as CstNode).childrenByType.Identifier[0] as Token).value,
-      statements: (cstNode.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens).map(nodeToAst) as RmsSectionStatement[]
-    } as RmsSection))
+  RandomStatement: node => {
+    hideCstProperties(node)
+    addStatements(node, 'statements', node, true)
+    return node as RandomStatement<AstNode>
   },
+
+  ChanceStatement: node => {
+    hideCstProperties(node)
+    ;(node as ChanceStatement<AstNode>).chance = getTokenValue(getFirstToken(node, 'Integer') as Token) as number
+    addStatements(node, 'statements', node, true)
+    return node as ChanceStatement<AstNode>
+  },
+
+  Section: (cstNode): RmsSection => hideCstProperties(Object.assign(cstNode, {
+    type: 'Section',
+    name: ((cstNode.childrenByType.SectionHeader[0] as CstNode).childrenByType.Identifier[0] as Token).value,
+    statements: (cstNode.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens).map(nodeToAst) as RmsSectionStatement[]
+  } as RmsSection)),
 
   Command: (cstNode): RmsCommand => {
     const astNode: RmsCommand = hideCstProperties(Object.assign(cstNode, {
@@ -59,7 +70,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
     } as RmsCommand))
     if ('CommandStatementsBlock' in cstNode.childrenByType) {
       astNode.statements = []
-      addStatementsIfAny(astNode, 'statements', cstNode.childrenByType.CommandStatementsBlock[0] as CstNode)
+      addStatements(astNode, 'statements', cstNode.childrenByType.CommandStatementsBlock[0] as CstNode)
     }
     return astNode
   },
@@ -103,9 +114,9 @@ function nodeToAst (node: CstNode) {
   return astVisitorMap[node.type](node)
 }
 
-function addStatementsIfAny (targetAstNode: any, propName: string, sourceCstNode: CstNode) {
+function addStatements (targetAstNode: any, propName: string, sourceCstNode: CstNode, addEmptyArrayIfNone = false) {
   const statements = (sourceCstNode.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens)
-  if (statements.length) targetAstNode[propName] = statements.map(nodeToAst)
+  if (statements.length || addEmptyArrayIfNone) targetAstNode[propName] = statements.map(nodeToAst)
 }
 
 function getNameAndArgs (node: CstNode) {

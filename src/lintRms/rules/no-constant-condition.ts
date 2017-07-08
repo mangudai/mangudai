@@ -1,7 +1,7 @@
 import { Token } from 'moo'
 import { LintError } from '../'
 import { RmsAst, RmsIf, ElseIf, RmsFlagDefinition } from '../../parseRms'
-import { getDescendants, getFirstToken } from '../../treeHelpers'
+import { getDescendants, getFirstToken, getNodes } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 
 export function check (ast: RmsAst): LintError[] {
@@ -9,9 +9,8 @@ export function check (ast: RmsAst): LintError[] {
   const unconditionallyDefinedFlags: string[] = []
   const invalidConditionIdentifiers: Token[] = []
 
-  getDescendants(ast, 'IfStatement').forEach((ifNode: RmsIf<any>) => {
-    if (ifNode.statements) conditionallyDefinedFlags.push(...ifNode.statements.filter(x => x.type === 'FlagDefinition'))
-    if (ifNode.elseStatements) conditionallyDefinedFlags.push(...ifNode.elseStatements.filter(x => x.type === 'FlagDefinition'))
+  getNodes(ast, 'IfStatement').concat(getNodes(ast, 'ChanceStatement')).forEach(parent => {
+    conditionallyDefinedFlags.push(...getNodes(parent, 'FlagDefinition').map((x: RmsFlagDefinition) => x.flag))
   })
 
   getDescendants(ast, 'FlagDefinition').forEach(({ flag }: RmsFlagDefinition) => {

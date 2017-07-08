@@ -1,9 +1,7 @@
-import { RmsAst, RmsIf, ElseIf, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand, RmsCommandStatement,
+import { AstNode, RmsAst, RmsIf, ElseIf, RandomStatement, ChanceStatement, RmsSection, RmsCommand,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsMultilineComment, RmsIncludeDrs } from './parseRms'
 
-type RmsAstNode = RmsAst | RmsTopLevelStatement | RmsSectionStatement | RmsCommandStatement
-
-const serializers: { [x: string]: (n: RmsAstNode) => string } = {
+const serializers: { [x: string]: (n: AstNode) => string } = {
   RandomMapScript: (ast: RmsAst) => ast.statements.map(serializeNode).join('\n\n') + '\n',
 
   Section: ({ name, statements}: RmsSection) =>
@@ -31,6 +29,13 @@ const serializers: { [x: string]: (n: RmsAstNode) => string } = {
     return str
   },
 
+  RandomStatement: ({ statements }: RandomStatement<any>) => 'start_random\n' +
+    statements.map(serializeNode).map(indent).join('\n') +
+    '\nend_random',
+
+  ChanceStatement: ({ chance, statements }: ChanceStatement<any>) => `percent_chance ${chance}\n` +
+    statements.map(serializeNode).map(indent).join('\n'),
+
   MultilineComment: ({ comment }: RmsMultilineComment) => comment,
 
   IncludeDrs: ({ filename, id }: RmsIncludeDrs) => `#include_drs ${filename}` + (id ? ` ${id}` : '')
@@ -46,7 +51,7 @@ function indent (str: string): string {
   return str.split('\n').map(s => `  ${s}`).join('\n')
 }
 
-function serializeNode (node: RmsAstNode): string {
+function serializeNode (node: AstNode): string {
   return serializers[node.type](node)
 }
 

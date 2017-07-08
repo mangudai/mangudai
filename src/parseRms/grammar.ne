@@ -4,24 +4,31 @@
 
 Script -> _ ((TopLevelStatementsLine eol):* TopLevelStatementsLine eol?):?
 
-GenericIf[Child] -> %If ws identifier __
+GenericIf[Child] -> %If ws identifier eol
                     ($Child eol):*
                     (%Elseif ws identifier __ ($Child eol):*):*
                     (%Else __ ($Child eol):+):?
                     %Endif
 
-GenericAllowInlineComments[Statement] -> (MultilineComment ws?):* ($Statement (ws? MultilineComment):* | MultilineComment)
+GenericRandom[Child] -> %StartRandom eol (MultilineComment __):*
+                        (%PercentChance ws int __ ($Child eol):+):+
+                        %EndRandom
 
-TopLevelStatementsLine -> GenericAllowInlineComments[(Section | ConstDefinition | FlagDefinition | IncludeDrs | TopLevelIf)]
+GenericWithInlineComments[Statement] -> (MultilineComment ws?):* ($Statement (ws? MultilineComment):* | MultilineComment)
+
+TopLevelStatementsLine -> GenericWithInlineComments[(Section | ConstDefinition | FlagDefinition | IncludeDrs | TopLevelIf | TopLevelRandom)]
 TopLevelIf -> GenericIf[TopLevelStatementsLine]
+TopLevelRandom -> GenericRandom[TopLevelStatementsLine]
 
 Section -> %LArrow identifier %RArrow (eol (SectionStatementsLine eol):* SectionStatementsLine):?
-SectionStatementsLine -> GenericAllowInlineComments[(Command | ConstDefinition | FlagDefinition | SectionIf)]
+SectionStatementsLine -> GenericWithInlineComments[(Command | ConstDefinition | FlagDefinition | SectionIf | SectionRandom)]
 SectionIf -> GenericIf[SectionStatementsLine]
+SectionRandom -> GenericRandom[SectionStatementsLine]
 
 Command -> Attribute (_ %LCurly eol? ((CommandStatementsLine eol):* CommandStatementsLine eol?):? %RCurly):?
-CommandStatementsLine -> GenericAllowInlineComments[(Attribute | CommandIf)]
+CommandStatementsLine -> GenericWithInlineComments[(Attribute | CommandIf | CommandRandom)]
 CommandIf -> GenericIf[CommandStatementsLine]
+CommandRandom -> GenericRandom[CommandStatementsLine]
 
 Attribute -> identifier (ws (identifier | int)):*
 

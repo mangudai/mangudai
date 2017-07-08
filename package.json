@@ -8,7 +8,8 @@
     "lint-src": "tslint --type-check --project src --exclude src/parseRms/grammar.ts \"src/**/*.ts\"",
     "lint-test": "tslint --type-check --project test \"test/**/*.ts\"",
     "lint": "npm run lint-src && npm run lint-test",
-    "test": "npm run build && npm run lint && nyc --reporter=lcov mocha",
+    "mocha": "cross-env TS_NODE_PROJECT=\"test/tsconfig.json\" nyc --reporter=lcov mocha",
+    "test": "npm run build && npm run lint && npm run mocha",
     "gen-grammar": "nearleyc src/parseRms/grammar.ne --out src/parseRms/grammar.ts",
     "update-samples": "ts-node --project test ./test/samples/generated/generateSamples"
   },
@@ -37,6 +38,7 @@
     "@types/node": "^7.0.18",
     "@types/xregexp": "^3.0.28",
     "chai": "^4.0.0",
+    "cross-env": "^5.0.1",
     "mocha": "^3.3.0",
     "nyc": "^11.0.1",
     "ts-node": "^3.1.0",

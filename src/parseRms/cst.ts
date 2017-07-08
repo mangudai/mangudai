@@ -21,6 +21,7 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   Script: parts => simpleCstNode([simpleCstNode(parts, 'StatementsBlock')], 'RandomMapScript'),
   TopLevelStatementsLine: parts => partsToCstNodes(parts),
   TopLevelIf: parts => visitGenericIf(parts),
+  TopLevelRandom: parts => visitGenericRandom(parts),
 
   Section: ([larrow, name, rarrow, statements]) => simpleCstNode([
     simpleCstNode([larrow, name, rarrow], 'SectionHeader'),
@@ -28,6 +29,7 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   ], 'Section'),
   SectionStatementsLine: parts => partsToCstNodes(parts),
   SectionIf: parts => visitGenericIf(parts),
+  SectionRandom: parts => visitGenericRandom(parts),
 
   Command: ([header, attributes]: [RuleNode, RuleNodeChildren]) => simpleCstNode([
     simpleCstNode(unwrapTokens([header]), 'CommandHeader'),
@@ -39,6 +41,7 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   ], 'Command'),
   CommandStatementsLine: parts => partsToCstNodes(parts),
   CommandIf: parts => visitGenericIf(parts),
+  CommandRandom: parts => visitGenericRandom(parts),
 
   Attribute: parts => simpleCstNode(parts, 'Attribute'),
 
@@ -97,6 +100,19 @@ function visitGenericIf ([[ifToken, ws1, condition, ws2, statements, elseifs, el
     ], 'Else') : null,
     endifToken
   ], 'If')
+}
+
+function visitGenericRandom ([[startToken, ws, comments, chances, endToken]]: any) {
+  return simpleCstNode([
+    startToken, ws,
+    simpleCstNode([
+      comments,
+      chances.map(([chanceToken, ws1, percent, ws2, statements]: any) => simpleCstNode([
+        chanceToken, ws1, percent, ws2, simpleCstNode(statements, 'StatementsBlock')
+      ], 'ChanceStatement'))
+    ], 'StatementsBlock'),
+    endToken
+  ], 'RandomStatement')
 }
 
 function unwrapTokens (parts: RuleNodeChildren): Token[] {
