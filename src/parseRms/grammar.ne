@@ -7,7 +7,7 @@ Script -> _ ((TopLevelStatementsLine eol):* TopLevelStatementsLine eol?):?
 GenericIf[Child] -> %If ws identifier eol
                     ($Child eol):*
                     (%Elseif ws identifier __ ($Child eol):*):*
-                    (%Else __ ($Child eol):+):?
+                    (%Else __ ($Child eol):*):?
                     %Endif
 
 GenericRandom[Child] -> %StartRandom eol (MultilineComment __):*

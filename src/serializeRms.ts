@@ -24,7 +24,7 @@ const serializers: { [x: string]: (n: AstNode) => string } = {
     let str = `if ${condition}`
     if (statements && statements.length) str += '\n' + statements.map(serializeNode).map(indent).join('\n')
     if (elseifs && elseifs.length) str += '\n' + elseifs.map(serializeElseif).join('\n')
-    if (elseStatements && elseStatements.length) str += '\nelse\n' + elseStatements.map(serializeNode).map(indent).join('\n')
+    if (elseStatements) str += '\nelse\n' + elseStatements.map(serializeNode).map(indent).join('\n')
     str += '\nendif'
     return str
   },

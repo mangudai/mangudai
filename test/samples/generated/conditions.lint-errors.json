@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "name": "LintError",
+    "message": "Empty 'else'.",
+    "boundaries": {
+      "start": {
+        "line": 60,
+        "col": 1
+      },
+      "end": {
+        "line": 61,
+        "col": 5
+      }
+    }
+  }
+]

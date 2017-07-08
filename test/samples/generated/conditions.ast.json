@@ -223,6 +223,17 @@
           ]
         }
       ]
+    },
+    {
+      "type": "IfStatement",
+      "condition": "FOO",
+      "statements": [
+        {
+          "type": "MultilineComment",
+          "comment": "/* Empty else: */"
+        }
+      ],
+      "elseStatements": []
     }
   ]
 }

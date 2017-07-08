@@ -34,7 +34,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
 
     if ('Else' in ifNode.childrenByType) {
       const elseNode = ifNode.childrenByType.Else[0] as CstNode
-      addStatements(node, 'elseStatements', elseNode)
+      addStatements(node, 'elseStatements', elseNode, true)
     }
 
     return node

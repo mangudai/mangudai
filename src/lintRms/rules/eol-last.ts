@@ -3,7 +3,7 @@ import { RmsAst } from '../../parseRms'
 import { getLastToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 
-export function check (ast: RmsAst, mode: RuleOptions = 'always'): LintError[] {
+export function check (ast: RmsAst, mode: 'always' | 'never' = 'always'): LintError[] {
   const lastToken = getLastToken(ast)
 
   if (lastToken && lastToken.type === 'LineBreak' && lastToken.value.endsWith('\n')) {
@@ -23,5 +23,3 @@ export function check (ast: RmsAst, mode: RuleOptions = 'always'): LintError[] {
     }]
   }
 }
-
-export type RuleOptions = 'always' | 'never'

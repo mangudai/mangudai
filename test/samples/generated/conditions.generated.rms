@@ -53,3 +53,9 @@ else
       random_placement
   endif
 endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
