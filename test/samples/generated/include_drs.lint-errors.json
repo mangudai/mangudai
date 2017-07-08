@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "name": "LintError",
+    "message": "Do not use 'include_drs' outside of internal game maps.",
+    "boundaries": {
+      "start": {
+        "line": 8,
+        "col": 1
+      },
+      "end": {
+        "line": 8,
+        "col": 34
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Do not use 'include_drs' outside of internal game maps.",
+    "boundaries": {
+      "start": {
+        "line": 9,
+        "col": 1
+      },
+      "end": {
+        "line": 9,
+        "col": 28
+      }
+    }
+  }
+]
