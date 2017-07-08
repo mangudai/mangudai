@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "name": "LintError",
+    "message": "Cannot redeclare 'DUPLICATE'.",
+    "boundaries": {
+      "start": {
+        "line": 14,
+        "col": 8
+      },
+      "end": {
+        "line": 14,
+        "col": 17
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Cannot redeclare 'DUPLICATE'.",
+    "boundaries": {
+      "start": {
+        "line": 15,
+        "col": 8
+      },
+      "end": {
+        "line": 15,
+        "col": 17
+      }
+    }
+  }
+]

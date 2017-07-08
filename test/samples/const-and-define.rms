@@ -10,6 +10,11 @@
 #define IS_SOME_TYPE_OF_MAP
 #define IS_ANOTHER_TYPE
 
+/* Let's cause a linting error. */
+#const DUPLICATE 1
+#const DUPLICATE 2
+#define DUPLICATE
+
 <PLAYER_SETUP>
   random_placement
 

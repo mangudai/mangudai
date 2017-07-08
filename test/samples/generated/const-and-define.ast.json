@@ -24,6 +24,24 @@
       "flag": "IS_ANOTHER_TYPE"
     },
     {
+      "type": "MultilineComment",
+      "comment": "/* Let's cause a linting error. */"
+    },
+    {
+      "type": "ConstDefinition",
+      "name": "DUPLICATE",
+      "value": 1
+    },
+    {
+      "type": "ConstDefinition",
+      "name": "DUPLICATE",
+      "value": 2
+    },
+    {
+      "type": "FlagDefinition",
+      "flag": "DUPLICATE"
+    },
+    {
       "type": "Section",
       "name": "PLAYER_SETUP",
       "statements": [
