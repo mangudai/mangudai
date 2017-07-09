@@ -12,6 +12,12 @@
 
 #define IS_ANOTHER_TYPE
 
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
 /* Let's cause a linting error. */
 
 #const DUPLICATE 1

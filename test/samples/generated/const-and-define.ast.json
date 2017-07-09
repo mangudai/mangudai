@@ -25,6 +25,19 @@
     },
     {
       "type": "MultilineComment",
+      "comment": "/* Identifiers can start with a digit. */"
+    },
+    {
+      "type": "FlagDefinition",
+      "flag": "1_PLAYER_MAP"
+    },
+    {
+      "type": "ConstDefinition",
+      "name": "1_PLAYER_MAP",
+      "value": 1
+    },
+    {
+      "type": "MultilineComment",
       "comment": "/* Let's cause a linting error. */"
     },
     {

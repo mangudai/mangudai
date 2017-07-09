@@ -1,14 +1,28 @@
 [
   {
     "name": "LintError",
-    "message": "Cannot redeclare 'DUPLICATE'.",
+    "message": "Cannot redeclare '1_PLAYER_MAP'.",
     "boundaries": {
       "start": {
-        "line": 14,
+        "line": 15,
         "col": 8
       },
       "end": {
-        "line": 14,
+        "line": 15,
+        "col": 20
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Cannot redeclare 'DUPLICATE'.",
+    "boundaries": {
+      "start": {
+        "line": 18,
+        "col": 8
+      },
+      "end": {
+        "line": 18,
         "col": 17
       }
     }
@@ -18,11 +32,11 @@
     "message": "Cannot redeclare 'DUPLICATE'.",
     "boundaries": {
       "start": {
-        "line": 15,
+        "line": 19,
         "col": 8
       },
       "end": {
-        "line": 15,
+        "line": 19,
         "col": 17
       }
     }
