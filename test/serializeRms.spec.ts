@@ -1,4 +1,4 @@
-import { serializeRms } from '../lib/index'
+import { serialize } from '../lib/index'
 import { readdirSync, readFileSync } from 'fs'
 import { basename, extname, resolve } from 'path'
 
@@ -15,7 +15,7 @@ describe('serializeRms', () => {
     .map(filename => readSample(basename(filename, '.rms')))
     .forEach(({ name, ast, correctSerialized }) => {
       it(`serializes example ${name}`, () => {
-        serializeRms(ast).should.equal(correctSerialized)
+        serialize(ast).should.equal(correctSerialized)
       })
     })
 })

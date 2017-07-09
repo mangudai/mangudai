@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { readdirSync, readFileSync } from 'fs'
 import { basename, extname, resolve } from 'path'
-import { lintRms, parseRms } from '../lib/index'
+import { lint, parse } from '../lib/index'
 
 const readSampleFile = (name: string) => readFileSync(resolve(__dirname, 'samples', name), 'utf8')
 const readSample = (name: string) => ({
@@ -16,8 +16,8 @@ describe('lintRms', () => {
     .map(filename => readSample(basename(filename, '.rms')))
     .forEach(({ name, script, correctErrors }) => {
       it(`lints example ${name}`, () => {
-        const ast = parseRms(script).ast
-        const errors = ast ? lintRms(ast) : undefined
+        const ast = parse(script).ast
+        const errors = ast ? lint(ast) : undefined
         expect(errors).to.deep.equal(correctErrors)
       })
     })

@@ -39,9 +39,11 @@ Mangudai is written in [TypeScript](https://www.typescriptlang.org/) and exports
 
 ## API
 
-#### parseRms( script: `string` ) => { ast: [`RmsAst`](docs/rms-ast.md), errors: `Error[]` }
+#### parse( script: `string` ) => { ast: [`RmsAst`](docs/rms-ast.md), errors: `Error[]` }
 
-#### serializeRms( ast: [`RmsAst`](docs/rms-ast.md) ) => `string`
+#### serialize( ast: [`RmsAst`](docs/rms-ast.md) ) => `string`
+
+#### lint( ast: [`RmsAst`](docs/rms-ast.md) ) => `LintError[]`
 
 ## Contribute
 
