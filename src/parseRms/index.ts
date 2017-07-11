@@ -9,7 +9,7 @@ export * from './astTypes'
 
 const wrappedRules = ruleNodesMiddleware(ParserRules)
 
-export function parse (input: string): { errors: Object[], ast?: RmsAst } {
+export function parse (input: string): { errors: Error[], ast?: RmsAst } {
   const parser = new Parser(wrappedRules, ParserStart, { lexer: Lexer })
   try {
     parser.feed(input)
