@@ -1,0 +1,2488 @@
+/**
+ * This file consists of 3 times of all the other examples, 3 times.
+ * The idea is to test performance on a wide range of language features.
+ */
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  #define FOO
+  if FOO
+    if BAR
+      if QUX
+      else
+        create_terrain GRASS3 {
+          height_limits 7 7
+        }
+      endif
+    endif
+    /* Last statement is a comment but this must be inside the section. */
+  endif
+
+<TERRAIN_GENERATION>
+
+
+if FOO
+  if BAR
+    if QUX
+    else
+      /* This should be parsed as a top-level if. */
+    endif
+  endif
+endif
+
+<TERRAIN_GENERATION>
+
+
+/* Empty if should be parsed outside as well. */
+
+if FOO
+endif
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+<TERRAIN_GENERATION>
+  create_terrain GRASS3 {
+    height_limits 7 7
+  }
+
+<CONNECTION_GENERATION>
+  create_connect_all_players_land {
+    replace_terrain WATER SHALLOW
+    replace_terrain MED_WATER SHALLOW
+    replace_terrain DEEP_WATER SHALLOW
+    terrain_size WATER 3 1
+    terrain_size MED_WATER 3 1
+    terrain_size DEEP_WATER 3 1
+    terrain_size PINE_FOREST 0 0
+  }
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+/* comment 1 */
+
+/* comment 2 */
+
+/* comment 3 */
+
+#const FOO 555
+
+/* comment 4
+  * multiline!
+  */
+
+/* comment 5 */
+
+#const meaning-of-life 42
+
+/* comment 6 */
+
+/* comment 7 */
+
+#define IS_SOME_TYPE_OF_MAP
+
+/* comment 8 */
+
+/* comment 9 */
+
+/* comment 10 */
+
+/* comment 11 */
+
+#define IS_ANOTHER_TYPE
+
+/* comment 12 */
+
+/* comment 13 */
+
+<PLAYER_SETUP>
+  /* comment 14 */
+  random_placement
+
+/* comment 15 */
+
+#const BAR 777
+
+/* comment 16 */
+
+/* comment 17 */
+
+#define laterInFile
+
+/* comment 18 */
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    /* comment 19 */
+    set_place_for_every_player
+    /* comment 20 */
+    /* comment 21 */
+    if CONDITION
+      /* comment 22 */
+      min_distance_to_players 0
+      max_distance_to_players 0
+      /* comment 23 */
+    endif
+  }
+
+/* comment 24 */
+
+/* comment 25 */
+
+/* comment 25 */
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+<LAND_GENERATION>
+  if DESERT_MAP
+    base_terrain DIRT
+  else
+    base_terrain GRASS3
+  endif
+  create_player_lands {
+    if DESERT_MAP
+      terrain_type DIRT
+    else
+      terrain_type GRASS3
+    endif
+    land_percent 25
+  }
+
+if FOO
+elseif BAR
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  <PLAYER_SETUP>
+    random_placement
+else
+  <PLAYER_SETUP>
+    random_placement
+endif
+
+if FOO
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+elseif BAR
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+else
+  if FOO
+    <PLAYER_SETUP>
+      random_placement
+  else
+    <PLAYER_SETUP>
+      random_placement
+  endif
+endif
+
+if FOO
+  /* Empty else: */
+else
+
+endif
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+/* The only interpreter options that could be found in the random maps
+ * published to Steam Workshop are `#const` and `#define`.
+ * Rarely mentioned `#include_drs` in only used in built-in maps and
+ * has no effect in custom scripts. It's left out to cause a lexer error.
+ */
+
+#const FOO 555
+
+#const meaning-of-life 42
+
+#define IS_SOME_TYPE_OF_MAP
+
+#define IS_ANOTHER_TYPE
+
+/* Identifiers can start with a digit. */
+
+#define 1_PLAYER_MAP
+
+#const 1_PLAYER_MAP 1
+
+/* Let's cause a linting error. */
+
+#const DUPLICATE 1
+
+#const DUPLICATE 2
+
+#define DUPLICATE
+
+<PLAYER_SETUP>
+  random_placement
+
+#const BAR 777
+
+#define laterInFile
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+start_random
+  percent_chance 16
+    #define MEGAPACK_A
+  percent_chance 16
+    #define MEGAPACK_B
+  percent_chance 17
+    #define MEGAPACK_C
+  percent_chance 17
+    #define MEGAPACK_D
+  percent_chance 17
+    #define MEGAPACK_E
+  percent_chance 17
+    #define MEGAPACK_F
+end_random
+
+<LAND_GENERATION>
+  start_random
+    /* 50-50 chance of generating a summer or a winter map. */
+    percent_chance 50
+      #define SUMMER
+  end_random
+  create_player_lands {
+    if SUMMER
+      terrain_type GRASS3
+    else
+      terrain_type DIRT
+    endif
+    land_percent 25
+  }
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}
+
+/* comment */
+
+<PLAYER_SETUP>
+  random_placement
+
+<OBJECTS_GENERATION>
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Should support both styles: inline curly and separate curly. */
+  create_object TOWN_CENTER {
+    set_place_for_every_player
+    min_distance_to_players 0
+    max_distance_to_players 0
+  }
+  /* Curly brackets can be empty */
+  create_object TOWN_CENTER {}

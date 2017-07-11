@@ -1,7 +1,7 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
 import { Token } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
-import { isToken } from '../treeHelpers'
+import { isToken, getChildNodes, getFirstNode, getNodes } from '../treeHelpers'
 
 export function toCst (root: RuleNode) {
   return nodeToCst(root) as CstNode
@@ -9,15 +9,44 @@ export function toCst (root: RuleNode) {
 
 const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNodeChild[] } = {
   Script: parts => simpleCstNode([simpleCstNode(parts, 'StatementsBlock')], 'RandomMapScript'),
-  TopLevelStatementsLine: parts => partsToCstNodes(parts),
+  TopLevelLine: parts => partsToCstNodes(parts),
   TopLevelIf: parts => visitGenericIf(parts),
   TopLevelRandom: parts => visitGenericRandom(parts),
 
-  Section: ([larrow, name, rarrow, statements]) => simpleCstNode([
-    simpleCstNode([larrow, name, rarrow], 'SectionHeader'),
-    simpleCstNode([statements], 'StatementsBlock')
-  ], 'Section'),
-  SectionStatementsLine: parts => partsToCstNodes(parts),
+  Section: ([larrow, name, rarrow, statements]) => {
+    // Section rule in the grammar is extremely greedy to avoid ambiguity.
+    // We're gonna transform it to CST and then see if there's stuff at the end that should be outside.
+    const sectionHeader = simpleCstNode([larrow, name, rarrow], 'SectionHeader')
+    const statementsBlock = simpleCstNode([statements], 'StatementsBlock')
+
+    // We're gonna check a couple things and see if we need to split the statements
+    // moving the last ones to top level.
+    let splitIndex = statementsBlock.children.length
+
+    // To keep grammar fast and unambiguous, we allow TopLevelIf to occur inside Section.
+    // Let's check if there're any If nodes that contain Section nodes. If there are,
+    // then this section should definitely end before the first one.
+    const firstTopLevelIf = getChildNodes(statementsBlock, 'If').find(x => getFirstNode(x, 'Section') !== undefined)
+    if (firstTopLevelIf) splitIndex = statementsBlock.children.indexOf(firstTopLevelIf)
+
+    // Statements at the end that can be outside should go outside.
+    for (let i = splitIndex - 1; i >= 0; i--) {
+      const node = statementsBlock.children[i]
+      if (isToken(node) && node.type !== 'LineBreak') continue
+      if (!isToken(node) && node.type === 'Command') break
+      if (!isToken(node) && getNodes(node, 'Command').length) break
+      splitIndex = i
+    }
+
+    if (splitIndex < statementsBlock.children.length) {
+      const statementsOutside = statementsBlock.children.slice(splitIndex)
+      const statementsInside = simpleCstNode([statementsBlock.children.slice(0, splitIndex)], 'StatementsBlock')
+      return [simpleCstNode([sectionHeader, statementsInside], 'Section'), ...statementsOutside]
+    } else {
+      return simpleCstNode([sectionHeader, statementsBlock], 'Section')
+    }
+  },
+  SectionLine: parts => partsToCstNodes(parts),
   SectionIf: parts => visitGenericIf(parts),
   SectionRandom: parts => visitGenericRandom(parts),
 
@@ -29,7 +58,7 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
       attributes[4]
     ], 'CommandStatementsBlock') : null
   ], 'Command'),
-  CommandStatementsLine: parts => partsToCstNodes(parts),
+  CommandLevelLine: parts => partsToCstNodes(parts),
   CommandIf: parts => visitGenericIf(parts),
   CommandRandom: parts => visitGenericRandom(parts),
 
@@ -81,12 +110,12 @@ function visitGenericIf ([[ifToken, ws1, condition, ws2, statements, elseifs, el
   return simpleCstNode([
     ifToken, ws1, simpleCstNode([condition], 'ConditionExpression'), ws2,
     simpleCstNode(statements, 'StatementsBlock'),
-    elseifs.map(([elseifToken, ws1, condition, ws2, statements]: any) => simpleCstNode([
+    elseifs.map(([elseifToken, ws1, condition, ws2, ...statements]: any) => simpleCstNode([
       elseifToken, ws1, simpleCstNode([condition], 'ConditionExpression'), ws2,
       simpleCstNode(statements, 'StatementsBlock')
     ], 'ElseIf')),
     elseStuff ? simpleCstNode([
-      elseStuff[0], elseStuff[1], simpleCstNode(elseStuff[2], 'StatementsBlock')
+      elseStuff[0], elseStuff[1], simpleCstNode(elseStuff.slice(2), 'StatementsBlock')
     ], 'Else') : null,
     endifToken
   ], 'If')
