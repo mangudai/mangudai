@@ -6,7 +6,7 @@ import { getBoundaries } from '../../tokenHelpers'
 export function check (ast: RmsAst, mode: 'always' | 'never' = 'always'): LintError[] {
   const lastToken = getLastToken(ast)
 
-  if (lastToken && lastToken.type === 'LineBreak' && lastToken.value.endsWith('\n')) {
+  if (lastToken && lastToken.type === 'eol' && lastToken.value.endsWith('\n')) {
     return mode === 'always' ? [] : [{
       name: 'LintError',
       message: 'Newline not allowed at end of file.',

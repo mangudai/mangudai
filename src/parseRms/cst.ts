@@ -32,7 +32,7 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
     // Statements at the end that can be outside should go outside.
     for (let i = splitIndex - 1; i >= 0; i--) {
       const node = statementsBlock.children[i]
-      if (isToken(node) && node.type !== 'LineBreak') continue
+      if (isToken(node) && node.type !== 'eol') continue
       if (!isToken(node) && node.type === 'Command') break
       if (!isToken(node) && getNodes(node, 'Command').length) break
       splitIndex = i
@@ -70,15 +70,7 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
 
   MultilineComment: parts => simpleCstNode(parts, 'MultilineComment'),
 
-  int: parts => unwrapTokens(parts),
-  identifier: parts => unwrapTokens(parts),
-
-  'eol': parts => unwrapTokens(parts),
-  'eol?': parts => unwrapTokens(parts),
-  'ws': parts => unwrapTokens(parts),
-  'ws?': parts => unwrapTokens(parts),
-  '__': parts => unwrapTokens(parts),
-  '_': parts => unwrapTokens(parts)
+  __: parts => unwrapTokens(parts)
 }
 
 function nodeToCst ({ type, children }: RuleNode) {

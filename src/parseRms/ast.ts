@@ -1,7 +1,7 @@
 import { Token } from 'moo'
 import { CstNode, CstNodeChild } from './cst'
-import { hideCstProperties, getFirstChildNode, getFirstToken } from '../treeHelpers'
-import { AstNode, RmsAst, RmsIf, ElseIf, RandomStatement, ChanceStatement, RmsTopLevelStatement, RmsSection, RmsSectionStatement, RmsCommand,
+import { hideCstProperties, getFirstChildNode, getFirstToken, getChildNodes } from '../treeHelpers'
+import { AstNode, RmsAst, RmsIf, ElseIf, RandomStatement, ChanceStatement, RmsTopLevelStatement, RmsSection, RmsCommand,
   RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsIncludeDrs, RmsMultilineComment } from './astTypes'
 
 export function toAst (root: CstNode) {
@@ -22,7 +22,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
     addStatements(node, 'statements', ifNode)
 
     if ('ElseIf' in ifNode.childrenByType) {
-      node.elseifs = (ifNode.childrenByType.ElseIf as CstNode[]).map(elseIf => {
+      node.elseifs = getChildNodes(ifNode, 'ElseIf').map(elseIf => {
         const node: ElseIf<AstNode> = hideCstProperties(Object.assign(elseIf, {
           type: 'ElseIfStatement',
           condition: getCondition(elseIf)
@@ -32,15 +32,13 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
       })
     }
 
-    if ('Else' in ifNode.childrenByType) {
-      const elseNode = ifNode.childrenByType.Else[0] as CstNode
-      addStatements(node, 'elseStatements', elseNode, true)
-    }
+    const elseNode = getFirstChildNode(ifNode, 'Else')
+    if (elseNode) addStatements(node, 'elseStatements', elseNode, true)
 
     return node
 
     function getCondition (node: CstNode) {
-      return ((node.childrenByType.ConditionExpression[0] as CstNode).children[0] as Token).value
+      return (getFirstToken(getFirstChildNode(node, 'ConditionExpression') as CstNode) as Token).value
     }
   },
 
@@ -52,26 +50,26 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
 
   ChanceStatement: node => {
     hideCstProperties(node)
-    ;(node as ChanceStatement<AstNode>).chance = getTokenValue(getFirstToken(node, 'Integer') as Token) as number
+    ;(node as ChanceStatement<AstNode>).chance = getTokenValue(getFirstToken(node, 'int') as Token) as number
     addStatements(node, 'statements', node, true)
     return node as ChanceStatement<AstNode>
   },
 
   Section: (cstNode): RmsSection => hideCstProperties(Object.assign(cstNode, {
     type: 'Section',
-    name: ((cstNode.childrenByType.SectionHeader[0] as CstNode).childrenByType.Identifier[0] as Token).value,
-    statements: (cstNode.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens).map(nodeToAst) as RmsSectionStatement[]
+    name: (getFirstToken(cstNode, 'identifier') as Token).value,
+    statements: (getFirstChildNode(cstNode, 'StatementsBlock') as CstNode).children.filter(noTokens).map(nodeToAst)
   } as RmsSection)),
 
   Command: (cstNode): RmsCommand => {
     const astNode: RmsCommand = hideCstProperties(Object.assign(cstNode, {
       type: 'Command',
-      ...getNameAndArgs(cstNode.childrenByType.CommandHeader[0] as CstNode)
+      ...getNameAndArgs(getFirstChildNode(cstNode, 'CommandHeader') as CstNode)
     } as RmsCommand))
-    if ('CommandStatementsBlock' in cstNode.childrenByType) {
-      astNode.statements = []
-      addStatements(astNode, 'statements', cstNode.childrenByType.CommandStatementsBlock[0] as CstNode)
-    }
+
+    const block = getFirstChildNode(cstNode, 'CommandStatementsBlock')
+    if (block) addStatements(astNode, 'statements', block, true)
+
     return astNode
   },
 
@@ -106,7 +104,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
 
   MultilineComment: (cstNode): RmsMultilineComment => hideCstProperties(Object.assign(cstNode, {
     type: 'MultilineComment',
-    comment: (cstNode.childrenByType.MultilineComment[0] as Token).value
+    comment: (getFirstToken(cstNode, 'multilineComment') as Token).value
   } as RmsMultilineComment))
 }
 
@@ -115,7 +113,7 @@ function nodeToAst (node: CstNode) {
 }
 
 function addStatements (targetAstNode: any, propName: string, sourceCstNode: CstNode, addEmptyArrayIfNone = false) {
-  const statements = (sourceCstNode.childrenByType.StatementsBlock[0] as CstNode).children.filter(noTokens)
+  const statements = (getFirstChildNode(sourceCstNode, 'StatementsBlock') as CstNode).children.filter(noTokens)
   if (statements.length || addEmptyArrayIfNone) targetAstNode[propName] = statements.map(nodeToAst)
 }
 
@@ -125,12 +123,12 @@ function getNameAndArgs (node: CstNode) {
 }
 
 function getTokenValue (token: Token) {
-  if (token.type === 'Integer') return parseInt(token.value, 10)
+  if (token.type === 'int') return parseInt(token.value, 10)
   else return token.value
 }
 
 function isValueToken (token: Token) {
-  return ['Integer', 'Identifier'].includes(token.type as string)
+  return ['int', 'identifier'].includes(token.type as string)
 }
 
 function noTokens (node: CstNodeChild): node is CstNode {

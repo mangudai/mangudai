@@ -20,7 +20,7 @@ export function check (ast: RmsAst): LintError[] {
   const allIfs = [...getDescendants(ast, 'IfStatement'), ...getDescendants(ast, 'ElseIfStatement')]
   allIfs.forEach((ifNode: RmsIf<any> | ElseIf<any>) => {
     if (unconditionallyDefinedFlags.includes(ifNode.condition)) {
-      invalidConditionIdentifiers.push(getFirstToken(ifNode, 'Identifier') as Token)
+      invalidConditionIdentifiers.push(getFirstToken(ifNode, 'identifier') as Token)
     }
   })
 

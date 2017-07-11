@@ -10,7 +10,7 @@ export function check (ast: RmsAst): LintError[] {
   const redeclared: Token[] = []
 
   getNodes(ast, 'FlagDefinition').concat(getNodes(ast, 'ConstDefinition')).forEach((node: CstNode) => {
-    const nameToken = getFirstToken(node, 'Identifier') as Token
+    const nameToken = getFirstToken(node, 'identifier') as Token
     if (seenIdentifiers[nameToken.value]) redeclared.push(nameToken)
     else seenIdentifiers[nameToken.value] = true
   })

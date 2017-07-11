@@ -11,7 +11,7 @@ export function check (ast: RmsAst): LintError[] {
   getDescendants(ast, 'StatementsBlock').forEach((block: CstNode) => {
     const alreadySeenAttrs: string[] = []
     getChildNodes(block, 'Attribute').forEach((attr: RmsAttribute) => {
-      if (alreadySeenAttrs.includes(attr.name)) dupeAttributeNames.push(getFirstToken(attr, 'Identifier') as Token)
+      if (alreadySeenAttrs.includes(attr.name)) dupeAttributeNames.push(getFirstToken(attr, 'identifier') as Token)
       else alreadySeenAttrs.push(attr.name)
     })
   })
