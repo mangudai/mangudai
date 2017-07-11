@@ -38,3 +38,13 @@ start_random
     
     /* This is a top-level random. */
 end_random
+
+/* Empty `percent_chance` blocks are valid. See #20. */
+
+start_random
+  percent_chance 95
+  
+  percent_chance 5
+    <LAND_GENERATION>
+    
+end_random

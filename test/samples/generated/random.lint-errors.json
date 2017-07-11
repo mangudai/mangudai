@@ -26,5 +26,19 @@
         "col": 24
       }
     }
+  },
+  {
+    "name": "LintError",
+    "message": "Empty section 'LAND_GENERATION'.",
+    "boundaries": {
+      "start": {
+        "line": 38,
+        "col": 5
+      },
+      "end": {
+        "line": 38,
+        "col": 22
+      }
+    }
   }
 ]

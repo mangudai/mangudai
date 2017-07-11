@@ -155,6 +155,31 @@
           ]
         }
       ]
+    },
+    {
+      "type": "MultilineComment",
+      "comment": "/* Empty `percent_chance` blocks are valid. See #20. */"
+    },
+    {
+      "type": "RandomStatement",
+      "statements": [
+        {
+          "type": "ChanceStatement",
+          "chance": 95,
+          "statements": []
+        },
+        {
+          "type": "ChanceStatement",
+          "chance": 5,
+          "statements": [
+            {
+              "type": "Section",
+              "name": "LAND_GENERATION",
+              "statements": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }
