@@ -21,3 +21,12 @@ end_random
     endif
     land_percent 25
   }
+
+<LAND_GENERATION>
+
+  start_random
+    percent_chance 50
+      /* This is totally valid. */
+      <LAND_GENERATION>
+      /* This is a top-level random. */
+  end_random

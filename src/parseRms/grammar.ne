@@ -13,10 +13,12 @@ GenericIfSeq[FirstChild, SecondChild] ->
 
 GenericIf[Child] -> GenericIfSeq[$Child, null]
 
-GenericRandom[Child] ->
+GenericRandomSeq[FirstChild, SecondChild] ->
   %startRandom %eol (MultilineComment __):*
-  (%percentChance %space %int __ ($Child %eol):+):+
+  (%percentChance %space %int __ ($FirstChild %eol):* ($SecondChild %eol):*):+
   %endRandom
+
+GenericRandom[Child] -> GenericRandomSeq[$Child, null]
 
 GenericWithComments[Statement] -> (MultilineComment %space:?):* ($Statement (%space:? MultilineComment):* | MultilineComment)
 
@@ -30,7 +32,7 @@ SectionLine -> GenericWithComments[(Command | ConstDefinition | FlagDefinition |
 # We move the `If` out of the current section and end the section here during CST traversal.
 # This seems to be the best way to avoid ambiguity and performance issues.
 SectionIf -> GenericIfSeq[SectionLine, Section]
-SectionRandom -> GenericRandom[SectionLine]
+SectionRandom -> GenericRandomSeq[SectionLine, Section]
 
 Command -> Attribute ((__:? MultilineComment):* __:? %lCurly (__ ((CommandLevelLine %eol):* CommandLevelLine %eol:?)):? %rCurly):?
 CommandLevelLine -> GenericWithComments[(Attribute | CommandIf | CommandRandom)]

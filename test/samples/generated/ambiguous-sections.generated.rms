@@ -27,6 +27,14 @@ endif
 <TERRAIN_GENERATION>
 
 
+start_random
+  percent_chance 50
+    /* This should be parsed as a top-level random. */
+end_random
+
+<TERRAIN_GENERATION>
+
+
 /* Empty if should be parsed outside as well. */
 
 if FOO

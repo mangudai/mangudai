@@ -83,6 +83,26 @@
       "statements": []
     },
     {
+      "type": "RandomStatement",
+      "statements": [
+        {
+          "type": "ChanceStatement",
+          "chance": 50,
+          "statements": [
+            {
+              "type": "MultilineComment",
+              "comment": "/* This should be parsed as a top-level random. */"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "name": "TERRAIN_GENERATION",
+      "statements": []
+    },
+    {
       "type": "MultilineComment",
       "comment": "/* Empty if should be parsed outside as well. */"
     },

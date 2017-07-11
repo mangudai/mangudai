@@ -23,11 +23,14 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
     // moving the last ones to top level.
     let splitIndex = statementsBlock.children.length
 
-    // To keep grammar fast and unambiguous, we allow TopLevelIf to occur inside Section.
-    // Let's check if there're any If nodes that contain Section nodes. If there are,
+    // To keep grammar fast and unambiguous, we allow TopLevelIf and TopLevelRandom to occur inside Section.
+    // Let's check if there're any nodes that contain Section nodes. If there are,
     // then this section should definitely end before the first one.
-    const firstTopLevelIf = getChildNodes(statementsBlock, 'If').find(x => getFirstNode(x, 'Section') !== undefined)
-    if (firstTopLevelIf) splitIndex = statementsBlock.children.indexOf(firstTopLevelIf)
+    const firstTopLevelContainer = [
+      ...getChildNodes(statementsBlock, 'If'),
+      ...getChildNodes(statementsBlock, 'RandomStatement')
+    ].find(x => getFirstNode(x, 'Section') !== undefined)
+    if (firstTopLevelContainer) splitIndex = statementsBlock.children.indexOf(firstTopLevelContainer)
 
     // Statements at the end that can be outside should go outside.
     for (let i = splitIndex - 1; i >= 0; i--) {
@@ -102,7 +105,7 @@ function simpleCstNode (parts: any[], type: string): CstNode {
 
 function visitGenericIf ([ruleNode]: any) {
   if (ruleNode.length === 1) ruleNode = ruleNode[0]
-  let [ifToken, ws1, condition, ws2, statements, elseifs, elseStuff, endifToken] = ruleNode
+  const [ifToken, ws1, condition, ws2, statements, elseifs, elseStuff, endifToken] = ruleNode
 
   return simpleCstNode([
     ifToken, ws1, simpleCstNode([condition], 'ConditionExpression'), ws2,
@@ -118,12 +121,14 @@ function visitGenericIf ([ruleNode]: any) {
   ], 'If')
 }
 
-function visitGenericRandom ([[startToken, ws, comments, chances, endToken]]: any) {
+function visitGenericRandom ([ruleNode]: any) {
+  if (ruleNode.length === 1) ruleNode = ruleNode[0]
+  const [startToken, ws, comments, chances, endToken] = ruleNode
   return simpleCstNode([
     startToken, ws,
     simpleCstNode([
       comments,
-      chances.map(([chanceToken, ws1, percent, ws2, statements]: any) => simpleCstNode([
+      chances.map(([chanceToken, ws1, percent, ws2, ...statements]: any) => simpleCstNode([
         chanceToken, ws1, percent, ws2, simpleCstNode(statements, 'StatementsBlock')
       ], 'ChanceStatement'))
     ], 'StatementsBlock'),

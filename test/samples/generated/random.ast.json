@@ -126,6 +126,35 @@
           ]
         }
       ]
+    },
+    {
+      "type": "Section",
+      "name": "LAND_GENERATION",
+      "statements": []
+    },
+    {
+      "type": "RandomStatement",
+      "statements": [
+        {
+          "type": "ChanceStatement",
+          "chance": 50,
+          "statements": [
+            {
+              "type": "MultilineComment",
+              "comment": "/* This is totally valid. */"
+            },
+            {
+              "type": "Section",
+              "name": "LAND_GENERATION",
+              "statements": []
+            },
+            {
+              "type": "MultilineComment",
+              "comment": "/* This is a top-level random. */"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

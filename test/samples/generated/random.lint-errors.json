@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "name": "LintError",
+    "message": "Empty section 'LAND_GENERATION'.",
+    "boundaries": {
+      "start": {
+        "line": 25,
+        "col": 1
+      },
+      "end": {
+        "line": 25,
+        "col": 18
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Empty section 'LAND_GENERATION'.",
+    "boundaries": {
+      "start": {
+        "line": 30,
+        "col": 7
+      },
+      "end": {
+        "line": 30,
+        "col": 24
+      }
+    }
+  }
+]
