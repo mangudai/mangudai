@@ -11,7 +11,8 @@
     "mocha": "cross-env TS_NODE_PROJECT=\"test/tsconfig.json\" nyc --reporter=lcov mocha",
     "test": "npm run build && npm run lint && npm run mocha",
     "gen-grammar": "nearleyc src/parseRms/grammar.ne --out src/parseRms/grammar.ts",
-    "update-samples": "ts-node --project test ./test/samples/generated/generateSamples"
+    "gen-test-samples": "ts-node --project test ./test/samples/generated/generateSamples",
+    "gen-lib": "ts-node --project src ./src/lib/generate"
   },
   "repository": {
     "type": "git",
