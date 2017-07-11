@@ -30,7 +30,7 @@ TopLevelIf -> GenericIf[TopLevelLine]
 TopLevelRandom -> GenericRandom[TopLevelLine]
 
 Section -> %lArrow %identifier %rArrow (%eol (SectionLine %eol):* SectionLine):?
-SectionLine -> GenericWithComments[(Command | ConstDefinition | FlagDefinition | SectionIf | SectionRandom)]
+SectionLine -> GenericWithComments[(Command | ConstDefinition | FlagDefinition | IncludeDrs | SectionIf | SectionRandom)]
 # Sections cannot be nested. Nevertheless, we allow Section to occur inside SectionIf. In that case, it's a TopLevelIf.
 # We move the `If` out of the current section and end the section here during CST traversal.
 # This seems to be the best way to avoid ambiguity and performance issues.
