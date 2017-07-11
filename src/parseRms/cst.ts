@@ -1,20 +1,10 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
 import { Token } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
-import { getDescendants, isToken, getNodes, getFirstChildNode, getLastChildNode } from '../treeHelpers'
+import { isToken } from '../treeHelpers'
 
 export function toCst (root: RuleNode) {
   return nodeToCst(root) as CstNode
-}
-
-// Reject parsings with const/define/comment as the last section statement
-// as it's usually intended to be a top-level statement instead and
-// we have to decide one way or another.
-export function isNotAmbiguousCst (cst: CstNode): boolean {
-  return getNodes(cst, 'Section').every(section => {
-    const last = getLastChildNode(getFirstChildNode(section, 'StatementsBlock') as CstNode)
-    return !last || last.type === 'Command' || getDescendants(last, 'Command').length > 0
-  })
 }
 
 const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNodeChild[] } = {

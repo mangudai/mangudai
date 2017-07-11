@@ -1,7 +1,7 @@
 import { Parser } from 'nearley'
 import { Lexer, ParserRules, ParserStart } from './grammar'
 import { ruleNodesMiddleware } from './nearleyMiddleware'
-import { toCst, isNotAmbiguousCst } from './cst'
+import { toCst } from './cst'
 import { toAst } from './ast'
 import { RmsAst } from './astTypes'
 
@@ -13,7 +13,7 @@ export function parse (input: string): { errors: Error[], ast?: RmsAst } {
   const parser = new Parser(wrappedRules, ParserStart, { lexer: Lexer })
   try {
     parser.feed(input)
-    const parsings = parser.results.map(toCst).filter(isNotAmbiguousCst).map(toAst)
+    const parsings = parser.results.map(toCst).map(toAst)
     if (parsings.length > 1) {
       throw new Error('Ambiguous grammar! This is likely a problem with Mangudai itself, ' +
         'not your script. Please report this issue along with the script that caused it.')
