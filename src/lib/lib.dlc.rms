@@ -1,0 +1,32 @@
+<GENERAL>
+
+/* Capture the Relic game type is selected. */
+#define CAPTURE_THE_RELIC
+
+/* LudiKRIS map is selected, 480x480 tiles. */
+#define LUDIKRIS_MAP
+
+<TERRAINS>
+
+/* Road terrain. No buildings, used in King of the Hill game type around the relic. You can't place gold, stone, berries on any type of road. */
+#const DLC_ROCK 40
+/* Savannah terrain. */
+#const DLC_SAVANNAH 41
+/* Dirty grass terrain. */
+#const DLC_DIRT4 42
+/* Desert road terrain. */
+#const DLC_DRYROAD 43
+/* Muddy grass terrain. */
+#const DLC_MOORLAND 44
+/* Cracked desert terrain. Buildings on it to take 25% more damage. */
+#const DLC_CRACKED 45
+/* Quicksand terrain. Not sailable. No buildings. */
+#const DLC_QUICKSAND 46
+/* Pure black terrain. No buildings. */
+#const DLC_BLACK 47
+/* Dragon tree forest terrain. Dense forest on dirt. */
+#const DLC_DRAGONFOREST 48
+/* Baobab forest terrain. Sparse 200 wood trees on savannah. */
+#const DLC_BAOBAFOREST 49
+/* Acacia forest terrain. Sparse forest on dirt (`DLC_DIRT4`). */
+#const DLC_ACACIAFOREST 50
