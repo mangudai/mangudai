@@ -4,19 +4,14 @@
 
 Script -> __:? ((TopLevelLine %eol):* TopLevelLine %eol:?):? ((Section %eol):* Section %eol:?):?
 
-GenericIf[Child] ->
-  %ifToken %space %identifier %eol
-  ($Child %eol):*
-  (%elseifToken %space %identifier __ ($Child %eol):*):*
-  (%elseToken __ ($Child %eol):*):?
-  %endifToken
-
 GenericIfSeq[FirstChild, SecondChild] ->
   %ifToken %space %identifier %eol
   (($FirstChild %eol):* ($SecondChild %eol):*)
   (%elseifToken %space %identifier __ ($FirstChild %eol):* ($SecondChild %eol):*):*
   (%elseToken __ ($FirstChild %eol):* ($SecondChild %eol):*):?
   %endifToken
+
+GenericIf[Child] -> GenericIfSeq[$Child, null]
 
 GenericRandom[Child] ->
   %startRandom %eol (MultilineComment __):*

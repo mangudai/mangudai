@@ -100,7 +100,10 @@ function simpleCstNode (parts: any[], type: string): CstNode {
   return { type, children, childrenByType: groupBy(children, 'type') as { [x: string]: Token[] | CstNode[] } }
 }
 
-function visitGenericIf ([[ifToken, ws1, condition, ws2, statements, elseifs, elseStuff, endifToken]]: any) {
+function visitGenericIf ([ruleNode]: any) {
+  if (ruleNode.length === 1) ruleNode = ruleNode[0]
+  let [ifToken, ws1, condition, ws2, statements, elseifs, elseStuff, endifToken] = ruleNode
+
   return simpleCstNode([
     ifToken, ws1, simpleCstNode([condition], 'ConditionExpression'), ws2,
     simpleCstNode(statements, 'StatementsBlock'),
