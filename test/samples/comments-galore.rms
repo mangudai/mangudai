@@ -21,8 +21,8 @@
   /* comment 18 */
 
 <OBJECTS_GENERATION>
-  create_object TOWN_CENTER {
-    /* comment 19 */
+  create_object TOWN_CENTER /* comment */
+  { /* comment 19 */
     set_place_for_every_player /* comment 20 */
     /* comment 21 */
     if CONDITION

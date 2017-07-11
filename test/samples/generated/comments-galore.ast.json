@@ -167,6 +167,12 @@
                 }
               ]
             }
+          ],
+          "preLeftCurlyComments": [
+            {
+              "type": "MultilineComment",
+              "comment": "/* comment */"
+            }
           ]
         }
       ]

@@ -68,7 +68,15 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
     } as RmsCommand))
 
     const block = getFirstChildNode(cstNode, 'CommandStatementsBlock')
-    if (block) addStatements(astNode, 'statements', block, true)
+    if (block) {
+      addStatements(astNode, 'statements', block, true)
+
+      const preCommentsContainer = getFirstChildNode(block, 'PreCurlyComments')
+      if (preCommentsContainer) {
+        const preComments = getChildNodes(preCommentsContainer, 'MultilineComment').map(nodeToAst)
+        if (preComments.length) astNode.preLeftCurlyComments = preComments as RmsMultilineComment[]
+      }
+    }
 
     return astNode
   },

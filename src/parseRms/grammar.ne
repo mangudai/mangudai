@@ -37,7 +37,7 @@ SectionLine -> GenericWithComments[(Command | ConstDefinition | FlagDefinition |
 SectionIf -> GenericIfSeq[SectionLine, Section]
 SectionRandom -> GenericRandom[SectionLine]
 
-Command -> Attribute (__:? %lCurly %eol:? ((CommandLevelLine %eol):* CommandLevelLine %eol:?):? %rCurly):?
+Command -> Attribute ((__:? MultilineComment):* __:? %lCurly (__ ((CommandLevelLine %eol):* CommandLevelLine %eol:?)):? %rCurly):?
 CommandLevelLine -> GenericWithComments[(Attribute | CommandIf | CommandRandom)]
 CommandIf -> GenericIf[CommandLevelLine]
 CommandRandom -> GenericRandom[CommandLevelLine]

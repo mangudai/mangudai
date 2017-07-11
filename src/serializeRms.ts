@@ -8,11 +8,19 @@ const serializers: { [x: string]: (n: AstNode) => string } = {
     `<${name}>\n` +
     statements.map(serializeNode).map(indent).join('\n'),
 
-  Command: ({ name, args, statements }: RmsCommand) =>
-    name +
-    args.map(a => ' ' + a).join('') +
-    (statements === undefined ? '' :
-      statements.length ? ' {\n' + statements.map(serializeNode).map(indent).join('\n') + '\n}' : ' {}'),
+  Command: ({ name, args, statements, preLeftCurlyComments }: RmsCommand) => {
+    let str = name + args.map(a => ' ' + a).join('')
+    if (statements || preLeftCurlyComments) {
+      str += preLeftCurlyComments ? ' ' + preLeftCurlyComments.map(serializeNode).join(' ') : ''
+      str += ' {'
+      if (statements && statements.length) {
+        str += '\n' + statements.map(serializeNode).map(indent).join('\n') + '\n}'
+      } else {
+        str += '}'
+      }
+    }
+    return str
+  },
 
   Attribute: ({ name, args }: RmsAttribute) => name + args.map(a => ' ' + a).join(''),
 

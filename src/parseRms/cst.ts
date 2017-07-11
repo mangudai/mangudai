@@ -53,9 +53,11 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   Command: ([header, attributes]: [RuleNode, RuleNodeChildren]) => simpleCstNode([
     simpleCstNode(unwrapTokens([header]), 'CommandHeader'),
     attributes ? simpleCstNode([
-      attributes[0], attributes[1], attributes[2],
+      simpleCstNode([attributes[0]], 'PreCurlyComments'),
+      attributes[1], // Space
+      attributes[2], // Left curly
       simpleCstNode([attributes[3]], 'StatementsBlock'),
-      attributes[4]
+      attributes[4] // Right curly
     ], 'CommandStatementsBlock') : null
   ], 'Command'),
   CommandLevelLine: parts => partsToCstNodes(parts),

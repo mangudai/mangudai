@@ -50,6 +50,7 @@ export interface RmsCommand extends AstNode {
   type: 'Command',
   name: string,
   args: (string | number)[],
+  preLeftCurlyComments?: RmsMultilineComment[],
   statements?: RmsCommandStatement[]
 }
 
