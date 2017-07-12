@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.66",
+    "chevrotain": "^0.32.1",
     "lodash": "^4.17.4",
     "moo": "^0.3.3",
     "nearley": "^2.10.0"
