@@ -19,5 +19,5 @@ export const lexer = compile({
   percentChance: 'percent_chance',
   endRandom: 'end_random',
   int: /\b[0-9]+\b/,
-  identifier: /\b[^\s!@#\$%\^&\*\(\)\-\+=;:'"<>{}\[\]\?\/\\][^\s;'"<>{}\[\]\/\\]*\b/
+  identifier: /[^\s!@#\$%\^&\*\(\)\-\+=;:'"<>{}\[\]\?\/\\][^\s;'"<>{}\[\]\/\\]*/
 })
