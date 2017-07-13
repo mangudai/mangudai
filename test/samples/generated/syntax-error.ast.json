@@ -1,0 +1,18 @@
+{
+  "errors": [
+    {
+      "name": "ParseError",
+      "message": "Unexpected token define: '#define'.",
+      "boundaries": {
+        "start": {
+          "line": 3,
+          "col": 12
+        },
+        "end": {
+          "line": 3,
+          "col": 19
+        }
+      }
+    }
+  ]
+}

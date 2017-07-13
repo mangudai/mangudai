@@ -1,15 +1,19 @@
 import { Parser } from 'nearley'
+import { Token } from 'moo'
 import { Lexer, ParserRules, ParserStart } from './grammar'
 import { ruleNodesMiddleware } from './nearleyMiddleware'
 import { toCst } from './cst'
 import { toAst } from './ast'
 import { RmsAst } from './astTypes'
+import { TextSpanError } from '../'
+import { formatLexError } from './lexer'
+import { getBoundaries } from '../tokenHelpers'
 
 export * from './astTypes'
 
 const wrappedRules = ruleNodesMiddleware(ParserRules)
 
-export function parse (input: string): { errors: Error[], ast?: RmsAst } {
+export function parse (input: string): { errors: TextSpanError[], ast?: RmsAst } {
   const parser = new Parser(wrappedRules, ParserStart, { lexer: Lexer })
   try {
     parser.feed(input)
@@ -23,8 +27,31 @@ export function parse (input: string): { errors: Error[], ast?: RmsAst } {
       errors: []
     }
   } catch (error) {
-    return {
-      errors: [error]
+    let errorWithTextSpan: TextSpanError
+    if (error && error.token && error.token.type === 'invalid') {
+      errorWithTextSpan = formatLexError(error)
+    } else if (error && error.token) {
+      errorWithTextSpan = formatParseError(error)
+    } else {
+      errorWithTextSpan = {
+        name: 'ParseError',
+        message: error && error.message,
+        boundaries: {
+          start: { line: 1, col: 0 },
+          end: { line: 1, col: 1 }
+        }
+      }
     }
+    return {
+      errors: [errorWithTextSpan]
+    }
+  }
+}
+
+export function formatParseError (err: Error & { token: Token }): TextSpanError {
+  return {
+    name: 'ParseError',
+    message: `Unexpected token ${err.token.type}: '${err.token.value}'.`,
+    boundaries: getBoundaries(err.token)
   }
 }

@@ -1,239 +1,242 @@
 {
-  "type": "RandomMapScript",
-  "statements": [
-    {
-      "type": "Section",
-      "name": "LAND_GENERATION",
-      "statements": [
-        {
-          "type": "IfStatement",
-          "condition": "DESERT_MAP",
-          "statements": [
-            {
-              "type": "Command",
-              "name": "base_terrain",
-              "args": [
-                "DIRT"
-              ]
-            }
-          ],
-          "elseStatements": [
-            {
-              "type": "Command",
-              "name": "base_terrain",
-              "args": [
-                "GRASS3"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "Command",
-          "name": "create_player_lands",
-          "args": [],
-          "statements": [
-            {
-              "type": "IfStatement",
-              "condition": "DESERT_MAP",
-              "statements": [
-                {
-                  "type": "Attribute",
-                  "name": "terrain_type",
-                  "args": [
-                    "DIRT"
-                  ]
-                }
-              ],
-              "elseStatements": [
-                {
-                  "type": "Attribute",
-                  "name": "terrain_type",
-                  "args": [
-                    "GRASS3"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Attribute",
-              "name": "land_percent",
-              "args": [
-                25
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "IfStatement",
-      "condition": "FOO",
-      "elseifs": [
-        {
-          "type": "ElseIfStatement",
-          "condition": "BAR"
-        }
-      ],
-      "elseStatements": [
-        {
-          "type": "Section",
-          "name": "PLAYER_SETUP",
-          "statements": [
-            {
-              "type": "Command",
-              "name": "random_placement",
-              "args": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "IfStatement",
-      "condition": "FOO",
-      "statements": [
-        {
-          "type": "Section",
-          "name": "PLAYER_SETUP",
-          "statements": [
-            {
-              "type": "Command",
-              "name": "random_placement",
-              "args": []
-            }
-          ]
-        }
-      ],
-      "elseStatements": [
-        {
-          "type": "Section",
-          "name": "PLAYER_SETUP",
-          "statements": [
-            {
-              "type": "Command",
-              "name": "random_placement",
-              "args": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "IfStatement",
-      "condition": "FOO",
-      "statements": [
-        {
-          "type": "IfStatement",
-          "condition": "FOO",
-          "statements": [
-            {
-              "type": "Section",
-              "name": "PLAYER_SETUP",
-              "statements": [
-                {
-                  "type": "Command",
-                  "name": "random_placement",
-                  "args": []
-                }
-              ]
-            }
-          ],
-          "elseStatements": [
-            {
-              "type": "Section",
-              "name": "PLAYER_SETUP",
-              "statements": [
-                {
-                  "type": "Command",
-                  "name": "random_placement",
-                  "args": []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "elseifs": [
-        {
-          "type": "ElseIfStatement",
-          "condition": "BAR",
-          "statements": [
-            {
-              "type": "IfStatement",
-              "condition": "FOO",
-              "statements": [
-                {
-                  "type": "Section",
-                  "name": "PLAYER_SETUP",
-                  "statements": [
-                    {
-                      "type": "Command",
-                      "name": "random_placement",
-                      "args": []
-                    }
-                  ]
-                }
-              ],
-              "elseStatements": [
-                {
-                  "type": "Section",
-                  "name": "PLAYER_SETUP",
-                  "statements": [
-                    {
-                      "type": "Command",
-                      "name": "random_placement",
-                      "args": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "elseStatements": [
-        {
-          "type": "IfStatement",
-          "condition": "FOO",
-          "statements": [
-            {
-              "type": "Section",
-              "name": "PLAYER_SETUP",
-              "statements": [
-                {
-                  "type": "Command",
-                  "name": "random_placement",
-                  "args": []
-                }
-              ]
-            }
-          ],
-          "elseStatements": [
-            {
-              "type": "Section",
-              "name": "PLAYER_SETUP",
-              "statements": [
-                {
-                  "type": "Command",
-                  "name": "random_placement",
-                  "args": []
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "IfStatement",
-      "condition": "FOO",
-      "statements": [
-        {
-          "type": "MultilineComment",
-          "comment": "/* Empty else: */"
-        }
-      ],
-      "elseStatements": []
-    }
-  ]
+  "ast": {
+    "type": "RandomMapScript",
+    "statements": [
+      {
+        "type": "Section",
+        "name": "LAND_GENERATION",
+        "statements": [
+          {
+            "type": "IfStatement",
+            "condition": "DESERT_MAP",
+            "statements": [
+              {
+                "type": "Command",
+                "name": "base_terrain",
+                "args": [
+                  "DIRT"
+                ]
+              }
+            ],
+            "elseStatements": [
+              {
+                "type": "Command",
+                "name": "base_terrain",
+                "args": [
+                  "GRASS3"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Command",
+            "name": "create_player_lands",
+            "args": [],
+            "statements": [
+              {
+                "type": "IfStatement",
+                "condition": "DESERT_MAP",
+                "statements": [
+                  {
+                    "type": "Attribute",
+                    "name": "terrain_type",
+                    "args": [
+                      "DIRT"
+                    ]
+                  }
+                ],
+                "elseStatements": [
+                  {
+                    "type": "Attribute",
+                    "name": "terrain_type",
+                    "args": [
+                      "GRASS3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "Attribute",
+                "name": "land_percent",
+                "args": [
+                  25
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "IfStatement",
+        "condition": "FOO",
+        "elseifs": [
+          {
+            "type": "ElseIfStatement",
+            "condition": "BAR"
+          }
+        ],
+        "elseStatements": [
+          {
+            "type": "Section",
+            "name": "PLAYER_SETUP",
+            "statements": [
+              {
+                "type": "Command",
+                "name": "random_placement",
+                "args": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "IfStatement",
+        "condition": "FOO",
+        "statements": [
+          {
+            "type": "Section",
+            "name": "PLAYER_SETUP",
+            "statements": [
+              {
+                "type": "Command",
+                "name": "random_placement",
+                "args": []
+              }
+            ]
+          }
+        ],
+        "elseStatements": [
+          {
+            "type": "Section",
+            "name": "PLAYER_SETUP",
+            "statements": [
+              {
+                "type": "Command",
+                "name": "random_placement",
+                "args": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "IfStatement",
+        "condition": "FOO",
+        "statements": [
+          {
+            "type": "IfStatement",
+            "condition": "FOO",
+            "statements": [
+              {
+                "type": "Section",
+                "name": "PLAYER_SETUP",
+                "statements": [
+                  {
+                    "type": "Command",
+                    "name": "random_placement",
+                    "args": []
+                  }
+                ]
+              }
+            ],
+            "elseStatements": [
+              {
+                "type": "Section",
+                "name": "PLAYER_SETUP",
+                "statements": [
+                  {
+                    "type": "Command",
+                    "name": "random_placement",
+                    "args": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "elseifs": [
+          {
+            "type": "ElseIfStatement",
+            "condition": "BAR",
+            "statements": [
+              {
+                "type": "IfStatement",
+                "condition": "FOO",
+                "statements": [
+                  {
+                    "type": "Section",
+                    "name": "PLAYER_SETUP",
+                    "statements": [
+                      {
+                        "type": "Command",
+                        "name": "random_placement",
+                        "args": []
+                      }
+                    ]
+                  }
+                ],
+                "elseStatements": [
+                  {
+                    "type": "Section",
+                    "name": "PLAYER_SETUP",
+                    "statements": [
+                      {
+                        "type": "Command",
+                        "name": "random_placement",
+                        "args": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "elseStatements": [
+          {
+            "type": "IfStatement",
+            "condition": "FOO",
+            "statements": [
+              {
+                "type": "Section",
+                "name": "PLAYER_SETUP",
+                "statements": [
+                  {
+                    "type": "Command",
+                    "name": "random_placement",
+                    "args": []
+                  }
+                ]
+              }
+            ],
+            "elseStatements": [
+              {
+                "type": "Section",
+                "name": "PLAYER_SETUP",
+                "statements": [
+                  {
+                    "type": "Command",
+                    "name": "random_placement",
+                    "args": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "IfStatement",
+        "condition": "FOO",
+        "statements": [
+          {
+            "type": "MultilineComment",
+            "comment": "/* Empty else: */"
+          }
+        ],
+        "elseStatements": []
+      }
+    ]
+  },
+  "errors": []
 }

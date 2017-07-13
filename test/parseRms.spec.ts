@@ -11,26 +11,13 @@ const readSample = (name: string) => ({
 })
 
 describe('parseRms', () => {
-  it('returns errors on illegal tokens', () => {
-    const { ast, errors } = parse('=== wtf is this even ===')
-    expect(errors).to.not.deep.equal([])
-    expect(ast).to.equal(undefined)
-  })
-
-  it('returns CST visitor errors instead of throwing them', () => {
-    const { ast, errors } = parse('<PLAYER_SETUP> whatever { #define }')
-    expect(errors).to.not.deep.equal([])
-    expect(ast).to.equal(undefined)
-  })
-
   readdirSync(resolve(__dirname, 'samples'))
     .filter(str => str.endsWith('.rms'))
     .map(filename => readSample(basename(filename, '.rms')))
     .forEach(({ name, script, correctAst }) => {
       it(`parses example ${name}`, () => {
-        const { ast, errors } = parse(script)
-        expect(errors).to.deep.equal([])
-        expect(ast).to.deep.equal(correctAst)
+        const result = parse(script)
+        expect(result).to.deep.equal(correctAst)
       })
     })
 })

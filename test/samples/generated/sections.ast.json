@@ -1,98 +1,101 @@
 {
-  "type": "RandomMapScript",
-  "statements": [
-    {
-      "type": "MultilineComment",
-      "comment": "/* comment */"
-    },
-    {
-      "type": "Section",
-      "name": "PLAYER_SETUP",
-      "statements": [
-        {
-          "type": "Command",
-          "name": "random_placement",
-          "args": []
-        }
-      ]
-    },
-    {
-      "type": "Section",
-      "name": "OBJECTS_GENERATION",
-      "statements": [
-        {
-          "type": "Command",
-          "name": "create_object",
-          "args": [
-            "TOWN_CENTER"
-          ],
-          "statements": [
-            {
-              "type": "Attribute",
-              "name": "set_place_for_every_player",
-              "args": []
-            },
-            {
-              "type": "Attribute",
-              "name": "min_distance_to_players",
-              "args": [
-                0
-              ]
-            },
-            {
-              "type": "Attribute",
-              "name": "max_distance_to_players",
-              "args": [
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "type": "MultilineComment",
-          "comment": "/* Should support both styles: inline curly and separate curly. */"
-        },
-        {
-          "type": "Command",
-          "name": "create_object",
-          "args": [
-            "TOWN_CENTER"
-          ],
-          "statements": [
-            {
-              "type": "Attribute",
-              "name": "set_place_for_every_player",
-              "args": []
-            },
-            {
-              "type": "Attribute",
-              "name": "min_distance_to_players",
-              "args": [
-                0
-              ]
-            },
-            {
-              "type": "Attribute",
-              "name": "max_distance_to_players",
-              "args": [
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "type": "MultilineComment",
-          "comment": "/* Curly brackets can be empty */"
-        },
-        {
-          "type": "Command",
-          "name": "create_object",
-          "args": [
-            "TOWN_CENTER"
-          ],
-          "statements": []
-        }
-      ]
-    }
-  ]
+  "ast": {
+    "type": "RandomMapScript",
+    "statements": [
+      {
+        "type": "MultilineComment",
+        "comment": "/* comment */"
+      },
+      {
+        "type": "Section",
+        "name": "PLAYER_SETUP",
+        "statements": [
+          {
+            "type": "Command",
+            "name": "random_placement",
+            "args": []
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "name": "OBJECTS_GENERATION",
+        "statements": [
+          {
+            "type": "Command",
+            "name": "create_object",
+            "args": [
+              "TOWN_CENTER"
+            ],
+            "statements": [
+              {
+                "type": "Attribute",
+                "name": "set_place_for_every_player",
+                "args": []
+              },
+              {
+                "type": "Attribute",
+                "name": "min_distance_to_players",
+                "args": [
+                  0
+                ]
+              },
+              {
+                "type": "Attribute",
+                "name": "max_distance_to_players",
+                "args": [
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "type": "MultilineComment",
+            "comment": "/* Should support both styles: inline curly and separate curly. */"
+          },
+          {
+            "type": "Command",
+            "name": "create_object",
+            "args": [
+              "TOWN_CENTER"
+            ],
+            "statements": [
+              {
+                "type": "Attribute",
+                "name": "set_place_for_every_player",
+                "args": []
+              },
+              {
+                "type": "Attribute",
+                "name": "min_distance_to_players",
+                "args": [
+                  0
+                ]
+              },
+              {
+                "type": "Attribute",
+                "name": "max_distance_to_players",
+                "args": [
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "type": "MultilineComment",
+            "comment": "/* Curly brackets can be empty */"
+          },
+          {
+            "type": "Command",
+            "name": "create_object",
+            "args": [
+              "TOWN_CENTER"
+            ],
+            "statements": []
+          }
+        ]
+      }
+    ]
+  },
+  "errors": []
 }

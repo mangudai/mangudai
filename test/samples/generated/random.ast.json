@@ -1,185 +1,188 @@
 {
-  "type": "RandomMapScript",
-  "statements": [
-    {
-      "type": "RandomStatement",
-      "statements": [
-        {
-          "type": "ChanceStatement",
-          "chance": 16,
-          "statements": [
-            {
-              "type": "FlagDefinition",
-              "flag": "MEGAPACK_A"
-            }
-          ]
-        },
-        {
-          "type": "ChanceStatement",
-          "chance": 16,
-          "statements": [
-            {
-              "type": "FlagDefinition",
-              "flag": "MEGAPACK_B"
-            }
-          ]
-        },
-        {
-          "type": "ChanceStatement",
-          "chance": 17,
-          "statements": [
-            {
-              "type": "FlagDefinition",
-              "flag": "MEGAPACK_C"
-            }
-          ]
-        },
-        {
-          "type": "ChanceStatement",
-          "chance": 17,
-          "statements": [
-            {
-              "type": "FlagDefinition",
-              "flag": "MEGAPACK_D"
-            }
-          ]
-        },
-        {
-          "type": "ChanceStatement",
-          "chance": 17,
-          "statements": [
-            {
-              "type": "FlagDefinition",
-              "flag": "MEGAPACK_E"
-            }
-          ]
-        },
-        {
-          "type": "ChanceStatement",
-          "chance": 17,
-          "statements": [
-            {
-              "type": "FlagDefinition",
-              "flag": "MEGAPACK_F"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Section",
-      "name": "LAND_GENERATION",
-      "statements": [
-        {
-          "type": "RandomStatement",
-          "statements": [
-            {
-              "type": "MultilineComment",
-              "comment": "/* 50-50 chance of generating a summer or a winter map. */"
-            },
-            {
-              "type": "ChanceStatement",
-              "chance": 50,
-              "statements": [
-                {
-                  "type": "FlagDefinition",
-                  "flag": "SUMMER"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "Command",
-          "name": "create_player_lands",
-          "args": [],
-          "statements": [
-            {
-              "type": "IfStatement",
-              "condition": "SUMMER",
-              "statements": [
-                {
-                  "type": "Attribute",
-                  "name": "terrain_type",
-                  "args": [
-                    "GRASS3"
-                  ]
-                }
-              ],
-              "elseStatements": [
-                {
-                  "type": "Attribute",
-                  "name": "terrain_type",
-                  "args": [
-                    "DIRT"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Attribute",
-              "name": "land_percent",
-              "args": [
-                25
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Section",
-      "name": "LAND_GENERATION",
-      "statements": []
-    },
-    {
-      "type": "RandomStatement",
-      "statements": [
-        {
-          "type": "ChanceStatement",
-          "chance": 50,
-          "statements": [
-            {
-              "type": "MultilineComment",
-              "comment": "/* This is totally valid. */"
-            },
-            {
-              "type": "Section",
-              "name": "LAND_GENERATION",
-              "statements": []
-            },
-            {
-              "type": "MultilineComment",
-              "comment": "/* This is a top-level random. */"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "MultilineComment",
-      "comment": "/* Empty `percent_chance` blocks are valid. See #20. */"
-    },
-    {
-      "type": "RandomStatement",
-      "statements": [
-        {
-          "type": "ChanceStatement",
-          "chance": 95,
-          "statements": []
-        },
-        {
-          "type": "ChanceStatement",
-          "chance": 5,
-          "statements": [
-            {
-              "type": "Section",
-              "name": "LAND_GENERATION",
-              "statements": []
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "ast": {
+    "type": "RandomMapScript",
+    "statements": [
+      {
+        "type": "RandomStatement",
+        "statements": [
+          {
+            "type": "ChanceStatement",
+            "chance": 16,
+            "statements": [
+              {
+                "type": "FlagDefinition",
+                "flag": "MEGAPACK_A"
+              }
+            ]
+          },
+          {
+            "type": "ChanceStatement",
+            "chance": 16,
+            "statements": [
+              {
+                "type": "FlagDefinition",
+                "flag": "MEGAPACK_B"
+              }
+            ]
+          },
+          {
+            "type": "ChanceStatement",
+            "chance": 17,
+            "statements": [
+              {
+                "type": "FlagDefinition",
+                "flag": "MEGAPACK_C"
+              }
+            ]
+          },
+          {
+            "type": "ChanceStatement",
+            "chance": 17,
+            "statements": [
+              {
+                "type": "FlagDefinition",
+                "flag": "MEGAPACK_D"
+              }
+            ]
+          },
+          {
+            "type": "ChanceStatement",
+            "chance": 17,
+            "statements": [
+              {
+                "type": "FlagDefinition",
+                "flag": "MEGAPACK_E"
+              }
+            ]
+          },
+          {
+            "type": "ChanceStatement",
+            "chance": 17,
+            "statements": [
+              {
+                "type": "FlagDefinition",
+                "flag": "MEGAPACK_F"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "name": "LAND_GENERATION",
+        "statements": [
+          {
+            "type": "RandomStatement",
+            "statements": [
+              {
+                "type": "MultilineComment",
+                "comment": "/* 50-50 chance of generating a summer or a winter map. */"
+              },
+              {
+                "type": "ChanceStatement",
+                "chance": 50,
+                "statements": [
+                  {
+                    "type": "FlagDefinition",
+                    "flag": "SUMMER"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Command",
+            "name": "create_player_lands",
+            "args": [],
+            "statements": [
+              {
+                "type": "IfStatement",
+                "condition": "SUMMER",
+                "statements": [
+                  {
+                    "type": "Attribute",
+                    "name": "terrain_type",
+                    "args": [
+                      "GRASS3"
+                    ]
+                  }
+                ],
+                "elseStatements": [
+                  {
+                    "type": "Attribute",
+                    "name": "terrain_type",
+                    "args": [
+                      "DIRT"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "Attribute",
+                "name": "land_percent",
+                "args": [
+                  25
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Section",
+        "name": "LAND_GENERATION",
+        "statements": []
+      },
+      {
+        "type": "RandomStatement",
+        "statements": [
+          {
+            "type": "ChanceStatement",
+            "chance": 50,
+            "statements": [
+              {
+                "type": "MultilineComment",
+                "comment": "/* This is totally valid. */"
+              },
+              {
+                "type": "Section",
+                "name": "LAND_GENERATION",
+                "statements": []
+              },
+              {
+                "type": "MultilineComment",
+                "comment": "/* This is a top-level random. */"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "MultilineComment",
+        "comment": "/* Empty `percent_chance` blocks are valid. See #20. */"
+      },
+      {
+        "type": "RandomStatement",
+        "statements": [
+          {
+            "type": "ChanceStatement",
+            "chance": 95,
+            "statements": []
+          },
+          {
+            "type": "ChanceStatement",
+            "chance": 5,
+            "statements": [
+              {
+                "type": "Section",
+                "name": "LAND_GENERATION",
+                "statements": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "errors": []
 }

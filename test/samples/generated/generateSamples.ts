@@ -12,19 +12,19 @@ const samples = readdirSync(resolve(__dirname, '..'))
   .filter(str => extname(str) === '.rms')
 
 samples.forEach(filename => {
-  const rms = readFileSync(resolve(__dirname, '..', filename), 'utf8')
-  const ast = parse(rms).ast || null
   console.log(`Updating samples for ${filename}`)
+  const rms = readFileSync(resolve(__dirname, '..', filename), 'utf8')
+  const result = parse(rms)
 
-  const serializedAst = JSON.stringify(ast, null, 2)
+  const serializedAst = JSON.stringify(result, null, 2)
   const astFilename = basename(filename, '.rms') + '.ast.json'
   writeFileSync(join(__dirname, astFilename), serializedAst + '\n')
 
-  const lintErrors = JSON.stringify(ast ? lint(ast) : [], null, 2)
+  const lintErrors = JSON.stringify(result.ast ? lint(result.ast) : [], null, 2)
   const lintFilename = basename(filename, '.rms') + '.lint-errors.json'
   writeFileSync(join(__dirname, lintFilename), lintErrors + '\n')
 
-  const generatedRms = ast ? serialize(ast) : ''
+  const generatedRms = result.ast ? serialize(result.ast) : ''
   const generatedRmsFilename = basename(filename, '.rms') + '.generated.rms'
   writeFileSync(join(__dirname, generatedRmsFilename), generatedRms)
 })

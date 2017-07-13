@@ -1,5 +1,5 @@
 import { RmsAst } from '../parseRms'
-import { TextSpan } from '../tokenHelpers'
+import { TextSpanError } from '../'
 
 const rules: { [x: string]: { check: (ast: RmsAst, options: any) => LintError[] } } = {
   // Possible errors
@@ -21,8 +21,6 @@ export function lint (ast: RmsAst, options: { [x: string]: any } = {}): LintErro
   return errors
 }
 
-export interface LintError extends Error {
-  name: 'LintError',
-  message: string,
-  boundaries: TextSpan
+export interface LintError extends TextSpanError {
+  name: 'LintError'
 }

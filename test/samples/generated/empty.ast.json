@@ -1,4 +1,7 @@
 {
-  "type": "RandomMapScript",
-  "statements": []
+  "ast": {
+    "type": "RandomMapScript",
+    "statements": []
+  },
+  "errors": []
 }
