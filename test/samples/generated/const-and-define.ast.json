@@ -104,6 +104,19 @@
                 "args": [
                   0
                 ]
+              },
+              {
+                "type": "MultilineComment",
+                "comment": "/* Apparently, directives can be used in command blocks. See #26. */"
+              },
+              {
+                "type": "FlagDefinition",
+                "flag": "stuff"
+              },
+              {
+                "type": "ConstDefinition",
+                "name": "foo",
+                "value": 5
               }
             ]
           }

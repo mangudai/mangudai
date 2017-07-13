@@ -2,15 +2,15 @@
   "errors": [
     {
       "name": "ParseError",
-      "message": "Unexpected token define: '#define'.",
+      "message": "Unexpected token rCurly: '}'.",
       "boundaries": {
         "start": {
           "line": 3,
-          "col": 12
+          "col": 20
         },
         "end": {
           "line": 3,
-          "col": 19
+          "col": 21
         }
       }
     }

@@ -30,4 +30,7 @@
     set_place_for_every_player
     min_distance_to_players 0
     max_distance_to_players 0
+    /* Apparently, directives can be used in command blocks. See #26. */
+    #define stuff
+    #const foo 5
   }
