@@ -15,8 +15,9 @@ const rules: { [x: string]: { check: (ast: RmsAst, options: any) => LintError[] 
   eolLast: require('./rules/eol-last')
 }
 
-export function lint (ast: RmsAst, options: { [x: string]: any } = {}): LintError[] {
+export function lint (ast: RmsAst | undefined, options: { [x: string]: any } = {}): LintError[] {
   const errors: LintError[] = []
+  if (!ast) return errors
   Object.entries(rules).forEach(([name, rule]) => errors.push(...rule.check(ast, options[name])))
   return errors
 }

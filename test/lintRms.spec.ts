@@ -17,7 +17,7 @@ describe('lintRms', () => {
     .forEach(({ name, script, correctErrors }) => {
       it(`lints example ${name}`, () => {
         const ast = parse(script).ast
-        const errors = ast ? lint(ast) : undefined
+        const errors = lint(ast)
         expect(errors).to.deep.equal(correctErrors)
       })
     })
