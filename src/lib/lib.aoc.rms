@@ -32,88 +32,88 @@
 
 <TERRAINS>
 
+/* Grass terrain. Default. */
+#const GRASS 0
+/* Water terrain. */
+#const WATER 1
 /* Beach terrain. Automatically placed around coasts. Sailable. No buildings except walls and docks. */
 #const BEACH 2
-/* Icy beach terrain. Automatically placed around snowy coasts. Sailable. No buildings except walls and docks. */
-#const __noname 37
-/* Dirt terrain. Includes some cactus objects. */
-#const DIRT 6
-/* Dirt and grass mix terrain. */
-#const DIRT2 11
-/* Dirt and grass mix terrain with no beach. Like DIRT2 but has no sandy beaches, still dockable. */
-#const __noname 27
 /* Greenish dirt terrain. */
 #const DIRT3 3
-/* Snowy dirt terrain with icy beaches. */
-#const DIRT_SNOW 33
-/* Snowy dirt terrain with sandy beaches. */
-#const __noname 36
+/* Shallow terrain. Grassy water, sailable and walkable. */
+#const SHALLOW 4
+/* Forest leaves terrain. Terrain left when temperate or tropical forest is chopped. */
+#const LEAVES 5
+/* Dirt terrain. Includes some cactus objects. */
+#const DIRT 6
+/* Planted farms terrain. Not actual farms! */
+#const __noname 7
+/* Expired farms terrain. Not actual farms! */
+#const __noname 8
+/* Brownish grass terrain. */
+#const GRASS3 9
+/* Oak forest terrain. */
+#const FOREST 10
+/* Dirt and grass mix terrain. */
+#const DIRT2 11
+/* Bright grass terrain. */
+#const GRASS2 12
+/* Palm forest terrain. Leaves behind DESERT when chopped. */
+#const PALM_DESERT 13
 /* Desert terrain. */
 #const DESERT 14
+/* Water terrain. Like `WATER` but has no beaches. Not dockable. */
+#const __noname 15
+/* Grass terrain. Looks like `GRASS`, automatically placed under cliffs. */
+#const __noname 16
+/* Jungle forest terrain. */
+#const JUNGLE 17
+/* Bamboo forest terrain. */
+#const BAMBOO 18
+/* Pine forest terrain. */
+#const PINE_FOREST 19
+/* Oak forest terrain. Looks exactly like `FOREST` but the trees are called "Oak forest". */
+#const FOREST 20
+/* Snowy forest terrain. Leaves behind GRASS_SNOW when chopped. */
+#const SNOW_FOREST 21
+/* Dark water terrain. Not dockable. */
+#const DEEP_WATER 22
+/* Darker water terrain. Not dockable. */
+#const MED_WATER 23
+/* Road terrain. You can't place gold, stone, berries on any type of road. */
+#const ROAD 24
+/* Ruined road terrain. You can't place gold, stone, berries on any type of road. */
+#const ROAD2 25
+/* Ice terrain. Like `ICE` but sailable. */
+#const __noname 26
+/* Dirt and grass mix terrain with no beach. Like DIRT2 but has no sandy beaches, still dockable. */
+#const __noname 27
+/* Water terrain.Like `WATER` but walkable and has no beaches. Not sailable. */
+#const __noname 28
 /* Ploughed farms terrain. Not actual farms! */
 #const __noname 29
 /* Growing farms terrain. Not actual farms! */
 #const __noname 30
 /* Almost grown farms terrain. Not actual farms! */
 #const __noname 31
-/* Planted farms terrain. Not actual farms! */
-#const __noname 7
-/* Expired farms terrain. Not actual farms! */
-#const __noname 8
-/* Bamboo forest terrain. */
-#const BAMBOO 8
-/* Oak forest terrain. */
-#const FOREST 10
-/* Oak forest terrain. Looks exactly like `FOREST` but the trees are called "Oak forest". */
-#const FOREST 20
-/* Jungle forest terrain. */
-#const JUNGLE 17
-/* Forest leaves terrain. Terrain left when temperate or tropical forest is chopped. */
-#const LEAVES 5
-/* Palm forest terrain. Leaves behind DESERT when chopped. */
-#const PALM_DESERT 13
-/* Pine forest terrain. */
-#const PINE_FOREST 19
-/* Snowy forest terrain. Leaves behind GRASS_SNOW when chopped. */
-#const SNOW_FOREST 21
-/* Grass terrain. Default. */
-#const GRASS 0
-/* Grass terrain. Looks like `GRASS`, automatically placed under cliffs. */
-#const __noname 16
-/* Bright grass terrain. */
-#const GRASS2 12
-/* Brownish grass terrain. */
-#const GRASS3 9
+/* Snow terrain. */
+#const SNOW 32
+/* Snowy dirt terrain with icy beaches. */
+#const DIRT_SNOW 33
 /* Snowy grass terrain. Left behind when snowy forest is chopped. */
 #const GRASS_SNOW 34
 /* Ice terrain. Not sailable. No buildings. */
 #const ICE 35
-/* Ice terrain. Like `ICE` but sailable. */
-#const __noname 26
-/* Road terrain. You can't place gold, stone, berries on any type of road. */
-#const ROAD 26
-/* Road terrain. No buildings, used in King of the Hill game type around the relic. You can't place gold, stone, berries on any type of road. */
-#const __noname 40
-/* Ruined road terrain. You can't place gold, stone, berries on any type of road. */
-#const ROAD2 25
+/* Snowy dirt terrain with sandy beaches. */
+#const __noname 36
+/* Icy beach terrain. Automatically placed around snowy coasts. Sailable. No buildings except walls and docks. */
+#const __noname 37
 /* Snowy road terrain. You can't place gold, stone, berries on any type of road. */
 #const __noname 38
 /* Grassy road terrain. You can't place gold, stone, berries on any type of road. */
 #const __noname 39
-/* Shallow terrain. Grassy water, sailable and walkable. */
-#const SHALLOW 4
-/* Snow terrain. */
-#const SNOW 32
-/* Water terrain. */
-#const WATER 1
-/* Darker water terrain. Not dockable. */
-#const MED_WATER 23
-/* Dark water terrain. Not dockable. */
-#const DEEP_WATER 23
-/* Water terrain. Like `WATER` but has no beaches. Not dockable. */
-#const __noname 15
-/* Water terrain.Like `WATER` but walkable and has no beaches. Not sailable. */
-#const __noname 28
+/* Road terrain. No buildings, used in King of the Hill game type around the relic. You can't place gold, stone, berries on any type of road. */
+#const __noname 40
 
 <ENTITIES>
 
