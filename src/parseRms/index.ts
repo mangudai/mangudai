@@ -1,6 +1,6 @@
-import { Parser } from 'nearley'
+import { Parser, Grammar } from 'nearley'
 import { Token } from 'moo'
-import { Lexer, ParserRules, ParserStart } from './grammar'
+import * as grammar from './grammar'
 import { ruleNodesMiddleware } from './nearleyMiddleware'
 import { toCst } from './cst'
 import { toAst } from './ast'
@@ -11,10 +11,12 @@ import { getBoundaries } from '../tokenHelpers'
 
 export * from './astTypes'
 
-const wrappedRules = ruleNodesMiddleware(ParserRules)
+const wrappedGrammar = { ...grammar, ParserRules: ruleNodesMiddleware(grammar.ParserRules) }
+// TODO: Fix nearley.Grammar.fromCompiled() TypeScript definition.
+const compiledGrammar: Grammar = (Grammar.fromCompiled as any)(wrappedGrammar)
 
 export function parse (input: string): { errors: TextSpanError[], ast?: RmsAst } {
-  const parser = new Parser(wrappedRules, ParserStart, { lexer: Lexer })
+  const parser = new Parser(compiledGrammar)
   try {
     parser.feed(input)
     const parsings = parser.results.map(toCst).map(toAst)
