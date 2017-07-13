@@ -23,8 +23,8 @@ GenericRandom[Child] -> GenericRandomSeq[$Child, null]
 GenericWithComments[Statement] -> (MultilineComment %space:?):* ($Statement (%space:? MultilineComment):* | MultilineComment)
 
 TopLevelLine -> GenericWithComments[(Command | ConstDefinition | FlagDefinition | IncludeDrs | TopLevelIf | TopLevelRandom)]
-TopLevelIf -> GenericIf[TopLevelLine]
-TopLevelRandom -> GenericRandom[TopLevelLine]
+TopLevelIf -> GenericIfSeq[TopLevelLine, Section]
+TopLevelRandom -> GenericRandomSeq[TopLevelLine, Section]
 
 Section -> %lArrow %identifier %rArrow (%eol (SectionLine %eol):* SectionLine):?
 SectionLine -> GenericWithComments[(Command | ConstDefinition | FlagDefinition | IncludeDrs | SectionIf | SectionRandom)]
