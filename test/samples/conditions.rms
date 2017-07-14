@@ -14,7 +14,8 @@
     land_percent 25
   }
 
-if FOO
+/* Empty if is allowed. */
+if FOO /* Inline comments on the same line can be found in built-in maps. */
 elseif BAR
 else
   <PLAYER_SETUP>

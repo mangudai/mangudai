@@ -112,11 +112,11 @@ function simpleCstNode (parts: any[], type: string): CstNode {
 
 function visitGenericIf ([ruleNode]: any) {
   if (ruleNode.length === 1) ruleNode = ruleNode[0]
-  const [ifToken, ws1, condition, ws2, statements, elseifs, elseStuff, endifToken] = ruleNode
+  const [ifToken, ws1, condition, comments, ws2, statements, elseifs, elseStuff, endifToken] = ruleNode
 
   return simpleCstNode([
-    ifToken, ws1, simpleCstNode([condition], 'ConditionExpression'), ws2,
-    simpleCstNode(statements, 'StatementsBlock'),
+    ifToken, ws1, simpleCstNode([condition], 'ConditionExpression'),
+    simpleCstNode([comments, ws2, statements], 'StatementsBlock'),
     elseifs.map(([elseifToken, ws1, condition, ws2, ...statements]: any) => simpleCstNode([
       elseifToken, ws1, simpleCstNode([condition], 'ConditionExpression'), ws2,
       simpleCstNode(statements, 'StatementsBlock')

@@ -5,7 +5,7 @@
 Script -> __:? ((TopLevelLine %eol):* TopLevelLine %eol:?):? ((Section %eol):* Section %eol:?):?
 
 GenericIfSeq[FirstChild, SecondChild] ->
-  %ifToken %space %identifier %eol
+  %ifToken %space %identifier (%space:? MultilineComment):* %eol
   (($FirstChild %eol):* ($SecondChild %eol):*)
   (%elseifToken %space %identifier __ ($FirstChild %eol):* ($SecondChild %eol):*):*
   (%elseToken __ ($FirstChild %eol):* ($SecondChild %eol):*):?
@@ -42,7 +42,7 @@ CommandRandom -> GenericRandom[CommandLevelLine]
 # Special kind of a command with an IfStatement as a header instead of AttributeStatement. See #17.
 ConditionalCommand ->
   (
-    %ifToken %space %identifier %eol
+    %ifToken %space %identifier (%space:? MultilineComment):* %eol
     (Attribute %eol)
     (%elseifToken %space %identifier __ Attribute %eol):*
     (%elseToken __ Attribute %eol):?

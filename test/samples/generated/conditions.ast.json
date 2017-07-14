@@ -67,8 +67,18 @@
         ]
       },
       {
+        "type": "MultilineComment",
+        "comment": "/* Empty if is allowed. */"
+      },
+      {
         "type": "IfStatement",
         "condition": "FOO",
+        "statements": [
+          {
+            "type": "MultilineComment",
+            "comment": "/* Inline comments on the same line can be found in built-in maps. */"
+          }
+        ],
         "elseifs": [
           {
             "type": "ElseIfStatement",

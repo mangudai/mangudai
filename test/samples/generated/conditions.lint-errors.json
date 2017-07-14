@@ -4,11 +4,11 @@
     "message": "Duplicate command with exactly the same alternatives, arguments, and attibutes.",
     "boundaries": {
       "start": {
-        "line": 76,
+        "line": 77,
         "col": 0
       },
       "end": {
-        "line": 82,
+        "line": 83,
         "col": 1
       }
     }
@@ -18,11 +18,11 @@
     "message": "Empty 'else'.",
     "boundaries": {
       "start": {
-        "line": 60,
+        "line": 61,
         "col": 0
       },
       "end": {
-        "line": 61,
+        "line": 62,
         "col": 4
       }
     }
