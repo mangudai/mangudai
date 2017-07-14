@@ -5,11 +5,11 @@
     "boundaries": {
       "start": {
         "line": 4,
-        "col": 4
+        "col": 3
       },
       "end": {
         "line": 4,
-        "col": 4
+        "col": 3
       }
     }
   }

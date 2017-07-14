@@ -18,7 +18,7 @@ export function getBoundaries (token: Token = EMPTY_TOKEN): TextSpan {
     },
     end: {
       line: token.line + tokenLines.length - 1,
-      col: token.col + tokenLines[tokenLines.length - 1].length
+      col: token.col - 1 + tokenLines[tokenLines.length - 1].length
     }
   }
 }
