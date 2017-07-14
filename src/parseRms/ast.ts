@@ -2,7 +2,8 @@ import { Token } from 'moo'
 import { CstNode } from './cst'
 import { hideCstProperties, getChildNode, getToken, getChildNodes } from '../treeHelpers'
 import { AstNode, Script, IfStatement, ElseIfStatement, RandomStatement, ChanceStatement, SectionStatement,
-  AttributeStatement, DeclarationStatement, IncludeDrsStatement, MultilineComment, CommandStatement } from './astTypes'
+  AttributeStatement, DeclarationStatement, IncludeDrsStatement, MultilineComment,
+  CommandStatement, ConditionalCommandStatement } from './astTypes'
 
 export function toAst (root: CstNode) {
   return nodeToAst(root) as Script
@@ -71,18 +72,17 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
       type: 'CommandStatement',
       ...getNameAndArgs(getChildNode(cstNode, 'CommandHeader', true))
     } as CommandStatement))
+    const body = getChildNode(cstNode, 'CommandBody')
+    if (body) visitCommandBody(astNode, body)
+    return astNode
+  },
 
-    const block = getChildNode(cstNode, 'CommandStatementsBlock')
-    if (block) {
-      addStatements(astNode, 'statements', block, true)
-
-      const preCommentsContainer = getChildNode(block, 'PreCurlyComments')
-      if (preCommentsContainer) {
-        const preComments = getChildNodes(preCommentsContainer, 'MultilineComment').map(nodeToAst)
-        if (preComments.length) astNode.preLeftCurlyComments = preComments as MultilineComment[]
-      }
-    }
-
+  ConditionalCommand: (cstNode): ConditionalCommandStatement => {
+    const astNode = hideCstProperties(Object.assign(cstNode, {
+      type: 'ConditionalCommandStatement',
+      header: nodeToAst(getChildNode(cstNode, 'If', true))
+    } as ConditionalCommandStatement))
+    visitCommandBody(astNode, getChildNode(cstNode, 'CommandBody', true))
     return astNode
   },
 
@@ -121,6 +121,16 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
     type: 'MultilineComment',
     comment: getToken(cstNode, 'multilineComment', true).value
   } as MultilineComment))
+}
+
+function visitCommandBody (command: CommandStatement | ConditionalCommandStatement, body: CstNode) {
+  addStatements(command, 'statements', body, true)
+
+  const preCommentsContainer = getChildNode(body, 'PreCurlyComments')
+  if (preCommentsContainer) {
+    const preComments = getChildNodes(preCommentsContainer, 'MultilineComment').map(nodeToAst)
+    if (preComments.length) command.preLeftCurlyComments = preComments as MultilineComment[]
+  }
 }
 
 function nodeToAst (node: CstNode) {

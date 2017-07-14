@@ -235,6 +235,88 @@
           }
         ],
         "elseStatements": []
+      },
+      {
+        "type": "SectionStatement",
+        "name": "PLAYER_SETUP",
+        "statements": [
+          {
+            "type": "MultilineComment",
+            "comment": "/* Special kind of a command with an IfStatement as a header instead of AttributeStatement. See #17. */"
+          },
+          {
+            "type": "ConditionalCommandStatement",
+            "header": {
+              "type": "IfStatement",
+              "condition": "TROPICAL_MAP",
+              "statements": [
+                {
+                  "type": "AttributeStatement",
+                  "name": "create_object",
+                  "args": [
+                    "JAVELINA"
+                  ]
+                }
+              ],
+              "elseStatements": [
+                {
+                  "type": "AttributeStatement",
+                  "name": "create_object",
+                  "args": [
+                    "BOAR"
+                  ]
+                }
+              ]
+            },
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "number_of_objects",
+                "args": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "type": "MultilineComment",
+            "comment": "/* Let's duplicate it to test the linter. */"
+          },
+          {
+            "type": "ConditionalCommandStatement",
+            "header": {
+              "type": "IfStatement",
+              "condition": "TROPICAL_MAP",
+              "statements": [
+                {
+                  "type": "AttributeStatement",
+                  "name": "create_object",
+                  "args": [
+                    "JAVELINA"
+                  ]
+                }
+              ],
+              "elseStatements": [
+                {
+                  "type": "AttributeStatement",
+                  "name": "create_object",
+                  "args": [
+                    "BOAR"
+                  ]
+                }
+              ]
+            },
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "number_of_objects",
+                "args": [
+                  1
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },

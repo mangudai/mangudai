@@ -1,7 +1,7 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
 import { Token } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
-import { isToken, getChildNodes, getNode, getNodes } from '../treeHelpers'
+import { isToken, getChildNodes, getNode } from '../treeHelpers'
 
 export function toCst (root: RuleNode) {
   return nodeToCst(root) as CstNode
@@ -36,8 +36,8 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
     for (let i = splitIndex - 1; i >= 0; i--) {
       const node = statementsBlock.children[i]
       if (isToken(node) && node.type !== 'eol') continue
-      if (!isToken(node) && node.type === 'Command') break
-      if (!isToken(node) && getNodes(node, 'Command').length) break
+      if (!isToken(node) && ['Command', 'ConditionalCommand'].includes(node.type)) break
+      if (!isToken(node) && (getNode(node, 'Command') || getNode(node, 'ConditionalCommand'))) break
       splitIndex = i
     }
 
@@ -53,19 +53,26 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   SectionIf: parts => visitGenericIf(parts),
   SectionRandom: parts => visitGenericRandom(parts),
 
-  Command: ([header, attributes]: [RuleNode, RuleNodeChildren]) => simpleCstNode([
+  Command: ([header, body]) => simpleCstNode([
     simpleCstNode(unwrapTokens([header]), 'CommandHeader'),
-    attributes ? simpleCstNode([
-      simpleCstNode([attributes[0]], 'PreCurlyComments'),
-      attributes[1], // Space
-      attributes[2], // Left curly
-      simpleCstNode([attributes[3]], 'StatementsBlock'),
-      attributes[4] // Right curly
-    ], 'CommandStatementsBlock') : null
+    body ? nodeToCst(body as RuleNode) : null
   ], 'Command'),
   CommandLevelLine: parts => partsToCstNodes(parts),
   CommandIf: parts => visitGenericIf(parts),
   CommandRandom: parts => visitGenericRandom(parts),
+
+  ConditionalCommand: ([header, body]) => simpleCstNode([
+    visitGenericIf([header]),
+    nodeToCst(body as RuleNode)
+  ], 'ConditionalCommand'),
+
+  CommandBody: ([comments, ws, lcurly, statements, rcurly]) => simpleCstNode([
+    simpleCstNode([comments], 'PreCurlyComments'),
+    ws,
+    lcurly,
+    simpleCstNode([statements], 'StatementsBlock'),
+    rcurly
+  ], 'CommandBody'),
 
   Attribute: parts => simpleCstNode(parts, 'Attribute'),
 

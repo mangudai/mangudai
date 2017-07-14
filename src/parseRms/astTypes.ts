@@ -60,6 +60,13 @@ export interface CommandStatement extends AstNode {
   statements?: Statement[]
 }
 
+export interface ConditionalCommandStatement extends AstNode {
+  type: 'ConditionalCommandStatement',
+  header: IfStatement,
+  preLeftCurlyComments?: MultilineComment[],
+  statements?: Statement[]
+}
+
 export interface AttributeStatement extends AstNode {
   type: 'AttributeStatement',
   name: string,

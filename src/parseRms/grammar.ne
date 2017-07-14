@@ -27,17 +27,30 @@ TopLevelIf -> GenericIfSeq[TopLevelLine, Section]
 TopLevelRandom -> GenericRandomSeq[TopLevelLine, Section]
 
 Section -> %lArrow %identifier %rArrow (%eol (SectionLine %eol):* SectionLine):?
-SectionLine -> GenericWithComments[(Command | ConstDefinition | FlagDefinition | IncludeDrs | SectionIf | SectionRandom)]
+SectionLine -> GenericWithComments[(Command | ConditionalCommand | ConstDefinition | FlagDefinition | IncludeDrs | SectionIf | SectionRandom)]
 # Sections cannot be nested. Nevertheless, we allow Section to occur inside SectionIf. In that case, it's a TopLevelIf.
 # We move the `If` out of the current section and end the section here during CST traversal.
 # This seems to be the best way to avoid ambiguity and performance issues.
 SectionIf -> GenericIfSeq[SectionLine, Section]
 SectionRandom -> GenericRandomSeq[SectionLine, Section]
 
-Command -> Attribute ((__:? MultilineComment):* __:? %lCurly (__ ((CommandLevelLine %eol):* CommandLevelLine %eol:?)):? %rCurly):?
+Command -> Attribute CommandBody:?
 CommandLevelLine -> GenericWithComments[(Attribute | ConstDefinition | FlagDefinition | IncludeDrs | CommandIf | CommandRandom)]
 CommandIf -> GenericIf[CommandLevelLine]
 CommandRandom -> GenericRandom[CommandLevelLine]
+
+# Special kind of a command with an IfStatement as a header instead of AttributeStatement. See #17.
+ConditionalCommand ->
+  (
+    %ifToken %space %identifier %eol
+    (Attribute %eol)
+    (%elseifToken %space %identifier __ Attribute %eol):*
+    (%elseToken __ Attribute %eol):?
+    %endifToken
+  )
+  CommandBody
+
+CommandBody -> (__:? MultilineComment):* __:? %lCurly (__ ((CommandLevelLine %eol):* CommandLevelLine %eol:?)):? %rCurly
 
 Attribute -> %identifier (%space (%identifier | %int)):*
 

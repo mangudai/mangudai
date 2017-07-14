@@ -59,3 +59,24 @@ if FOO
   /* Empty else: */
 else
 endif
+
+<PLAYER_SETUP>
+
+/* Special kind of a command with an IfStatement as a header instead of AttributeStatement. See #17. */
+if TROPICAL_MAP
+  create_object JAVELINA
+else
+  create_object BOAR
+endif
+{
+  number_of_objects 1
+}
+
+/* Let's duplicate it to test the linter. */
+if TROPICAL_MAP
+  create_object JAVELINA
+else
+  create_object BOAR
+endif {
+  number_of_objects 1
+}

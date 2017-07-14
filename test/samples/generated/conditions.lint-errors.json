@@ -1,6 +1,20 @@
 [
   {
     "name": "LintError",
+    "message": "Duplicate command with exactly the same alternatives, arguments, and attibutes.",
+    "boundaries": {
+      "start": {
+        "line": 76,
+        "col": 1
+      },
+      "end": {
+        "line": 82,
+        "col": 2
+      }
+    }
+  },
+  {
+    "name": "LintError",
     "message": "Empty 'else'.",
     "boundaries": {
       "start": {
