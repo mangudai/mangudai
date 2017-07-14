@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "AoE2 Random Map Scripting for humans",
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "build": "npm run gen-grammar && tsc --project src",
     "lint-src": "tslint --type-check --project src --exclude src/parseRms/grammar.ts \"src/**/*.ts\"",
