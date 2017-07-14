@@ -1,20 +1,20 @@
 {
   "ast": {
-    "type": "RandomMapScript",
+    "type": "Script",
     "statements": [
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "TERRAIN_GENERATION",
         "statements": [
           {
-            "type": "Command",
+            "type": "CommandStatement",
             "name": "create_terrain",
             "args": [
               "GRASS3"
             ],
             "statements": [
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "height_limits",
                 "args": [
                   7,
@@ -26,16 +26,16 @@
         ]
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "CONNECTION_GENERATION",
         "statements": [
           {
-            "type": "Command",
+            "type": "CommandStatement",
             "name": "create_connect_all_players_land",
             "args": [],
             "statements": [
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "replace_terrain",
                 "args": [
                   "WATER",
@@ -43,7 +43,7 @@
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "replace_terrain",
                 "args": [
                   "MED_WATER",
@@ -51,7 +51,7 @@
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "replace_terrain",
                 "args": [
                   "DEEP_WATER",
@@ -59,7 +59,7 @@
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "terrain_size",
                 "args": [
                   "WATER",
@@ -68,7 +68,7 @@
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "terrain_size",
                 "args": [
                   "MED_WATER",
@@ -77,7 +77,7 @@
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "terrain_size",
                 "args": [
                   "DEEP_WATER",
@@ -86,7 +86,7 @@
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "terrain_size",
                 "args": [
                   "PINE_FOREST",

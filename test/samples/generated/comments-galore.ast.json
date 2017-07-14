@@ -1,6 +1,6 @@
 {
   "ast": {
-    "type": "RandomMapScript",
+    "type": "Script",
     "statements": [
       {
         "type": "MultilineComment",
@@ -15,7 +15,8 @@
         "comment": "/* comment 3 */"
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "FOO",
         "value": 555
       },
@@ -28,7 +29,8 @@
         "comment": "/* comment 5 */"
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "meaning-of-life",
         "value": 42
       },
@@ -41,8 +43,9 @@
         "comment": "/* comment 7 */"
       },
       {
-        "type": "FlagDefinition",
-        "flag": "IS_SOME_TYPE_OF_MAP"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "IS_SOME_TYPE_OF_MAP"
       },
       {
         "type": "MultilineComment",
@@ -61,8 +64,9 @@
         "comment": "/* comment 11 */"
       },
       {
-        "type": "FlagDefinition",
-        "flag": "IS_ANOTHER_TYPE"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "IS_ANOTHER_TYPE"
       },
       {
         "type": "MultilineComment",
@@ -73,7 +77,7 @@
         "comment": "/* comment 13 */"
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "PLAYER_SETUP",
         "statements": [
           {
@@ -81,7 +85,7 @@
             "comment": "/* comment 14 */"
           },
           {
-            "type": "Command",
+            "type": "CommandStatement",
             "name": "random_placement",
             "args": []
           }
@@ -92,7 +96,8 @@
         "comment": "/* comment 15 */"
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "BAR",
         "value": 777
       },
@@ -105,19 +110,20 @@
         "comment": "/* comment 17 */"
       },
       {
-        "type": "FlagDefinition",
-        "flag": "laterInFile"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "laterInFile"
       },
       {
         "type": "MultilineComment",
         "comment": "/* comment 18 */"
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "OBJECTS_GENERATION",
         "statements": [
           {
-            "type": "Command",
+            "type": "CommandStatement",
             "name": "create_object",
             "args": [
               "TOWN_CENTER"
@@ -128,7 +134,7 @@
                 "comment": "/* comment 19 */"
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "set_place_for_every_player",
                 "args": []
               },
@@ -149,14 +155,14 @@
                     "comment": "/* comment 22 */"
                   },
                   {
-                    "type": "Attribute",
+                    "type": "AttributeStatement",
                     "name": "min_distance_to_players",
                     "args": [
                       0
                     ]
                   },
                   {
-                    "type": "Attribute",
+                    "type": "AttributeStatement",
                     "name": "max_distance_to_players",
                     "args": [
                       0

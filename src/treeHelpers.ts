@@ -5,25 +5,17 @@ import { CstNode, CstNodeChild } from './parseRms/cst'
 const descendantsCache = new WeakMap<CstNode, CstNodeChild[]>()
 
 export function getChildren (node: CstNode, type?: string): CstNodeChild[] {
-  if (!type) return node.children
-  else if (type in node.childrenByType) return node.childrenByType[type]
-  else return []
+  return type ? (node.childrenByType[type] || []) : node.children
 }
 
-export function getFirstChild (node: CstNode, type?: string): CstNodeChild | undefined {
-  if (!type) {
-    return node.children.length ? node.children[0] : undefined
-  } else if (type in node.childrenByType && node.childrenByType[type].length) {
-    return node.childrenByType[type][0]
-  }
-}
+export function getChild (node: CstNode, type: string | undefined, orThrow: true): CstNodeChild
+export function getChild (node: CstNode, type?: string, orThrow?: false): CstNodeChild | undefined
+export function getChild (node: CstNode, type?: string, orThrow?: boolean) {
+  const children = type ? (node.childrenByType[type] || []) : node.children
 
-export function getLastChild (node: CstNode, type?: string): CstNodeChild | undefined {
-  if (!type) {
-    return node.children.length ? node.children[node.children.length - 1] : undefined
-  } else if (type in node.childrenByType && node.childrenByType[type].length) {
-    return node.childrenByType[type][node.childrenByType[type].length - 1]
-  }
+  if (children.length) return children[0]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a child '${type || '<any>'}' of '${node.type}'!`)
 }
 
 export function getDescendants (node: CstNode, type?: string): CstNodeChild[] {
@@ -34,7 +26,7 @@ export function getDescendants (node: CstNode, type?: string): CstNodeChild[] {
   } else {
     node.children.forEach(x => {
       all.push(x)
-      if (!isToken(x)) all.push(...getDescendants(x))
+      if (isNode(x)) all.push(...getDescendants(x))
     })
     descendantsCache.set(node, all)
   }
@@ -42,56 +34,79 @@ export function getDescendants (node: CstNode, type?: string): CstNodeChild[] {
   return type ? all.filter(x => x.type === type) : all
 }
 
-export function getFirstDescendant (node: CstNode, type?: string): CstNodeChild | undefined {
+export function getDescendant (node: CstNode, type: string | undefined, orThrow: true): CstNodeChild
+export function getDescendant (node: CstNode, type?: string, orThrow?: false): CstNodeChild | undefined
+export function getDescendant (node: CstNode, type?: string, orThrow?: boolean) {
   const all = getDescendants(node, type)
-  return all.length ? all[0] : undefined
-}
-
-export function getLastDescendant (node: CstNode, type?: string): CstNodeChild | undefined {
-  const all = getDescendants(node, type)
-  return all.length ? all[all.length - 1] : undefined
+  if (all.length) return all[0]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a descendant '${type || '<any>'}' of '${node.type}'!`)
 }
 
 export function getTokens (node: CstNode, type?: string): Token[] {
   return getDescendants(node, type).filter(isToken)
 }
 
-export function getFirstToken (node: CstNode, type?: string): Token | undefined {
+export function getToken (node: CstNode, type: string | undefined, orThrow: true): Token
+export function getToken (node: CstNode, type?: string, orThrow?: false): Token | undefined
+export function getToken (node: CstNode, type?: string, orThrow?: boolean) {
   const all = getTokens(node, type)
-  return all.length ? all[0] : undefined
+  if (all.length) return all[0]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a token '${type || '<any>'}' in '${node.type}'!`)
 }
 
-export function getLastToken (node: CstNode, type?: string): Token | undefined {
+export function getLastToken (node: CstNode, type: string | undefined, orThrow: true): Token
+export function getLastToken (node: CstNode, type?: string, orThrow?: false): Token | undefined
+export function getLastToken (node: CstNode, type?: string, orThrow?: boolean) {
   const all = getTokens(node, type)
-  return all.length ? all[all.length - 1] : undefined
+  if (all.length) return all[all.length - 1]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a token '${type || '<any>'}' in '${node.type}'!`)
 }
 
 export function getChildNodes (node: CstNode, type?: string): CstNode[] {
-  return getChildren(node, type).filter(x => !isToken(x)) as CstNode[]
+  return getChildren(node, type).filter(isNode)
 }
 
-export function getFirstChildNode (node: CstNode, type?: string): CstNode | undefined {
+export function getChildNode (node: CstNode, type: string | undefined, orThrow: true): CstNode
+export function getChildNode (node: CstNode, type?: string, orThrow?: false): CstNode | undefined
+export function getChildNode (node: CstNode, type?: string, orThrow?: boolean) {
   const all = getChildNodes(node, type)
-  return all.length ? all[0] : undefined
+  if (all.length) return all[0]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a node '${type || '<any>'}' of '${node.type}'!`)
 }
 
-export function getLastChildNode (node: CstNode, type?: string): CstNode | undefined {
+export function getLastChildNode (node: CstNode, type: string | undefined, orThrow: true): CstNode
+export function getLastChildNode (node: CstNode, type?: string, orThrow?: false): CstNode | undefined
+export function getLastChildNode (node: CstNode, type?: string, orThrow?: boolean) {
   const all = getChildNodes(node, type)
-  return all.length ? all[all.length - 1] : undefined
+  if (all.length) return all[all.length - 1]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a node '${type || '<any>'}' of '${node.type}'!`)
 }
 
 export function getNodes (node: CstNode, type?: string): CstNode[] {
-  return getDescendants(node, type).filter(x => !isToken(x)) as CstNode[]
+  return getDescendants(node, type).filter(isNode)
 }
 
-export function getFirstNode (node: CstNode, type?: string): CstNode | undefined {
+export function getNode (node: CstNode, type: string | undefined, orThrow: true): CstNode
+export function getNode (node: CstNode, type?: string, orThrow?: false): CstNode | undefined
+export function getNode (node: CstNode, type?: string, orThrow?: boolean) {
   const all = getNodes(node, type)
-  return all.length ? all[0] : undefined
+  if (all.length) return all[0]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a node '${type || '<any>'}' of '${node.type}'!`)
 }
 
-export function getLastNode (node: CstNode, type?: string): CstNode | undefined {
+export function getLastNode (node: CstNode, type: string | undefined, orThrow: true): CstNode
+export function getLastNode (node: CstNode, type?: string, orThrow?: false): CstNode | undefined
+export function getLastNode (node: CstNode, type?: string, orThrow?: boolean) {
   const all = getNodes(node, type)
-  return all.length ? all[all.length - 1] : undefined
+  if (all.length) return all[all.length - 1]
+  if (!orThrow) return undefined
+  throw new Error(`Cannot find a node '${type || '<any>'}' of '${node.type}'!`)
 }
 
 export function hideCstProperties<T extends AstNode> (node: T): T {
@@ -100,6 +115,10 @@ export function hideCstProperties<T extends AstNode> (node: T): T {
   return node
 }
 
-export function isToken (node: any): node is Token {
-  return !('children' in node)
+export function isToken (x: any): x is Token {
+  return !('children' in x)
+}
+
+export function isNode (x: any): x is CstNode {
+  return 'children' in x
 }

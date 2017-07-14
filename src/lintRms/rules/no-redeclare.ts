@@ -1,16 +1,16 @@
 import { Token } from 'moo'
 import { LintError } from '../'
-import { RmsAst } from '../../parseRms'
+import { Script } from '../../parseRms'
 import { CstNode } from '../../parseRms/cst'
-import { getNodes, getFirstToken } from '../../treeHelpers'
+import { getNodes, getToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 
-export function check (ast: RmsAst): LintError[] {
+export function check (ast: Script): LintError[] {
   const seenIdentifiers: { [x: string]: boolean } = {}
   const redeclared: Token[] = []
 
-  getNodes(ast, 'FlagDefinition').concat(getNodes(ast, 'ConstDefinition')).forEach((node: CstNode) => {
-    const nameToken = getFirstToken(node, 'identifier') as Token
+  getNodes(ast, 'DeclarationStatement').forEach((node: CstNode) => {
+    const nameToken = getToken(node, 'identifier', true)
     if (seenIdentifiers[nameToken.value]) redeclared.push(nameToken)
     else seenIdentifiers[nameToken.value] = true
   })

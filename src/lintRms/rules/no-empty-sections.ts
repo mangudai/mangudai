@@ -1,17 +1,17 @@
 import { LintError } from '../'
-import { RmsAst, RmsSection } from '../../parseRms'
-import { getNodes, getFirstToken, getLastToken } from '../../treeHelpers'
+import { Script, SectionStatement } from '../../parseRms'
+import { getNodes, getToken, getLastToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 
-export function check (ast: RmsAst): LintError[] {
+export function check (ast: Script): LintError[] {
   const errors: LintError[] = []
-  getNodes(ast, 'Section').forEach((section: RmsSection) => {
+  getNodes(ast, 'SectionStatement').forEach((section: SectionStatement) => {
     if (section.statements.length === 0) {
       errors.push({
         name: 'LintError',
         message: `Empty section \'${section.name}\'.`,
         boundaries: {
-          start: getBoundaries(getFirstToken(section)).start,
+          start: getBoundaries(getToken(section)).start,
           end: getBoundaries(getLastToken(section)).end
         }
       })

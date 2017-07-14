@@ -1,14 +1,14 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
 import { Token } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
-import { isToken, getChildNodes, getFirstNode, getNodes } from '../treeHelpers'
+import { isToken, getChildNodes, getNode, getNodes } from '../treeHelpers'
 
 export function toCst (root: RuleNode) {
   return nodeToCst(root) as CstNode
 }
 
 const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNodeChild[] } = {
-  Script: parts => simpleCstNode([simpleCstNode(parts, 'StatementsBlock')], 'RandomMapScript'),
+  Script: parts => simpleCstNode([simpleCstNode(parts, 'StatementsBlock')], 'Script'),
   TopLevelLine: parts => partsToCstNodes(parts),
   TopLevelIf: parts => visitGenericIf(parts),
   TopLevelRandom: parts => visitGenericRandom(parts),
@@ -28,8 +28,8 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
     // then this section should definitely end before the first one.
     const firstTopLevelContainer = [
       ...getChildNodes(statementsBlock, 'If'),
-      ...getChildNodes(statementsBlock, 'RandomStatement')
-    ].find(x => getFirstNode(x, 'Section') !== undefined)
+      ...getChildNodes(statementsBlock, 'Random')
+    ].find(x => getNode(x, 'Section') !== undefined)
     if (firstTopLevelContainer) splitIndex = statementsBlock.children.indexOf(firstTopLevelContainer)
 
     // Statements at the end that can be outside should go outside.
@@ -130,10 +130,10 @@ function visitGenericRandom ([ruleNode]: any) {
       comments,
       chances.map(([chanceToken, ws1, percent, ws2, ...statements]: any) => simpleCstNode([
         chanceToken, ws1, percent, ws2, simpleCstNode(statements, 'StatementsBlock')
-      ], 'ChanceStatement'))
+      ], 'Chance'))
     ], 'StatementsBlock'),
     endToken
-  ], 'RandomStatement')
+  ], 'Random')
 }
 
 function unwrapTokens (parts: RuleNodeChildren): Token[] {

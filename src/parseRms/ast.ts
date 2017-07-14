@@ -1,119 +1,126 @@
 import { Token } from 'moo'
-import { CstNode, CstNodeChild } from './cst'
-import { hideCstProperties, getFirstChildNode, getFirstToken, getChildNodes } from '../treeHelpers'
-import { AstNode, RmsAst, RmsIf, ElseIf, RandomStatement, ChanceStatement, RmsTopLevelStatement, RmsSection, RmsCommand,
-  RmsAttribute, RmsConstDefinition, RmsFlagDefinition, RmsIncludeDrs, RmsMultilineComment } from './astTypes'
+import { CstNode } from './cst'
+import { hideCstProperties, getChildNode, getToken, getChildNodes } from '../treeHelpers'
+import { AstNode, Script, IfStatement, ElseIfStatement, RandomStatement, ChanceStatement, SectionStatement,
+  AttributeStatement, DeclarationStatement, IncludeDrsStatement, MultilineComment, CommandStatement } from './astTypes'
 
 export function toAst (root: CstNode) {
-  return nodeToAst(root) as RmsAst
+  return nodeToAst(root) as Script
 }
 
 const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
-  RandomMapScript: (cstNode): RmsAst => hideCstProperties(Object.assign(cstNode, {
-    type: 'RandomMapScript',
-    statements: (getFirstChildNode(cstNode, 'StatementsBlock') as CstNode).children.filter(noTokens).map(nodeToAst) as RmsTopLevelStatement[]
-  } as RmsAst)),
+  Script: (cstNode): Script => hideCstProperties(Object.assign(cstNode, {
+    type: 'Script',
+    statements: getChildNodes(getChildNode(cstNode, 'StatementsBlock', true)).map(nodeToAst)
+  } as Script)),
 
-  If: (ifNode): RmsIf<AstNode> => {
-    const node: RmsIf<AstNode> = hideCstProperties(Object.assign(ifNode, {
+  If: (ifNode): IfStatement => {
+    const node = hideCstProperties(Object.assign(ifNode, {
       type: 'IfStatement',
       condition: getCondition(ifNode)
-    } as RmsIf<AstNode>))
+    } as IfStatement))
+
     addStatements(node, 'statements', ifNode)
 
     if ('ElseIf' in ifNode.childrenByType) {
       node.elseifs = getChildNodes(ifNode, 'ElseIf').map(elseIf => {
-        const node: ElseIf<AstNode> = hideCstProperties(Object.assign(elseIf, {
+        const node = hideCstProperties(Object.assign(elseIf, {
           type: 'ElseIfStatement',
           condition: getCondition(elseIf)
-        } as ElseIf<AstNode>))
+        } as ElseIfStatement))
         addStatements(node, 'statements', elseIf)
         return node
       })
     }
 
-    const elseNode = getFirstChildNode(ifNode, 'Else')
+    const elseNode = getChildNode(ifNode, 'Else')
     if (elseNode) addStatements(node, 'elseStatements', elseNode, true)
 
     return node
 
     function getCondition (node: CstNode) {
-      return (getFirstToken(getFirstChildNode(node, 'ConditionExpression') as CstNode) as Token).value
+      return getToken(getChildNode(node, 'ConditionExpression', true), undefined, true).value
     }
   },
 
-  RandomStatement: node => {
-    hideCstProperties(node)
+  Random: (node): RandomStatement => {
+    hideCstProperties(Object.assign(node, {
+      type: 'RandomStatement'
+    } as RandomStatement))
     addStatements(node, 'statements', node, true)
-    return node as RandomStatement<AstNode>
+    return node as RandomStatement
   },
 
-  ChanceStatement: node => {
-    hideCstProperties(node)
-    ;(node as ChanceStatement<AstNode>).chance = getTokenValue(getFirstToken(node, 'int') as Token) as number
+  Chance: (node): ChanceStatement => {
+    hideCstProperties(Object.assign(node, {
+      type: 'ChanceStatement',
+      chance: getTokenValue(getToken(node, 'int', true)) as number
+    } as ChanceStatement))
     addStatements(node, 'statements', node, true)
-    return node as ChanceStatement<AstNode>
+    return node as ChanceStatement
   },
 
-  Section: (cstNode): RmsSection => hideCstProperties(Object.assign(cstNode, {
-    type: 'Section',
-    name: (getFirstToken(cstNode, 'identifier') as Token).value,
-    statements: (getFirstChildNode(cstNode, 'StatementsBlock') as CstNode).children.filter(noTokens).map(nodeToAst)
-  } as RmsSection)),
+  Section: (cstNode): SectionStatement => hideCstProperties(Object.assign(cstNode, {
+    type: 'SectionStatement',
+    name: getToken(cstNode, 'identifier', true).value,
+    statements: getChildNodes(getChildNode(cstNode, 'StatementsBlock', true)).map(nodeToAst)
+  } as SectionStatement)),
 
-  Command: (cstNode): RmsCommand => {
-    const astNode: RmsCommand = hideCstProperties(Object.assign(cstNode, {
-      type: 'Command',
-      ...getNameAndArgs(getFirstChildNode(cstNode, 'CommandHeader') as CstNode)
-    } as RmsCommand))
+  Command: (cstNode): CommandStatement => {
+    const astNode = hideCstProperties(Object.assign(cstNode, {
+      type: 'CommandStatement',
+      ...getNameAndArgs(getChildNode(cstNode, 'CommandHeader', true))
+    } as CommandStatement))
 
-    const block = getFirstChildNode(cstNode, 'CommandStatementsBlock')
+    const block = getChildNode(cstNode, 'CommandStatementsBlock')
     if (block) {
       addStatements(astNode, 'statements', block, true)
 
-      const preCommentsContainer = getFirstChildNode(block, 'PreCurlyComments')
+      const preCommentsContainer = getChildNode(block, 'PreCurlyComments')
       if (preCommentsContainer) {
         const preComments = getChildNodes(preCommentsContainer, 'MultilineComment').map(nodeToAst)
-        if (preComments.length) astNode.preLeftCurlyComments = preComments as RmsMultilineComment[]
+        if (preComments.length) astNode.preLeftCurlyComments = preComments as MultilineComment[]
       }
     }
 
     return astNode
   },
 
-  Attribute: (cstNode): RmsAttribute => hideCstProperties(Object.assign(cstNode, {
-    type: 'Attribute',
+  Attribute: (cstNode): AttributeStatement => hideCstProperties(Object.assign(cstNode, {
+    type: 'AttributeStatement',
     ...getNameAndArgs(cstNode)
-  } as RmsAttribute)),
+  } as AttributeStatement)),
 
-  ConstDefinition: (cstNode): RmsConstDefinition => {
+  ConstDefinition: (cstNode): DeclarationStatement => {
     const { name, args } = getNameAndArgs(cstNode)
     return hideCstProperties(Object.assign(cstNode, {
-      type: 'ConstDefinition',
+      type: 'DeclarationStatement',
+      kind: 'const',
       name,
       value: args[0] as number
-    } as RmsConstDefinition))
+    } as DeclarationStatement))
   },
 
-  FlagDefinition: (cstNode): RmsFlagDefinition => hideCstProperties(Object.assign(cstNode, {
-    type: 'FlagDefinition',
-    flag: getNameAndArgs(cstNode).name
-  } as RmsFlagDefinition)),
+  FlagDefinition: (cstNode): DeclarationStatement => hideCstProperties(Object.assign(cstNode, {
+    type: 'DeclarationStatement',
+    kind: 'define',
+    name: getNameAndArgs(cstNode).name
+  } as DeclarationStatement)),
 
-  IncludeDrs: (cstNode): RmsIncludeDrs => {
+  IncludeDrs: (cstNode): IncludeDrsStatement => {
     const { name, args } = getNameAndArgs(cstNode)
-    const astNode: RmsIncludeDrs = hideCstProperties(Object.assign(cstNode, {
-      type: 'IncludeDrs',
+    const astNode: IncludeDrsStatement = hideCstProperties(Object.assign(cstNode, {
+      type: 'IncludeDrsStatement',
       filename: name
-    } as RmsIncludeDrs))
+    } as IncludeDrsStatement))
     if (args.length) astNode.id = args[0] as number
     return astNode
   },
 
-  MultilineComment: (cstNode): RmsMultilineComment => hideCstProperties(Object.assign(cstNode, {
+  MultilineComment: (cstNode): MultilineComment => hideCstProperties(Object.assign(cstNode, {
     type: 'MultilineComment',
-    comment: (getFirstToken(cstNode, 'multilineComment') as Token).value
-  } as RmsMultilineComment))
+    comment: getToken(cstNode, 'multilineComment', true).value
+  } as MultilineComment))
 }
 
 function nodeToAst (node: CstNode) {
@@ -121,8 +128,8 @@ function nodeToAst (node: CstNode) {
 }
 
 function addStatements (targetAstNode: any, propName: string, sourceCstNode: CstNode, addEmptyArrayIfNone = false) {
-  const statements = (getFirstChildNode(sourceCstNode, 'StatementsBlock') as CstNode).children.filter(noTokens)
-  if (statements.length || addEmptyArrayIfNone) targetAstNode[propName] = statements.map(nodeToAst)
+  const statements = getChildNodes(getChildNode(sourceCstNode, 'StatementsBlock', true)).map(nodeToAst)
+  if (statements.length || addEmptyArrayIfNone) targetAstNode[propName] = statements
 }
 
 function getNameAndArgs (node: CstNode) {
@@ -137,8 +144,4 @@ function getTokenValue (token: Token) {
 
 function isValueToken (token: Token) {
   return ['int', 'identifier'].includes(token.type as string)
-}
-
-function noTokens (node: CstNodeChild): node is CstNode {
-  return 'children' in node
 }

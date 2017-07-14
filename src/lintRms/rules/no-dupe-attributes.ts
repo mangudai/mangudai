@@ -1,17 +1,16 @@
 import { Token } from 'moo'
 import { LintError } from '../'
-import { CstNode } from '../../parseRms/cst'
-import { RmsAst, RmsAttribute } from '../../parseRms'
-import { getDescendants, getFirstToken, getChildNodes } from '../../treeHelpers'
+import { Script, AttributeStatement } from '../../parseRms'
+import { getToken, getChildNodes, getNodes } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 
-export function check (ast: RmsAst): LintError[] {
+export function check (ast: Script): LintError[] {
   const dupeAttributeNames: Token[] = []
 
-  getDescendants(ast, 'StatementsBlock').forEach((block: CstNode) => {
+  getNodes(ast, 'StatementsBlock').forEach(block => {
     const alreadySeenAttrs: string[] = []
-    getChildNodes(block, 'Attribute').forEach((attr: RmsAttribute) => {
-      if (alreadySeenAttrs.includes(attr.name)) dupeAttributeNames.push(getFirstToken(attr, 'identifier') as Token)
+    getChildNodes(block, 'Attribute').forEach((attr: AttributeStatement) => {
+      if (alreadySeenAttrs.includes(attr.name)) dupeAttributeNames.push(getToken(attr, 'identifier', true))
       else alreadySeenAttrs.push(attr.name)
     })
   })

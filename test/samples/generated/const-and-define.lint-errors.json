@@ -18,11 +18,11 @@
     "message": "Cannot redeclare 'DUPLICATE'.",
     "boundaries": {
       "start": {
-        "line": 18,
+        "line": 19,
         "col": 8
       },
       "end": {
-        "line": 18,
+        "line": 19,
         "col": 17
       }
     }
@@ -32,12 +32,12 @@
     "message": "Cannot redeclare 'DUPLICATE'.",
     "boundaries": {
       "start": {
-        "line": 19,
-        "col": 8
+        "line": 20,
+        "col": 9
       },
       "end": {
-        "line": 19,
-        "col": 17
+        "line": 20,
+        "col": 18
       }
     }
   }

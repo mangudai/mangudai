@@ -2,86 +2,84 @@ import { CstNode } from './cst'
 
 export interface AstNode extends CstNode {}
 
-export interface RmsAst extends AstNode {
-  type: 'RandomMapScript',
-  statements: RmsTopLevelStatement[]
+export interface Script extends AstNode {
+  type: 'Script',
+  statements: Statement[]
 }
 
-export interface RmsIf<Child> extends AstNode {
+export type Statement = TopLevelStatement | SectionLevelStatement | CommandLevelStatement
+
+export type CommonStatement =
+  IfStatement |
+  RandomStatement |
+  ChanceStatement |
+  DeclarationStatement |
+  IncludeDrsStatement |
+  MultilineComment
+
+export type TopLevelStatement = CommonStatement | SectionStatement
+export type SectionLevelStatement = CommonStatement | CommandStatement
+export type CommandLevelStatement = CommonStatement | AttributeStatement
+
+export interface IfStatement extends AstNode {
   type: 'IfStatement',
   condition: string,
-  statements?: Child[],
-  elseifs?: ElseIf<Child>[],
-  elseStatements?: Child[]
+  statements?: Statement[],
+  elseifs?: ElseIfStatement[],
+  elseStatements?: Statement[]
 }
 
-export interface ElseIf<Child> extends AstNode {
+export interface ElseIfStatement extends AstNode {
   type: 'ElseIfStatement'
   condition: string,
-  statements?: Child[]
+  statements?: Statement[]
 }
 
-export interface RandomStatement<Child> extends AstNode {
+export interface RandomStatement extends AstNode {
   type: 'RandomStatement',
-  statements: (RmsMultilineComment | ChanceStatement<Child>)[]
+  statements: (MultilineComment | ChanceStatement)[]
 }
 
-export interface ChanceStatement<Child> extends AstNode {
+export interface ChanceStatement extends AstNode {
   type: 'ChanceStatement',
   chance: number,
-  statements: Child[]
+  statements: Statement[]
 }
 
-export type RmsTopLevelStatement = RmsSection | RmsConstDefinition | RmsFlagDefinition | RmsIncludeDrs | RmsTopLevelIf | TopLevelRandomStatement | RmsMultilineComment
-export interface RmsTopLevelIf extends RmsIf<RmsTopLevelStatement> {} // Microsoft/TypeScript#6230
-export interface TopLevelRandomStatement extends RandomStatement<RmsTopLevelStatement> {}
-
-export interface RmsSection extends AstNode {
-  type: 'Section',
+export interface SectionStatement extends AstNode {
+  type: 'SectionStatement',
   name: string,
-  statements: RmsSectionStatement[]
+  statements: Statement[]
 }
 
-export type RmsSectionStatement = RmsCommand | RmsConstDefinition | RmsFlagDefinition | RmsSectionIf | SectionRandomStatement | RmsMultilineComment
-export interface RmsSectionIf extends RmsIf<RmsSectionStatement> {} // Microsoft/TypeScript#6230
-export interface SectionRandomStatement extends RandomStatement<RmsSectionStatement> {}
-
-export interface RmsCommand extends AstNode {
-  type: 'Command',
+export interface CommandStatement extends AstNode {
+  type: 'CommandStatement',
   name: string,
   args: (string | number)[],
-  preLeftCurlyComments?: RmsMultilineComment[],
-  statements?: RmsCommandStatement[]
+  preLeftCurlyComments?: MultilineComment[],
+  statements?: Statement[]
 }
 
-export type RmsCommandStatement = RmsAttribute | RmsCommandIf | CommandRandomStatement | RmsMultilineComment
-export interface RmsCommandIf extends RmsIf<RmsCommandStatement> {} // Microsoft/TypeScript#6230
-export interface CommandRandomStatement extends RandomStatement<RmsCommandStatement> {}
-
-export interface RmsAttribute extends AstNode {
-  type: 'Attribute',
+export interface AttributeStatement extends AstNode {
+  type: 'AttributeStatement',
   name: string,
   args: (string | number)[]
 }
 
-export interface RmsConstDefinition extends AstNode {
-  type: 'ConstDefinition',
+export interface DeclarationStatement extends AstNode {
+  type: 'DeclarationStatement',
+  kind: 'const' | 'define',
   name: string,
-  value: number
+  value?: number
 }
 
-export interface RmsFlagDefinition extends AstNode {
-  type: 'FlagDefinition',
-  flag: string
-}
-
-export interface RmsMultilineComment extends AstNode {
+export interface MultilineComment extends AstNode {
   type: 'MultilineComment',
   comment: string
 }
 
-export interface RmsIncludeDrs extends AstNode {
-  type: 'IncludeDrs',
+export interface IncludeDrsStatement extends AstNode {
+  type: 'IncludeDrsStatement',
   filename: string,
   id?: number
 }

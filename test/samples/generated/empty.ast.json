@@ -1,6 +1,6 @@
 {
   "ast": {
-    "type": "RandomMapScript",
+    "type": "Script",
     "statements": []
   },
   "errors": []

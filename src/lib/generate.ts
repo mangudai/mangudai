@@ -2,7 +2,7 @@
  * Run this file with `ts-node` to generate JSON files in `./generated` from `.rms` libraries.
  */
 
-import { parse, RmsAst } from '../'
+import { parse, Script } from '../'
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
@@ -16,11 +16,11 @@ function generateJsonFromLibFile (libname: string): void {
     throw new Error(`Cannot parse AST of lib '${libname}'! First error: ${errors[0].message}\n\n${errors[0].stack}`)
   } else {
     console.log('Generating definitions...')
-    writeFileSync(join(__dirname, 'generated', `lib.${libname}.json`), astToJson(ast as RmsAst))
+    writeFileSync(join(__dirname, 'generated', `lib.${libname}.json`), astToJson(ast as Script))
   }
 }
 
-function astToJson (ast: RmsAst): string {
+function astToJson (ast: Script): string {
   let section: string | undefined
   let lastComment: string | undefined
   const definitions: Definitions = {
@@ -31,18 +31,14 @@ function astToJson (ast: RmsAst): string {
 
   ast.statements.forEach(statement => {
     switch (statement.type) {
-      case 'Section':
+      case 'SectionStatement':
         section = statement.name
         break
       case 'MultilineComment':
         lastComment = statement.comment.slice(3, statement.comment.length - 2).trim()
         break
-      case 'ConstDefinition':
+      case 'DeclarationStatement':
         addDefinition(definitions, section, statement.name, statement.value, lastComment)
-        lastComment = undefined
-        break
-      case 'FlagDefinition':
-        addDefinition(definitions, section, statement.flag, undefined, lastComment)
         lastComment = undefined
         break
       default:

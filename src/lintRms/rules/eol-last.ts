@@ -1,9 +1,9 @@
 import { LintError } from '../'
-import { RmsAst } from '../../parseRms'
+import { Script } from '../../parseRms'
 import { getLastToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 
-export function check (ast: RmsAst, mode: 'always' | 'never' = 'always'): LintError[] {
+export function check (ast: Script, mode: 'always' | 'never' = 'always'): LintError[] {
   const lastToken = getLastToken(ast)
 
   if (lastToken && lastToken.type === 'eol' && lastToken.value.endsWith('\n')) {

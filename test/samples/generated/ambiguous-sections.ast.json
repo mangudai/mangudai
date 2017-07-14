@@ -1,14 +1,15 @@
 {
   "ast": {
-    "type": "RandomMapScript",
+    "type": "Script",
     "statements": [
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "TERRAIN_GENERATION",
         "statements": [
           {
-            "type": "FlagDefinition",
-            "flag": "FOO"
+            "type": "DeclarationStatement",
+            "kind": "define",
+            "name": "FOO"
           },
           {
             "type": "IfStatement",
@@ -23,14 +24,14 @@
                     "condition": "QUX",
                     "elseStatements": [
                       {
-                        "type": "Command",
+                        "type": "CommandStatement",
                         "name": "create_terrain",
                         "args": [
                           "GRASS3"
                         ],
                         "statements": [
                           {
-                            "type": "Attribute",
+                            "type": "AttributeStatement",
                             "name": "height_limits",
                             "args": [
                               7,
@@ -52,7 +53,7 @@
         ]
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "TERRAIN_GENERATION",
         "statements": []
       },
@@ -79,7 +80,7 @@
         ]
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "TERRAIN_GENERATION",
         "statements": []
       },
@@ -99,7 +100,7 @@
         ]
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "TERRAIN_GENERATION",
         "statements": []
       },

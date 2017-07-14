@@ -1,6 +1,6 @@
 {
   "ast": {
-    "type": "RandomMapScript",
+    "type": "Script",
     "statements": [
       {
         "type": "RandomStatement",
@@ -10,8 +10,9 @@
             "chance": 16,
             "statements": [
               {
-                "type": "FlagDefinition",
-                "flag": "MEGAPACK_A"
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "MEGAPACK_A"
               }
             ]
           },
@@ -20,8 +21,9 @@
             "chance": 16,
             "statements": [
               {
-                "type": "FlagDefinition",
-                "flag": "MEGAPACK_B"
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "MEGAPACK_B"
               }
             ]
           },
@@ -30,8 +32,9 @@
             "chance": 17,
             "statements": [
               {
-                "type": "FlagDefinition",
-                "flag": "MEGAPACK_C"
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "MEGAPACK_C"
               }
             ]
           },
@@ -40,8 +43,9 @@
             "chance": 17,
             "statements": [
               {
-                "type": "FlagDefinition",
-                "flag": "MEGAPACK_D"
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "MEGAPACK_D"
               }
             ]
           },
@@ -50,8 +54,9 @@
             "chance": 17,
             "statements": [
               {
-                "type": "FlagDefinition",
-                "flag": "MEGAPACK_E"
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "MEGAPACK_E"
               }
             ]
           },
@@ -60,15 +65,16 @@
             "chance": 17,
             "statements": [
               {
-                "type": "FlagDefinition",
-                "flag": "MEGAPACK_F"
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "MEGAPACK_F"
               }
             ]
           }
         ]
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "LAND_GENERATION",
         "statements": [
           {
@@ -83,15 +89,16 @@
                 "chance": 50,
                 "statements": [
                   {
-                    "type": "FlagDefinition",
-                    "flag": "SUMMER"
+                    "type": "DeclarationStatement",
+                    "kind": "define",
+                    "name": "SUMMER"
                   }
                 ]
               }
             ]
           },
           {
-            "type": "Command",
+            "type": "CommandStatement",
             "name": "create_player_lands",
             "args": [],
             "statements": [
@@ -100,7 +107,7 @@
                 "condition": "SUMMER",
                 "statements": [
                   {
-                    "type": "Attribute",
+                    "type": "AttributeStatement",
                     "name": "terrain_type",
                     "args": [
                       "GRASS3"
@@ -109,7 +116,7 @@
                 ],
                 "elseStatements": [
                   {
-                    "type": "Attribute",
+                    "type": "AttributeStatement",
                     "name": "terrain_type",
                     "args": [
                       "DIRT"
@@ -118,7 +125,7 @@
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "land_percent",
                 "args": [
                   25
@@ -129,7 +136,7 @@
         ]
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "LAND_GENERATION",
         "statements": []
       },
@@ -145,7 +152,7 @@
                 "comment": "/* This is totally valid. */"
               },
               {
-                "type": "Section",
+                "type": "SectionStatement",
                 "name": "LAND_GENERATION",
                 "statements": []
               },
@@ -174,7 +181,7 @@
             "chance": 5,
             "statements": [
               {
-                "type": "Section",
+                "type": "SectionStatement",
                 "name": "LAND_GENERATION",
                 "statements": []
               }

@@ -4,7 +4,7 @@ import * as grammar from './grammar'
 import { ruleNodesMiddleware } from './nearleyMiddleware'
 import { toCst } from './cst'
 import { toAst } from './ast'
-import { RmsAst } from './astTypes'
+import { Script } from './astTypes'
 import { TextSpanError } from '../'
 import { formatLexError } from './lexer'
 import { getBoundaries } from '../tokenHelpers'
@@ -15,7 +15,7 @@ const wrappedGrammar = { ...grammar, ParserRules: ruleNodesMiddleware(grammar.Pa
 // TODO: Fix nearley.Grammar.fromCompiled() TypeScript definition.
 const compiledGrammar: Grammar = (Grammar.fromCompiled as any)(wrappedGrammar)
 
-export function parse (input: string): { errors: TextSpanError[], ast?: RmsAst } {
+export function parse (input: string): { errors: TextSpanError[], ast?: Script } {
   const parser = new Parser(compiledGrammar)
   try {
     parser.feed(input)

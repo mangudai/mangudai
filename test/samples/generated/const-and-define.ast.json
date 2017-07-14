@@ -1,39 +1,45 @@
 {
   "ast": {
-    "type": "RandomMapScript",
+    "type": "Script",
     "statements": [
       {
         "type": "MultilineComment",
         "comment": "/* The only interpreter options that could be found in the random maps\n * published to Steam Workshop are `#const` and `#define`.\n * Rarely mentioned `#include_drs` in only used in built-in maps and\n * has no effect in custom scripts. It's left out to cause a lexer error.\n */"
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "FOO",
         "value": 555
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "meaning-of-life",
         "value": 42
       },
       {
-        "type": "FlagDefinition",
-        "flag": "IS_SOME_TYPE_OF_MAP"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "IS_SOME_TYPE_OF_MAP"
       },
       {
-        "type": "FlagDefinition",
-        "flag": "IS_ANOTHER_TYPE"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "IS_ANOTHER_TYPE"
       },
       {
         "type": "MultilineComment",
         "comment": "/* Identifiers can start with a digit. */"
       },
       {
-        "type": "FlagDefinition",
-        "flag": "1_PLAYER_MAP"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "1_PLAYER_MAP"
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "1_PLAYER_MAP",
         "value": 1
       },
@@ -42,64 +48,69 @@
         "comment": "/* Let's cause a linting error. */"
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "DUPLICATE",
         "value": 1
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "DUPLICATE",
         "value": 2
       },
       {
-        "type": "FlagDefinition",
-        "flag": "DUPLICATE"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "DUPLICATE"
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "PLAYER_SETUP",
         "statements": [
           {
-            "type": "Command",
+            "type": "CommandStatement",
             "name": "random_placement",
             "args": []
           }
         ]
       },
       {
-        "type": "ConstDefinition",
+        "type": "DeclarationStatement",
+        "kind": "const",
         "name": "BAR",
         "value": 777
       },
       {
-        "type": "FlagDefinition",
-        "flag": "laterInFile"
+        "type": "DeclarationStatement",
+        "kind": "define",
+        "name": "laterInFile"
       },
       {
-        "type": "Section",
+        "type": "SectionStatement",
         "name": "OBJECTS_GENERATION",
         "statements": [
           {
-            "type": "Command",
+            "type": "CommandStatement",
             "name": "create_object",
             "args": [
               "TOWN_CENTER"
             ],
             "statements": [
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "set_place_for_every_player",
                 "args": []
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "min_distance_to_players",
                 "args": [
                   0
                 ]
               },
               {
-                "type": "Attribute",
+                "type": "AttributeStatement",
                 "name": "max_distance_to_players",
                 "args": [
                   0
@@ -110,11 +121,13 @@
                 "comment": "/* Apparently, directives can be used in command blocks. See #26. */"
               },
               {
-                "type": "FlagDefinition",
-                "flag": "stuff"
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "stuff"
               },
               {
-                "type": "ConstDefinition",
+                "type": "DeclarationStatement",
+                "kind": "const",
                 "name": "foo",
                 "value": 5
               }
