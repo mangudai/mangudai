@@ -5,7 +5,7 @@
     "boundaries": {
       "start": {
         "line": 15,
-        "col": 8
+        "col": 7
       },
       "end": {
         "line": 15,
@@ -19,7 +19,7 @@
     "boundaries": {
       "start": {
         "line": 19,
-        "col": 8
+        "col": 7
       },
       "end": {
         "line": 19,
@@ -33,7 +33,7 @@
     "boundaries": {
       "start": {
         "line": 20,
-        "col": 9
+        "col": 8
       },
       "end": {
         "line": 20,

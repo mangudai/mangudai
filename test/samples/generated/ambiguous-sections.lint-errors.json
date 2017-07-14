@@ -5,7 +5,7 @@
     "boundaries": {
       "start": {
         "line": 5,
-        "col": 6
+        "col": 5
       },
       "end": {
         "line": 5,
@@ -19,7 +19,7 @@
     "boundaries": {
       "start": {
         "line": 19,
-        "col": 6
+        "col": 5
       },
       "end": {
         "line": 19,
@@ -33,7 +33,7 @@
     "boundaries": {
       "start": {
         "line": 38,
-        "col": 6
+        "col": 5
       },
       "end": {
         "line": 38,
@@ -47,7 +47,7 @@
     "boundaries": {
       "start": {
         "line": 17,
-        "col": 1
+        "col": 0
       },
       "end": {
         "line": 17,
@@ -61,7 +61,7 @@
     "boundaries": {
       "start": {
         "line": 28,
-        "col": 1
+        "col": 0
       },
       "end": {
         "line": 28,
@@ -75,7 +75,7 @@
     "boundaries": {
       "start": {
         "line": 35,
-        "col": 1
+        "col": 0
       },
       "end": {
         "line": 35,
