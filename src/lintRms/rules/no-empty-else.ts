@@ -12,7 +12,7 @@ export function check (ast: Script): LintError[] {
         message: "Empty \'else\'.",
         boundaries: {
           start: getBoundaries(getToken(getChildNode(ifNode, 'Else', true))).start,
-          end: getBoundaries(getLastToken(getChildNode(ifNode, 'Else', true))).end
+          end: getBoundaries(getLastToken(ifNode, undefined, true)).end
         }
       })
     }
