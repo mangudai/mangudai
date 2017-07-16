@@ -33,16 +33,16 @@
   },
   "homepage": "https://github.com/mangudai/mangudai#readme",
   "devDependencies": {
-    "@types/chai": "^3.5.2",
+    "@types/chai": "^4.0.1",
     "@types/mocha": "^2.2.41",
-    "@types/node": "^7.0.18",
+    "@types/node": "^8.0.13",
     "chai": "^4.0.0",
     "cross-env": "^5.0.1",
     "mocha": "^3.3.0",
     "nyc": "^11.0.1",
     "ts-node": "^3.1.0",
     "tslint": "^5.2.0",
-    "tslint-config-standard": "^5.0.2",
+    "tslint-config-standard": "^6.0.1",
     "typescript": "^2.4.1"
   },
   "dependencies": {
