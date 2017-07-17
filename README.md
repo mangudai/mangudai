@@ -41,13 +41,8 @@ Mangudai is written in [TypeScript](https://www.typescriptlang.org/) and exports
 
 ## API
 
-- ### parse( script: `string` ) => { ast: [`Script`](docs/rms-ast.md), errors: [`ParseError[]`](docs/errors.md) }
-- ### lint( ast: [`Script`](docs/rms-ast.md) ) => [`LintError[]`](docs/errors.md)
-
-If you want to transform the syntactic tree, there's a bunch of helpers for common tasks like finding nodes of a particular type:
-
-- [`import { ... } from 'mangudai/treeHelpers'`](src/treeHelpers.ts)
-- [`import { ... } from 'mangudai/tokenHelpers'`](src/tokenHelpers.ts)
+- ### parse( script: `string` ) => { ast: [`Script`](docs/ast-spec.md), errors: [`ParseError[]`](docs/errors.md) }
+- ### lint( ast: [`Script`](docs/ast-spec.md) ) => [`LintError[]`](docs/errors.md)
 
 ## Contribute
 
