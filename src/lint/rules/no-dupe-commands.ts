@@ -1,6 +1,6 @@
 import { isEqual } from 'lodash'
 import { LintError } from '../'
-import { Script, CommandStatement, ConditionalCommandStatement } from '../../parseRms'
+import { Script, CommandStatement, ConditionalCommandStatement } from '../../parse'
 import { getToken, getChildren, getLastToken, getNodes } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 

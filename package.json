@@ -6,12 +6,12 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "npm run gen-grammar && tsc --project src",
-    "lint-src": "tslint --type-check --project src --exclude src/parseRms/grammar.ts \"src/**/*.ts\"",
+    "lint-src": "tslint --type-check --project src --exclude src/parse/grammar.ts \"src/**/*.ts\"",
     "lint-test": "tslint --type-check --project test \"test/**/*.ts\"",
     "lint": "npm run lint-src && npm run lint-test",
     "mocha": "cross-env TS_NODE_PROJECT=\"test/tsconfig.json\" nyc --reporter=lcov mocha",
     "test": "npm run build && npm run lint && npm run mocha",
-    "gen-grammar": "nearleyc src/parseRms/grammar.ne --out src/parseRms/grammar.ts",
+    "gen-grammar": "nearleyc src/parse/grammar.ne --out src/parse/grammar.ts",
     "gen-test-samples": "ts-node --project test ./test/samples/generated/generateSamples",
     "gen-lib": "ts-node --project src ./src/lib/generate"
   },

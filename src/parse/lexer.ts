@@ -1,6 +1,5 @@
 import { compile, Token } from 'moo'
-import { TextSpanError } from '../'
-import { getBoundaries } from '../tokenHelpers'
+import { getBoundaries, TextSpanError } from '../tokenHelpers'
 
 export const lexer = compile({
   eol: { match: /\s*\n\s*/, lineBreaks: true },

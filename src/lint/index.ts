@@ -1,5 +1,5 @@
-import { Script } from '../parseRms'
-import { TextSpanError } from '../'
+import { Script } from '../parse'
+import { TextSpanError } from '../tokenHelpers'
 
 const rules: { [x: string]: { check: (ast: Script, options: any) => LintError[] } } = {
   // Possible errors

@@ -5,9 +5,8 @@ import { ruleNodesMiddleware } from './nearleyMiddleware'
 import { toCst } from './cst'
 import { toAst } from './ast'
 import { Script } from './astTypes'
-import { TextSpanError } from '../'
 import { formatLexError } from './lexer'
-import { getBoundaries } from '../tokenHelpers'
+import { getBoundaries, TextSpanError } from '../tokenHelpers'
 
 export * from './astTypes'
 

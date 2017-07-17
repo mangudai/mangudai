@@ -1,7 +1,7 @@
 import { Token } from 'moo'
 import { LintError } from '../'
-import { Script } from '../../parseRms'
-import { CstNode } from '../../parseRms/cst'
+import { Script } from '../../parse'
+import { CstNode } from '../../parse/cst'
 import { getNodes, getToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 

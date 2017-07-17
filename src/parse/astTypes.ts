@@ -9,6 +9,10 @@ export interface Script extends AstNode {
 
 export type Statement = TopLevelStatement | SectionLevelStatement | CommandLevelStatement
 
+export type TopLevelStatement = CommonStatement | SectionStatement
+export type SectionLevelStatement = CommonStatement | CommandStatement
+export type CommandLevelStatement = CommonStatement | AttributeStatement
+
 export type CommonStatement =
   IfStatement |
   RandomStatement |
@@ -16,10 +20,6 @@ export type CommonStatement =
   DeclarationStatement |
   IncludeDrsStatement |
   MultilineComment
-
-export type TopLevelStatement = CommonStatement | SectionStatement
-export type SectionLevelStatement = CommonStatement | CommandStatement
-export type CommandLevelStatement = CommonStatement | AttributeStatement
 
 export interface IfStatement extends AstNode {
   type: 'IfStatement',

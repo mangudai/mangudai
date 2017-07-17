@@ -4,8 +4,7 @@
 
 import { readdirSync, readFileSync, writeFileSync } from 'fs'
 import { basename, extname, join, resolve } from 'path'
-import { parse } from '../../../src/parseRms'
-import { lint } from '../../../src/lintRms'
+import { parse, lint } from '../../../lib'
 
 const samples = readdirSync(resolve(__dirname, '..'))
   .filter(str => extname(str) === '.rms')

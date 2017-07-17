@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { readdirSync, readFileSync } from 'fs'
 import { basename, resolve } from 'path'
-import { parse } from '../lib/index'
+import { parse } from '../lib'
 
 const readSampleFile = (name: string) => readFileSync(resolve(__dirname, 'samples', name), 'utf8')
 const readSample = (name: string) => ({
@@ -10,7 +10,7 @@ const readSample = (name: string) => ({
   correctAst: JSON.parse(readSampleFile(`generated/${name}.ast.json`))
 })
 
-describe('parseRms', () => {
+describe('parse', () => {
   readdirSync(resolve(__dirname, 'samples'))
     .filter(str => str.endsWith('.rms'))
     .map(filename => readSample(basename(filename, '.rms')))

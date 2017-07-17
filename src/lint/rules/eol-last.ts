@@ -1,5 +1,5 @@
 import { LintError } from '../'
-import { Script } from '../../parseRms'
+import { Script } from '../../parse'
 import { getLastToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 

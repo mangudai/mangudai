@@ -1,5 +1,5 @@
 import { LintError } from '../'
-import { Script, IfStatement } from '../../parseRms'
+import { Script, IfStatement } from '../../parse'
 import { getNodes, getChildNode, getToken, getLastToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 

@@ -1,9 +1,9 @@
 import { Token } from 'moo'
 import { LintError } from '../'
-import { Script, IfStatement, ElseIfStatement, DeclarationStatement } from '../../parseRms'
+import { Script, IfStatement, ElseIfStatement, DeclarationStatement } from '../../parse'
 import { getDescendants, getToken, getNodes } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
-import { CstNode } from '../../parseRms/cst'
+import { CstNode } from '../../parse/cst'
 
 export function check (ast: Script): LintError[] {
   const conditionallyDefined: string[] = []
