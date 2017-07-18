@@ -1,637 +1,330 @@
 <GENERAL>
 
-/* Deathmatch game type is selected. */
-#define DEATH_MATCH
-/* Regicide game type is selected. */
-#define REGICIDE
+#define DEATH_MATCH /* Deathmatch game type is selected. */
+#define REGICIDE /* Regicide game type is selected. */
 
-/* Tiny map is selected, 120x120 tiles. */
-#define TINY_MAP
-/* Small map is selected, 144x144 tiles. */
-#define SMALL_MAP
-/* Medium map is selected, 168x168 tiles. */
-#define MEDIUM_MAP
-/* Large map is selected, 200x200 tiles. */
-#define LARGE_MAP
-/* Huge map is selected, 220x220 tiles. */
-#define HUGE_MAP
-/* Gigantic map is selected, 240x240 tiles. */
-#define GIGANTIC_MAP
+#define TINY_MAP /* Tiny map is selected, 120x120 tiles. */
+#define SMALL_MAP /* Small map is selected, 144x144 tiles. */
+#define MEDIUM_MAP /* Medium map is selected, 168x168 tiles. */
+#define LARGE_MAP /* Large map is selected, 200x200 tiles. */
+#define HUGE_MAP /* Huge map is selected, 220x220 tiles. */
+#define GIGANTIC_MAP /* Gigantic map is selected, 240x240 tiles. */
 
-/* "Team Together" box is checked. */
-#define FIXED_POSITIONS
+#define FIXED_POSITIONS /* "Team Together" box is checked. */
 
-/* High resources. */
-#define HIGH_RESOURCES
-/* Medium resources. */
-#define MEDIUM_RESOURCES
-/* Low resources. */
-#define LOW_RESOURCES
-/* Default resources. */
-#define DEFAULT_RESOURCES
+#define HIGH_RESOURCES /* High resources. */
+#define MEDIUM_RESOURCES /* Medium resources. */
+#define LOW_RESOURCES /* Low resources. */
+#define DEFAULT_RESOURCES /* Default resources. */
 
 <TERRAINS>
 
-/* Grass terrain. Default. */
-#const GRASS 0
-/* Water terrain. */
-#const WATER 1
-/* Beach terrain. Automatically placed around coasts. Sailable. No buildings except walls and docks. */
-#const BEACH 2
-/* Greenish dirt terrain. */
-#const DIRT3 3
-/* Shallow terrain. Grassy water, sailable and walkable. */
-#const SHALLOW 4
-/* Forest leaves terrain. Terrain left when temperate or tropical forest is chopped. */
-#const LEAVES 5
-/* Dirt terrain. Includes some cactus objects. */
-#const DIRT 6
-/* Planted farms terrain. Not actual farms! */
-#const __noname 7
-/* Expired farms terrain. Not actual farms! */
-#const __noname 8
-/* Brownish grass terrain. */
-#const GRASS3 9
-/* Oak forest terrain. */
-#const FOREST 10
-/* Dirt and grass mix terrain. */
-#const DIRT2 11
-/* Bright grass terrain. */
-#const GRASS2 12
-/* Palm forest terrain. Leaves behind DESERT when chopped. */
-#const PALM_DESERT 13
-/* Desert terrain. */
-#const DESERT 14
-/* Water terrain. Like `WATER` but has no beaches. Not dockable. */
-#const __noname 15
-/* Grass terrain. Looks like `GRASS`, automatically placed under cliffs. */
-#const __noname 16
-/* Jungle forest terrain. */
-#const JUNGLE 17
-/* Bamboo forest terrain. */
-#const BAMBOO 18
-/* Pine forest terrain. */
-#const PINE_FOREST 19
-/* Oak forest terrain. Looks exactly like `FOREST` but the trees are called "Oak forest". */
-#const FOREST 20
-/* Snowy forest terrain. Leaves behind GRASS_SNOW when chopped. */
-#const SNOW_FOREST 21
-/* Dark water terrain. Not dockable. */
-#const DEEP_WATER 22
-/* Darker water terrain. Not dockable. */
-#const MED_WATER 23
-/* Road terrain. You can't place gold, stone, berries on any type of road. */
-#const ROAD 24
-/* Ruined road terrain. You can't place gold, stone, berries on any type of road. */
-#const ROAD2 25
-/* Ice terrain. Like `ICE` but sailable. */
-#const __noname 26
-/* Dirt and grass mix terrain with no beach. Like DIRT2 but has no sandy beaches, still dockable. */
-#const __noname 27
-/* Water terrain.Like `WATER` but walkable and has no beaches. Not sailable. */
-#const __noname 28
-/* Ploughed farms terrain. Not actual farms! */
-#const __noname 29
-/* Growing farms terrain. Not actual farms! */
-#const __noname 30
-/* Almost grown farms terrain. Not actual farms! */
-#const __noname 31
-/* Snow terrain. */
-#const SNOW 32
-/* Snowy dirt terrain with icy beaches. */
-#const DIRT_SNOW 33
-/* Snowy grass terrain. Left behind when snowy forest is chopped. */
-#const GRASS_SNOW 34
-/* Ice terrain. Not sailable. No buildings. */
-#const ICE 35
-/* Snowy dirt terrain with sandy beaches. */
-#const __noname 36
-/* Icy beach terrain. Automatically placed around snowy coasts. Sailable. No buildings except walls and docks. */
-#const __noname 37
-/* Snowy road terrain. You can't place gold, stone, berries on any type of road. */
-#const __noname 38
-/* Grassy road terrain. You can't place gold, stone, berries on any type of road. */
-#const __noname 39
-/* Road terrain. No buildings, used in King of the Hill game type around the relic. You can't place gold, stone, berries on any type of road. */
-#const __noname 40
+#const GRASS 0 /* Grass terrain. Default. */
+#const WATER 1 /* Water terrain. */
+#const BEACH 2 /* Beach terrain. Automatically placed around coasts. Sailable. No buildings except walls and docks. */
+#const DIRT3 3 /* Greenish dirt terrain. */
+#const SHALLOW 4 /* Shallow terrain. Grassy water, sailable and walkable. */
+#const LEAVES 5 /* Forest leaves terrain. Terrain left when temperate or tropical forest is chopped. */
+#const DIRT 6 /* Dirt terrain. Includes some cactus objects. */
+#const __noname 7 /* Planted farms terrain. Not actual farms! */
+#const __noname 8 /* Expired farms terrain. Not actual farms! */
+#const GRASS3 9 /* Brownish grass terrain. */
+#const FOREST 10 /* Oak forest terrain. */
+#const DIRT2 11 /* Dirt and grass mix terrain. */
+#const GRASS2 12 /* Bright grass terrain. */
+#const PALM_DESERT 13 /* Palm forest terrain. Leaves behind DESERT when chopped. */
+#const DESERT 14 /* Desert terrain. */
+#const __noname 15 /* Water terrain. Like `WATER` but has no beaches. Not dockable. */
+#const __noname 16 /* Grass terrain. Looks like `GRASS`, automatically placed under cliffs. */
+#const JUNGLE 17 /* Jungle forest terrain. */
+#const BAMBOO 18 /* Bamboo forest terrain. */
+#const PINE_FOREST 19 /* Pine forest terrain. */
+#const FOREST 20 /* Oak forest terrain. Looks exactly like `FOREST` but the trees are called "Oak forest". */
+#const SNOW_FOREST 21 /* Snowy forest terrain. Leaves behind GRASS_SNOW when chopped. */
+#const DEEP_WATER 22 /* Dark water terrain. Not dockable. */
+#const MED_WATER 23 /* Darker water terrain. Not dockable. */
+#const ROAD 24 /* Road terrain. You can't place gold, stone, berries on any type of road. */
+#const ROAD2 25 /* Ruined road terrain. You can't place gold, stone, berries on any type of road. */
+#const __noname 26 /* Ice terrain. Like `ICE` but sailable. */
+#const __noname 27 /* Dirt and grass mix terrain with no beach. Like DIRT2 but has no sandy beaches, still dockable. */
+#const __noname 28 /* Water terrain.Like `WATER` but walkable and has no beaches. Not sailable. */
+#const __noname 29 /* Ploughed farms terrain. Not actual farms! */
+#const __noname 30 /* Growing farms terrain. Not actual farms! */
+#const __noname 31 /* Almost grown farms terrain. Not actual farms! */
+#const SNOW 32 /* Snow terrain. */
+#const DIRT_SNOW 33 /* Snowy dirt terrain with icy beaches. */
+#const GRASS_SNOW 34 /* Snowy grass terrain. Left behind when snowy forest is chopped. */
+#const ICE 35 /* Ice terrain. Not sailable. No buildings. */
+#const __noname 36 /* Snowy dirt terrain with sandy beaches. */
+#const __noname 37 /* Icy beach terrain. Automatically placed around snowy coasts. Sailable. No buildings except walls and docks. */
+#const __noname 38 /* Snowy road terrain. You can't place gold, stone, berries on any type of road. */
+#const __noname 39 /* Grassy road terrain. You can't place gold, stone, berries on any type of road. */
+#const __noname 40 /* Road terrain. No buildings, used in King of the Hill game type around the relic. You can't place gold, stone, berries on any type of road. */
 
 <ENTITIES>
 
-/* Militia. Dark Age unit. */
-#const MILITIA 74
-/* Man-at-Arms. Feudal Age unit. */
-#const MAN_AT_ARMS 75
-/* Long Swordsman. Castle Age unit. */
-#const LONG_SWORDSMAN 77
-/* Two-Handed Swordsman. Imperial Age unit. */
-#const TWO_HANDED_SWORDSMAN 473
-/* Champion. Imperial Age unit. */
-#const CHAMPION 567
-/* Spearman. Feudal Age unit. */
-#const SPEARMAN 93
-/* Pikeman. Castle Age unit. */
-#const PIKEMAN 358
-/* Halberdier. Imperial Age unit. */
-#const HALBERDIER 359
-/* Eagle Warrior. Castle Age unit. */
-#const EAGLE_WARRIOR 751
-/* Elite Eagle Warrior. Imperial Age unit. */
-#const ELITE_EAGLE_WARRIOR 752
+#const MILITIA 74 /* Militia. Dark Age unit. */
+#const MAN_AT_ARMS 75 /* Man-at-Arms. Feudal Age unit. */
+#const LONG_SWORDSMAN 77 /* Long Swordsman. Castle Age unit. */
+#const TWO_HANDED_SWORDSMAN 473 /* Two-Handed Swordsman. Imperial Age unit. */
+#const CHAMPION 567 /* Champion. Imperial Age unit. */
+#const SPEARMAN 93 /* Spearman. Feudal Age unit. */
+#const PIKEMAN 358 /* Pikeman. Castle Age unit. */
+#const HALBERDIER 359 /* Halberdier. Imperial Age unit. */
+#const EAGLE_WARRIOR 751 /* Eagle Warrior. Castle Age unit. */
+#const ELITE_EAGLE_WARRIOR 752 /* Elite Eagle Warrior. Imperial Age unit. */
 
-/* Archer. Feudal Age unit. */
-#const ARCHER 4
-/* Crossbowman. Castle Age unit. */
-#const CROSSBOWMAN 24
-/* Arbalest. Imperial Age unit. */
-#const ARBALEST 492
-/* Skirmisher. Feudal Age unit. */
-#const SKIRMISHER 7
-/* Elite Skirmisher. Castle Age unit. */
-#const ELITE_SKIRMISHER 6
-/* Hand Cannoneer. Imperial Age unit. */
-#const HAND_CANNONEER 5
-/* Cavalry Archer. Castle Age unit. */
-#const CAVALRY_ARCHER 39
-/* Heavy Cavalry Archer. Imperial Age unit. */
-#const HEAVY_CAVALRY_ARCHER 474
+#const ARCHER 4 /* Archer. Feudal Age unit. */
+#const CROSSBOWMAN 24 /* Crossbowman. Castle Age unit. */
+#const ARBALEST 492 /* Arbalest. Imperial Age unit. */
+#const SKIRMISHER 7 /* Skirmisher. Feudal Age unit. */
+#const ELITE_SKIRMISHER 6 /* Elite Skirmisher. Castle Age unit. */
+#const HAND_CANNONEER 5 /* Hand Cannoneer. Imperial Age unit. */
+#const CAVALRY_ARCHER 39 /* Cavalry Archer. Castle Age unit. */
+#const HEAVY_CAVALRY_ARCHER 474 /* Heavy Cavalry Archer. Imperial Age unit. */
 
-/* Scout. Feudal Age unit. Automatically replaced by an Eagle Warrior for Mesoamerican civilizations. */
-#const SCOUT 448
-/* Scout. Feudal Age unit. Automatically replaced by an Eagle Warrior for Mesoamerican civilizations. */
-#const SCOUT_CAVALRY 448
-/* Light Cavalry. Castle Age unit. */
-#const LIGHT_CAVALRY 546
-/* Hussar. Imperial Age unit. */
-#const HUSSAR 441
-/* Knight. Castle Age unit. */
-#const KNIGHT 38
-/* Cavalier. Imperial Age unit. */
-#const CAVALIER 283
-/* Paladin. Imperial Age unit. */
-#const PALADIN 569
-/* Camel. Castle Age unit. */
-#const CAMEL 329
-/* Heavy Camel. Imperial Age unit. */
-#const HEAVY_CAMEL 330
+#const SCOUT 448 /* Scout. Feudal Age unit. Automatically replaced by an Eagle Warrior for Mesoamerican civilizations. */
+#const SCOUT_CAVALRY 448 /* Scout. Feudal Age unit. Automatically replaced by an Eagle Warrior for Mesoamerican civilizations. */
+#const LIGHT_CAVALRY 546 /* Light Cavalry. Castle Age unit. */
+#const HUSSAR 441 /* Hussar. Imperial Age unit. */
+#const KNIGHT 38 /* Knight. Castle Age unit. */
+#const CAVALIER 283 /* Cavalier. Imperial Age unit. */
+#const PALADIN 569 /* Paladin. Imperial Age unit. */
+#const CAMEL 329 /* Camel. Castle Age unit. */
+#const HEAVY_CAMEL 330 /* Heavy Camel. Imperial Age unit. */
 
-/* Battering Ram. Castle Age unit. */
-#const BATTERING_RAM 35
-/* Capped Ram. Imperial Age unit. */
-#const CAPPED_RAM 422
-/* Siege Onager. Imperial Age unit. */
-#const SIEGE_RAM 548
-/* Scorpion. Castle Age unit. */
-#const SCORPION 279
-/* Heavy Scorpion. Imperial Age unit. */
-#const HEAVY_SCORPION 542
-/* Bombard Cannon. Imperial Age unit. */
-#const BOMBARD_CANNON 36
-/* Mangonel. Castle Age unit. */
-#const MANGONEL 280
-/* Onager. Imperial Age unit. */
-#const ONAGER 550
-/* Siege Onager. Imperial Age unit. */
-#const SIEGE_ONAGER 588
-/* Trebuched, unpacked version. Imperial Age unit. See also: `TREBUCHET_PACKED`. */
-#const TREBUCHET 42
-/* Trebuched, packed version. Imperial Age unit. See also: `TREBUCHET`. */
-#const TREBUCHET_PACKED 331
+#const BATTERING_RAM 35 /* Battering Ram. Castle Age unit. */
+#const CAPPED_RAM 422 /* Capped Ram. Imperial Age unit. */
+#const SIEGE_RAM 548 /* Siege Onager. Imperial Age unit. */
+#const SCORPION 279 /* Scorpion. Castle Age unit. */
+#const HEAVY_SCORPION 542 /* Heavy Scorpion. Imperial Age unit. */
+#const BOMBARD_CANNON 36 /* Bombard Cannon. Imperial Age unit. */
+#const MANGONEL 280 /* Mangonel. Castle Age unit. */
+#const ONAGER 550 /* Onager. Imperial Age unit. */
+#const SIEGE_ONAGER 588 /* Siege Onager. Imperial Age unit. */
+#const TREBUCHET 42 /* Trebuched, unpacked version. Imperial Age unit. See also: `TREBUCHET_PACKED`. */
+#const TREBUCHET_PACKED 331 /* Trebuched, packed version. Imperial Age unit. See also: `TREBUCHET`. */
 
-/* Fishing Ship. Dark Age unit. */
-#const FISHING_SHIP 13
-/* Trade Cog. Feudal Age unit. */
-#const TRADE_COG 17
-/* Transport Ship. Feudal Age unit. */
-#const TRANSPORT_SHIP 545
-/* Galley. Feudal Age unit. */
-#const GALLEY 539
-/* War Galley. Castle Age unit. */
-#const WAR_GALLEY 21
-/* Galleon. Imperial Age unit. */
-#const GALLEON 442
-/* Fire Ship. Castle Age unit. */
-#const FIRE_SHIP 529
-/* Fast Fire Ship. Imperial Age unit. */
-#const FAST_FIRE_SHIP 532
-/* Cannon Galleon. Imperial Age unit. */
-#const CANNON_GALLEON 420
-/* Elite Cannon Galleon. Imperial Age unit. */
-#const ELITE_CANNON_GALLEON 691
-/* Demolition Ship. Castle Age unit. */
-#const DEMOLITION_SHIP 527
-/* Heavy Demolition Ship. Imperial Age unit. */
-#const HEAVY_DEMOLITION_SHIP 528
+#const FISHING_SHIP 13 /* Fishing Ship. Dark Age unit. */
+#const TRADE_COG 17 /* Trade Cog. Feudal Age unit. */
+#const TRANSPORT_SHIP 545 /* Transport Ship. Feudal Age unit. */
+#const GALLEY 539 /* Galley. Feudal Age unit. */
+#const WAR_GALLEY 21 /* War Galley. Castle Age unit. */
+#const GALLEON 442 /* Galleon. Imperial Age unit. */
+#const FIRE_SHIP 529 /* Fire Ship. Castle Age unit. */
+#const FAST_FIRE_SHIP 532 /* Fast Fire Ship. Imperial Age unit. */
+#const CANNON_GALLEON 420 /* Cannon Galleon. Imperial Age unit. */
+#const ELITE_CANNON_GALLEON 691 /* Elite Cannon Galleon. Imperial Age unit. */
+#const DEMOLITION_SHIP 527 /* Demolition Ship. Castle Age unit. */
+#const HEAVY_DEMOLITION_SHIP 528 /* Heavy Demolition Ship. Imperial Age unit. */
 
-/* Berserk. Castle Age unit. */
-#const BERSERK 692
-/* Cataphract. Castle Age unit. */
-#const CATAPHRACT 40
-/* Chu Ko Nu. Castle Age unit. */
-#const CHU_KO_NU 73
-/* Conquistador. Castle Age unit. */
-#const CONQUISTADOR 771
-/* Huskarl. Castle Age unit. */
-#const HUSKARL 41
-/* Elite Berserk. Imperial Age unit. */
-#const ELITE_BERSERK 694
-/* Elite Cataphract. Imperial Age unit. */
-#const ELITE_CATAPHRACT 553
-/* Elite Chu Ko Nu. Imperial Age unit. */
-#const ELITE_CHU_KO_NU 559
-/* Elite Conquistador. Imperial Age unit. */
-#const ELITE_CONQUISTADOR 773
-/* Elite Huskarl. Imperial Age unit. */
-#const ELITE_HUSKARL 555
-/* Jaguar Warrior. Castle Age unit. */
-#const JAGUAR_WARRIOR 725
-/* Janissary. Castle Age unit. */
-#const JANISSARY 46
-/* Longboat. Castle Age unit. */
-#const LONGBOAT 250
-/* Longbowman. Castle Age unit. */
-#const LONGBOWMAN 8
-/* Mameluke. Castle Age unit. */
-#const MAMELUKE 282
-/* Mangudai. Castle Age unit. */
-#const MANGUDAI 11
-/* Missionary. Castle Age unit. */
-#const MISSIONARY 775
-/* Plumed Archer. Castle Age unit. */
-#const PLUMED_ARCHER 763
-/* Samurai. Castle Age unit. */
-#const SAMURAI 291
-/* Tarkan. Castle Age unit. */
-#const TARKAN 755
-/* Teutonic Knight. Castle Age unit. */
-#const TEUTONIC_KNIGHT 25
-/* Throwing Axeman. Castle Age unit. */
-#const THROWING_AXEMAN 281
-/* Turtle Ship. Castle Age unit. */
-#const TURTLE_SHIP 831
-/* War Elephant. Castle Age unit. */
-#const WAR_ELEPHANT 239
-/* War Wagon. Castle Age unit. */
-#const WAR_WAGON 827
-/* Woad Raider. Castle Age unit. */
-#const WOAD_RAIDER 232
-/* Elite Jaguar Warrior. Imperial Age unit. */
-#const ELITE_JAGUAR_WARRIOR 726
-/* Elite Janissary. Imperial Age unit. */
-#const ELITE_JANISSARY 557
-/* Elite Longboat. Imperial Age unit. */
-#const ELITE_LONGBOAT 533
-/* Elite Longbowman. Imperial Age unit. */
-#const ELITE_LONGBOWMAN 530
-/* Elite Mameluke. Imperial Age unit. */
-#const ELITE_MAMELUKE 556
-/* Elite Mangudai. Imperial Age unit. */
-#const ELITE_MANGUDAI 561
-/* Elite Plumed Archer. Imperial Age unit. */
-#const ELITE_PLUMED_ARCHER 765
-/* Elite Samurai. Imperial Age unit. */
-#const ELITE_SAMURAI 560
-/* Elite Tarkan. Imperial Age unit. */
-#const ELITE_TARKAN 757
-/* Elite Teutonic Knight. Imperial Age unit. */
-#const ELITE_TEUTONIC_KNIGHT 554
-/* Elite Throwing Axeman. Imperial Age unit. */
-#const ELITE_THROWING_AXEMAN 531
-/* Elite Turtle Ship. Imperial Age unit. */
-#const ELITE_TURTLE_SHIP 832
-/* Elite War Elephant. Imperial Age unit. */
-#const ELITE_WAR_ELEPHANT 558
-/* Elite War Wagon. Imperial Age unit. */
-#const ELITE_WAR_WAGON 829
-/* Elite Woad Raider. Imperial Age unit. */
-#const ELITE_WOAD_RAIDER 534
+#const BERSERK 692 /* Berserk. Castle Age unit. */
+#const CATAPHRACT 40 /* Cataphract. Castle Age unit. */
+#const CHU_KO_NU 73 /* Chu Ko Nu. Castle Age unit. */
+#const CONQUISTADOR 771 /* Conquistador. Castle Age unit. */
+#const HUSKARL 41 /* Huskarl. Castle Age unit. */
+#const ELITE_BERSERK 694 /* Elite Berserk. Imperial Age unit. */
+#const ELITE_CATAPHRACT 553 /* Elite Cataphract. Imperial Age unit. */
+#const ELITE_CHU_KO_NU 559 /* Elite Chu Ko Nu. Imperial Age unit. */
+#const ELITE_CONQUISTADOR 773 /* Elite Conquistador. Imperial Age unit. */
+#const ELITE_HUSKARL 555 /* Elite Huskarl. Imperial Age unit. */
+#const JAGUAR_WARRIOR 725 /* Jaguar Warrior. Castle Age unit. */
+#const JANISSARY 46 /* Janissary. Castle Age unit. */
+#const LONGBOAT 250 /* Longboat. Castle Age unit. */
+#const LONGBOWMAN 8 /* Longbowman. Castle Age unit. */
+#const MAMELUKE 282 /* Mameluke. Castle Age unit. */
+#const MANGUDAI 11 /* Mangudai. Castle Age unit. */
+#const MISSIONARY 775 /* Missionary. Castle Age unit. */
+#const PLUMED_ARCHER 763 /* Plumed Archer. Castle Age unit. */
+#const SAMURAI 291 /* Samurai. Castle Age unit. */
+#const TARKAN 755 /* Tarkan. Castle Age unit. */
+#const TEUTONIC_KNIGHT 25 /* Teutonic Knight. Castle Age unit. */
+#const THROWING_AXEMAN 281 /* Throwing Axeman. Castle Age unit. */
+#const TURTLE_SHIP 831 /* Turtle Ship. Castle Age unit. */
+#const WAR_ELEPHANT 239 /* War Elephant. Castle Age unit. */
+#const WAR_WAGON 827 /* War Wagon. Castle Age unit. */
+#const WOAD_RAIDER 232 /* Woad Raider. Castle Age unit. */
+#const ELITE_JAGUAR_WARRIOR 726 /* Elite Jaguar Warrior. Imperial Age unit. */
+#const ELITE_JANISSARY 557 /* Elite Janissary. Imperial Age unit. */
+#const ELITE_LONGBOAT 533 /* Elite Longboat. Imperial Age unit. */
+#const ELITE_LONGBOWMAN 530 /* Elite Longbowman. Imperial Age unit. */
+#const ELITE_MAMELUKE 556 /* Elite Mameluke. Imperial Age unit. */
+#const ELITE_MANGUDAI 561 /* Elite Mangudai. Imperial Age unit. */
+#const ELITE_PLUMED_ARCHER 765 /* Elite Plumed Archer. Imperial Age unit. */
+#const ELITE_SAMURAI 560 /* Elite Samurai. Imperial Age unit. */
+#const ELITE_TARKAN 757 /* Elite Tarkan. Imperial Age unit. */
+#const ELITE_TEUTONIC_KNIGHT 554 /* Elite Teutonic Knight. Imperial Age unit. */
+#const ELITE_THROWING_AXEMAN 531 /* Elite Throwing Axeman. Imperial Age unit. */
+#const ELITE_TURTLE_SHIP 832 /* Elite Turtle Ship. Imperial Age unit. */
+#const ELITE_WAR_ELEPHANT 558 /* Elite War Elephant. Imperial Age unit. */
+#const ELITE_WAR_WAGON 829 /* Elite War Wagon. Imperial Age unit. */
+#const ELITE_WOAD_RAIDER 534 /* Elite Woad Raider. Imperial Age unit. */
 
 
-/* King. Must be manually placed for Regicide game type to work. See also: `REGICIDE`. */
-#const KING 434
-/* Monk. Castle Age unit. */
-#const MONK 125
-/* Petard. Castle Age unit. */
-#const PETARD 440
-/* Trade Cart. Feudal Age unit. */
-#const TRADE_CART 128
-/* Trade Cart, full. Not actually carrying gold. Feudal Age unit. */
-#const __noname 204
-/* Sheep. Can belong to a player at start. */
-#const SHEEP 594
-/* Turkey. Can belong to a player at start. */
-#const TURKEY 833
+#const KING 434 /* King. Must be manually placed for Regicide game type to work. See also: `REGICIDE`. */
+#const MONK 125 /* Monk. Castle Age unit. */
+#const PETARD 440 /* Petard. Castle Age unit. */
+#const TRADE_CART 128 /* Trade Cart. Feudal Age unit. */
+#const __noname 204 /* Trade Cart, full. Not actually carrying gold. Feudal Age unit. */
+#const SHEEP 594 /* Sheep. Can belong to a player at start. */
+#const TURKEY 833 /* Turkey. Can belong to a player at start. */
 
-/* Villager. If you don't set `number_of_objects`, the game will automatically place 3 villagers, 6 for Chinese, 4 for Mayas. */
-#define VILLAGER
-/* Female villager. */
-#const __noname 293
-/* Male villager. */
-#const __noname 83
-/* Female builder villager. */
-#const __noname 212
-/* Male builder villager. */
-#const __noname 118
-/* Female farmer villager. */
-#const __noname 214
-/* Male farmer villager. */
-#const __noname 259
-/* Female fisher villager. */
-#const __noname 57
-/* Male fisher villager. */
-#const __noname 56
-/* Female gatherer villager. */
-#const __noname 354
-/* Male gatherer villager. */
-#const __noname 120
-/* Female miner villager. */
-#const __noname 581
-/* Male miner villager. */
-#const __noname 579
-/* Female hunter villager. */
-#const __noname 216
-/* Male hunter villager. */
-#const __noname 122
-/* Female chopper villager. */
-#const __noname 218
-/* Male chopper villager. */
-#const __noname 123
-/* Female shepherd villager. */
-#const __noname 590
-/* Male shepherd villager. */
-#const __noname 592
+#define VILLAGER /* Villager. If you don't set `number_of_objects`, the game will automatically place 3 villagers, 6 for Chinese, 4 for Mayas. */
+#const __noname 293 /* Female villager. */
+#const __noname 83 /* Male villager. */
+#const __noname 212 /* Female builder villager. */
+#const __noname 118 /* Male builder villager. */
+#const __noname 214 /* Female farmer villager. */
+#const __noname 259 /* Male farmer villager. */
+#const __noname 57 /* Female fisher villager. */
+#const __noname 56 /* Male fisher villager. */
+#const __noname 354 /* Female gatherer villager. */
+#const __noname 120 /* Male gatherer villager. */
+#const __noname 581 /* Female miner villager. */
+#const __noname 579 /* Male miner villager. */
+#const __noname 216 /* Female hunter villager. */
+#const __noname 122 /* Male hunter villager. */
+#const __noname 218 /* Female chopper villager. */
+#const __noname 123 /* Male chopper villager. */
+#const __noname 590 /* Female shepherd villager. */
+#const __noname 592 /* Male shepherd villager. */
 
-/* ADMIRAL_YI_SUN_SHIN. Hero unit. */
-#const ADMIRAL_YI_SUN_SHIN 844
-/* AETHELFIRTH. Hero unit. */
-#const AETHELFIRTH 169
-/* Alexander Nevski. Hero unit. */
-#const __noname 197
-/* ARCHBISHOP. Hero unit. */
-#const ARCHBISHOP 177
-/* ARCHERS_OF_THE_EYES. Hero unit. */
-#const ARCHERS_OF_THE_EYES 686
-/* ATTILA_THE_HUN. Hero unit. */
-#const ATTILA_THE_HUN 777
-/* BAD_NEIGHBOR. Hero unit. */
-#const BAD_NEIGHBOR 682
-/* BAD_NEIGHBOR_PACKED. Hero unit. */
-#const BAD_NEIGHBOR_PACKED 730
-/* BELISARIUS. Hero unit. */
-#const BELISARIUS 167
-/* CHARLEMAGNE. Hero unit. */
-#const CHARLEMAGNE 165
-/* CHARLES_MARTEL. Hero unit. */
-#const CHARLES_MARTEL 424
-/* CONSTABLE_RICHEMONT. Hero unit. */
-#const CONSTABLE_RICHEMONT 646
-/* DUKE_D_ALENCON. Hero unit. */
-#const DUKE_D_ALENCON 638
-/* EL_CID. Hero unit. */
-#const EL_CID 198
-/* EL_CID_CAMPEADOR. Hero unit. */
-#const EL_CID_CAMPEADOR 824
-/* EMPEROR_IN_A_BARREL. Hero unit. */
-#const EMPEROR_IN_A_BARREL 733
-/* ERIK_THE_RED. Hero unit. */
-#const ERIK_THE_RED 171
-/* FRANKISH_PALADIN. Hero unit. */
-#const FRANKISH_PALADIN 632
-/* FRIAR_TUCK. Hero unit. */
-#const FRIAR_TUCK 163
-/* GAWAIN. Hero unit. */
-#const GAWAIN 175
-/* GENGHIS_KHAN. Hero unit. */
-#const GENGHIS_KHAN 731
-/* GODS_OWN_SLING. Hero unit. */
-#const GODS_OWN_SLING 683
-/* GODS_OWN_SLING_PACKED. Hero unit. */
-#const GODS_OWN_SLING_PACKED 729
-/* GUY_JOSSELYNE. Hero unit. */
-#const GUY_JOSSELYNE 648
-/* HENRY_V. Hero unit. */
-#const HENRY_V 847
-/* HROLF_THE_GANGER. Hero unit. */
-#const HROLF_THE_GANGER 428
-/* HUNTING_WOLF. Hero unit. */
-#const HUNTING_WOLF 700
-/* IMAM. Hero unit. */
-#const IMAM 842
-/* JEAN_BUREAU. Hero unit. */
-#const JEAN_BUREAU 650
-/* JEAN_DE_LORRAIN. Hero unit. */
-#const JEAN_DE_LORRAIN 644
-/* JOAN_OF_ARC. Hero unit. */
-#const JOAN_OF_ARC 629
-/* JOAN_THE_MAID. Hero unit. */
-#const JOAN_THE_MAID 430
-/* KING_ALFONSO. Hero unit. */
-#const KING_ALFONSO 840
-/* KING_ARTHUR. Hero unit. */
-#const KING_ARTHUR 173
-/* KING_SANCHO. Hero unit. */
-#const KING_SANCHO 838
-/* KITABATAKE. Hero unit. */
-#const KITABATAKE 195
-/* KUSHLUK. Hero unit. */
-#const KUSHLUK 702
-/* LA_HIRE. Hero unit. */
-#const LA_HIRE 640
-/* LANCELOT. Hero unit. */
-#const LANCELOT 174
-/* LORD_DE_GRAVILLE. Hero unit. */
-#const LORD_DE_GRAVILLE 642
-/* MASTER_OF_THE_TEMPLAR. Hero unit. */
-#const MASTER_OF_THE_TEMPLAR 680
-/* MINAMOTO. Hero unit. */
-#const MINAMOTO 196
-/* MORDRED. Hero unit. */
-#const MORDRED 176
-/* NOBUNAGA. Hero unit. */
-#const NOBUNAGA 845
-/* ORNLU_THE_WOLF. Hero unit. */
-#const ORNLU_THE_WOLF 707
-/* POPE_LEO_I. Hero unit. */
-#const POPE_LEO_I 781
-/* REYNALD_DE_CHATILLON. Hero unit. */
-#const REYNALD_DE_CHATILLON 678
-/* RICHARD_THE_LIONHARTED. Hero unit. */
-#const RICHARD_THE_LIONHARTED 160
-/* ROBIN_HOOD. Hero unit. */
-#const ROBIN_HOOD 200
-/* ROLAND. Hero unit. */
-#const ROLAND 166
-/* SCYTHIAN_SCOUT. Hero unit. */
-#const SCYTHIAN_SCOUT 852
-/* SCYTHIAN_WILD_WOMAN. Hero unit. */
-#const SCYTHIAN_WILD_WOMAN 783
-/* SHAH. Hero unit. */
-#const SHAH 704
-/* SHERIFF_OF_NOTTINGHAM. Hero unit. */
-#const SHERIFF_OF_NOTTINGHAM 164
-/* SIEGFRIED. Hero unit. */
-#const SIEGFRIED 170
-/* SIEUR_BERTRAND. Hero unit. */
-#const SIEUR_BERTRAND 636
-/* SIEUR_DE_METZ. Hero unit. */
-#const SIEUR_DE_METZ 634
-/* SIR_JOHN_FASTOLF. Hero unit. */
-#const SIR_JOHN_FASTOLF 652
-/* SUBOTAI. Hero unit. */
-#const SUBOTAI 698
-/* TAMERLANE. Hero unit. */
-#const TAMERLANE 172
-/* THE_BLACK_PRINCE. Hero unit. */
-#const THE_BLACK_PRINCE 161
-/* THEODORIC_THE_GOTH. Hero unit. */
-#const THEODORIC_THE_GOTH 168
-/* WILLIAM_THE_CONQUEROR. Hero unit. */
-#const WILLIAM_THE_CONQUEROR 849
-/* WILLIAM_WALLACE. Hero unit. */
-#const WILLIAM_WALLACE 432
+#const ADMIRAL_YI_SUN_SHIN 844 /* ADMIRAL_YI_SUN_SHIN. Hero unit. */
+#const AETHELFIRTH 169 /* AETHELFIRTH. Hero unit. */
+#const __noname 197 /* Alexander Nevski. Hero unit. */
+#const ARCHBISHOP 177 /* ARCHBISHOP. Hero unit. */
+#const ARCHERS_OF_THE_EYES 686 /* ARCHERS_OF_THE_EYES. Hero unit. */
+#const ATTILA_THE_HUN 777 /* ATTILA_THE_HUN. Hero unit. */
+#const BAD_NEIGHBOR 682 /* BAD_NEIGHBOR. Hero unit. */
+#const BAD_NEIGHBOR_PACKED 730 /* BAD_NEIGHBOR_PACKED. Hero unit. */
+#const BELISARIUS 167 /* BELISARIUS. Hero unit. */
+#const CHARLEMAGNE 165 /* CHARLEMAGNE. Hero unit. */
+#const CHARLES_MARTEL 424 /* CHARLES_MARTEL. Hero unit. */
+#const CONSTABLE_RICHEMONT 646 /* CONSTABLE_RICHEMONT. Hero unit. */
+#const DUKE_D_ALENCON 638 /* DUKE_D_ALENCON. Hero unit. */
+#const EL_CID 198 /* EL_CID. Hero unit. */
+#const EL_CID_CAMPEADOR 824 /* EL_CID_CAMPEADOR. Hero unit. */
+#const EMPEROR_IN_A_BARREL 733 /* EMPEROR_IN_A_BARREL. Hero unit. */
+#const ERIK_THE_RED 171 /* ERIK_THE_RED. Hero unit. */
+#const FRANKISH_PALADIN 632 /* FRANKISH_PALADIN. Hero unit. */
+#const FRIAR_TUCK 163 /* FRIAR_TUCK. Hero unit. */
+#const GAWAIN 175 /* GAWAIN. Hero unit. */
+#const GENGHIS_KHAN 731 /* GENGHIS_KHAN. Hero unit. */
+#const GODS_OWN_SLING 683 /* GODS_OWN_SLING. Hero unit. */
+#const GODS_OWN_SLING_PACKED 729 /* GODS_OWN_SLING_PACKED. Hero unit. */
+#const GUY_JOSSELYNE 648 /* GUY_JOSSELYNE. Hero unit. */
+#const HENRY_V 847 /* HENRY_V. Hero unit. */
+#const HROLF_THE_GANGER 428 /* HROLF_THE_GANGER. Hero unit. */
+#const HUNTING_WOLF 700 /* HUNTING_WOLF. Hero unit. */
+#const IMAM 842 /* IMAM. Hero unit. */
+#const JEAN_BUREAU 650 /* JEAN_BUREAU. Hero unit. */
+#const JEAN_DE_LORRAIN 644 /* JEAN_DE_LORRAIN. Hero unit. */
+#const JOAN_OF_ARC 629 /* JOAN_OF_ARC. Hero unit. */
+#const JOAN_THE_MAID 430 /* JOAN_THE_MAID. Hero unit. */
+#const KING_ALFONSO 840 /* KING_ALFONSO. Hero unit. */
+#const KING_ARTHUR 173 /* KING_ARTHUR. Hero unit. */
+#const KING_SANCHO 838 /* KING_SANCHO. Hero unit. */
+#const KITABATAKE 195 /* KITABATAKE. Hero unit. */
+#const KUSHLUK 702 /* KUSHLUK. Hero unit. */
+#const LA_HIRE 640 /* LA_HIRE. Hero unit. */
+#const LANCELOT 174 /* LANCELOT. Hero unit. */
+#const LORD_DE_GRAVILLE 642 /* LORD_DE_GRAVILLE. Hero unit. */
+#const MASTER_OF_THE_TEMPLAR 680 /* MASTER_OF_THE_TEMPLAR. Hero unit. */
+#const MINAMOTO 196 /* MINAMOTO. Hero unit. */
+#const MORDRED 176 /* MORDRED. Hero unit. */
+#const NOBUNAGA 845 /* NOBUNAGA. Hero unit. */
+#const ORNLU_THE_WOLF 707 /* ORNLU_THE_WOLF. Hero unit. */
+#const POPE_LEO_I 781 /* POPE_LEO_I. Hero unit. */
+#const REYNALD_DE_CHATILLON 678 /* REYNALD_DE_CHATILLON. Hero unit. */
+#const RICHARD_THE_LIONHARTED 160 /* RICHARD_THE_LIONHARTED. Hero unit. */
+#const ROBIN_HOOD 200 /* ROBIN_HOOD. Hero unit. */
+#const ROLAND 166 /* ROLAND. Hero unit. */
+#const SCYTHIAN_SCOUT 852 /* SCYTHIAN_SCOUT. Hero unit. */
+#const SCYTHIAN_WILD_WOMAN 783 /* SCYTHIAN_WILD_WOMAN. Hero unit. */
+#const SHAH 704 /* SHAH. Hero unit. */
+#const SHERIFF_OF_NOTTINGHAM 164 /* SHERIFF_OF_NOTTINGHAM. Hero unit. */
+#const SIEGFRIED 170 /* SIEGFRIED. Hero unit. */
+#const SIEUR_BERTRAND 636 /* SIEUR_BERTRAND. Hero unit. */
+#const SIEUR_DE_METZ 634 /* SIEUR_DE_METZ. Hero unit. */
+#const SIR_JOHN_FASTOLF 652 /* SIR_JOHN_FASTOLF. Hero unit. */
+#const SUBOTAI 698 /* SUBOTAI. Hero unit. */
+#const TAMERLANE 172 /* TAMERLANE. Hero unit. */
+#const THE_BLACK_PRINCE 161 /* THE_BLACK_PRINCE. Hero unit. */
+#const THEODORIC_THE_GOTH 168 /* THEODORIC_THE_GOTH. Hero unit. */
+#const WILLIAM_THE_CONQUEROR 849 /* WILLIAM_THE_CONQUEROR. Hero unit. */
+#const WILLIAM_WALLACE 432 /* WILLIAM_WALLACE. Hero unit. */
 
-/* Cobra car. Cheat unit. */
-#const __noname 748
-/* Ensemble Studios flag. */
-#const ES_FLAG 851
-/* Tall flag. */
-#const FLAG_A 600
-/* Bifurcate flag. */
-#const FLAG_B 601
-/* Spotted flag. */
-#const FLAG_C 602
-/* Crossed flag. */
-#const FLAG_D 603
-/* Binged flag. */
-#const FLAG_E 604
-/* Furious the monkey boy. Cheat unit. */
-#const __noname 860
-/* Horse. */
-#const HORSE 814
-/* Infiltrator. Looks exactly as a Militia, but stronger. */
-#const __noname 299
-/* Map Revealer. Invisible and immobile. Gives sight of 4 tiles radius area. */
-#const MAP_REVEALER 837
-/* Saboteur. Like `PETARD` but stronger. */
-#const SABOTEUR 706
-/* Shipwreck. Can't move unless in group. Counts as 4 population. */
-#const Shipwreck 436
-/* Super armored Archer. Armor 1000, attack 1. */
-#const __noname 571
-/* Super armored Cavalry Archer. Armor 1000, attack 1. */
-#const __noname 577
-/* Super armored Light Cavalry. Armor 1000, attack 1. */
-#const __noname 575
-/* Super armored Militia. Armor 1000, attack 1. */
-#const __noname 573
-/* Torch. Can be placed even on water and forests. */
-#const TORCH 499
-/* Torch. Like `TORCH` but rescuable like sheep. */
-#const TORCH_CONVERTING 854
+#const __noname 748 /* Cobra car. Cheat unit. */
+#const ES_FLAG 851 /* Ensemble Studios flag. */
+#const FLAG_A 600 /* Tall flag. */
+#const FLAG_B 601 /* Bifurcate flag. */
+#const FLAG_C 602 /* Spotted flag. */
+#const FLAG_D 603 /* Crossed flag. */
+#const FLAG_E 604 /* Binged flag. */
+#const __noname 860 /* Furious the monkey boy. Cheat unit. */
+#const HORSE 814 /* Horse. */
+#const __noname 299 /* Infiltrator. Looks exactly as a Militia, but stronger. */
+#const MAP_REVEALER 837 /* Map Revealer. Invisible and immobile. Gives sight of 4 tiles radius area. */
+#const SABOTEUR 706 /* Saboteur. Like `PETARD` but stronger. */
+#const Shipwreck 436 /* Shipwreck. Can't move unless in group. Counts as 4 population. */
+#const __noname 571 /* Super armored Archer. Armor 1000, attack 1. */
+#const __noname 577 /* Super armored Cavalry Archer. Armor 1000, attack 1. */
+#const __noname 575 /* Super armored Light Cavalry. Armor 1000, attack 1. */
+#const __noname 573 /* Super armored Militia. Armor 1000, attack 1. */
+#const TORCH 499 /* Torch. Can be placed even on water and forests. */
+#const TORCH_CONVERTING 854 /* Torch. Like `TORCH` but rescuable like sheep. */
 
-/* Boar. */
-#const BOAR 48
-/* Deer. */
-#const DEER 65
-/* Deer. Like `DEER` but not huntable. */
-#const __noname 333
-/* Dire Wolf. */
-#const DIRE_WOLF 89
-/* Dorado deep fish. */
-#const DORADO 455
-/* Dorado deep fish. */
-#const FISH_DORADO 455
-/* Perch deep fish. Has 200 food instead of more. */
-#const FISH 53
-/* Hawk. */
-#const HAWK 96
-/* Iron Boar. */
-#const IRON_BOAR 810
-/* Jaguar. */
-#const JAGUAR 812
-/* Javelina. */
-#const JAVELINA 822
-/* Macaw. */
-#const MACAW  816
-/* Marlin deep fish. */
-#const MARLIN1 450
-/* Marlin deep fish. */
-#const GREAT_FISH_MARLIN 450
-/* Marlin deep fish. */
-#const MARLIN2 451
-/* Marlin deep fish. */
-#const GREAT_FISH_MARLIN2 451
-/* Rabid Wolf. */
-#const RABID_WOLF 202
-/* Salmon deep fish. */
-#const SALMON 456
-/* Salmon deep fish. */
-#const FISH_SALMON 456
-/* Snapper deep fish. */
-#const SNAPPER 458
-/* Snapper deep fish. */
-#const FISH_SNAPPER 458
-/* Shore fish. */
-#const SHORE_FISH 69
-/* Tuna deep fish. */
-#const TUNA 457
-/* Tuna deep fish. */
-#const FISH_TUNA 457
-/* Wild Horse. */
-#const WILD_HORSE 835
-/* Wolf. */
-#const WOLF 126
+#const BOAR 48 /* Boar. */
+#const DEER 65 /* Deer. */
+#const __noname 333 /* Deer. Like `DEER` but not huntable. */
+#const DIRE_WOLF 89 /* Dire Wolf. */
+#const DORADO 455 /* Dorado deep fish. */
+#const FISH_DORADO 455 /* Dorado deep fish. */
+#const FISH 53 /* Perch deep fish. Has 200 food instead of more. */
+#const HAWK 96 /* Hawk. */
+#const IRON_BOAR 810 /* Iron Boar. */
+#const JAGUAR 812 /* Jaguar. */
+#const JAVELINA 822 /* Javelina. */
+#const MACAW  816 /* Macaw. */
+#const MARLIN1 450 /* Marlin deep fish. */
+#const GREAT_FISH_MARLIN 450 /* Marlin deep fish. */
+#const MARLIN2 451 /* Marlin deep fish. */
+#const GREAT_FISH_MARLIN2 451 /* Marlin deep fish. */
+#const RABID_WOLF 202 /* Rabid Wolf. */
+#const SALMON 456 /* Salmon deep fish. */
+#const FISH_SALMON 456 /* Salmon deep fish. */
+#const SNAPPER 458 /* Snapper deep fish. */
+#const FISH_SNAPPER 458 /* Snapper deep fish. */
+#const SHORE_FISH 69 /* Shore fish. */
+#const TUNA 457 /* Tuna deep fish. */
+#const FISH_TUNA 457 /* Tuna deep fish. */
+#const WILD_HORSE 835 /* Wild Horse. */
+#const WOLF 126 /* Wolf. */
 
-/* Archery Range. Feudal Age building. */
-#const ARCHERY_RANGE 87
-/* Barracks. Dark Age building. */
-#const BARRACKS 12
-/* Blacksmith. Feudal Age building. */
-#const BLACKSMITH 103
-/* Bombard Tower. Imperial Age building. */
-#const BOMBARD_TOWER 236
-/* Castle. Castle Age building. */
-#const CASTLE 82
-/* Dock. Dark Age building. */
-#const DOCK 45
-/* Farm. Dark Age building. */
-#const FARM 50
-/* Fish Trap. Feudal Age building. */
-#const FISH_TRAP 199
-/* Fortified Wall. Imperial Age building. */
-#const FORTIFIED_WALL 155
-/* Guard Tower. Castle Age building. */
-#const GUARD_TOWER 234
-/* House. Dark Age building. */
-#const HOUSE 70
-/* Keep. Imperial Age building. */
-#const KEEP 235
-/* Lumber Camp. Dark Age building. */
-#const LUMBER_CAMP 562
-/* Market. Feudal Age building. */
-#const MARKET 84
-/* Mill. Dark Age building. */
-#const MILL 68
-/* Mining Camp. Dark Age building. */
-#const MINING_CAMP 584
-/* Monastery. Castle Age building. */
-#const MONASTERY 104
-/* Outpost. Dark Age building. */
-#const OUTPOST 598
-/* Palisade Wall. Dark Age building. Automatically placed in rings around players with four gates (one per side, stone gates in AoC) if `set_place_for_every_player` is used. */
-#const PALISADE_WALL 72
-/* Siege Workshop. Castle Age building. */
-#const SIEGE_WORKSHOP 49
-/* Stable. Feudal Age building. */
-#const STABLE 86
-/* Town Center. Dark Age building. */
-#const TOWN_CENTER 109
-/* University. Castle Age building. */
-#const UNIVERSITY 209
-/* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
-#const WALL 117
-/* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
-#const STONE_WALL 117
-/* Watch Tower. Feudal Age building. */
-#const WATCH_TOWER 79
-/* Wonder. Imperial Age building. */
-#const WONDER 276
+#const ARCHERY_RANGE 87 /* Archery Range. Feudal Age building. */
+#const BARRACKS 12 /* Barracks. Dark Age building. */
+#const BLACKSMITH 103 /* Blacksmith. Feudal Age building. */
+#const BOMBARD_TOWER 236 /* Bombard Tower. Imperial Age building. */
+#const CASTLE 82 /* Castle. Castle Age building. */
+#const DOCK 45 /* Dock. Dark Age building. */
+#const FARM 50 /* Farm. Dark Age building. */
+#const FISH_TRAP 199 /* Fish Trap. Feudal Age building. */
+#const FORTIFIED_WALL 155 /* Fortified Wall. Imperial Age building. */
+#const GUARD_TOWER 234 /* Guard Tower. Castle Age building. */
+#const HOUSE 70 /* House. Dark Age building. */
+#const KEEP 235 /* Keep. Imperial Age building. */
+#const LUMBER_CAMP 562 /* Lumber Camp. Dark Age building. */
+#const MARKET 84 /* Market. Feudal Age building. */
+#const MILL 68 /* Mill. Dark Age building. */
+#const MINING_CAMP 584 /* Mining Camp. Dark Age building. */
+#const MONASTERY 104 /* Monastery. Castle Age building. */
+#const OUTPOST 598 /* Outpost. Dark Age building. */
+#const PALISADE_WALL 72 /* Palisade Wall. Dark Age building. Automatically placed in rings around players with four gates (one per side, stone gates in AoC) if `set_place_for_every_player` is used. */
+#const SIEGE_WORKSHOP 49 /* Siege Workshop. Castle Age building. */
+#const STABLE 86 /* Stable. Feudal Age building. */
+#const TOWN_CENTER 109 /* Town Center. Dark Age building. */
+#const UNIVERSITY 209 /* University. Castle Age building. */
+#const WALL 117 /* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
+#const STONE_WALL 117 /* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
+#const WATCH_TOWER 79 /* Watch Tower. Feudal Age building. */
+#const WONDER 276 /* Wonder. Imperial Age building. */

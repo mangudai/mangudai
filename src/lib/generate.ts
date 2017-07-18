@@ -2,7 +2,7 @@
  * Run this file with `ts-node` to generate JSON files in `./generated` from `.rms` libraries.
  */
 
-import { parse, Script } from '../'
+import { parse, Script, DeclarationStatement } from '../'
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
@@ -10,19 +10,18 @@ const libs = ['aoc', 'dlc', 'userpatch']
 libs.forEach(generateJsonFromLibFile)
 
 function generateJsonFromLibFile (libname: string): void {
-  console.log(`Parsing ${libname}...`)
+  console.log(`Generating definitions for ${libname}...`)
   const { errors, ast } = parse(readFileSync(join(__dirname, `lib.${libname}.rms`), 'utf8'))
   if (errors.length) {
     throw new Error(`Cannot parse AST of lib '${libname}'! First error: ${errors[0].message}\n\n${errors[0].stack}`)
   } else {
-    console.log('Generating definitions...')
     writeFileSync(join(__dirname, 'generated', `lib.${libname}.json`), astToJson(ast as Script))
   }
 }
 
 function astToJson (ast: Script): string {
   let section: string | undefined
-  let lastComment: string | undefined
+  let lastDeclaration: DeclarationStatement | undefined
   const definitions: Definitions = {
     general: [],
     terrains: [],
@@ -34,12 +33,19 @@ function astToJson (ast: Script): string {
       case 'SectionStatement':
         section = statement.name
         break
-      case 'MultilineComment':
-        lastComment = statement.comment.slice(3, statement.comment.length - 2).trim()
-        break
       case 'DeclarationStatement':
-        addDefinition(definitions, section, statement.name, statement.value, lastComment)
-        lastComment = undefined
+        if (lastDeclaration) {
+          // There was a declaration before with no comment. We need to add it.
+          addDefinition(definitions, lastDeclaration, section)
+        }
+        lastDeclaration = statement
+        break
+      case 'MultilineComment':
+        if (lastDeclaration) {
+          // There was a declaration right before this comment. Let's assume they are on the same line and this comment is description.
+          addDefinition(definitions, lastDeclaration, section, statement.comment.slice(3, statement.comment.length - 2).trim())
+          lastDeclaration = undefined
+        }
         break
       default:
         console.error(`Unexpected statement '${statement.type}'!`)
@@ -49,7 +55,7 @@ function astToJson (ast: Script): string {
   return JSON.stringify(definitions, null, 2)
 }
 
-function addDefinition (definitions: Definitions, section?: string, name?: string, value?: number, comment?: string) {
+function addDefinition (definitions: Definitions, { name, value }: DeclarationStatement, section?: string, comment?: string) {
   const type = (section || 'GENERAL').toLowerCase()
   definitions[type].push({
     name: (!name || name === '__noname') ? undefined : name,

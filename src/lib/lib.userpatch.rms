@@ -1,31 +1,17 @@
 <GENERAL>
 
-/* Capture the Relics game type is selected. */
-#define CAPTURE_RELICS
-/* Defend the Wonder game type is selected. */
-#define DEFEND_WONDER
-/* King of the Hill game type is selected. */
-#define KING_OT_HILL
-/* Random Map game type is selected. */
-#define RANDOM_MAP
-/* Turbo Random Map game type is selected. */
-#define TURBO_RANDOM_MAP
-/* Wonder Race game type is selected. */
-#define WONDER_RACE
+#define CAPTURE_RELICS /* Capture the Relics game type is selected. */
+#define DEFEND_WONDER /* Defend the Wonder game type is selected. */
+#define KING_OT_HILL /* King of the Hill game type is selected. */
+#define RANDOM_MAP /* Random Map game type is selected. */
+#define TURBO_RANDOM_MAP /* Turbo Random Map game type is selected. */
+#define WONDER_RACE /* Wonder Race game type is selected. */
 
-/* 1 player is in the game, including AI players. */
-#define 1_PLAYER_GAME
-/* 2 players are in the game, including AI players. */
-#define 2_PLAYER_GAME
-/* 3 players are in the game, including AI players. */
-#define 3_PLAYER_GAME
-/* 4 players are in the game, including AI players. */
-#define 4_PLAYER_GAME
-/* 5 players are in the game, including AI players. */
-#define 5_PLAYER_GAME
-/* 6 players are in the game, including AI players. */
-#define 6_PLAYER_GAME
-/* 7 players are in the game, including AI players. */
-#define 7_PLAYER_GAME
-/* 8 players are in the game, including AI players. */
-#define 8_PLAYER_GAME
+#define 1_PLAYER_GAME /* 1 player is in the game, including AI players. */
+#define 2_PLAYER_GAME /* 2 players are in the game, including AI players. */
+#define 3_PLAYER_GAME /* 3 players are in the game, including AI players. */
+#define 4_PLAYER_GAME /* 4 players are in the game, including AI players. */
+#define 5_PLAYER_GAME /* 5 players are in the game, including AI players. */
+#define 6_PLAYER_GAME /* 6 players are in the game, including AI players. */
+#define 7_PLAYER_GAME /* 7 players are in the game, including AI players. */
+#define 8_PLAYER_GAME /* 8 players are in the game, including AI players. */
