@@ -17,3 +17,302 @@
 #const DLC_DRAGONFOREST 48 /* Dragon tree forest terrain. Dense forest on dirt. */
 #const DLC_BAOBAFOREST 49 /* Baobab forest terrain. Sparse 200 wood trees on savannah. */
 #const DLC_ACACIAFOREST 50 /* Acacia forest terrain. Sparse forest on dirt (`DLC_DIRT4`). */
+
+<ENTITIES>
+
+/* BARRACKS UNITS */
+#const __noname 184 /* Condottiero. Castle Age unit. */
+#const __noname 882 /* Condottiero. Castle Age unit. */
+
+/* ARCHERY RANGE UNITS */
+#const DLC_GENITOUR 1010 /* Genitour. Castle Age unit. */
+#const DLC_ELITEGENITOUR 1012 /* Elite Genitour. Imperial Age unit. */
+#const __noname 185 /* Slinger. Castle Age unit. */
+
+/* STABLE UNITS */
+#const __noname 207 /* Imperial Camel. Imperial Age unit. */
+
+/* SIEGE WORKSHOP UNITS */
+#const DLC_SIEGETOWER 1105 /* Siege Tower. Castle Age unit. */
+#const __noname 885 /* Siege Tower with a different design. Castle Age unit. */
+
+/* DOCK UNITS */
+#const DLC_DEMOLITIONRAFT 1104 /* Demolition Raft. Feudal Age unit. */
+#const DLC_FIREGALLEY 1103 /* Fire Galley. Feudal Age unit. */
+#const DLC_CARAVEL 1004 /* Caravel. Castle Age unit. */
+#const DLC_ELITECARAVEL 1006 /* Elite Caravel. Imperial Age unit. */
+
+/* CASTLE UNITS */
+#const __noname 866 /* Genoese Crossbowman. Castle Age unit. */
+#const __noname 868 /* Elite Genoese Crossbowman. Imperial Age unit. */
+#const __noname 869 /* Magyar Huszar. Castle Age unit. */
+#const __noname 871 /* Elite Magyar Huszar. Imperial Age unit. */
+#const __noname 873 /* Elephant Archer. Castle Age unit. */
+#const __noname 875 /* Elite Elephant Archer. Imperial Age unit. */
+#const __noname 876 /* Boyar. Castle Age unit. */
+#const __noname 878 /* Elite Boyar. Imperial Age unit. */
+#const __noname 879 /* Kamayuk. Castle Age unit. */
+#const __noname 881 /* Elite Kamayuk. Imperial Age unit. */
+#const __noname 886 /* Tarkan. Castle Age unit. */
+#const __noname 887 /* Elite Tarkan. Imperial Age unit. */
+#const DLC_ORGANGUN 1001 /* Organ Gun. Castle Age unit. */
+#const DLC_ELITEORGANGUN 1003 /* Elite Organ Gun. Imperial Age unit. */
+#const DLC_CAMELARCHER 1007 /* Camel Archer. Castle Age unit. */
+#const DLC_ELITECAMELARCHER 1009 /* Elite Camel Archer. Imperial Age unit. */
+#const DLC_GBETO 1013 /* Gbeto. Castle Age unit. */
+#const DLC_ELITEGBETO 1015 /* Elite Gbeto. Imperial Age unit. */
+#const DLC_SHOTELWARRIOR 1016 /* Shotel Warrior. Castle Age unit. */
+#const DLC_ELITESHOTELWARRIOR 1018 /* Elite Shotel Warrior. Imperial Age unit. */
+
+/* OTHER COMMON UNITS */
+#const __noname 922 /* Monk with Relic. */
+#const __noname 923 /* Queen. Like `KING`. */
+
+/* HEROES, CAMPAIGN UNITS */
+#const __noname 1 /* Legionary. */
+#const __noname 52 /* Royal Janissary. */
+#const CARAVAN 275 /* Centurion (NOT a Caravan). */
+#const DLC_MUSA 1034 /* DLC_MUSA. Camel Archer. Hero unit. */
+#const DLC_SUNDJATA 1035 /* DLC_SUNDJATA. Light Cavalry. Hero unit. */
+#const DLC_TARIQ 1036 /* DLC_TARIQ. Genitour. Hero unit. */
+#const DLC_RICHARDDECLARE 1037 /* DLC_RICHARDDECLARE. Light Cavalry. Hero unit. */
+#const DLC_TRISTAN 1038 /* DLC_TRISTAN. Magyar Huszar. Hero unit. */
+#const DLC_YODIT 1039 /* DLC_YODIT. Queen with no attack. Hero unit. */
+#const DLC_HENRY2 1040 /* DLC_HENRY. Two-Handed Swordsman. Hero unit. */
+#const DLC_YEKUNOAMLAK 1064 /* DLC_YEKUNOAMLAK. Shotel Warrior. Hero unit. */
+#const DLC_WARRIORYODIT 1066 /* DLC_WARRIORYODIT. Gbeto. Hero unit. */
+#const DLC_ITZCOATL 1067 /* DLC_ITZCOATL. Jaguar Warrior. Hero unit. */
+#const DLC_MUSTAFA 1068 /* DLC_MUSTAFA. Janissary. Hero unit. */
+#const DLC_PACAL2 1069 /* DLC_PACAL. Plumed Archer. Hero unit. */
+#const DLC_BABUR 1070 /* DLC_BABUR. Imperial Camel. Hero unit. */
+#const DLC_ABRAHAELEPHANT 1071 /* DLC_ABRAHAELEPHANT. War Elephant. Hero unit. */
+#const DLC_GUGLIELMO 1072 /* DLC_GUGLIELMO. Genoese Crossbowman. Hero unit. */
+#const DLC_SU_DINGFANG 1073 /* DLC_SU. Chu Ko Nu. Hero unit. */
+#const DLC_PACHACUTI 1074 /* DLC_PACHACUTI. Kamayuk. Hero unit. */
+#const DLC_HUAYNA_CAPAC 1075 /* DLC_HUAYNA. Slinger. Hero unit. */
+#const DLC_MIKLOSTOLDI 1076 /* DLC_MIKLOSTOLDI. Magyar Huszar. Hero unit. */
+#const DLC_LITTLEJOHN 1077 /* DLC_LITTLEJOHN. Spearman. Hero unit. */
+#const DLC_ZAWISZATHEBLACK 1078 /* DLC_ZAWISZATHEBLACK. Hussar. Hero unit. */
+#const DLC_SUMANGURU 1080 /* DLC_SUMANGURU. Cataphract. Hero unit. */
+#const DLC_DAGNAJAN 1106 /* DLC_DAGNAJAN. Elephant archer. Hero unit. */
+#const __noname 1109 /* Gidajan. Carries sword and shield. Hero unit. */
+#const __noname 193 /* Vlad Dracula. Boyar. */
+#const __noname 307 /* Quauhtemoc. Elite Eagle Warrior. */
+#const __noname 425 /* Francisco de Orellana. Elite Conquistador. */
+#const __noname 427 /* Gonzalo Pizarro. Elite Conquistador. */
+#const __noname 429 /* Frederick Barbarossa. Elite Teutonic Knight. */
+#const __noname 437 /* Prithviraj. Heavy Cavalry Archer. */
+#const __noname 439 /* Francesco Sforza. Samurai. */
+#const __noname 925 /* Sanyogita. Queen. */
+#const __noname 926 /* Prithvi. Crossbowman. */
+#const __noname 927 /* Chand Bhai. Monk with unique graphic. */
+#const __noname 929 /* Saladin. Elite Mameluke. */
+#const __noname 930 /* Khosrau. Elite Elephant Archer. */
+#const __noname 931 /* Jarl. Elite Tarkan. */
+#const __noname 932 /* Savaran. Elite Cataphract. */
+#const __noname 943 /* Osman. Heavy Cavalry Archer. */
+
+/* CHEAT UNITS */
+#const __noname 639 /* Penguin. Cheat unit. */
+#const __noname 934 /* Alfred the Alpaca. Cheat unit. */
+
+/* DEAD UNITS */
+#const __noname 2 /* Dead Legionary. */
+#const __noname 186 /* Dead Slinger. */
+#const __noname 189 /* Dead Flamethrower. */
+#const __noname 277 /* Dead Centurion. */
+#const __noname 300 /* Dead Imperial Camel. */
+#const __noname 362 /* Dead Nordic Swordsman. */
+#const __noname 412 /* Dead Monk. */
+#const __noname 489 /* Dead Bear. */
+#const __noname 641 /* Dead Penguin. */
+#const __noname 780 /* Dead Llama. */
+#const __noname 843 /* Dead Cow. */
+#const __noname 848 /* Dead Donkey. */
+#const __noname 867 /* Dead Genoese Crossbowman. */
+#const __noname 870 /* Dead Magyar Huszar. */
+#const __noname 874 /* Dead Elephant Archer. */
+#const __noname 877 /* Dead Boyar. */
+#const __noname 880 /* Dead Kamayuk. */
+#const __noname 883 /* Dead Condottiero. */
+#const __noname 891 /* Dead Siege Tower. */
+#const __noname 893 /* Dead Heavy Pikeman. */
+#const __noname 895 /* Dead Eastern Swordsman. */
+#const __noname 898 /* Dead Camel. */
+#const __noname 919 /* Dead Amazon Warrior. */
+#const __noname 920 /* Dead Amazon Archer. */
+#const __noname 921 /* Dead Imam. */
+#const __noname 924 /* Dead Queen. */
+#const __noname 928 /* Dead Chand Bhai. */
+#const __noname 935 /* Dead Alfred the Alpaca. */
+#const __noname 937 /* Dead Elephant. */
+#const __noname 945 /* Dead Shaw. */
+#const __noname 1002 /* Dead Organ Gun. */
+#const __noname 1005 /* Dead Organ Gun. */
+#const __noname 1008 /* Dead Camel Archer. */
+#const __noname 1011 /* Dead Genitour. */
+#const __noname 1014 /* Dead Gbeto. */
+#const __noname 1017 /* Dead Shotel Warrior. */
+#const __noname 1020 /* Dead Zebra. */
+#const __noname 1024 /* Dead Priest. */
+#const __noname 1027 /* Dead Ostrich. */
+#const __noname 1030 /* Dead Lion. */
+#const __noname 1032 /* Dead Crocodile. */
+#const __noname 1061 /* Dead Goat. */
+#const __noname 1107 /* Dead Siege Tower. */
+#const __noname 1108 /* Dead Dagnajan. */
+#const __noname 1110 /* Dead Gidajan. */
+#const __noname 1116 /* Dead Eagle Warrior. */
+#const __noname 1117 /* Dead Elite Eagle Warrior. */
+
+/* STANDARD BUILDINGS */
+#const DLC_FEITORIA 1021 /* Feitoria. Imperial Age building. */
+#const __noname 790 /* Palisade gate, open, SW-NE. Can be placed on water, friendly ships can pass through. */
+#const __noname 794 /* Palisade gate, open, SE-NW. Can be placed on water, friendly ships can pass through. */
+#const __noname 798 /* Palisade gate, open, horizontal. Can be placed on water, friendly ships can pass through. */
+#const __noname 802 /* Palisade gate, open, vertical. Can be placed on water, friendly ships can pass through. */
+#const __noname 789 /* Palisade gate, closed, SW-NE. Can be placed on water, friendly ships can pass through. */
+#const __noname 793 /* Palisade gate, closed, SE-NW. Can be placed on water, friendly ships can pass through. */
+#const __noname 797 /* Palisade gate, closed, horizontal. Can be placed on water, friendly ships can pass through. */
+#const __noname 801 /* Palisade gate, closed, vertical. Can be placed on water, friendly ships can pass through. */
+
+/* OTHER BUILDINGS */
+#const __noname 785 /* Sea Tower. Water building. Can shoot arrows. */
+#const __noname 791 /* Sea Wall. A palisade wall on water. Not automatically placed in rings. Part of the palisade gate graphics. */
+#const DLC_FENCE 1062 /* Fence. Wooden wall with 1 HP. */
+#const DLC_STORAGE 1081 /* Storage. 2x2 structure. */
+#const DLC_AFRICANHUT_A 1082 /* African Hut A. 5 housing space. */
+#const DLC_AFRICANHUT_B 1083 /* African Hut B. 5 housing space. */
+#const DLC_AFRICANHUT_C 1084 /* African Hut C. 5 housing space. */
+#const DLC_AFRICANHUT_D 1085 /* African Hut D. 5 housing space. */
+#const DLC_AFRICANHUT_E 1086 /* African Hut E. 5 housing space. */
+#const DLC_AFRICANHUT_F 1087 /* African Hut F. 5 housing space. */
+#const DLC_AFRICANHUT_G 1088 /* African Hut G. 5 housing space. */
+#const DLC_GRANARY 1089 /* Granary. Single tile structure. */
+#const DLC_BARRICADE 1090 /* Barricade. Has 1000 HP. */
+#const __noname 1096 /* Palace. Wonder from random civilization. */
+#const __noname 1097 /* Tent. 5 housing space. */
+#const __noname 1098 /* Tent. 6 housing space. */
+#const __noname 1099 /* Tent. 7 housing space. */
+#const __noname 1100 /* Tent. 8 housing space. */
+#const __noname 1101 /* Tent. 9 housing space. */
+#const __noname 1102 /* Sea Fortification. Tower. Cannot be placed on water. */
+#const __noname 33 /* Fortress. */
+#const __noname 119 /* Fortified Palisade Wall. */
+#const __noname 190 /* Fire Tower. */
+#const __noname 231 /* Aqueduct. */
+#const __noname 251 /* Amphitheatre. */
+#const __noname 263 /* Coliseum. */
+#const __noname 308 /* Indestructible Outpost. */
+#const __noname 370 /* City Wall. */
+#const __noname 637 /* Temple of Heaven. */
+#const __noname 872 /* Quimter Cathedral. */
+#const __noname 899 /* Arch of Constantine. */
+
+/* ANIMALS */
+#const __noname 61 /* Dolphin. Like great fish. */
+#const DLC_BEAR 486 /* Bear. Like `WOLF`. */
+#const DLC_LLAMA 305 /* Llama. Like `SHEEP`. */
+#const DLC_VULTURE 917 /* Vulture. Like `HAWK` but larger and white. */
+#const DLC_COW 705 /* Cow. Like `SHEEP` but has 150 food and 14 HP. */
+#const DLC_ELEPHANT 936 /* Elephant. Like `BOAR` but has 400 food. */
+#const DLC_GOAT 1060 /* Goat. Like `SHEEP`. */
+#const DLC_ZEBRA 1019 /* Zebra. Like `DEER`. */
+#const DLC_OSTRICH 1026 /* Ostrich. Like `DEER`. */
+#const DLC_STORK 1028 /* Stork. Like `HAWK`. */
+#const DLC_CROCODILE 1031 /* Crocodile. Like `WOLF`. */
+#const DLC_LION 1029 /* Lion. Like `WOLF`. */
+#const __noname 1056 /* Falcon. Like `HAWK`. */
+#const __noname 846 /* Donkey. Has no food. */
+#const __noname 897 /* Camel. Like `HORSE`. */
+#const __noname 888 /* Incan Llama + Eagle Scout. invisible in scenario editor. */
+#const __noname 889 /* Incan Eagle Scout. invisible in scenario editor. */
+#const __noname 890 /* Incan Llama. invisible in scenario editor. */
+
+/* TREES */
+#const DLC_BAOBABTREE 1052 /* Baobab tree. Varies. Has 200 wood. */
+#const DLC_DRAGONTREE 1051 /* Dragon tree. Varies. Has 100 wood. */
+#const DLC_ACACIATREE 1063 /* Acacia tree. Varies. Has 100 wood. */
+
+/* OTHER ENTITIES */
+#const __noname 493 /* Advanced Heavy Crossbowman. */
+#const __noname 497 /* Dead Advanced Heavy Crossbowman. */
+#const __noname 94 /* Alternative Berserk. */
+#const __noname 1022 /* Monk Boat. Converts units. */
+#const __noname 1079 /* Like `DLC_GENITOUR` but with 60 HP. */
+#const DLC_AOE1PRIEST 1023 /* Priest from Age of Empires 1. */
+#const __noname 1025 /* Priest from Age of Empires 1 with relic. */
+#const DLC_ORANGEBUSH 1059 /* Orange Bush. Like `FORAGE_BUSH`. */
+#const DLC_BOULDER_A 1048 /* Boulder. Varies. Small single tile rock formation. */
+#const DLC_BOULDER_B 1049 /* Boulder. Varies. Tall single tile rock formation. */
+#const DLC_BOULDER_C 1050 /* Boulder. 3x3 rock formation. */
+#const DLC_AFRICANBUSH 1053 /* African bush. Green bushes. Has 100 wood. */
+#const DLC_AFRICANBUSH_2 1054 /* African bush. Snowy bushes. Has 100 wood. */
+#const DLC_SAVANNAHPATCH 1033 /* Savannah patch. Light brown grass. */
+#const DLC_MOUNTAIN_5 1041 /* Mountain. Like `MOUNTAIN_1`. */
+#const DLC_MOUNTAIN_6 1042 /* Rocky mountain. */
+#const DLC_MOUNTAIN_7 1043 /* Rocky mountain. */
+#const DLC_MOUNTAIN_8 1044 /* Rocky mountain. */
+#const DLC_MOUNTAIN_9 1045 /* Snowy mountain. */
+#const DLC_MOUNTAIN_10 1046 /* Snowy mountain. */
+#const DLC_MOUNTAIN_11 1047 /* Snowy mountain. */
+#const DLC_ANIMALSKELETON 1091 /* Animal skeleton. */
+#const DLC_STELAE_A 1092 /* 2x2 pillar. */
+#const DLC_STELAE_B 1093 /* 1x1 pillar. */
+#const DLC_STELAE_C 1094 /* 1x1 pillar. */
+#const DLC_GALLOW 1095 /* Tree with noose. */
+#const __noname 1065 /* Wooden rubble. */
+#const __noname 1056 /* Throwing knife. Projectile, spins and makes sounds. */
+#const __noname 1057 /* Heavy bolt. Projectile, stationary and silent. */
+#const __noname 1058 /* Flaming heavy bolt. Projectile, stationary and silent. */
+#const __noname 1111 /* Bolt. Projectile, stationary and silent. */
+#const __noname 1112 /* Flaming bolt. Projectile, stationary and silent. */
+#const __noname 1113 /* Bolt. Projectile, stationary and silent. */
+#const __noname 1114 /* Flaming bolt. Projectile, stationary and silent. */
+#const __noname 191 /* Rubble 2x2. */
+#const __noname 192 /* Rubble 2x2. Disappears after some time. */
+#const __noname 301 /* Grass Patch. Tall grass. */
+#const __noname 302 /* Bush from `JUNGLE` terrain. Varies. */
+#const __noname 303 /* Seagulls in a patch. */
+#const __noname 304 /* Bonfire. Can be placed as a player object to offer line of sight. */
+#const __noname 306 /* Black Tile. Single tile of pure black. */
+#const __noname 472 /* Loot. Pile of golden treasure. */
+#const __noname 635 /* Burned Building. Varies. */
+#const __noname 758 /* Burned Building. Varies. */
+#const __noname 839 /* Rock (Stone). Turns into stone when attacked by villagers. */
+#const __noname 841 /* Rock (Gold). Turns into gold when attacked by villagers. */
+#const __noname 884 /* Wild Camel. Like `WILD_HORSE`. */
+#const __noname 896 /* Waterfall. */
+#const __noname 900 /* Rain. Single tile patch. */
+#const __noname 901 /* Flag F. With golden emblem. */
+#const __noname 902 /* Smoke. From blacksmith. */
+#const __noname 904 /* Boardwalk, SW-NE, top end. Narrow wooden bridge. */
+#const __noname 911 /* Boardwalk, SW-NE, top end. Narrow wooden bridge. */
+#const __noname 905 /* Boardwalk, SW-NE, middle. Narrow wooden bridge. */
+#const __noname 912 /* Boardwalk, SW-NE, middle. Narrow wooden bridge. */
+#const __noname 906 /* Boardwalk, SW-NE, bottom end. Narrow wooden bridge. */
+#const __noname 913 /* Boardwalk, SW-NE, bottom end. Narrow wooden bridge. */
+#const __noname 907 /* Boardwalk, SE-NW, top end. Narrow wooden bridge. */
+#const __noname 908 /* Boardwalk, SE-NW, middle. Narrow wooden bridge. */
+#const __noname 909 /* Boardwalk, SE-NW, bottom end. Narrow wooden bridge. */
+#const __noname 910 /* Impaled Corpse. Varies. Can be player object. */
+#const __noname 914 /* Quarry. Pile of mined rocks. */
+#const __noname 915 /* Lumber. Pile of logs. */
+#const __noname 916 /* Goods. Fruit market stall. */
+#const __noname 918 /* Brown rocks. Varies. */
+#const __noname 933 /* Barrels. Varies. */
+#const __noname 939 /* Small flame 1. */
+#const __noname 940 /* Small flame 2. */
+#const __noname 941 /* Large flame 3. */
+#const __noname 942 /* Large flame 4. */
+#const __noname 138 /* Spy. Like `MAN_AT_ARMS` but with high attack. */
+#const __noname 188 /* Flamethrower. Dragon in AoFE. */
+#const __noname 361 /* Nordic Swordsman. */
+#const __noname 753 /* Heavy Eagle Warrior. */
+#const __noname 778 /* Canoe. */
+#const __noname 825 /* Amazon Warrior. */
+#const __noname 850 /* Amazon Archer. */
+#const __noname 892 /* Heavy Pikeman. */
+#const __noname 894 /* Eastern Swordsman. */
+#const __noname 938 /* Dragon Ship. */
+#const __noname 944 /* Relic Cart. */

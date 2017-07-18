@@ -63,6 +63,7 @@
 
 <ENTITIES>
 
+/* BARRACKS UNITS */
 #const MILITIA 74 /* Militia. Dark Age unit. */
 #const MAN_AT_ARMS 75 /* Man-at-Arms. Feudal Age unit. */
 #const LONG_SWORDSMAN 77 /* Long Swordsman. Castle Age unit. */
@@ -74,6 +75,7 @@
 #const EAGLE_WARRIOR 751 /* Eagle Warrior. Castle Age unit. */
 #const ELITE_EAGLE_WARRIOR 752 /* Elite Eagle Warrior. Imperial Age unit. */
 
+/* ARCHERY RANGE UNITS */
 #const ARCHER 4 /* Archer. Feudal Age unit. */
 #const CROSSBOWMAN 24 /* Crossbowman. Castle Age unit. */
 #const ARBALEST 492 /* Arbalest. Imperial Age unit. */
@@ -83,6 +85,7 @@
 #const CAVALRY_ARCHER 39 /* Cavalry Archer. Castle Age unit. */
 #const HEAVY_CAVALRY_ARCHER 474 /* Heavy Cavalry Archer. Imperial Age unit. */
 
+/* STABLE UNITS */
 #const SCOUT 448 /* Scout. Feudal Age unit. Automatically replaced by an Eagle Warrior for Mesoamerican civilizations. */
 #const SCOUT_CAVALRY 448 /* Scout. Feudal Age unit. Automatically replaced by an Eagle Warrior for Mesoamerican civilizations. */
 #const LIGHT_CAVALRY 546 /* Light Cavalry. Castle Age unit. */
@@ -93,6 +96,7 @@
 #const CAMEL 329 /* Camel. Castle Age unit. */
 #const HEAVY_CAMEL 330 /* Heavy Camel. Imperial Age unit. */
 
+/* SIEGE WORKSHOP UNITS */
 #const BATTERING_RAM 35 /* Battering Ram. Castle Age unit. */
 #const CAPPED_RAM 422 /* Capped Ram. Imperial Age unit. */
 #const SIEGE_RAM 548 /* Siege Onager. Imperial Age unit. */
@@ -102,9 +106,8 @@
 #const MANGONEL 280 /* Mangonel. Castle Age unit. */
 #const ONAGER 550 /* Onager. Imperial Age unit. */
 #const SIEGE_ONAGER 588 /* Siege Onager. Imperial Age unit. */
-#const TREBUCHET 42 /* Trebuched, unpacked version. Imperial Age unit. See also: `TREBUCHET_PACKED`. */
-#const TREBUCHET_PACKED 331 /* Trebuched, packed version. Imperial Age unit. See also: `TREBUCHET`. */
 
+/* DOCK UNITS */
 #const FISHING_SHIP 13 /* Fishing Ship. Dark Age unit. */
 #const TRADE_COG 17 /* Trade Cog. Feudal Age unit. */
 #const TRANSPORT_SHIP 545 /* Transport Ship. Feudal Age unit. */
@@ -117,58 +120,58 @@
 #const ELITE_CANNON_GALLEON 691 /* Elite Cannon Galleon. Imperial Age unit. */
 #const DEMOLITION_SHIP 527 /* Demolition Ship. Castle Age unit. */
 #const HEAVY_DEMOLITION_SHIP 528 /* Heavy Demolition Ship. Imperial Age unit. */
+#const LONGBOAT 250 /* Longboat. Castle Age unit. */
+#const ELITE_LONGBOAT 533 /* Elite Longboat. Imperial Age unit. */
+#const TURTLE_SHIP 831 /* Turtle Ship. Castle Age unit. */
+#const ELITE_TURTLE_SHIP 832 /* Elite Turtle Ship. Imperial Age unit. */
 
+/* CASTLE UNITS */
+#const TREBUCHET 42 /* Trebuched, unpacked version. Imperial Age unit. See also: `TREBUCHET_PACKED`. */
+#const TREBUCHET_PACKED 331 /* Trebuched, packed version. Imperial Age unit. See also: `TREBUCHET`. */
+#const PETARD 440 /* Petard. Castle Age unit. */
 #const BERSERK 692 /* Berserk. Castle Age unit. */
-#const CATAPHRACT 40 /* Cataphract. Castle Age unit. */
-#const CHU_KO_NU 73 /* Chu Ko Nu. Castle Age unit. */
-#const CONQUISTADOR 771 /* Conquistador. Castle Age unit. */
-#const HUSKARL 41 /* Huskarl. Castle Age unit. */
 #const ELITE_BERSERK 694 /* Elite Berserk. Imperial Age unit. */
+#const CATAPHRACT 40 /* Cataphract. Castle Age unit. */
 #const ELITE_CATAPHRACT 553 /* Elite Cataphract. Imperial Age unit. */
+#const CHU_KO_NU 73 /* Chu Ko Nu. Castle Age unit. */
 #const ELITE_CHU_KO_NU 559 /* Elite Chu Ko Nu. Imperial Age unit. */
+#const CONQUISTADOR 771 /* Conquistador. Castle Age unit. */
 #const ELITE_CONQUISTADOR 773 /* Elite Conquistador. Imperial Age unit. */
+#const HUSKARL 41 /* Huskarl. Castle Age unit. */
 #const ELITE_HUSKARL 555 /* Elite Huskarl. Imperial Age unit. */
 #const JAGUAR_WARRIOR 725 /* Jaguar Warrior. Castle Age unit. */
-#const JANISSARY 46 /* Janissary. Castle Age unit. */
-#const LONGBOAT 250 /* Longboat. Castle Age unit. */
-#const LONGBOWMAN 8 /* Longbowman. Castle Age unit. */
-#const MAMELUKE 282 /* Mameluke. Castle Age unit. */
-#const MANGUDAI 11 /* Mangudai. Castle Age unit. */
-#const MISSIONARY 775 /* Missionary. Castle Age unit. */
-#const PLUMED_ARCHER 763 /* Plumed Archer. Castle Age unit. */
-#const SAMURAI 291 /* Samurai. Castle Age unit. */
-#const TARKAN 755 /* Tarkan. Castle Age unit. */
-#const TEUTONIC_KNIGHT 25 /* Teutonic Knight. Castle Age unit. */
-#const THROWING_AXEMAN 281 /* Throwing Axeman. Castle Age unit. */
-#const TURTLE_SHIP 831 /* Turtle Ship. Castle Age unit. */
-#const WAR_ELEPHANT 239 /* War Elephant. Castle Age unit. */
-#const WAR_WAGON 827 /* War Wagon. Castle Age unit. */
-#const WOAD_RAIDER 232 /* Woad Raider. Castle Age unit. */
 #const ELITE_JAGUAR_WARRIOR 726 /* Elite Jaguar Warrior. Imperial Age unit. */
+#const JANISSARY 46 /* Janissary. Castle Age unit. */
 #const ELITE_JANISSARY 557 /* Elite Janissary. Imperial Age unit. */
-#const ELITE_LONGBOAT 533 /* Elite Longboat. Imperial Age unit. */
+#const LONGBOWMAN 8 /* Longbowman. Castle Age unit. */
 #const ELITE_LONGBOWMAN 530 /* Elite Longbowman. Imperial Age unit. */
+#const MAMELUKE 282 /* Mameluke. Castle Age unit. */
 #const ELITE_MAMELUKE 556 /* Elite Mameluke. Imperial Age unit. */
+#const MANGUDAI 11 /* Mangudai. Castle Age unit. */
 #const ELITE_MANGUDAI 561 /* Elite Mangudai. Imperial Age unit. */
+#const PLUMED_ARCHER 763 /* Plumed Archer. Castle Age unit. */
 #const ELITE_PLUMED_ARCHER 765 /* Elite Plumed Archer. Imperial Age unit. */
+#const SAMURAI 291 /* Samurai. Castle Age unit. */
 #const ELITE_SAMURAI 560 /* Elite Samurai. Imperial Age unit. */
+#const TARKAN 755 /* Tarkan. Castle Age unit. */
 #const ELITE_TARKAN 757 /* Elite Tarkan. Imperial Age unit. */
+#const TEUTONIC_KNIGHT 25 /* Teutonic Knight. Castle Age unit. */
 #const ELITE_TEUTONIC_KNIGHT 554 /* Elite Teutonic Knight. Imperial Age unit. */
+#const THROWING_AXEMAN 281 /* Throwing Axeman. Castle Age unit. */
 #const ELITE_THROWING_AXEMAN 531 /* Elite Throwing Axeman. Imperial Age unit. */
-#const ELITE_TURTLE_SHIP 832 /* Elite Turtle Ship. Imperial Age unit. */
+#const WAR_ELEPHANT 239 /* War Elephant. Castle Age unit. */
 #const ELITE_WAR_ELEPHANT 558 /* Elite War Elephant. Imperial Age unit. */
+#const WAR_WAGON 827 /* War Wagon. Castle Age unit. */
 #const ELITE_WAR_WAGON 829 /* Elite War Wagon. Imperial Age unit. */
+#const WOAD_RAIDER 232 /* Woad Raider. Castle Age unit. */
 #const ELITE_WOAD_RAIDER 534 /* Elite Woad Raider. Imperial Age unit. */
 
-
-#const KING 434 /* King. Must be manually placed for Regicide game type to work. See also: `REGICIDE`. */
+/* OTHER COMMON UNITS */
 #const MONK 125 /* Monk. Castle Age unit. */
-#const PETARD 440 /* Petard. Castle Age unit. */
+#const MISSIONARY 775 /* Missionary. Castle Age unit. */
+#const KING 434 /* King. Must be manually placed for Regicide game type to work. See also: `REGICIDE`. */
 #const TRADE_CART 128 /* Trade Cart. Feudal Age unit. */
 #const __noname 204 /* Trade Cart, full. Not actually carrying gold. Feudal Age unit. */
-#const SHEEP 594 /* Sheep. Can belong to a player at start. */
-#const TURKEY 833 /* Turkey. Can belong to a player at start. */
-
 #define VILLAGER /* Villager. If you don't set `number_of_objects`, the game will automatically place 3 villagers, 6 for Chinese, 4 for Mayas. */
 #const __noname 293 /* Female villager. */
 #const __noname 83 /* Male villager. */
@@ -189,6 +192,7 @@
 #const __noname 590 /* Female shepherd villager. */
 #const __noname 592 /* Male shepherd villager. */
 
+/* HEROES, CAMPAIGN UNITS */
 #const ADMIRAL_YI_SUN_SHIN 844 /* ADMIRAL_YI_SUN_SHIN. Hero unit. */
 #const AETHELFIRTH 169 /* AETHELFIRTH. Hero unit. */
 #const __noname 197 /* Alexander Nevski. Hero unit. */
@@ -254,38 +258,206 @@
 #const WILLIAM_THE_CONQUEROR 849 /* WILLIAM_THE_CONQUEROR. Hero unit. */
 #const WILLIAM_WALLACE 432 /* WILLIAM_WALLACE. Hero unit. */
 
+/* CHEAT UNITS */
 #const __noname 748 /* Cobra car. Cheat unit. */
-#const ES_FLAG 851 /* Ensemble Studios flag. */
-#const FLAG_A 600 /* Tall flag. */
-#const FLAG_B 601 /* Bifurcate flag. */
-#const FLAG_C 602 /* Spotted flag. */
-#const FLAG_D 603 /* Crossed flag. */
-#const FLAG_E 604 /* Binged flag. */
 #const __noname 860 /* Furious the monkey boy. Cheat unit. */
-#const HORSE 814 /* Horse. */
-#const __noname 299 /* Infiltrator. Looks exactly as a Militia, but stronger. */
-#const MAP_REVEALER 837 /* Map Revealer. Invisible and immobile. Gives sight of 4 tiles radius area. */
-#const SABOTEUR 706 /* Saboteur. Like `PETARD` but stronger. */
-#const Shipwreck 436 /* Shipwreck. Can't move unless in group. Counts as 4 population. */
-#const __noname 571 /* Super armored Archer. Armor 1000, attack 1. */
-#const __noname 577 /* Super armored Cavalry Archer. Armor 1000, attack 1. */
-#const __noname 575 /* Super armored Light Cavalry. Armor 1000, attack 1. */
-#const __noname 573 /* Super armored Militia. Armor 1000, attack 1. */
-#const TORCH 499 /* Torch. Can be placed even on water and forests. */
-#const TORCH_CONVERTING 854 /* Torch. Like `TORCH` but rescuable like sheep. */
+#const __noname 862 /* Stormy dog. Cheat unit. */
 
+/* DEAD UNITS */
+#const __noname 152 /* Dead Militia. */
+#const __noname 157 /* Dead Man at Arms. */
+#const __noname 180 /* Dead Long Swordsman. */
+#const __noname 568 /* Dead Two Handed Swordsman. */
+#const __noname 151 /* Dead Champion. */
+#const __noname 100 /* Dead Spearman. */
+#const __noname 501 /* Dead Pikeman. */
+#const __noname 754 /* Dead Eagle Warrior. */
+#const __noname 98 /* Dead Unrecognized infantry. */
+#const __noname 750 /* Dead Unrecognized infantry. */
+#const __noname 22 /* Dead Unrecognized infantry. */
+#const __noname 99 /* Dead Unrecognized infantry. */
+
+#const __noname 3 /* Dead Archer. */
+#const __noname 26 /* Dead Crossbowman. */
+#const __noname 687 /* Dead Arbalest. */
+#const __noname 238 /* Dead Skirmisher. */
+#const __noname 34 /* Dead Cavalry Archer. */
+
+#const __noname 547 /* Dead Light Cavalry. */
+#const __noname 111 /* Dead Knight. */
+#const __noname 139 /* Dead Cavalier. */
+#const __noname 570 /* Dead Paladin. */
+#const __noname 494 /* Dead Camel. */
+#const __noname 113 /* Dead Heavy Camel. */
+#const __noname 135 /* Dead Unrecognized cavalry. */
+
+#const __noname 675 /* Dead Mangonel. */
+#const __noname 121 /* Dead Onager. */
+#const __noname 589 /* Dead Siege Onager. */
+#const __noname 23 /* Dead Battering Ram. */
+#const __noname 423 /* Dead Capped Ram. */
+#const __noname 549 /* Dead Siege Ram. */
+#const __noname 149 /* Dead Scorpion. */
+#const __noname 16 /* Dead Bombard Cannon. */
+
+#const __noname 735 /* Dead Trebuchet, packed. */
+#const __noname 194 /* Dead Trebuchet, unpacked. */
+#const __noname 693 /* Dead Berserk. */
+#const __noname 480 /* Dead Tarkan. */
+#const __noname 181 /* Dead Teutonic Knight. */
+#const __noname 154 /* Dead Throwing Axeman. */
+#const __noname 27 /* Dead Cataphract. */
+#const __noname 772 /* Dead Conquistador. */
+#const __noname 62 /* Dead Huskarl. */
+#const __noname 44 /* Dead Mameluke. */
+#const __noname 828 /* Dead War Wagon. */
+#const __noname 764 /* Dead Plumed Archer. */
+#const __noname 136 /* Dead War Elephant. */
+#const __noname 233 /* Dead Woad Raider. */
+
+#const __noname 134 /* Dead Monk. */
+#const __noname 776 /* Dead Missionary. */
+#const __noname 839 /* Dead King. */
+#const __noname 178 /* Dead Trade Cart. */
+#const __noname 205 /* Dead Trade Cart, full. */
+#const __noname 60 /* Dead Villager, woman. */
+#const __noname 213 /* Dead Villager, woman, builder. */
+#const __noname 215 /* Dead Villager, woman, farmer. */
+#const __noname 355 /* Dead Villager, woman, forager. */
+#const __noname 582 /* Dead Villager, woman, miner. */
+#const __noname 217 /* Dead Villager, woman, hunter. */
+#const __noname 219 /* Dead Villager, woman, lumberjack. */
+#const __noname 591 /* Dead Villager, woman, shepherd. */
+#const __noname 58 /* Dead Villager, man. */
+#const __noname 230 /* Dead Villager, man, builder. */
+#const __noname 228 /* Dead Villager, man, farmer. */
+#const __noname 353 /* Dead Villager, man, forager. */
+#const __noname 229 /* Dead Villager, man, miner. */
+#const __noname 227 /* Dead Villager, man, hunter. */
+#const __noname 226 /* Dead Villager, man, shepherd. */
+
+#const __noname 630 /* Dead Joan of Arc. */
+#const __noname 431 /* Dead Joan the Maid. */
+#const __noname 633 /* Dead Knight with Lance. */
+
+#const __noname 595 /* Dead Sheep (no food). */
+#const __noname 356 /* Dead Boar (no food). */
+#const __noname 43 /* Dead Deer (no food). */
+#const __noname 815 /* Dead Horse. */
+#const __noname 813 /* Dead Jaguar. */
+#const __noname 237 /* Dead Wolf. */
+
+/* STANDARD BUILDINGS */
+#const ARCHERY_RANGE 87 /* Archery Range. Feudal Age building. */
+#const BARRACKS 12 /* Barracks. Dark Age building. */
+#const BLACKSMITH 103 /* Blacksmith. Feudal Age building. */
+#const BOMBARD_TOWER 236 /* Bombard Tower. Imperial Age building. */
+#const CASTLE 82 /* Castle. Castle Age building. */
+#const DOCK 45 /* Dock. Dark Age building. */
+#const FARM 50 /* Farm. Dark Age building. */
+#const FISH_TRAP 199 /* Fish Trap. Feudal Age building. */
+#const GUARD_TOWER 234 /* Guard Tower. Castle Age building. */
+#const HOUSE 70 /* House. Dark Age building. */
+#const KEEP 235 /* Keep. Imperial Age building. */
+#const LUMBER_CAMP 562 /* Lumber Camp. Dark Age building. */
+#const MARKET 84 /* Market. Feudal Age building. */
+#const MILL 68 /* Mill. Dark Age building. */
+#const MINING_CAMP 584 /* Mining Camp. Dark Age building. */
+#const MONASTERY 104 /* Monastery. Castle Age building. */
+#const OUTPOST 598 /* Outpost. Dark Age building. */
+#const SIEGE_WORKSHOP 49 /* Siege Workshop. Castle Age building. */
+#const STABLE 86 /* Stable. Feudal Age building. */
+#const TOWN_CENTER 109 /* Town Center. Dark Age building. */
+#const UNIVERSITY 209 /* University. Castle Age building. */
+#const WATCH_TOWER 79 /* Watch Tower. Feudal Age building. */
+#const WONDER 276 /* Wonder. Imperial Age building. */
+#const PALISADE_WALL 72 /* Palisade Wall. Dark Age building. Automatically placed in rings around players with four gates (one per side, stone gates in AoC) if `set_place_for_every_player` is used. */
+#const WALL 117 /* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
+#const STONE_WALL 117 /* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
+#const FORTIFIED_WALL 155 /* Fortified Wall. Imperial Age building. */
+#const __noname 64 /* Gate, SW-NE. */
+#const __noname 88 /* Gate, SE-NW. */
+#const __noname 659 /* Gate, horizontal. */
+#const __noname 667 /* Gate, vertical. */
+#const __noname 63 /* Fortified gate, SW-NE. Only central part actually looks like a fortified gate. */
+#const __noname 85 /* Fortified gate, SE-NW. Only central part actually looks like a fortified gate. */
+#const __noname 660 /* Fortified gate, horizontal. Only central part actually looks like a fortified gate. */
+#const __noname 668 /* Fortified gate, vertical. Only central part actually looks like a fortified gate. */
+
+/* OTHER BUILDINGS */
+#const __noname 463 /* House, Feudal Age style. */
+#const __noname 464 /* House, Castle Age style. */
+#const __noname 71 /* Town, not working center, no. Can garrison, fire arrows, and support pop. Graphics aren't perfect. */
+#const __noname 563 /* Lumber camp, not working. */
+#const __noname 585 /* Mining camp, not working. */
+#const __noname 129 /* Mill, not working. Feudal Age style. */
+#const __noname 130 /* Mill, not working. Castle Age style. */
+#const __noname 116 /* Market, not working. Castle Age style. */
+#const __noname 137 /* Market, not working. Imperial Age style. */
+#const __noname 498 /* Barracks, not working. Feudal Age style. */
+#const __noname 20 /* Barracks, not working. Castle Age style. */
+#const __noname 10 /* Archery range, not working. Castle Age style. */
+#const __noname 101 /* Stable, not working. Castle Age style. */
+#const __noname 105 /* Blacksmith, not working. Feudal Age style. */
+#const __noname 18 /* Blacksmith, not working. Castle Age style. */
+#const __noname 33 /* Castle, not working. Does nothing, but can garrison 75 units (they don't shoot). */
+#const __noname 133 /* Dock, not working. Feudal Age style. */
+#const __noname 47 /* Dock, not working. Castle Age style. */
+#const __noname 446 /* Dock, not working. Castle Age style. Has special graphics for East-European and American civs. Slightly different for others. */
+#const __noname 30 /* Monastery, not working. */
+#const __noname 150 /* Siege workshop, not working. */
+#const __noname 210 /* University, not working. Imperial Age style. */
+#const YURT 712 /* Big wooden hut. Works as a house, has 500 HP. */
+#const YURT2 713 /* Small wooden hut. Works as a house, has 500 HP. */
+#const YURT3 714 /* Small wooden hut. Works as a house, has 500 HP. */
+#const YURT4 715 /* Small wooden hut. Works as a house, has 500 HP. */
+#const YURT5 716 /* Small leather hut. Works as a house, has 500 HP. */
+#const YURT6 717 /* Small leather hut. Works as a house, has 500 HP. */
+#const YURT7 718 /* Small leather hut. Works as a house, has 500 HP. */
+#const YURT8 719 /* Big leather hut. Works as a house, has 500 HP. */
+#const THE_ACCURSED_TOWER 684 /* The Accursed Tower. Powerful guard tower, similar to west-European ones. Great range. */
+#const THE_TOWER_OF_FLIES 685 /* The Tower of Flies. Powerful guard tower, similar to west-European ones. */
+#const TRADE_WORKSHOP 110 /* Trade Workshop. Does nothing. */
+#const MONUMENT 826 /* Same as a wonder, but doesn't let you win. */
+#const MOSQUE 655 /* Does nothing. Looks exactly as the Turkish wonder. */
+#const PAVILION 624 /* Big tent. Works as a house, has 500 HP. */
+#const PAVILION2 626 /* Small tent. Works as a house, has 500 HP. */
+#const PAVILION3 625 /* Small tent. Works as a house, has 500 HP. */
+#const CATHEDRAL 599 /* Cathedral. Does nothing. Looks like British wonder, but bigger. */
+#const DOME_OF_THE_ROCK 690 /* Dome of the Rock. Does nothing. Great Middle-Eastern temple. */
+#const GREAT_PYRAMID 696 /* Great Pyramid. Does nothing. */
+#const PYRAMID 689 /* Pyramid. Does nothing. */
+#const __noname 81 /* Wall, corner, with HP and icon of a fortified gate. Placed as a normal object, not in rings as `WALL`. */
+#const __noname 80 /* Fortified wall, corner, with HP and icon of a fortified gate. Placed as a normal object, not in rings as `FORTIFIED_WALL`. */
+#const __noname 605 /* Bridge, SW-NE, top end. */
+#const __noname 606 /* Bridge, SW-NE, middle. */
+#const __noname 607 /* Bridge, SW-NE, bottom end. */
+#const __noname 738 /* Bridge, SW-NE, middle broken. */
+#const __noname 739 /* Bridge, SW-NE, top end broken. */
+#const __noname 740 /* Bridge, SW-NE, bottom end broken. */
+#const __noname 608 /* Bridge, SE-NW, top end. */
+#const __noname 609 /* Bridge, SE-NW, middle. */
+#const __noname 610 /* Bridge, SE-NW, bottom end. */
+#const __noname 741 /* Bridge, SE-NW, middle broken. */
+#const __noname 742 /* Bridge, SE-NW, top end broken. */
+#const __noname 743 /* Bridge, SE-NW, bottom end broken. */
+
+/* ANIMALS */
+#const SHEEP 594 /* Sheep. May be placed as a player object. */
+#const TURKEY 833 /* Turkey. May be placed as a player object. */
 #const BOAR 48 /* Boar. */
 #const DEER 65 /* Deer. */
+#const HORSE 814 /* Horse. */
 #const __noname 333 /* Deer. Like `DEER` but not huntable. */
-#const DIRE_WOLF 89 /* Dire Wolf. */
+#const DIRE_WOLF 89 /* Dire Wolf. A wolf with 100 HP and low attack. Not so dire, AI has trouble with these wolves. */
 #const DORADO 455 /* Dorado deep fish. */
 #const FISH_DORADO 455 /* Dorado deep fish. */
-#const FISH 53 /* Perch deep fish. Has 200 food instead of more. */
+#const FISH 53 /* Perch deep fish. Has 200 food like shore fish. */
 #const HAWK 96 /* Hawk. */
 #const IRON_BOAR 810 /* Iron Boar. */
 #const JAGUAR 812 /* Jaguar. */
 #const JAVELINA 822 /* Javelina. */
-#const MACAW  816 /* Macaw. */
+#const MACAW 816 /* Macaw. */
 #const MARLIN1 450 /* Marlin deep fish. */
 #const GREAT_FISH_MARLIN 450 /* Marlin deep fish. */
 #const MARLIN2 451 /* Marlin deep fish. */
@@ -298,33 +470,130 @@
 #const SHORE_FISH 69 /* Shore fish. */
 #const TUNA 457 /* Tuna deep fish. */
 #const FISH_TUNA 457 /* Tuna deep fish. */
-#const WILD_HORSE 835 /* Wild Horse. */
+#const WILD_HORSE 835 /* Wild Horse. Use `HORSE` for a player-controlled horse. */
 #const WOLF 126 /* Wolf. */
 
-#const ARCHERY_RANGE 87 /* Archery Range. Feudal Age building. */
-#const BARRACKS 12 /* Barracks. Dark Age building. */
-#const BLACKSMITH 103 /* Blacksmith. Feudal Age building. */
-#const BOMBARD_TOWER 236 /* Bombard Tower. Imperial Age building. */
-#const CASTLE 82 /* Castle. Castle Age building. */
-#const DOCK 45 /* Dock. Dark Age building. */
-#const FARM 50 /* Farm. Dark Age building. */
-#const FISH_TRAP 199 /* Fish Trap. Feudal Age building. */
-#const FORTIFIED_WALL 155 /* Fortified Wall. Imperial Age building. */
-#const GUARD_TOWER 234 /* Guard Tower. Castle Age building. */
-#const HOUSE 70 /* House. Dark Age building. */
-#const KEEP 235 /* Keep. Imperial Age building. */
-#const LUMBER_CAMP 562 /* Lumber Camp. Dark Age building. */
-#const MARKET 84 /* Market. Feudal Age building. */
-#const MILL 68 /* Mill. Dark Age building. */
-#const MINING_CAMP 584 /* Mining Camp. Dark Age building. */
-#const MONASTERY 104 /* Monastery. Castle Age building. */
-#const OUTPOST 598 /* Outpost. Dark Age building. */
-#const PALISADE_WALL 72 /* Palisade Wall. Dark Age building. Automatically placed in rings around players with four gates (one per side, stone gates in AoC) if `set_place_for_every_player` is used. */
-#const SIEGE_WORKSHOP 49 /* Siege Workshop. Castle Age building. */
-#const STABLE 86 /* Stable. Feudal Age building. */
-#const TOWN_CENTER 109 /* Town Center. Dark Age building. */
-#const UNIVERSITY 209 /* University. Castle Age building. */
-#const WALL 117 /* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
-#const STONE_WALL 117 /* Stone Wall. Feudal Age building. Automatically placed in rings around players with four gates (one per side) if `set_place_for_every_player` is used. */
-#const WATCH_TOWER 79 /* Watch Tower. Feudal Age building. */
-#const WONDER 276 /* Wonder. Imperial Age building. */
+/* TREES */
+#const BAMBOO_TREE 348 /* Bamboo tree. Varies. Same as created by `BAMBOO` terrain. */
+#const BAMBOO_FOREST_TREE 348 /* Bamboo tree. Varies. Same as created by `BAMBOO` terrain. */
+#const JUNGLETREE 414 /* Jungle tree. Varies. Same as created by `JUNGLE` terrain. */
+#const JUNGLE_TREE 414 /* Jungle tree. Varies. Same as created by `JUNGLE` terrain. */
+#const OAKTREE 349 /* Oak tree. Varies. Same as created by `FOREST` terrain. */
+#const FOREST_TREE 349 /* Oak tree. Varies. Same as created by `FOREST` terrain. */
+#const OAK_FOREST_TREE 349 /* Oak tree. Varies. Same as created by `FOREST` terrain. */
+#const PALMTREE 351 /* Palm tree. Varies. Same as created by `PALM_DESERT` terrain. */
+#const PALM_FOREST_TREE 351 /* Palm tree. Varies. Same as created by `PALM_DESERT` terrain. */
+#const PINETREE 350 /* Pine tree. Varies. Same as created by `PINE_FOREST` terrain. */
+#const PINE_FOREST_TREE 350 /* Pine tree. Varies. Same as created by `PINE_FOREST` terrain. */
+#const SNOWPINETREE 413 /* Snow pine tree. Varies. Same as created by `SNOW_FOREST` terrain. */
+#const SNOW_PINE_TREE 413 /* Snow pine tree. Varies. Same as created by `SNOW_FOREST` terrain. */
+#const TREE_A 399 /* Oak tree. Always the same. */
+#const TREE1 399 /* Oak tree. Always the same. */
+#const TREE_TD 399 /* Oak tree. Always the same. */
+#const TREE_B 400 /* Oak tree. Always the same. */
+#const TREE2 400 /* Oak tree. Always the same. */
+#const TREE_C 401 /* Oak tree. Always the same. */
+#const TREE3 401 /* Oak tree. Always the same. */
+#const TREE_D 402 /* Oak tree. Always the same. */
+#const TREE4 402 /* Oak tree. Always the same. */
+#const TREE_E 403 /* Oak tree. Always the same. */
+#const TREE5 403 /* Oak tree. Always the same. */
+#const TREE_F 404 /* Dry tree, no leaves. Always the same. */
+#const TREE_G 405 /* Tree with brown leaves. Always the same. */
+#const TREE_H 406 /* Oak tree. Always the same. */
+#const TREE_I 407 /* Dry tree, no leaves. Always the same. */
+#const TREE_J 408 /* Oak tree. Always the same. */
+#const TREE_K 409 /* Oak tree. Always the same. */
+#const TREE_L 410 /* Oak tree. Always the same. */
+
+/* OTHER ENTITIES */
+#const RELIC 285 /* Relic. */
+#const __noname 287 /* British relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 288 /* Byzantine relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 289 /* Chinese relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 290 /* Frankish relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 292 /* Gothic relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 294 /* Japanese relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 295 /* Persian relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 296 /* Saracen relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 297 /* Teutonic relic. Becomes a normal relic when brought to a monastery. */
+#const __noname 298 /* Turkish relic. Becomes a normal relic when brought to a monastery. */
+#const ES_FLAG 851 /* Ensemble Studios flag. */
+#const FLAG_A 600 /* Tall flag. */
+#const FLAG_B 601 /* Bifurcate flag. */
+#const FLAG_C 602 /* Spotted flag. */
+#const FLAG_D 603 /* Crossed flag. */
+#const FLAG_E 604 /* Binged flag. */
+#const __noname 299 /* Infiltrator. Looks exactly as a Militia, but stronger. */
+#const MAP_REVEALER 837 /* Map Revealer. Invisible and immobile. Gives sight of 4 tiles radius area. */
+#const __noname 536 /* Converter Galley. A galley that converts enemies like a monk. */
+#const SABOTEUR 706 /* Saboteur. Like `PETARD` but stronger. */
+#const Shipwreck 436 /* Shipwreck. Can't move unless in group. Counts as 4 population. */
+#const __noname 571 /* Super armored Archer. Armor 1000, attack 1. */
+#const __noname 577 /* Super armored Cavalry Archer. Armor 1000, attack 1. */
+#const __noname 575 /* Super armored Light Cavalry. Armor 1000, attack 1. */
+#const __noname 573 /* Super armored Militia. Armor 1000, attack 1. */
+#const TORCH 499 /* Torch. Can be placed even on water and forests. */
+#const TORCH_CONVERTING 854 /* Torch. Like `TORCH` but rescuable like sheep. */
+#const Arrow 315 /* Arrow lying on ground or water. Varies. */
+#const Arrows 54 /* Arrows lying on ground or water. Varies. */
+#const BROKEN_CART 858 /* Broken trade cart. */
+#const CACTUS 709 /* Cactus. Varies. */
+#const __noname 749 /* Cobra car, not working. */
+#const __noname 273 /* Small cliff. */
+#const CRACKS 241 /* Cracks. */
+#const CRATER 723 /* Small crater. */
+#const EXPIRED_FISHTRAP 278 /* Fish Trap, expired. Can be on land. Disappears quickly. */
+#const FLOWER_BED 859 /* Flower bed. */
+#const FLOWERS_1 334 /* Flowers. Can overlap with water and other stuff. */
+#const FLOWERS_2 335 /* Flowers. Can overlap with water and other stuff. */
+#const FLOWERS_3 336 /* Flowers. Can overlap with water and other stuff. */
+#const FLOWERS_4 337 /* Flowers. Can overlap with water and other stuff. */
+#const FORAGE, 59 /* Forage bush. Varies. */
+#const FORAGE_BUSH 59 /* Forage bush. Varies. */
+#const GOLD 66 /* Gold mine. Varies. */
+#const STONE 102 /* Stone mine. Varies. */
+#const GRAVE 820 /* Grave. Varies. */
+#const HAY_STACK 857 /* Haystack. */
+#const HEAD 821 /* Pole with a human head. */
+#const MOUNTAIN_1 310 /* Grassy mountain. Not walkable. */
+#const MOUNTAIN1 310 /* Grassy mountain. Not walkable. */
+#const MOUNTAIN_2 311 /* Grassy mountain. Not walkable. */
+#const MOUNTAIN2 311 /* Grassy mountain. Not walkable. */
+#const MOUNTAIN_3 744 /* Rocky mountain. Not walkable. */
+#const MOUNTAIN_4 745 /* Rocky mountain. Not walkable. */
+#const NINE_BANDS 720 /* Nine Bands. Pole with horn decorations. */
+#const OLD_STONE_HEAD 855 /* Old stone head. Pre-Columbian sculpture. Varies. */
+#const Outlaw 158 /* Outlaw. Neutral archer. Attacks everyone he sees. Has 15 HP. */
+#const PATH_1 339 /* Muddy trail. Can overlap with water and other stuff. */
+#const PATH_2 340 /* Muddy trail. Can overlap with water and other stuff. */
+#const PATH_3 341 /* Muddy trail. Can overlap with water and other stuff. */
+#const PATH_4 338 /* Two muddy trails crossing. Can overlap with water and other stuff. */
+#const PIECE_OF_THE_TRUE_CROSS 688 /* Piece of the True Cross. Black relic. Disappears when picked up. */
+#const PLANT 818 /* Small grass. Can be placed on water. Varies. */
+#const PLANTS 818 /* Small grass. Can be placed on water. Varies. */
+#const ROCK 623 /* Rock. Can be placed on water, but `SEA_ROCKS1` and `SEA_ROCKS_2` look better. Varies. */
+#const ROMAN_RUINS 856 /* Roman ruins. Can be placed on water. Varies. */
+#const RUBBLE_1_X_1 863 /* Rubble from a destroyed building, single tile. Can be placed on water. Never disappears. */
+#const __noname 143 /* Rubble from a destroyed building, single tile. Can be placed on water. Disappears quickly. */
+#const RUBBLE_2_X_2 864 /* Rubble from a destroyed building, 2x2 tiles. Can be placed on water. Never disappears. */
+#const __noname 144 /* Rubble from a destroyed building, 2x2 tiles. Can be placed on water. Disappears quickly. */
+#const __noname 147 /* Rubble from a destroyed building, 2x2 tiles. Can be placed on water. Disappears quickly. */
+#const RUBBLE_3_X_3 865 /* Rubble from a destroyed building, 3x3 tiles. Can be placed on water. Never disappears. */
+#const __noname 145 /* Rubble from a destroyed building, 3x3 tiles. Can be placed on water. Disappears quickly. */
+#const __noname 146 /* Rubble from a destroyed building, 3x3 tiles. Can be placed on water. Disappears quickly. */
+#const __noname 148 /* Rubble from a destroyed building, 3x3 tiles. Can be placed on water. Disappears quickly. */
+#const RUINS 345 /* Ruins. Quite big. */
+#const RUGS 711 /* Rugs. Can be placed on water. Varies. */
+#const SEA_ROCKS_1 389 /* Sea rocks. */
+#const SEA_ROCKS_2 396 /* Sea rocks. */
+#const SHIPWRECK 721 /* Shipwreck. */
+#const SHIPWRECK2 722 /* Shipwreck. */
+#const SIGN 819 /* Wooden road signal. Can be placed on water. */
+#const SKELETON 710 /* Skeleton. Varies. */
+#const __noname 417 /* Small white stone. */
+#const STATUE 817 /* Statue. Same as on a European university. Can be placed on water. */
+#const STUMP 809 /* Stump of a cut tree. Varies. Never disappears. */
+#const __noname 415 /* Stump of a cut tree. Disappears after some time. */
+#const __noname 737 /* Stump of a cut tree. Disappears after some time. */
+#const __noname 61 /* Trireme. Disappears after some time. Can be on land. Varies (rotates). */
