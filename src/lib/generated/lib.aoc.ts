@@ -1,4 +1,4 @@
-{
+export default {
   "general": [
     {
       "name": "DEATH_MATCH",

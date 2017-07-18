@@ -1,5 +1,5 @@
 /**
- * Run this file with `ts-node` to generate JSON files in `./generated` from `.rms` libraries.
+ * Run this file with `ts-node` to generate `.ts` files in `./generated` from `.rms` libraries.
  */
 
 import { parse, Script, DeclarationStatement } from '../'
@@ -15,7 +15,8 @@ function generateJsonFromLibFile (libname: string): void {
   if (errors.length) {
     throw new Error(`Cannot parse AST of lib '${libname}'! First error: ${errors[0].message}\n\n${errors[0].stack}`)
   } else {
-    writeFileSync(join(__dirname, 'generated', `lib.${libname}.json`), astToJson(ast as Script))
+    const code = 'export default ' + astToJson(ast as Script)
+    writeFileSync(join(__dirname, 'generated', `lib.${libname}.ts`), code)
   }
 }
 

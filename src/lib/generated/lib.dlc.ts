@@ -1,4 +1,4 @@
-{
+export default {
   "general": [
     {
       "name": "CAPTURE_THE_RELIC",

@@ -5,8 +5,8 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "npm run gen-grammar && tsc --project src",
-    "lint-src": "tslint --type-check --project src --exclude src/parse/grammar.ts \"src/**/*.ts\"",
+    "build": "npm run gen-grammar && npm run gen-lib && tsc --project src",
+    "lint-src": "tslint --type-check --project src --exclude \"src/parse/grammar.ts\" --exclude \"src/lib/generated/*\" \"src/**/*.ts\"",
     "lint-test": "tslint --type-check --project test \"test/**/*.ts\"",
     "lint": "npm run lint-src && npm run lint-test",
     "mocha": "cross-env TS_NODE_PROJECT=\"test/tsconfig.json\" nyc --reporter=lcov mocha",
