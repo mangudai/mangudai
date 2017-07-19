@@ -1,14 +1,14 @@
 import { Parser, Grammar } from 'nearley'
-import { Token } from 'moo'
 import * as grammar from './grammar'
 import { ruleNodesMiddleware } from './nearleyMiddleware'
-import { toCst } from './cst'
+import { Token, toCst } from './cst'
 import { toAst } from './ast'
 import { Script } from './astTypes'
 import { formatLexError } from './lexer'
 import { getBoundaries, TextSpanError } from '../tokenHelpers'
 
 export * from './astTypes'
+export { Token, CstNode, CstNodeChild } from './cst'
 
 const wrappedGrammar = { ...grammar, ParserRules: ruleNodesMiddleware(grammar.ParserRules) }
 // TODO: Fix nearley.Grammar.fromCompiled() TypeScript definition.

@@ -1,5 +1,5 @@
 import { flattenDeep, groupBy, RecursiveArray } from 'lodash'
-import { Token } from 'moo'
+import { Token as MooToken } from 'moo'
 import { RuleNodeChildren, RuleNode } from './nearleyMiddleware'
 import { isToken, getChildNodes, getNode } from '../treeHelpers'
 
@@ -89,12 +89,18 @@ function nodeToCst ({ type, children }: RuleNode) {
   return cstVisitorMap[type](children)
 }
 
-export type CstNodeChild = CstNode | Token
-export type CstNode = {
-  type: string,
-  children: CstNodeChild[],
-  childrenByType: { [x: string]: Token[] | CstNode[] }
+export interface Token extends MooToken {
+  parent?: CstNode
 }
+
+export interface CstNode {
+  type: string,
+  parent?: CstNode,
+  children: CstNodeChild[],
+  childrenByType: { [x: string]: CstNodeChild[] }
+}
+
+export type CstNodeChild = CstNode | Token
 
 function partsToCstNodes (parts: RecursiveArray<CstNode | RuleNode | Token | null>) {
   const flatParts = flattenParts(parts)
@@ -102,12 +108,23 @@ function partsToCstNodes (parts: RecursiveArray<CstNode | RuleNode | Token | nul
     if ('children' in part && !('childrenByType' in part)) return nodeToCst(part as RuleNode)
     else return part
   })
-  return flattenDeep(convertedParts) as (CstNode | Token)[]
+  return flattenDeep(convertedParts) as CstNodeChild[]
 }
 
 function simpleCstNode (parts: any[], type: string): CstNode {
-  const children = partsToCstNodes(parts)
-  return { type, children, childrenByType: groupBy(children, 'type') as { [x: string]: Token[] | CstNode[] } }
+  const node = { type } as CstNode
+  const children = partsToCstNodes(parts).map(x => setNodeParent(x, node))
+  const childrenByType = groupBy(children, 'type') as { [x: string]: CstNodeChild[] }
+  Object.defineProperties(node, {
+    children: { enumerable: false, configurable: true, value: children },
+    childrenByType: { enumerable: false, configurable: true, value: childrenByType }
+  })
+  return node
+}
+
+function setNodeParent (node: CstNodeChild, parent: CstNode) {
+  Object.defineProperty(node, 'parent', { enumerable: false, configurable: true, value: parent })
+  return node
 }
 
 function visitGenericIf ([ruleNode]: any) {

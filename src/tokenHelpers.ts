@@ -1,4 +1,4 @@
-import { Token } from 'moo'
+import { Token } from './parse'
 
 const EMPTY_TOKEN: Token = {
   value: '',

@@ -1,6 +1,5 @@
-import { Token } from 'moo'
 import { LintError } from '../'
-import { Script, AttributeStatement } from '../../parse'
+import { Token, Script, AttributeStatement } from '../../parse'
 import { getToken, getChildNodes, getNodes } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 

@@ -1,6 +1,4 @@
-import { Token } from 'moo'
-import { AstNode } from './parse/astTypes'
-import { CstNode, CstNodeChild } from './parse/cst'
+import { Token, CstNode, CstNodeChild } from './parse'
 
 const descendantsCache = new WeakMap<CstNode, CstNodeChild[]>()
 
@@ -107,12 +105,6 @@ export function getLastNode (node: CstNode, type?: string, orThrow?: boolean) {
   if (all.length) return all[all.length - 1]
   if (!orThrow) return undefined
   throw new Error(`Cannot find a node '${type || '<any>'}' of '${node.type}'!`)
-}
-
-export function hideCstProperties<T extends AstNode> (node: T): T {
-  Object.defineProperty(node, 'children', { enumerable: false, value: node.children })
-  Object.defineProperty(node, 'childrenByType', { enumerable: false, value: node.childrenByType })
-  return node
 }
 
 export function isToken (x: any): x is Token {

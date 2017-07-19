@@ -1,6 +1,5 @@
-import { Token } from 'moo'
-import { CstNode } from './cst'
-import { hideCstProperties, getChildNode, getToken, getChildNodes } from '../treeHelpers'
+import { Token, CstNode } from './cst'
+import { getChildNode, getToken, getChildNodes } from '../treeHelpers'
 import { AstNode, Script, IfStatement, ElseIfStatement, RandomStatement, ChanceStatement, SectionStatement,
   AttributeStatement, DeclarationStatement, IncludeDrsStatement, MultilineComment,
   CommandStatement, ConditionalCommandStatement } from './astTypes'
@@ -10,25 +9,25 @@ export function toAst (root: CstNode) {
 }
 
 const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
-  Script: (cstNode): Script => hideCstProperties(Object.assign(cstNode, {
+  Script: (cstNode): Script => Object.assign(cstNode, {
     type: 'Script',
     statements: getChildNodes(getChildNode(cstNode, 'StatementsBlock', true)).map(nodeToAst)
-  } as Script)),
+  } as Script),
 
   If: (ifNode): IfStatement => {
-    const node = hideCstProperties(Object.assign(ifNode, {
+    const node = Object.assign(ifNode, {
       type: 'IfStatement',
       condition: getCondition(ifNode)
-    } as IfStatement))
+    } as IfStatement)
 
     addStatements(node, 'statements', ifNode)
 
     if ('ElseIf' in ifNode.childrenByType) {
       node.elseifs = getChildNodes(ifNode, 'ElseIf').map(elseIf => {
-        const node = hideCstProperties(Object.assign(elseIf, {
+        const node = Object.assign(elseIf, {
           type: 'ElseIfStatement',
           condition: getCondition(elseIf)
-        } as ElseIfStatement))
+        } as ElseIfStatement)
         addStatements(node, 'statements', elseIf)
         return node
       })
@@ -45,82 +44,82 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
   },
 
   Random: (node): RandomStatement => {
-    hideCstProperties(Object.assign(node, {
+    Object.assign(node, {
       type: 'RandomStatement'
-    } as RandomStatement))
+    } as RandomStatement)
     addStatements(node, 'statements', node, true)
     return node as RandomStatement
   },
 
   Chance: (node): ChanceStatement => {
-    hideCstProperties(Object.assign(node, {
+    Object.assign(node, {
       type: 'ChanceStatement',
       chance: getTokenValue(getToken(node, 'int', true)) as number
-    } as ChanceStatement))
+    } as ChanceStatement)
     addStatements(node, 'statements', node, true)
     return node as ChanceStatement
   },
 
-  Section: (cstNode): SectionStatement => hideCstProperties(Object.assign(cstNode, {
+  Section: (cstNode): SectionStatement => Object.assign(cstNode, {
     type: 'SectionStatement',
     name: getToken(cstNode, 'identifier', true).value,
     statements: getChildNodes(getChildNode(cstNode, 'StatementsBlock', true)).map(nodeToAst)
-  } as SectionStatement)),
+  } as SectionStatement),
 
   Command: (cstNode): CommandStatement => {
-    const astNode = hideCstProperties(Object.assign(cstNode, {
+    const astNode = Object.assign(cstNode, {
       type: 'CommandStatement',
       ...getNameAndArgs(getChildNode(cstNode, 'CommandHeader', true))
-    } as CommandStatement))
+    } as CommandStatement)
     const body = getChildNode(cstNode, 'CommandBody')
     if (body) visitCommandBody(astNode, body)
     return astNode
   },
 
   ConditionalCommand: (cstNode): ConditionalCommandStatement => {
-    const astNode = hideCstProperties(Object.assign(cstNode, {
+    const astNode = Object.assign(cstNode, {
       type: 'ConditionalCommandStatement',
       header: nodeToAst(getChildNode(cstNode, 'If', true))
-    } as ConditionalCommandStatement))
+    } as ConditionalCommandStatement)
     visitCommandBody(astNode, getChildNode(cstNode, 'CommandBody', true))
     return astNode
   },
 
-  Attribute: (cstNode): AttributeStatement => hideCstProperties(Object.assign(cstNode, {
+  Attribute: (cstNode): AttributeStatement => Object.assign(cstNode, {
     type: 'AttributeStatement',
     ...getNameAndArgs(cstNode)
-  } as AttributeStatement)),
+  } as AttributeStatement),
 
   ConstDefinition: (cstNode): DeclarationStatement => {
     const { name, args } = getNameAndArgs(cstNode)
-    return hideCstProperties(Object.assign(cstNode, {
+    return Object.assign(cstNode, {
       type: 'DeclarationStatement',
       kind: 'const',
       name,
       value: args[0] as number
-    } as DeclarationStatement))
+    } as DeclarationStatement)
   },
 
-  FlagDefinition: (cstNode): DeclarationStatement => hideCstProperties(Object.assign(cstNode, {
+  FlagDefinition: (cstNode): DeclarationStatement => Object.assign(cstNode, {
     type: 'DeclarationStatement',
     kind: 'define',
     name: getNameAndArgs(cstNode).name
-  } as DeclarationStatement)),
+  } as DeclarationStatement),
 
   IncludeDrs: (cstNode): IncludeDrsStatement => {
     const { name, args } = getNameAndArgs(cstNode)
-    const astNode: IncludeDrsStatement = hideCstProperties(Object.assign(cstNode, {
+    const astNode: IncludeDrsStatement = Object.assign(cstNode, {
       type: 'IncludeDrsStatement',
       filename: name
-    } as IncludeDrsStatement))
+    } as IncludeDrsStatement)
     if (args.length) astNode.id = args[0] as number
     return astNode
   },
 
-  MultilineComment: (cstNode): MultilineComment => hideCstProperties(Object.assign(cstNode, {
+  MultilineComment: (cstNode): MultilineComment => Object.assign(cstNode, {
     type: 'MultilineComment',
     comment: getToken(cstNode, 'multilineComment', true).value
-  } as MultilineComment))
+  } as MultilineComment)
 }
 
 function visitCommandBody (command: CommandStatement | ConditionalCommandStatement, body: CstNode) {
