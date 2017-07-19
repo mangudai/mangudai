@@ -237,4 +237,4 @@ Definition of a constant, e.g. `#const FOO 10`, or a flag, e.g. `#define IS_WATE
 }
 ```
 
-A comment. The `comment` property contains the whole comment as it appears in the script text, including `/* */`.
+A comment. The `comment` property contains the whole comment as it appears in the script text, without `/*` and `*/`.

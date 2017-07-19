@@ -4,15 +4,19 @@
     "statements": [
       {
         "type": "MultilineComment",
-        "comment": "/* comment 1 */"
+        "comment": ""
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 2 */"
+        "comment": " comment 1 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 3 */"
+        "comment": " comment 2 "
+      },
+      {
+        "type": "MultilineComment",
+        "comment": " comment 3 "
       },
       {
         "type": "DeclarationStatement",
@@ -22,11 +26,11 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 4\n  * multiline!\n  */"
+        "comment": " comment 4\n  * multiline!\n  "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 5 */"
+        "comment": " comment 5 "
       },
       {
         "type": "DeclarationStatement",
@@ -36,11 +40,11 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 6 */"
+        "comment": " comment 6 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 7 */"
+        "comment": " comment 7 "
       },
       {
         "type": "DeclarationStatement",
@@ -49,19 +53,19 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 8 */"
+        "comment": " comment 8 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 9 */"
+        "comment": " comment 9 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 10 */"
+        "comment": " comment 10 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 11 */"
+        "comment": " comment 11 "
       },
       {
         "type": "DeclarationStatement",
@@ -70,11 +74,11 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 12 */"
+        "comment": " comment 12 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 13 */"
+        "comment": " comment 13 "
       },
       {
         "type": "SectionStatement",
@@ -82,7 +86,7 @@
         "statements": [
           {
             "type": "MultilineComment",
-            "comment": "/* comment 14 */"
+            "comment": " comment 14 "
           },
           {
             "type": "CommandStatement",
@@ -93,7 +97,7 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 15 */"
+        "comment": " comment 15 "
       },
       {
         "type": "DeclarationStatement",
@@ -103,11 +107,11 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 16 */"
+        "comment": " comment 16 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 17 */"
+        "comment": " comment 17 "
       },
       {
         "type": "DeclarationStatement",
@@ -116,7 +120,7 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 18 */"
+        "comment": " comment 18 "
       },
       {
         "type": "SectionStatement",
@@ -131,7 +135,7 @@
             "statements": [
               {
                 "type": "MultilineComment",
-                "comment": "/* comment 19 */"
+                "comment": " comment 19 "
               },
               {
                 "type": "AttributeStatement",
@@ -140,11 +144,11 @@
               },
               {
                 "type": "MultilineComment",
-                "comment": "/* comment 20 */"
+                "comment": " comment 20 "
               },
               {
                 "type": "MultilineComment",
-                "comment": "/* comment 21 */"
+                "comment": " comment 21 "
               },
               {
                 "type": "IfStatement",
@@ -152,7 +156,7 @@
                 "statements": [
                   {
                     "type": "MultilineComment",
-                    "comment": "/* comment 22 */"
+                    "comment": " comment 22 "
                   },
                   {
                     "type": "AttributeStatement",
@@ -170,7 +174,7 @@
                   },
                   {
                     "type": "MultilineComment",
-                    "comment": "/* comment 23 */"
+                    "comment": " comment 23 "
                   }
                 ]
               }
@@ -178,7 +182,7 @@
             "preLeftCurlyComments": [
               {
                 "type": "MultilineComment",
-                "comment": "/* comment */"
+                "comment": " comment "
               }
             ]
           }
@@ -186,15 +190,15 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 24 */"
+        "comment": " comment 24 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 25 */"
+        "comment": " comment 25 "
       },
       {
         "type": "MultilineComment",
-        "comment": "/* comment 25 */"
+        "comment": " comment 25 "
       }
     ]
   },

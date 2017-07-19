@@ -1,27 +1,33 @@
-import { compile, Token } from 'moo'
+import { states, Token } from 'moo'
 import { getBoundaries, TextSpanError } from '../tokenHelpers'
 
-export const lexer = compile({
-  eol: { match: /\s*\n\s*/, lineBreaks: true },
-  space: /[\t ]+/,
-  multilineComment: { match: /\/\*[\s\S]*?\*\//, lineBreaks: true },
-  lArrow: '<',
-  rArrow: '>',
-  lCurly: '{',
-  rCurly: '}',
-  constToken: '#const',
-  define: '#define',
-  includeDrs: '#include_drs',
-  ifToken: 'if',
-  elseifToken: 'elseif',
-  elseToken: 'else',
-  endifToken: 'endif',
-  startRandom: 'start_random',
-  percentChance: 'percent_chance',
-  endRandom: 'end_random',
-  int: /\b[0-9]+\b/,
-  identifier: /[^\s!@#\$%\^&\*\(\)\-\+=;:'"<>{}\[\]\?\/\\][^\s;'"<>{}\[\]\/\\]*/,
-  invalid: { error: true } as any
+export const lexer = states({
+  main: {
+    eol: { match: /\s*\n\s*/, lineBreaks: true },
+    space: /[\t ]+/,
+    commentStart: { match: '/*', push: 'comment' },
+    lArrow: '<',
+    rArrow: '>',
+    lCurly: '{',
+    rCurly: '}',
+    constToken: '#const',
+    define: '#define',
+    includeDrs: '#include_drs',
+    ifToken: 'if',
+    elseifToken: 'elseif',
+    elseToken: 'else',
+    endifToken: 'endif',
+    startRandom: 'start_random',
+    percentChance: 'percent_chance',
+    endRandom: 'end_random',
+    int: /\b[0-9]+\b/,
+    identifier: /[^\s!@#\$%\^&\*\(\)\-\+=;:'"<>{}\[\]\?\/\\][^\s;'"<>{}\[\]\/\\]*/,
+    invalid: { error: true } as any
+  },
+  comment: {
+    commentBody: { match: /(?:(?!\*\/)[\s\S])+/, lineBreaks: true },
+    commentEnd: { match: '*/', pop: 1 }
+  }
 })
 
 export function formatLexError (err: Error & { token: Token }): TextSpanError {

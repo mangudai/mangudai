@@ -44,7 +44,7 @@ function astToJson (ast: Script): string {
       case 'MultilineComment':
         if (lastDeclaration) {
           // There was a declaration right before this comment. Let's assume they are on the same line and this comment is description.
-          addDefinition(definitions, lastDeclaration, section, statement.comment.slice(3, statement.comment.length - 2).trim())
+          addDefinition(definitions, lastDeclaration, section, statement.comment.trim())
           lastDeclaration = undefined
         }
         break

@@ -4,7 +4,7 @@
     "statements": [
       {
         "type": "MultilineComment",
-        "comment": "/* The only interpreter options that could be found in the random maps\n * published to Steam Workshop are `#const` and `#define`.\n * Rarely mentioned `#include_drs` in only used in built-in maps and\n * has no effect in custom scripts. It's left out to cause a lexer error.\n */"
+        "comment": " The only interpreter options that could be found in the random maps\n * published to Steam Workshop are `#const` and `#define`.\n * Rarely mentioned `#include_drs` in only used in built-in maps and\n * has no effect in custom scripts. It's left out to cause a lexer error.\n "
       },
       {
         "type": "DeclarationStatement",
@@ -30,7 +30,7 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* Identifiers can start with a digit. */"
+        "comment": " Identifiers can start with a digit. "
       },
       {
         "type": "DeclarationStatement",
@@ -45,7 +45,7 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* Let's cause a linting error. */"
+        "comment": " Let's cause a linting error. "
       },
       {
         "type": "DeclarationStatement",
@@ -118,7 +118,7 @@
               },
               {
                 "type": "MultilineComment",
-                "comment": "/* Apparently, directives can be used in command blocks. See #26. */"
+                "comment": " Apparently, directives can be used in command blocks. See #26. "
               },
               {
                 "type": "DeclarationStatement",

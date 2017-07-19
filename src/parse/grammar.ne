@@ -58,6 +58,6 @@ ConstDefinition -> %constToken %space %identifier %space %int
 FlagDefinition -> %define %space %identifier
 IncludeDrs -> %includeDrs %space %identifier (%space %int):?
 
-MultilineComment -> %multilineComment
+MultilineComment -> %commentStart %commentBody:? %commentEnd
 
 __ -> (%eol | %space):+

@@ -4,7 +4,7 @@
     "statements": [
       {
         "type": "MultilineComment",
-        "comment": "/* comment */"
+        "comment": " comment "
       },
       {
         "type": "SectionStatement",
@@ -51,7 +51,7 @@
           },
           {
             "type": "MultilineComment",
-            "comment": "/* Should support both styles: inline curly and separate curly. */"
+            "comment": " Should support both styles: inline curly and separate curly. "
           },
           {
             "type": "CommandStatement",
@@ -83,7 +83,7 @@
           },
           {
             "type": "MultilineComment",
-            "comment": "/* Curly brackets can be empty */"
+            "comment": " Curly brackets can be empty "
           },
           {
             "type": "CommandStatement",

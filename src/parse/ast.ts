@@ -118,7 +118,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
 
   MultilineComment: (cstNode): MultilineComment => Object.assign(cstNode, {
     type: 'MultilineComment',
-    comment: getToken(cstNode, 'multilineComment', true).value
+    comment: (getToken(cstNode, 'commentBody') || { value: '' }).value
   } as MultilineComment)
 }
 

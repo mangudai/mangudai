@@ -4,7 +4,7 @@
     "statements": [
       {
         "type": "MultilineComment",
-        "comment": "/**\n * #include_drs directives are used in the built-in random maps to load standard resources and stuff.\n * They are ignored when used in custom maps. However, some people still copy them by mistake.\n * It might be a good idea to parse them with a warning.\n * It should be possible to feed Mangudai any map, so this directive shouldn't cause an error.\n */"
+        "comment": "*\n * #include_drs directives are used in the built-in random maps to load standard resources and stuff.\n * They are ignored when used in custom maps. However, some people still copy them by mistake.\n * It might be a good idea to parse them with a warning.\n * It should be possible to feed Mangudai any map, so this directive shouldn't cause an error.\n "
       },
       {
         "type": "IncludeDrsStatement",

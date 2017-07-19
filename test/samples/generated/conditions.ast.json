@@ -68,7 +68,7 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* Empty if is allowed. */"
+        "comment": " Empty if is allowed. "
       },
       {
         "type": "IfStatement",
@@ -76,7 +76,7 @@
         "statements": [
           {
             "type": "MultilineComment",
-            "comment": "/* Inline comments on the same line can be found in built-in maps. */"
+            "comment": " Inline comments on the same line can be found in built-in maps. "
           }
         ],
         "elseifs": [
@@ -241,7 +241,7 @@
         "statements": [
           {
             "type": "MultilineComment",
-            "comment": "/* Empty else: */"
+            "comment": " Empty else: "
           }
         ],
         "elseStatements": []
@@ -252,7 +252,7 @@
         "statements": [
           {
             "type": "MultilineComment",
-            "comment": "/* Special kind of a command with an IfStatement as a header instead of AttributeStatement. See #17. */"
+            "comment": " Special kind of a command with an IfStatement as a header instead of AttributeStatement. See #17. "
           },
           {
             "type": "ConditionalCommandStatement",
@@ -290,7 +290,7 @@
           },
           {
             "type": "MultilineComment",
-            "comment": "/* Let's duplicate it to test the linter. */"
+            "comment": " Let's duplicate it to test the linter. "
           },
           {
             "type": "ConditionalCommandStatement",

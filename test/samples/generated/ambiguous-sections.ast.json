@@ -46,7 +46,7 @@
               },
               {
                 "type": "MultilineComment",
-                "comment": "/* Last statement is a comment but this must be inside the section. */"
+                "comment": " Last statement is a comment but this must be inside the section. "
               }
             ]
           }
@@ -71,7 +71,7 @@
                 "elseStatements": [
                   {
                     "type": "MultilineComment",
-                    "comment": "/* This should be parsed as a top-level if. */"
+                    "comment": " This should be parsed as a top-level if. "
                   }
                 ]
               }
@@ -93,7 +93,7 @@
             "statements": [
               {
                 "type": "MultilineComment",
-                "comment": "/* This should be parsed as a top-level random. */"
+                "comment": " This should be parsed as a top-level random. "
               }
             ]
           }
@@ -106,7 +106,7 @@
       },
       {
         "type": "MultilineComment",
-        "comment": "/* Empty if should be parsed outside as well. */"
+        "comment": " Empty if should be parsed outside as well. "
       },
       {
         "type": "IfStatement",
