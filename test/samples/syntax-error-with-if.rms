@@ -1,0 +1,10 @@
+<ELEVATION_GENERATION>
+
+if MEGAODOUR_DESERTCONFUSION
+
+  create_elevation 7
+  {
+    base_terrain DESERT
+    number_of_clumps 1000
+    number_of_tiles 20000
+  }

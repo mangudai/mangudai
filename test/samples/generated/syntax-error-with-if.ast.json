@@ -1,0 +1,18 @@
+{
+  "errors": [
+    {
+      "name": "ParseError",
+      "message": "Unexpected end of input.",
+      "boundaries": {
+        "start": {
+          "line": 11,
+          "col": 0
+        },
+        "end": {
+          "line": 11,
+          "col": 1
+        }
+      }
+    }
+  ]
+}

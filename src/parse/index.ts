@@ -23,13 +23,26 @@ export function parse (input: string): { errors: TextSpanError[], ast?: Script }
       throw new Error('Ambiguous grammar! This is likely a problem with Mangudai itself, ' +
         'not your script. Please report this issue along with the script that caused it.')
     }
+    if (parsings.length === 0) {
+      const { line, col } = parser.lexer as any
+      throw {
+        name: 'ParseError',
+        message: 'Unexpected end of input.',
+        boundaries: {
+          start: { line: line, col: col - 1 },
+          end: { line: line, col: col }
+        }
+      }
+    }
     return {
       ast: parsings[0],
       errors: []
     }
   } catch (error) {
     let errorWithTextSpan: TextSpanError
-    if (error && error.token && error.token.type === 'invalid') {
+    if (error && error.boundaries) {
+      errorWithTextSpan = error
+    } else if (error && error.token && error.token.type === 'invalid') {
       errorWithTextSpan = formatLexError(error)
     } else if (error && error.token) {
       errorWithTextSpan = formatParseError(error)
