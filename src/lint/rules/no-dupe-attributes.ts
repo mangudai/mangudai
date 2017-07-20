@@ -1,22 +1,26 @@
 import { LintError } from '../'
-import { Token, Script, AttributeStatement } from '../../parse'
-import { getToken, getChildNodes, getNodes } from '../../treeHelpers'
+import { Script, AttributeStatement } from '../../parse'
+import { getToken, getChildNodes, getNodes, getLastToken } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
+import { isEqual, find } from 'lodash'
 
 export function check (ast: Script): LintError[] {
-  const dupeAttributeNames: Token[] = []
+  const dupeAttributes: AttributeStatement[] = []
 
   getNodes(ast, 'StatementsBlock').forEach(block => {
-    const alreadySeenAttrs: string[] = []
+    const alreadySeenAttributes: AttributeStatement[] = []
     getChildNodes(block, 'Attribute').forEach((attr: AttributeStatement) => {
-      if (alreadySeenAttrs.includes(attr.name)) dupeAttributeNames.push(getToken(attr, 'identifier', true))
-      else alreadySeenAttrs.push(attr.name)
+      if (find(alreadySeenAttributes, x => isEqual(x, attr))) dupeAttributes.push(attr)
+      else alreadySeenAttributes.push(attr)
     })
   })
 
-  return dupeAttributeNames.map<LintError>(x => ({
+  return dupeAttributes.map<LintError>(x => ({
     name: 'LintError',
-    message: `Duplicate attribute '${x.value}'.`,
-    boundaries: getBoundaries(x)
+    message: `Duplicate attribute '${x.name}'.`,
+    boundaries: {
+      start: getBoundaries(getToken(x, undefined, true)).start,
+      end: getBoundaries(getLastToken(x, undefined, true)).end
+    }
   }))
 }
