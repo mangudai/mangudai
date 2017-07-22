@@ -1,4 +1,6 @@
-export default {
+import { DeclarationDefinitions } from '../'
+
+export const definitions: DeclarationDefinitions = {
   "general": [
     {
       "name": "CAPTURE_RELICS",

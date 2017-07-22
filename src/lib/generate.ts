@@ -15,7 +15,7 @@ function generateJsonFromLibFile (libname: string): void {
   if (errors.length) {
     throw new Error(`Cannot parse AST of lib '${libname}'! First error: ${errors[0].message}\n\n${errors[0].stack}`)
   } else {
-    const code = 'export default ' + astToJson(ast as Script)
+    const code = 'import { DeclarationDefinitions } from \'../\'\n\nexport const definitions: DeclarationDefinitions = ' + astToJson(ast as Script)
     writeFileSync(join(__dirname, 'generated', `lib.${libname}.ts`), code)
   }
 }
