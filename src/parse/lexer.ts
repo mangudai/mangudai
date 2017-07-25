@@ -26,7 +26,7 @@ export const lexer = states({
   },
   comment: {
     commentBody: { match: /(?:(?!\*\/)[\s\S])+/, lineBreaks: true },
-    commentEnd: { match: '*/', pop: 1 }
+    commentEnd: { match: '*/', pop: true } as any
   }
 })
 
