@@ -2,7 +2,7 @@ import { Token, CstNode } from './cst'
 import { getChildNode, getToken, getChildNodes } from '../treeHelpers'
 import { AstNode, Script, IfStatement, ElseIfStatement, RandomStatement, ChanceStatement, SectionStatement,
   AttributeStatement, DeclarationStatement, IncludeDrsStatement, MultilineComment,
-  CommandStatement, ConditionalCommandStatement } from './astTypes'
+  CommandStatement, ConditionalCommandStatement, RandomCommandStatement } from './astTypes'
 
 export function toAst (root: CstNode) {
   return nodeToAst(root) as Script
@@ -85,6 +85,15 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
     return astNode
   },
 
+  RandomCommand: (cstNode): RandomCommandStatement => {
+    const astNode = Object.assign(cstNode, {
+      type: 'RandomCommandStatement',
+      header: nodeToAst(getChildNode(cstNode, 'Random', true))
+    } as RandomCommandStatement)
+    visitCommandBody(astNode, getChildNode(cstNode, 'CommandBody', true))
+    return astNode
+  },
+
   Attribute: (cstNode): AttributeStatement => Object.assign(cstNode, {
     type: 'AttributeStatement',
     ...getNameAndArgs(cstNode)
@@ -122,7 +131,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
   } as MultilineComment)
 }
 
-function visitCommandBody (command: CommandStatement | ConditionalCommandStatement, body: CstNode) {
+function visitCommandBody (command: CommandStatement | ConditionalCommandStatement | RandomCommandStatement, body: CstNode) {
   addStatements(command, 'statements', body, true)
 
   const preCommentsContainer = getChildNode(body, 'PreCurlyComments')

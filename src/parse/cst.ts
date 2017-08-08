@@ -65,6 +65,10 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
     visitGenericIf([header]),
     nodeToCst(body as RuleNode)
   ], 'ConditionalCommand'),
+  RandomCommand: ([header, body]) => simpleCstNode([
+    visitGenericRandom([header]),
+    nodeToCst(body as RuleNode)
+  ], 'RandomCommand'),
 
   CommandBody: ([comments, ws, lcurly, statements, rcurly]) => simpleCstNode([
     simpleCstNode([comments], 'PreCurlyComments'),

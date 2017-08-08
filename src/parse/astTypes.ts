@@ -67,6 +67,13 @@ export interface ConditionalCommandStatement extends AstNode {
   statements?: Statement[]
 }
 
+export interface RandomCommandStatement extends AstNode {
+  type: 'RandomCommandStatement',
+  header: RandomStatement,
+  preLeftCurlyComments?: MultilineComment[],
+  statements?: Statement[]
+}
+
 export interface AttributeStatement extends AstNode {
   type: 'AttributeStatement',
   name: string,
