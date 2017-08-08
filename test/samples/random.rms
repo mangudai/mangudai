@@ -37,3 +37,15 @@ start_random
   percent_chance 5
     <LAND_GENERATION>
 end_random
+
+<TERRAIN_GENERATION>
+/* Special kind of command with a RandomStatement header instead of an Attribute. */
+start_random
+  percent_chance 50
+    create_terrain SNOW_FOREST
+  percent_chance 50
+    create_terrain FOREST
+end_random
+{
+	base_terrain LEAVES
+}
