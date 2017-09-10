@@ -22,6 +22,14 @@ else
     random_placement
 endif
 
+/* Conditions on the same line are allowed. */
+if     NO_LEFT     #define NO_RIGHT
+elseif SMALL_LEFT  #define SMALL_RIGHT
+elseif MEDIUM_LEFT #define MEDIUM_RIGHT
+elseif LARGE_LEFT  #define LARGE_RIGHT
+elseif XLARGE_LEFT #define XLARGE_RIGHT
+endif
+
 if FOO
   <PLAYER_SETUP>
     random_placement
@@ -74,10 +82,37 @@ endif
 }
 
 /* Let's duplicate it to test the linter. */
-if TROPICAL_MAP
+if TROPICAL_MAP create_object JAVELINA
+else create_object BOAR
+endif {
+  number_of_objects 1
+}
+
+/* Apparently it's legal to have empty branches in IfCommandStatement. */
+if FOO
+elseif BAR
   create_object JAVELINA
-else
+elseif QUX
   create_object BOAR
+endif {
+  number_of_objects 1
+}
+
+if FOO
+  create_object JAVELINA
+elseif BAR
+elseif QUX
+  create_object BOAR
+endif {
+  number_of_objects 1
+}
+
+
+if FOO
+  create_object JAVELINA
+elseif BAR
+  create_object BOAR
+else
 endif {
   number_of_objects 1
 }

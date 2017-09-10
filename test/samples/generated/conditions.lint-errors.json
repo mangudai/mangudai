@@ -4,11 +4,11 @@
     "message": "Duplicate command with exactly the same alternatives, arguments, and attibutes.",
     "boundaries": {
       "start": {
-        "line": 77,
+        "line": 85,
         "col": 0
       },
       "end": {
-        "line": 83,
+        "line": 89,
         "col": 1
       }
     }
@@ -18,11 +18,25 @@
     "message": "Empty 'else'.",
     "boundaries": {
       "start": {
-        "line": 61,
+        "line": 69,
         "col": 0
       },
       "end": {
-        "line": 62,
+        "line": 70,
+        "col": 5
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Empty 'else'.",
+    "boundaries": {
+      "start": {
+        "line": 115,
+        "col": 0
+      },
+      "end": {
+        "line": 116,
         "col": 5
       }
     }

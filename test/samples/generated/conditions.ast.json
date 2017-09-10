@@ -100,6 +100,67 @@
         ]
       },
       {
+        "type": "MultilineComment",
+        "comment": " Conditions on the same line are allowed. "
+      },
+      {
+        "type": "IfStatement",
+        "condition": "NO_LEFT",
+        "statements": [
+          {
+            "type": "DeclarationStatement",
+            "kind": "define",
+            "name": "NO_RIGHT"
+          }
+        ],
+        "elseifs": [
+          {
+            "type": "ElseIfStatement",
+            "condition": "SMALL_LEFT",
+            "statements": [
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "SMALL_RIGHT"
+              }
+            ]
+          },
+          {
+            "type": "ElseIfStatement",
+            "condition": "MEDIUM_LEFT",
+            "statements": [
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "MEDIUM_RIGHT"
+              }
+            ]
+          },
+          {
+            "type": "ElseIfStatement",
+            "condition": "LARGE_LEFT",
+            "statements": [
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "LARGE_RIGHT"
+              }
+            ]
+          },
+          {
+            "type": "ElseIfStatement",
+            "condition": "XLARGE_LEFT",
+            "statements": [
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "XLARGE_RIGHT"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "type": "IfStatement",
         "condition": "FOO",
         "statements": [
@@ -315,6 +376,139 @@
                   ]
                 }
               ]
+            },
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "number_of_objects",
+                "args": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "type": "MultilineComment",
+            "comment": " Apparently it's legal to have empty branches in IfCommandStatement. "
+          },
+          {
+            "type": "ConditionalCommandStatement",
+            "header": {
+              "type": "IfStatement",
+              "condition": "FOO",
+              "elseifs": [
+                {
+                  "type": "ElseIfStatement",
+                  "condition": "BAR",
+                  "statements": [
+                    {
+                      "type": "AttributeStatement",
+                      "name": "create_object",
+                      "args": [
+                        "JAVELINA"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "ElseIfStatement",
+                  "condition": "QUX",
+                  "statements": [
+                    {
+                      "type": "AttributeStatement",
+                      "name": "create_object",
+                      "args": [
+                        "BOAR"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "number_of_objects",
+                "args": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ConditionalCommandStatement",
+            "header": {
+              "type": "IfStatement",
+              "condition": "FOO",
+              "statements": [
+                {
+                  "type": "AttributeStatement",
+                  "name": "create_object",
+                  "args": [
+                    "JAVELINA"
+                  ]
+                }
+              ],
+              "elseifs": [
+                {
+                  "type": "ElseIfStatement",
+                  "condition": "BAR"
+                },
+                {
+                  "type": "ElseIfStatement",
+                  "condition": "QUX",
+                  "statements": [
+                    {
+                      "type": "AttributeStatement",
+                      "name": "create_object",
+                      "args": [
+                        "BOAR"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "number_of_objects",
+                "args": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "type": "ConditionalCommandStatement",
+            "header": {
+              "type": "IfStatement",
+              "condition": "FOO",
+              "statements": [
+                {
+                  "type": "AttributeStatement",
+                  "name": "create_object",
+                  "args": [
+                    "JAVELINA"
+                  ]
+                }
+              ],
+              "elseifs": [
+                {
+                  "type": "ElseIfStatement",
+                  "condition": "BAR",
+                  "statements": [
+                    {
+                      "type": "AttributeStatement",
+                      "name": "create_object",
+                      "args": [
+                        "BOAR"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "elseStatements": []
             },
             "statements": [
               {
