@@ -50,6 +50,7 @@ ConditionalCommand ->
   )
   CommandBody
 
+# Special kind of a command with a RandomStatement as a header instead of AttributeStatement. See #35.
 RandomCommand ->
   (
     %startRandom %eol (MultilineComment __):*

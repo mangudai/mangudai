@@ -36,8 +36,8 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
     for (let i = splitIndex - 1; i >= 0; i--) {
       const node = statementsBlock.children[i]
       if (isToken(node) && node.type !== 'eol') continue
-      if (!isToken(node) && ['Command', 'ConditionalCommand'].includes(node.type)) break
-      if (!isToken(node) && (getNode(node, 'Command') || getNode(node, 'ConditionalCommand'))) break
+      if (!isToken(node) && ['Command', 'ConditionalCommand', 'RandomCommand'].includes(node.type)) break
+      if (!isToken(node) && (getNode(node, 'Command') || getNode(node, 'ConditionalCommand') || getNode(node, 'RandomCommand'))) break
       splitIndex = i
     }
 
