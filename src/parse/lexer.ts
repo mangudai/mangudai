@@ -20,7 +20,7 @@ export const lexer = states({
     startRandom: 'start_random',
     percentChance: 'percent_chance',
     endRandom: 'end_random',
-    int: /\b[0-9]+\b/,
+    int: /\-?[0-9]+\b/,
     identifier: /[^\s!@#\$%\^&\*\(\)\-\+=;:'"<>{}\[\]\?\/\\][^\s;'"<>{}\[\]\/\\]*/,
     invalid: { error: true } as any
   },

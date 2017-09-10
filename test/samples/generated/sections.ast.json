@@ -92,6 +92,26 @@
               "TOWN_CENTER"
             ],
             "statements": []
+          },
+          {
+            "type": "MultilineComment",
+            "comment": " Negative numbers are allowed. "
+          },
+          {
+            "type": "CommandStatement",
+            "name": "create_object",
+            "args": [
+              "DEER"
+            ],
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "resource_delta",
+                "args": [
+                  -174
+                ]
+              }
+            ]
           }
         ]
       }

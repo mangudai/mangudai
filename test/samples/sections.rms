@@ -20,3 +20,8 @@
 
   /* Curly brackets can be empty */
   create_object TOWN_CENTER {}
+
+  /* Negative numbers are allowed. */
+  create_object DEER {
+    resource_delta -174
+  }
