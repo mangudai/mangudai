@@ -188,6 +188,59 @@
             ]
           }
         ]
+      },
+      {
+        "type": "SectionStatement",
+        "name": "TERRAIN_GENERATION",
+        "statements": [
+          {
+            "type": "MultilineComment",
+            "comment": " Special kind of command with a RandomStatement header instead of an Attribute. "
+          },
+          {
+            "type": "RandomCommandStatement",
+            "header": {
+              "type": "RandomStatement",
+              "statements": [
+                {
+                  "type": "ChanceStatement",
+                  "chance": 50,
+                  "statements": [
+                    {
+                      "type": "AttributeStatement",
+                      "name": "create_terrain",
+                      "args": [
+                        "SNOW_FOREST"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "ChanceStatement",
+                  "chance": 50,
+                  "statements": [
+                    {
+                      "type": "AttributeStatement",
+                      "name": "create_terrain",
+                      "args": [
+                        "FOREST"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "base_terrain",
+                "args": [
+                  "LEAVES"
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },

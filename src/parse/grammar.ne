@@ -27,7 +27,7 @@ TopLevelIf -> GenericIfSeq[TopLevelLine, Section]
 TopLevelRandom -> GenericRandomSeq[TopLevelLine, Section]
 
 Section -> %lArrow %identifier %rArrow (%eol (SectionLine %eol):* SectionLine):?
-SectionLine -> GenericWithComments[(Command | ConditionalCommand | ConstDefinition | FlagDefinition | IncludeDrs | SectionIf | SectionRandom)]
+SectionLine -> GenericWithComments[(Command | ConditionalCommand | RandomCommand | ConstDefinition | FlagDefinition | IncludeDrs | SectionIf | SectionRandom)]
 # Sections cannot be nested. Nevertheless, we allow Section to occur inside SectionIf. In that case, it's a TopLevelIf.
 # We move the `If` out of the current section and end the section here during CST traversal.
 # This seems to be the best way to avoid ambiguity and performance issues.
@@ -47,6 +47,15 @@ ConditionalCommand ->
     (%elseifToken %space %identifier __ Attribute %eol):*
     (%elseToken __ Attribute %eol):?
     %endifToken
+  )
+  CommandBody
+
+# Special kind of a command with a RandomStatement as a header instead of AttributeStatement. See #35.
+RandomCommand ->
+  (
+    %startRandom %eol (MultilineComment __):*
+    (%percentChance %space %int __ (Attribute %eol)):+
+    %endRandom
   )
   CommandBody
 
