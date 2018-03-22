@@ -34,7 +34,7 @@
   "homepage": "https://github.com/mangudai/mangudai#readme",
   "devDependencies": {
     "@types/chai": "^4.0.1",
-    "@types/mocha": "^2.2.41",
+    "@types/mocha": "^5.0.0",
     "@types/node": "^8.0.13",
     "chai": "^4.0.0",
     "cross-env": "^5.0.1",
