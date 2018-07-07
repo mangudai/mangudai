@@ -9,7 +9,8 @@ export function check (ast: Script): LintError[] {
 
   getNodes(ast, 'StatementsBlock').forEach(block => {
     const alreadySeenCommands: CommandStatement[] = []
-    getChildren(block, 'Command').forEach((command: CommandStatement) => {
+    const commands = getChildren(block, 'Command') as CommandStatement[]
+    commands.forEach(command => {
       if (alreadySeenCommands.some(x => isEqual(x, command))) {
         dupeCommands.push([command, `Duplicate command '${command.name}' with exactly the same arguments and attibutes.`])
       } else {
@@ -18,7 +19,8 @@ export function check (ast: Script): LintError[] {
     })
 
     const alreadySeenConditionalCommands: ConditionalCommandStatement[] = []
-    getChildren(block, 'ConditionalCommand').forEach((command: ConditionalCommandStatement) => {
+    const conditionalCommands = getChildren(block, 'ConditionalCommand') as ConditionalCommandStatement[]
+    conditionalCommands.forEach(command => {
       if (alreadySeenConditionalCommands.some(x => isEqual(x, command))) {
         dupeCommands.push([command, `Duplicate command with exactly the same alternatives, arguments, and attibutes.`])
       } else {

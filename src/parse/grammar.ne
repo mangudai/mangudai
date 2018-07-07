@@ -1,5 +1,5 @@
 @preprocessor typescript
-@{% import { lexer } from './lexer'; %}
+@{% const lexer = require('./lexer').lexer as Lexer; %}
 @lexer lexer
 
 Script -> __:? ((TopLevelLine %eol):* TopLevelLine %eol:?):? ((Section %eol):* Section %eol:?):?

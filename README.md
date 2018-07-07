@@ -46,7 +46,6 @@ Mangudai is written in [TypeScript](https://www.typescriptlang.org/) and exports
 
 ## Contribute
 
-[![Greenkeeper badge](https://img.shields.io/badge/greenkeeper-enabled-brightgreen.svg)](https://greenkeeper.io/)
 [![Travis status](https://img.shields.io/travis/mangudai/mangudai/master.svg)](https://travis-ci.org/mangudai/mangudai)
 [![Test coverage](https://img.shields.io/codecov/c/github/mangudai/mangudai/master.svg)](https://codecov.io/gh/mangudai/mangudai)
 [![TypeScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)

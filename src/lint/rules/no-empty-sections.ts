@@ -5,7 +5,8 @@ import { getBoundaries } from '../../tokenHelpers'
 
 export function check (ast: Script): LintError[] {
   const errors: LintError[] = []
-  getNodes(ast, 'SectionStatement').forEach((section: SectionStatement) => {
+  const sections = getNodes(ast, 'SectionStatement') as SectionStatement[]
+  sections.forEach(section => {
     if (section.statements.length === 0) {
       errors.push({
         name: 'LintError',

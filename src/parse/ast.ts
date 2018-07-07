@@ -1,4 +1,4 @@
-import { Token, CstNode } from './cst'
+import { Token, CstNode, CstNodeChild } from './cst'
 import { getChildNode, getToken, getChildNodes } from '../treeHelpers'
 import { AstNode, Script, IfStatement, ElseIfStatement, RandomStatement, ChanceStatement, SectionStatement,
   AttributeStatement, DeclarationStatement, IncludeDrsStatement, MultilineComment,
@@ -160,6 +160,6 @@ function getTokenValue (token: Token) {
   else return token.value
 }
 
-function isValueToken (token: Token) {
-  return ['int', 'identifier'].includes(token.type as string)
+function isValueToken (node: CstNodeChild): node is Token {
+  return ['int', 'identifier'].includes(node.type as string)
 }

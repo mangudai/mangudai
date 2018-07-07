@@ -3,10 +3,10 @@ import { Token } from './parse'
 const EMPTY_TOKEN: Token = {
   value: '',
   offset: 0,
-  size: 0,
   lineBreaks: false,
   line: 1,
-  col: 1
+  col: 1,
+  text: ''
 }
 
 export function getBoundaries (token: Token = EMPTY_TOKEN): TextSpan {

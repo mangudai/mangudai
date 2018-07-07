@@ -17,8 +17,12 @@ export function check (ast: Script): LintError[] {
     if (!conditionallyDefined.includes(name)) unconditionallyDefined.push(name)
   })
 
-  const allIfs = [...getDescendants(ast, 'IfStatement'), ...getDescendants(ast, 'ElseIfStatement')]
-  allIfs.forEach((ifNode: IfStatement | ElseIfStatement) => {
+  const allIfs = [
+    ...getDescendants(ast, 'IfStatement') as IfStatement[],
+    ...getDescendants(ast, 'ElseIfStatement') as ElseIfStatement[]
+  ]
+
+  allIfs.forEach(ifNode => {
     if (unconditionallyDefined.includes(ifNode.condition)) {
       invalidConditionIdentifiers.push(getToken(ifNode, 'identifier') as Token)
     }

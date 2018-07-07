@@ -9,7 +9,7 @@ import { NearleyRule } from './grammar'
  *
  * @param rules The raw nearley grammar rules.
  */
-export function ruleNodesMiddleware ( rules: NearleyRule[]): NearleyRule[] {
+export function ruleNodesMiddleware (rules: NearleyRule[]): NearleyRule[] {
   return rules.map(cloneDeep).map(rule => {
     if (!rule.name.includes('$')) {
       rule.postprocess = (parts): RuleNode => ({

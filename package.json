@@ -6,14 +6,14 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "npm run gen-grammar && npm run gen-lib && tsc --project src",
-    "lint-src": "tslint --type-check --project src --exclude \"src/parse/grammar.ts\" --exclude \"src/lib/generated/*\" \"src/**/*.ts\"",
-    "lint-test": "tslint --type-check --project test \"test/**/*.ts\"",
+    "lint-src": "tslint --project src/tsconfig.json --exclude \"src/parse/grammar.ts\" --exclude \"src/lib/generated/*\" \"src/**/*.ts\"",
+    "lint-test": "tslint --project test/tsconfig.json \"test/**/*.ts\"",
     "lint": "npm run lint-src && npm run lint-test",
     "mocha": "cross-env TS_NODE_PROJECT=\"test/tsconfig.json\" nyc --reporter=lcov mocha",
     "test": "npm run build && npm run lint && npm run mocha",
     "gen-grammar": "nearleyc src/parse/grammar.ne --out src/parse/grammar.ts",
     "gen-test-samples": "ts-node --project test ./test/samples/generated/generateSamples",
-    "gen-lib": "ts-node --project src ./src/lib/generate"
+    "gen-lib": "ts-node --project src/tsconfig.json ./src/lib/generate"
   },
   "repository": {
     "type": "git",
@@ -33,24 +33,24 @@
   },
   "homepage": "https://github.com/mangudai/mangudai#readme",
   "devDependencies": {
-    "@types/chai": "^4.0.1",
-    "@types/mocha": "^2.2.41",
-    "@types/node": "^8.0.13",
-    "chai": "^4.0.0",
-    "cross-env": "^5.0.1",
-    "mocha": "^3.3.0",
-    "nyc": "^11.0.1",
-    "ts-node": "^3.1.0",
-    "tslint": "^5.2.0",
-    "tslint-config-standard": "^6.0.1",
-    "typescript": "^2.4.1"
+    "@types/chai": "4.1.4",
+    "@types/mocha": "5.2.4",
+    "@types/node": "10.5.1",
+    "chai": "4.1.2",
+    "cross-env": "5.2.0",
+    "mocha": "5.2.0",
+    "nyc": "12.0.2",
+    "ts-node": "7.0.0",
+    "tslint": "5.10.0",
+    "tslint-config-standard": "7.1.0",
+    "typescript": "2.9.2"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.66",
-    "@types/moo": "^0.3.0",
-    "@types/nearley": "^2.9.0",
-    "lodash": "^4.17.4",
-    "moo": "^0.4.0",
-    "nearley": "^2.10.0"
+    "@types/lodash": "4.14.110",
+    "@types/moo": "0.4.0",
+    "@types/nearley": "2.11.0",
+    "lodash": "4.17.10",
+    "moo": "0.4.3",
+    "nearley": "2.13.0"
   }
 }

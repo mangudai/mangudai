@@ -109,7 +109,7 @@ export type CstNodeChild = CstNode | Token
 function partsToCstNodes (parts: RecursiveArray<CstNode | RuleNode | Token | null>) {
   const flatParts = flattenParts(parts)
   const convertedParts = flatParts.map(part => {
-    if ('children' in part && !('childrenByType' in part)) return nodeToCst(part as RuleNode)
+    if ('children' in part && !('childrenByType' in part)) return nodeToCst(part)
     else return part
   })
   return flattenDeep(convertedParts) as CstNodeChild[]

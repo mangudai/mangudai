@@ -9,7 +9,8 @@ export function check (ast: Script): LintError[] {
 
   getNodes(ast, 'StatementsBlock').forEach(block => {
     const alreadySeenAttributes: AttributeStatement[] = []
-    getChildNodes(block, 'Attribute').forEach((attr: AttributeStatement) => {
+    const attributes = getChildNodes(block, 'Attribute') as AttributeStatement[]
+    attributes.forEach(attr => {
       if (find(alreadySeenAttributes, x => isEqual(x, attr))) dupeAttributes.push(attr)
       else alreadySeenAttributes.push(attr)
     })
