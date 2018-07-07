@@ -9,6 +9,7 @@ import { getBoundaries, TextSpanError } from '../tokenHelpers'
 
 export * from './astTypes'
 export { Token, CstNode, CstNodeChild } from './cst'
+export { TextSpanError } from '../tokenHelpers'
 
 const wrappedGrammar = { ...grammar, ParserRules: ruleNodesMiddleware(grammar.ParserRules) }
 // TODO: Fix nearley.Grammar.fromCompiled() TypeScript definition.
