@@ -1,5 +1,5 @@
 import { Token, CstNode, CstNodeChild } from './cst'
-import { getChildNode, getToken, getChildNodes } from '../treeHelpers'
+import { getChildNode, getToken, getChildNodes, getTokens } from '../treeHelpers'
 import { AstNode, Script, IfStatement, ElseIfStatement, RandomStatement, ChanceStatement, SectionStatement,
   AttributeStatement, DeclarationStatement, IncludeDrsStatement, MultilineComment,
   CommandStatement, ConditionalCommandStatement, RandomCommandStatement } from './astTypes'
@@ -127,7 +127,7 @@ const astVisitorMap: { [x: string]: (node: CstNode) => AstNode } = {
 
   MultilineComment: (cstNode): MultilineComment => Object.assign(cstNode, {
     type: 'MultilineComment',
-    comment: (getToken(cstNode, 'commentBody') || { value: '' }).value
+    comment: getTokens(cstNode).slice(1, -1).map(t => t.text).join('') // Slicing off '/*' and '*/'
   } as MultilineComment)
 }
 

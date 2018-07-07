@@ -199,6 +199,10 @@
       {
         "type": "MultilineComment",
         "comment": " comment 25 "
+      },
+      {
+        "type": "MultilineComment",
+        "comment": " nested /* comments */ are allowed, /* they can touch like this: /**/*/"
       }
     ]
   },

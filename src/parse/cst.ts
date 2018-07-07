@@ -84,7 +84,8 @@ const cstVisitorMap: { [x: string]: (parts: RuleNodeChildren) => CstNode | CstNo
   FlagDefinition: parts => simpleCstNode(parts, 'FlagDefinition'),
   IncludeDrs: parts => simpleCstNode(parts, 'IncludeDrs'),
 
-  MultilineComment: parts => simpleCstNode(parts, 'MultilineComment'),
+  MultilineComment: ([start, parts, end]) =>
+    simpleCstNode([start, partsToCstNodes(parts as RuleNode[]), end], 'MultilineComment'),
 
   __: parts => unwrapTokens(parts)
 }

@@ -35,3 +35,5 @@
 /* comment 25 */
 
 /* comment 25 */
+
+/* nested /* comments */ are allowed, /* they can touch like this: /**/*/*/
