@@ -7,7 +7,6 @@ import { getBoundaries } from '../../tokenHelpers'
 type SeenIdentifiers = { [x: string]: boolean }
 
 export function check (ast: Script): LintError[] {
-  // const seenIdentifiers: { [x: string]: boolean } = {}
   const redeclared: Token[] = []
 
   function reduceStatementsToSeen (statements: Statement[] | undefined, seen: SeenIdentifiers): SeenIdentifiers {

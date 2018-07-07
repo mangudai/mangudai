@@ -134,6 +134,87 @@
             ]
           }
         ]
+      },
+      {
+        "type": "MultilineComment",
+        "comment": " Declarations can be inside conditions "
+      },
+      {
+        "type": "IfStatement",
+        "condition": "CONDITION_1",
+        "statements": [
+          {
+            "type": "DeclarationStatement",
+            "kind": "define",
+            "name": "CONDITIONAL_DECLARATION"
+          }
+        ],
+        "elseifs": [
+          {
+            "type": "ElseIfStatement",
+            "condition": "CONDITION_2",
+            "statements": [
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "CONDITIONAL_DECLARATION"
+              }
+            ]
+          }
+        ],
+        "elseStatements": [
+          {
+            "type": "DeclarationStatement",
+            "kind": "define",
+            "name": "CONDITIONAL_DECLARATION"
+          }
+        ]
+      },
+      {
+        "type": "MultilineComment",
+        "comment": " Declarations can be inside randoms "
+      },
+      {
+        "type": "RandomStatement",
+        "statements": [
+          {
+            "type": "ChanceStatement",
+            "chance": 95,
+            "statements": [
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "RANDOM_DECLARATION"
+              },
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "SOMETHING_RANDOM"
+              }
+            ]
+          },
+          {
+            "type": "ChanceStatement",
+            "chance": 5,
+            "statements": [
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "RANDOM_DECLARATION"
+              },
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "SOMETHING_TWICE_HERE_OOPS"
+              },
+              {
+                "type": "DeclarationStatement",
+                "kind": "define",
+                "name": "SOMETHING_TWICE_HERE_OOPS"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
