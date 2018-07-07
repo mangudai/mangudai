@@ -34,3 +34,23 @@
     #define stuff
     #const foo 5
   }
+
+  /* Declarations can be inside conditions */
+  if CONDITION_1
+    #define CONDITIONAL_DECLARATION
+  elseif CONDITION_2
+    #define CONDITIONAL_DECLARATION
+  else
+    #define CONDITIONAL_DECLARATION
+  endif
+
+  /* Declarations can be inside randoms */
+  start_random
+    percent_chance 95
+      #define RANDOM_DECLARATION
+      #define SOMETHING_RANDOM
+    percent_chance 5
+      #define RANDOM_DECLARATION
+      #define SOMETHING_TWICE_HERE_OOPS
+      #define SOMETHING_TWICE_HERE_OOPS
+  end_random
