@@ -32,11 +32,11 @@
     "message": "Empty 'else'.",
     "boundaries": {
       "start": {
-        "line": 115,
+        "line": 114,
         "col": 0
       },
       "end": {
-        "line": 116,
+        "line": 115,
         "col": 5
       }
     }
