@@ -67,7 +67,7 @@ export function check (ast: Script): LintError[] {
 
   return redeclared.map(x => ({
     name: 'LintError',
-    message: `Cannot redeclare '${x.value}'.`,
+    message: `${x.value} is already defined!`,
     boundaries: getBoundaries(x)
   } as LintError))
 }

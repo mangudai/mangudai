@@ -1,7 +1,7 @@
 [
   {
     "name": "LintError",
-    "message": "Cannot redeclare '1_PLAYER_MAP'.",
+    "message": "1_PLAYER_MAP is already defined!",
     "boundaries": {
       "start": {
         "line": 15,
@@ -15,7 +15,7 @@
   },
   {
     "name": "LintError",
-    "message": "Cannot redeclare 'DUPLICATE'.",
+    "message": "DUPLICATE is already defined!",
     "boundaries": {
       "start": {
         "line": 19,
@@ -29,7 +29,7 @@
   },
   {
     "name": "LintError",
-    "message": "Cannot redeclare 'DUPLICATE'.",
+    "message": "DUPLICATE is already defined!",
     "boundaries": {
       "start": {
         "line": 20,
@@ -43,7 +43,7 @@
   },
   {
     "name": "LintError",
-    "message": "Cannot redeclare 'SOMETHING_TWICE_HERE_OOPS'.",
+    "message": "SOMETHING_TWICE_HERE_OOPS is already defined!",
     "boundaries": {
       "start": {
         "line": 55,
