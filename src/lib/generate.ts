@@ -3,8 +3,12 @@
  */
 
 import { parse, Script, DeclarationStatement } from '../'
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs'
 import { join } from 'path'
+
+if (!existsSync(join(__dirname, 'generated'))) {
+  mkdirSync(join(__dirname, 'generated'))
+}
 
 const libs = ['aoc', 'dlc', 'userpatch']
 libs.forEach(generateJsonFromLibFile)

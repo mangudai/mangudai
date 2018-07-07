@@ -39,3 +39,4 @@ jspm_packages
 # Built files
 /lib
 /src/parse/grammar.ts
+/src/lib/generated

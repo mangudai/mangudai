@@ -1,6 +1,9 @@
-import aoc from './generated/lib.aoc'
-import dlc from './generated/lib.dlc'
-import userpatch from './generated/lib.userpatch'
+import { existsSync } from 'fs'
+import { join } from 'path'
+
+const aoc = existsSync(join(__dirname, 'generated')) && require('./generated/lib.aoc')
+const dlc = existsSync(join(__dirname, 'generated')) && require('./generated/lib.dlc')
+const userpatch = existsSync(join(__dirname, 'generated')) && require('./generated/lib.userpatch')
 
 export { aoc, dlc, userpatch }
 export { definitions as aocCommands } from './lib.aoc.commands'
