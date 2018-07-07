@@ -521,6 +521,31 @@
             ]
           }
         ]
+      },
+      {
+        "type": "IfStatement",
+        "condition": "FOO",
+        "statements": [
+          {
+            "type": "DeclarationStatement",
+            "kind": "define",
+            "name": "NOT_ALWAYS_DEFINED"
+          }
+        ]
+      },
+      {
+        "type": "MultilineComment",
+        "comment": " This should not be considered a constant condition. "
+      },
+      {
+        "type": "IfStatement",
+        "condition": "NOT_ALWAYS_DEFINED",
+        "statements": [
+          {
+            "type": "MultilineComment",
+            "comment": " Test. "
+          }
+        ]
       }
     ]
   },

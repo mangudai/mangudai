@@ -107,7 +107,6 @@ endif {
   number_of_objects 1
 }
 
-
 if FOO
   create_object JAVELINA
 elseif BAR
@@ -116,3 +115,12 @@ else
 endif {
   number_of_objects 1
 }
+
+if FOO
+  #define NOT_ALWAYS_DEFINED
+endif
+
+/* This should not be considered a constant condition. */
+if NOT_ALWAYS_DEFINED
+  /* Test. */
+endif
