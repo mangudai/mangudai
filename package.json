@@ -14,7 +14,7 @@
     "gen-grammar": "nearleyc src/parse/grammar.ne --out src/parse/grammar.ts",
     "gen-test-samples": "ts-node --project test/tsconfig.json ./test/samples/generated/generateSamples",
     "gen-lib": "ts-node --project src/tsconfig.json ./src/lib/generate",
-    "prepublish": "npm i && npm test"
+    "prepublishOnly": "npm i && npm test"
   },
   "repository": {
     "type": "git",
