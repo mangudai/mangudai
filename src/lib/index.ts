@@ -1,9 +1,14 @@
-import { existsSync } from 'fs'
-import { join } from 'path'
+let aoc
+let dlc
+let userpatch
 
-const aoc = existsSync(join(__dirname, 'generated')) && require('./generated/lib.aoc')
-const dlc = existsSync(join(__dirname, 'generated')) && require('./generated/lib.dlc')
-const userpatch = existsSync(join(__dirname, 'generated')) && require('./generated/lib.userpatch')
+try {
+  // These files don't exist before first compilation in a fresh clone.
+  // This ensures it is possible to compile for the first time without TypeScript errors.
+  aoc = require('./generated/lib.aoc')
+  dlc = require('./generated/lib.dlc')
+  userpatch = require('./generated/lib.userpatch')
+} catch (e) {} // tslint:disable-line:no-empty
 
 export { aoc, dlc, userpatch }
 export { definitions as aocCommands } from './lib.aoc.commands'
