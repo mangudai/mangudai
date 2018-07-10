@@ -1,0 +1,9154 @@
+/* Spiral - made by Tom */
+
+/* Note: random_map.def is automatically included in every rms script */
+
+#define CTR_BATCHTWO
+#define SPIRAL_GO
+
+
+
+start_random
+percent_chance 25 #define TERRY
+percent_chance 25 #define WILLIAM
+percent_chance 25 #define JERRY
+percent_chance 25 #define CARRIE
+end_random
+
+if TERRY
+
+start_random
+percent_chance 16 #define TERRY_GREEN
+percent_chance 16 #define TERRY_RED
+percent_chance 17 #define TERRY_YELLOW
+percent_chance 17 #define TERRY_BLUE
+percent_chance 17 #define TERRY_SILVER
+percent_chance 17 #define TERRY_ORANGE
+end_random
+
+	if TERRY_GREEN
+
+	#const LAYER_A 0
+	#const LAYER_B 12
+	#const WOODIES 10
+	#const WOODIES_B 19
+	#const LAYER_C 9
+	#const SLOPES_UP 11
+	#const SLOPES_DOWN 3
+	#const LAYER_UP 9
+	#const LAYER_DOWN 5
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 349
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 705
+	#const DOMESTIC_LURKER_UP 705
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 486
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif TERRY_RED
+
+	#const LAYER_A 5
+	#const LAYER_B 3
+	#const WOODIES 18
+	#const WOODIES_B 19
+	#const LAYER_C 0
+	#const SLOPES_UP 11
+	#const SLOPES_DOWN 9
+	#const LAYER_UP 0
+	#const LAYER_DOWN 12
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 18
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 348
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 348
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESTUNY
+
+	elseif TERRY_YELLOW
+
+	#const LAYER_A 14
+	#const LAYER_B 6
+	#const WOODIES 13
+	#const WOODIES_B 13
+	#const LAYER_C 11
+	#const SLOPES_UP 25
+	#const SLOPES_DOWN 39
+	#const LAYER_UP 11
+	#const LAYER_DOWN 3
+	#const WOODIES_UP 13
+	#const WOODIES_DOWN 17
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 897
+	#const SAPLING_A 351
+	#const SAPLING_B 351
+	#const SAPLING_UP 351
+	#const SAPLING_DOWN 414
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 833
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 812
+	#const OINKOINK 48
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESDORY
+
+	elseif TERRY_BLUE
+
+	#const LAYER_A 12
+	#const LAYER_B 0
+	#const WOODIES 17
+	#const WOODIES_B 17
+	#const LAYER_C 9
+	#const SLOPES_UP 11
+	#const SLOPES_DOWN 3
+	#const LAYER_UP 14
+	#const LAYER_DOWN 5
+	#const WOODIES_UP 13
+	#const WOODIES_DOWN 17
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 414
+	#const SAPLING_B 414
+	#const SAPLING_UP 351
+	#const SAPLING_DOWN 414
+	#const DOMESTIC_ANIMAL 305
+	#const DOMESTIC_LURKER_UP 305
+	#const DOMESTIC_LURKER_DOWN 833
+	#const GROWLY_BEAST 812
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 812
+	#const OINKOINK 822
+	#define BIRDIES_MACAWIES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif TERRY_SILVER
+
+	#const LAYER_A 32
+	#const LAYER_B 34
+	#const WOODIES 21
+	#const WOODIES_B 21
+	#const LAYER_C 33
+	#const SLOPES_UP 38
+	#const SLOPES_DOWN 24
+	#const LAYER_UP 33
+	#const LAYER_DOWN 33
+	#const WOODIES_UP 21
+	#const WOODIES_DOWN 19
+	#const SWAMPIES 35
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 413
+	#const SAPLING_B 413
+	#const SAPLING_UP 413
+	#const SAPLING_DOWN 350
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 305
+	#const DOMESTIC_LURKER_DOWN 705
+	#const GROWLY_BEAST 486
+	#const GROWLY_BEAST_UP 486
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSALMY
+
+	elseif TERRY_ORANGE
+
+	#const LAYER_A 6
+	#const LAYER_B 3
+	#const WOODIES 19
+	#const WOODIES_B 19
+	#const LAYER_C 9
+	#const SLOPES_UP 38
+	#const SLOPES_DOWN 39
+	#const LAYER_UP 33
+	#const LAYER_DOWN 0
+	#const WOODIES_UP 21
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 350
+	#const SAPLING_B 350
+	#const SAPLING_UP 413
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 305
+	#const DOMESTIC_LURKER_UP 305
+	#const DOMESTIC_LURKER_DOWN 305
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESSALMY
+
+	endif
+
+elseif WILLIAM
+
+start_random
+percent_chance 16 #define WILLIAM_GREEN
+percent_chance 16 #define WILLIAM_RED
+percent_chance 17 #define WILLIAM_YELLOW
+percent_chance 17 #define WILLIAM_BLUE
+percent_chance 17 #define WILLIAM_SILVER
+percent_chance 17 #define WILLIAM_ORANGE
+end_random
+
+	if WILLIAM_GREEN
+
+	#const LAYER_A 12
+	#const LAYER_B 5
+	#const WOODIES 10
+	#const WOODIES_B 19
+	#const LAYER_C 9
+	#const SLOPES_UP 11
+	#const SLOPES_DOWN 3
+	#const LAYER_UP 6
+	#const LAYER_DOWN 0
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 349
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 705
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 705
+	#const GROWLY_BEAST 486
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 486
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif WILLIAM_RED
+
+	#const LAYER_A 0
+	#const LAYER_B 9
+	#const WOODIES 18
+	#const WOODIES_B 19
+	#const LAYER_C 3
+	#const SLOPES_UP 11
+	#const SLOPES_DOWN 5
+	#const LAYER_UP 3
+	#const LAYER_DOWN 12
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 18
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 348
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 348
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESTUNY
+
+	elseif WILLIAM_YELLOW
+
+	#const LAYER_A 3
+	#const LAYER_B 14
+	#const WOODIES 13
+	#const WOODIES_B 13
+	#const LAYER_C 6
+	#const SLOPES_UP 25
+	#const SLOPES_DOWN 11
+	#const LAYER_UP 6
+	#const LAYER_DOWN 9
+	#const WOODIES_UP 13
+	#const WOODIES_DOWN 17
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 897
+	#const SAPLING_A 351
+	#const SAPLING_B 351
+	#const SAPLING_UP 351
+	#const SAPLING_DOWN 414
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 833
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 812
+	#const OINKOINK 48
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESDORY
+
+	elseif WILLIAM_BLUE
+
+	#const LAYER_A 12
+	#const LAYER_B 9
+	#const WOODIES 17
+	#const WOODIES_B 17
+	#const LAYER_C 0
+	#const SLOPES_UP 39
+	#const SLOPES_DOWN 5
+	#const LAYER_UP 0
+	#const LAYER_DOWN 0
+	#const WOODIES_UP 17
+	#const WOODIES_DOWN 17
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 414
+	#const SAPLING_B 414
+	#const SAPLING_UP 414
+	#const SAPLING_DOWN 414
+	#const DOMESTIC_ANIMAL 833
+	#const DOMESTIC_LURKER_UP 305
+	#const DOMESTIC_LURKER_DOWN 833
+	#const GROWLY_BEAST 812
+	#const GROWLY_BEAST_UP 812
+	#const GROWLY_BEAST_DOWN 812
+	#const OINKOINK 822
+	#define BIRDIES_MACAWIES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif WILLIAM_SILVER
+
+	#const LAYER_A 34
+	#const LAYER_B 33
+	#const WOODIES 21
+	#const WOODIES_B 21
+	#const LAYER_C 32
+	#const SLOPES_UP 38
+	#const SLOPES_DOWN 11
+	#const LAYER_UP 32
+	#const LAYER_DOWN 0
+	#const WOODIES_UP 21
+	#const WOODIES_DOWN 19
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 413
+	#const SAPLING_B 413
+	#const SAPLING_UP 413
+	#const SAPLING_DOWN 350
+	#const DOMESTIC_ANIMAL 705
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 486
+	#const GROWLY_BEAST_UP 486
+	#const GROWLY_BEAST_DOWN 486
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSALMY
+
+	elseif WILLIAM_ORANGE
+
+	#const LAYER_A 6
+	#const LAYER_B 33
+	#const WOODIES 19
+	#const WOODIES_B 19
+	#const LAYER_C 3
+	#const SLOPES_UP 38
+	#const SLOPES_DOWN 39
+	#const LAYER_UP 32
+	#const LAYER_DOWN 0
+	#const WOODIES_UP 21
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 350
+	#const SAPLING_B 350
+	#const SAPLING_UP 413
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 305
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 305
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESSALMY
+
+	endif
+
+elseif JERRY
+
+start_random
+percent_chance 16 #define JERRY_GREEN
+percent_chance 16 #define JERRY_RED
+percent_chance 17 #define JERRY_YELLOW
+percent_chance 17 #define JERRY_BLUE
+percent_chance 17 #define JERRY_SILVER
+percent_chance 17 #define JERRY_ORANGE
+end_random
+
+	if JERRY_GREEN
+
+	#const LAYER_A 9
+	#const LAYER_B 3
+	#const WOODIES 19
+	#const WOODIES_B 10
+	#const LAYER_C 0
+	#const SLOPES_UP 11
+	#const SLOPES_DOWN 5
+	#const LAYER_UP 6
+	#const LAYER_DOWN 12
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 350
+	#const SAPLING_B 349
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 705
+	#const GROWLY_BEAST 486
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 486
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif JERRY_RED
+
+	#const LAYER_A 12
+	#const LAYER_B 0
+	#const WOODIES 19
+	#const WOODIES_B 18
+	#const LAYER_C 9
+	#const SLOPES_UP 24
+	#const SLOPES_DOWN 6
+	#const LAYER_UP 9
+	#const LAYER_DOWN 5
+	#const WOODIES_UP 18
+	#const WOODIES_DOWN 18
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 350
+	#const SAPLING_B 348
+	#const SAPLING_UP 348
+	#const SAPLING_DOWN 348
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESTUNY
+
+	elseif JERRY_YELLOW
+
+	#const LAYER_A 6
+	#const LAYER_B 11
+	#const WOODIES 13
+	#const WOODIES_B 13
+	#const LAYER_C 14
+	#const SLOPES_UP 25
+	#const SLOPES_DOWN 29
+	#const LAYER_UP 14
+	#const LAYER_DOWN 3
+	#const WOODIES_UP 13
+	#const WOODIES_DOWN 13
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 897
+	#const SAPLING_A 351
+	#const SAPLING_B 351
+	#const SAPLING_UP 351
+	#const SAPLING_DOWN 351
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESDORY
+
+	elseif JERRY_BLUE
+
+	#const LAYER_A 0
+	#const LAYER_B 5
+	#const WOODIES 17
+	#const WOODIES_B 17
+	#const LAYER_C 9
+	#const SLOPES_UP 25
+	#const SLOPES_DOWN 39
+	#const LAYER_UP 14
+	#const LAYER_DOWN 12
+	#const WOODIES_UP 13
+	#const WOODIES_DOWN 17
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 414
+	#const SAPLING_B 414
+	#const SAPLING_UP 351
+	#const SAPLING_DOWN 414
+	#const DOMESTIC_ANIMAL 833
+	#const DOMESTIC_LURKER_UP 305
+	#const DOMESTIC_LURKER_DOWN 833
+	#const GROWLY_BEAST 812
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 812
+	#const OINKOINK 822
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif JERRY_SILVER
+
+	#const LAYER_A 0
+	#const LAYER_B 34
+	#const WOODIES 19
+	#const WOODIES_B 21
+	#const LAYER_C 33
+	#const SLOPES_UP 38
+	#const SLOPES_DOWN 3
+	#const LAYER_UP 32
+	#const LAYER_DOWN 9
+	#const WOODIES_UP 21
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 350
+	#const SAPLING_B 413
+	#const SAPLING_UP 413
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 705
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 705
+	#const GROWLY_BEAST 486
+	#const GROWLY_BEAST_UP 486
+	#const GROWLY_BEAST_DOWN 486
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSALMY
+
+	elseif JERRY_ORANGE
+
+	#const LAYER_A 11
+	#const LAYER_B 3
+	#const WOODIES 10
+	#const WOODIES_B 19
+	#const LAYER_C 6
+	#const SLOPES_UP 25
+	#const SLOPES_DOWN 39
+	#const LAYER_UP 6
+	#const LAYER_DOWN 12
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 349
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 305
+	#const DOMESTIC_LURKER_UP 305
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESSALMY
+
+	endif
+
+elseif CARRIE
+
+start_random
+percent_chance 16 #define CARRIE_GREEN
+percent_chance 16 #define CARRIE_RED
+percent_chance 17 #define CARRIE_YELLOW
+percent_chance 17 #define CARRIE_BLUE
+percent_chance 17 #define CARRIE_SILVER
+percent_chance 17 #define CARRIE_ORANGE
+end_random
+
+	if CARRIE_GREEN
+
+	#const LAYER_A 5
+	#const LAYER_B 0
+	#const WOODIES 10
+	#const WOODIES_B 19
+	#const LAYER_C 3
+	#const SLOPES_UP 39
+	#const SLOPES_DOWN 9
+	#const LAYER_UP 3
+	#const LAYER_DOWN 12
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 349
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 705
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 486
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif CARRIE_RED
+
+	#const LAYER_A 5
+	#const LAYER_B 12
+	#const WOODIES 18
+	#const WOODIES_B 19
+	#const LAYER_C 9
+	#const SLOPES_UP 24
+	#const SLOPES_DOWN 3
+	#const LAYER_UP 9
+	#const LAYER_DOWN 0
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 18
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 348
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 348
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESTUNY
+
+	elseif CARRIE_YELLOW
+
+	#const LAYER_A 6
+	#const LAYER_B 14
+	#const WOODIES 13
+	#const WOODIES_B 13
+	#const LAYER_C 11
+	#const SLOPES_UP 25
+	#const SLOPES_DOWN 3
+	#const LAYER_UP 11
+	#const LAYER_DOWN 12
+	#const WOODIES_UP 13
+	#const WOODIES_DOWN 17
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 897
+	#const SAPLING_A 351
+	#const SAPLING_B 351
+	#const SAPLING_UP 351
+	#const SAPLING_DOWN 414
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 833
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 812
+	#const OINKOINK 48
+	#define BIRDIES_VULTURES
+	#define CAPTAINFINLIKESDORY
+
+	elseif CARRIE_BLUE
+
+	#const LAYER_A 9
+	#const LAYER_B 12
+	#const WOODIES 17
+	#const WOODIES_B 17
+	#const LAYER_C 5
+	#const SLOPES_UP 25
+	#const SLOPES_DOWN 39
+	#const LAYER_UP 6
+	#const LAYER_DOWN 5
+	#const WOODIES_UP 13
+	#const WOODIES_DOWN 17
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 414
+	#const SAPLING_B 414
+	#const SAPLING_UP 351
+	#const SAPLING_DOWN 414
+	#const DOMESTIC_ANIMAL 833
+	#const DOMESTIC_LURKER_UP 305
+	#const DOMESTIC_LURKER_DOWN 833
+	#const GROWLY_BEAST 812
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 812
+	#const OINKOINK 822
+	#define BIRDIES_MACAWIES
+	#define CAPTAINFINLIKESSNAPPY
+
+	elseif CARRIE_SILVER
+
+	#const LAYER_A 32
+	#const LAYER_B 32
+	#const WOODIES 21
+	#const WOODIES_B 21
+	#const LAYER_C 34
+	#const SLOPES_UP 38
+	#const SLOPES_DOWN 33
+	#const LAYER_UP 34
+	#const LAYER_DOWN 34
+	#const WOODIES_UP 21
+	#const WOODIES_DOWN 21
+	#const SWAMPIES 35
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 413
+	#const SAPLING_B 413
+	#const SAPLING_UP 413
+	#const SAPLING_DOWN 413
+	#const DOMESTIC_ANIMAL 705
+	#const DOMESTIC_LURKER_UP 705
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 486
+	#const GROWLY_BEAST_UP 486
+	#const GROWLY_BEAST_DOWN 486
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSALMY
+
+	elseif CARRIE_ORANGE
+
+	#const LAYER_A 11
+	#const LAYER_B 9
+	#const WOODIES 10
+	#const WOODIES_B 19
+	#const LAYER_C 0
+	#const SLOPES_UP 6
+	#const SLOPES_DOWN 39
+	#const LAYER_UP 3
+	#const LAYER_DOWN 5
+	#const WOODIES_UP 19
+	#const WOODIES_DOWN 10
+	#const SWAMPIES 4
+	#const PETWITHHOOVES 814
+	#const SAPLING_A 349
+	#const SAPLING_B 350
+	#const SAPLING_UP 350
+	#const SAPLING_DOWN 349
+	#const DOMESTIC_ANIMAL 594
+	#const DOMESTIC_LURKER_UP 594
+	#const DOMESTIC_LURKER_DOWN 594
+	#const GROWLY_BEAST 126
+	#const GROWLY_BEAST_UP 126
+	#const GROWLY_BEAST_DOWN 126
+	#const OINKOINK 48
+	#define BIRDIES_HAWKIES
+	#define CAPTAINFINLIKESSALMY
+
+	endif
+
+endif
+
+#const ROAD_OTHER 40
+#const FRESH_WATER 15
+#const ICY_SHORE 37
+
+if CTR_BATCHONE
+	if MIDDLEHILL_GO
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type GOLD_RUSH 1 0 0
+else
+ai_info_map_type GOLD_RUSH 0 0 0
+endif
+
+/* ************************************ */
+
+#define MEGAORDER_MAJORITYMAP_ELEVATION_LA
+#define MEGAORDER_NO_WATERCONTACT
+#define MEGAORDER_SPECIFIC1_ELEVATION
+
+<LAND_GENERATION>
+
+start_random
+percent_chance 20 #define GOLDENHILLOOPS
+end_random
+
+if GOLDENHILLOOPS
+base_terrain SLOPES_DOWN
+else
+base_terrain WATER
+endif
+
+create_player_lands
+{
+  terrain_type LAYER_A
+  land_percent 100
+  base_size 7
+  border_fuzziness 12
+start_random
+percent_chance 25
+set_zone_by_team
+percent_chance 25
+zone 1
+percent_chance 50
+#define GOLDENHILLLESSWOOD
+end_random
+other_zone_avoidance_distance 15
+if GOLDENHILLOOPS
+base_elevation 4
+else
+endif
+}
+
+create_land
+{
+  terrain_type SLOPES_UP
+  land_percent 100
+  border_fuzziness 100
+  clumping_factor 15
+bottom_border 37
+top_border 37
+left_border 37
+right_border 37
+other_zone_avoidance_distance 15
+}
+
+/*
+
+create_land
+{
+  terrain_type ROAD_OTHER
+  top_border 47
+  bottom_border 47
+  left_border 47
+  right_border 47
+  number_of_tiles 20
+  base_elevation 7
+}
+
+*/
+
+<TERRAIN_GENERATION>
+
+create_terrain LAYER_UP
+{
+base_terrain SLOPES_UP
+land_percent 100
+spacing_to_other_terrain_types 6
+}
+
+  create_terrain WOODIES
+{
+  base_terrain LAYER_A
+if GOLDENHILLLESSWOOD
+  land_percent 9
+  number_of_clumps 14
+else
+  land_percent 10
+  number_of_clumps 14
+endif
+     spacing_to_other_terrain_types 5
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+start_random
+percent_chance 50
+create_terrain WATER
+{
+  base_terrain LAYER_A
+land_percent 8
+number_of_clumps 15
+spacing_to_other_terrain_types 2
+set_avoid_player_start_areas
+height_limits 0 0
+}
+end_random
+
+
+  create_terrain LAYER_B
+{
+  base_terrain LAYER_A
+  number_of_clumps 80
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 20
+percent_chance 50
+  land_percent 16
+end_random
+  set_scale_by_size
+}
+
+  create_terrain LAYER_A
+{
+  base_terrain LAYER_B
+  number_of_clumps 15
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 4
+percent_chance 50
+  land_percent 3
+end_random
+  set_scale_by_size
+}
+
+
+if GOLDENHILLOOPS
+
+create_terrain WATER
+{
+base_terrain SLOPES_DOWN
+land_percent 100
+number_of_clumps 20
+spacing_to_other_terrain_types 1
+height_limits 0 0
+}
+
+create_terrain WATER
+{
+base_terrain SLOPES_DOWN
+land_percent 100
+number_of_clumps 20
+spacing_to_other_terrain_types 1
+height_limits 0 0
+}
+
+create_terrain WATER
+{
+base_terrain SLOPES_DOWN
+land_percent 100
+number_of_clumps 20
+spacing_to_other_terrain_types 1
+height_limits 0 0
+}
+
+create_terrain WATER
+{
+base_terrain SLOPES_DOWN
+land_percent 100
+number_of_clumps 20
+spacing_to_other_terrain_types 1
+height_limits 0 0
+}
+
+endif
+
+create_terrain MED_WATER
+{
+base_terrain WATER
+land_percent 40
+number_of_clumps 6
+spacing_to_other_terrain_types 3
+}
+
+create_terrain DEEP_WATER
+{
+base_terrain MED_WATER
+land_percent 5
+number_of_clumps 6
+spacing_to_other_terrain_types 4
+}
+
+
+	elseif PYRAMID_GO
+
+#define SPECIALVILLSAPPEARANCE
+#define MEGAORDER_NO_STEED
+#define MEGAORDER_NO_BONUSBUILDING
+#define PYRAMID_STAIRS
+#define PYRAMID_OBJECTS
+#define MEGAORDER_NO_TOWER
+#define MEGAORDER_NO_CASTLE
+#define MEGAORDER_NO_BONUSBUILDING
+#define MEGAORDER_NO_BONUSFARM
+#define MEGAORDER_NO_JELEN
+#define MEGAORDER_NO_PIG
+#define MEGAORDER_NO_APPLES
+#define MEGAORDER_NO_STARTINGSAPLING
+
+<PLAYER_SETUP>
+
+random_placement
+
+#define NOMADIC_WAY
+
+nomad_resources
+
+	ai_info_map_type ARABIA 0 0 0
+
+
+/* ****************************************************** */
+
+<LAND_GENERATION>
+
+base_terrain LEAVES
+
+create_player_lands
+{
+     terrain_type LEAVES
+land_percent 10
+     base_size 5
+  right_border 95
+top_border 35
+bottom_border 20
+base_elevation 0
+}
+
+
+create_land
+{
+     terrain_type GRASS2
+     land_percent 100
+     base_size 1
+  right_border 6
+  left_border 6
+  top_border 6
+  bottom_border 6
+other_zone_avoidance_distance 0
+base_elevation 0
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain GRASS
+{
+     base_terrain GRASS2
+     land_percent 100
+     number_of_clumps 100
+     clumping_factor 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 2 7
+}
+
+create_terrain GRASS3
+{
+     base_terrain GRASS
+     land_percent 100
+     number_of_clumps 100
+     clumping_factor 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 3 7
+}
+
+create_terrain DIRT3
+{
+     base_terrain GRASS3
+     land_percent 100
+     number_of_clumps 100
+     clumping_factor 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 4 7
+}
+
+create_terrain DIRT
+{
+     base_terrain DIRT3
+     land_percent 100
+     number_of_clumps 100
+     clumping_factor 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 5 7
+}
+
+create_terrain DIRT_SNOW
+{
+     base_terrain DIRT
+     land_percent 100
+     number_of_clumps 100
+     clumping_factor 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 6 7
+}
+
+create_terrain SNOW
+{
+     base_terrain DIRT_SNOW
+     land_percent 100
+     number_of_clumps 100
+     clumping_factor 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 7 7
+}
+
+create_terrain JUNGLE
+{
+	base_terrain LEAVES
+     spacing_to_other_terrain_types 2
+     land_percent 8
+     number_of_clumps 8
+     clumping_factor 10
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+create_terrain JUNGLE
+{
+	base_terrain GRASS2
+     spacing_to_other_terrain_types 2
+     land_percent 5
+     number_of_clumps 6
+     clumping_factor 10
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+create_terrain FOREST
+{
+	base_terrain GRASS
+     spacing_to_other_terrain_types 2
+     land_percent 3
+     number_of_clumps 6
+     clumping_factor 10
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+create_terrain FOREST
+{
+	base_terrain GRASS3
+     spacing_to_other_terrain_types 2
+     land_percent 3
+     number_of_clumps 5
+     clumping_factor 10
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+create_terrain PINE_FOREST
+{
+	base_terrain DIRT3
+     spacing_to_other_terrain_types 2
+     land_percent 2
+     number_of_clumps 6
+     clumping_factor 10
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+create_terrain PINE_FOREST
+{
+	base_terrain DIRT
+     spacing_to_other_terrain_types 2
+     land_percent 1
+     number_of_clumps 8
+     clumping_factor 10
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+create_terrain SNOW_FOREST
+{
+	base_terrain DIRT_SNOW
+     spacing_to_other_terrain_types 2
+	number_of_tiles 60
+     number_of_clumps 4
+     clumping_factor 10
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+
+	elseif JACKSISLANDS_GO
+
+#define MEGAORDER_CLOSELANDSPACKAGE
+
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+#define MEGAORDER_NO_WATERCONTACT
+
+base_terrain LAYER_C
+
+create_player_lands
+{
+  terrain_type LAYER_A
+  base_size 4
+  border_fuzziness 1
+  clumping_factor 15
+  land_percent 20
+  left_border 32
+  right_border 32
+  top_border 32
+  bottom_border 32
+  other_zone_avoidance_distance 5
+}
+
+create_land
+{
+terrain_type ROAD_OTHER
+land_percent 100
+land_position 50 50
+top_border 42
+bottom_border 42
+left_border 42
+right_border 42
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain WOODIES
+{
+  base_terrain LAYER_C
+  spacing_to_other_terrain_types 4
+  land_percent 18
+  number_of_clumps 24
+  set_avoid_player_start_areas
+}
+
+  create_terrain LAYER_B
+{
+  base_terrain LAYER_A
+  number_of_clumps 80
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 20
+percent_chance 50
+  land_percent 16
+end_random
+  set_scale_by_size
+}
+
+  create_terrain LAYER_A
+{
+  base_terrain LAYER_B
+  number_of_clumps 15
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 4
+percent_chance 50
+  land_percent 3
+end_random
+  set_scale_by_size
+}
+
+	elseif ISLANDS_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+<LAND_GENERATION>
+base_terrain WATER
+
+create_player_lands
+{
+  terrain_type LAYER_A
+start_random
+percent_chance 33
+  land_percent 17
+#define MEGAORDER_CLOSELANDSPACKAGE
+percent_chance 33
+  land_percent 20
+#define MEGAORDER_CLOSELANDSPACKAGE
+percent_chance 34
+  land_percent 25
+#define MEGAORDER_CLOSELANDSPACKAGE
+end_random
+  base_size 14
+  border_fuzziness 15
+  clumping_factor 15
+start_random
+percent_chance 25
+other_zone_avoidance_distance 22
+percent_chance 25
+other_zone_avoidance_distance 20
+percent_chance 25
+other_zone_avoidance_distance 18
+percent_chance 25
+other_zone_avoidance_distance 15
+end_random
+}
+
+create_land
+{
+terrain_type ROAD_OTHER
+number_of_tiles 20
+top_border 47
+bottom_border 47
+left_border 47
+right_border 47
+}
+
+<TERRAIN_GENERATION>
+
+  create_terrain WOODIES
+{
+  base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 2
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 4
+  number_of_clumps 16
+percent_chance 20
+  land_percent 5
+  number_of_clumps 16
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+  create_terrain LAYER_B
+{
+  base_terrain LAYER_A
+  number_of_clumps 80
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 20
+percent_chance 50
+  land_percent 16
+end_random
+  set_scale_by_size
+}
+
+  create_terrain LAYER_A
+{
+  base_terrain LAYER_B
+  number_of_clumps 15
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 4
+percent_chance 50
+  land_percent 3
+end_random
+  set_scale_by_size
+}
+
+create_terrain MED_WATER
+{
+base_terrain WATER
+land_percent 40
+number_of_clumps 6
+spacing_to_other_terrain_types 3
+}
+
+create_terrain DEEP_WATER
+{
+base_terrain MED_WATER
+land_percent 5
+number_of_clumps 6
+spacing_to_other_terrain_types 4
+}
+
+	elseif RINGDING_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+<LAND_GENERATION>
+base_terrain LAYER_A
+
+create_player_lands
+{
+  terrain_type LAYER_A
+  land_percent 1
+  base_size 5
+  border_fuzziness 15
+  clumping_factor 15
+other_zone_avoidance_distance 4
+zone 6
+}
+
+create_land
+{
+terrain_type SLOPES_DOWN
+land_percent 100
+top_border 32
+bottom_border 32
+left_border 32
+right_border 32
+other_zone_avoidance_distance 4
+}
+
+<TERRAIN_GENERATION>
+
+  create_terrain WOODIES
+{
+  base_terrain SLOPES_DOWN
+  land_percent 100
+number_of_clumps 100
+     spacing_to_other_terrain_types 1
+}
+
+  create_terrain LAYER_C
+{
+  base_terrain WOODIES
+  land_percent 100
+number_of_clumps 100
+     spacing_to_other_terrain_types 5
+}
+
+  create_terrain SLOPES_UP
+{
+  base_terrain LAYER_C
+  land_percent 100
+number_of_clumps 100
+     spacing_to_other_terrain_types 5
+}
+
+  create_terrain WATER
+{
+  base_terrain SLOPES_UP
+  land_percent 100
+number_of_clumps 100
+     spacing_to_other_terrain_types 5
+}
+
+  create_terrain WATER
+{
+  base_terrain WOODIES
+  land_percent 100
+number_of_clumps 100
+}
+
+if TINY_MAP
+  create_terrain WATER
+{
+  base_terrain SLOPES_UP
+  land_percent 100
+number_of_clumps 100
+}
+elseif SMALL_MAP
+  create_terrain WATER
+{
+  base_terrain SLOPES_UP
+  land_percent 100
+number_of_clumps 100
+}
+else
+  create_terrain LAYER_C
+{
+  base_terrain SLOPES_UP
+  land_percent 100
+number_of_clumps 100
+}
+endif
+
+
+  create_terrain WOODIES
+{
+  base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 7
+  number_of_clumps 16
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 13
+  number_of_clumps 16
+percent_chance 20
+  land_percent 16
+  number_of_clumps 18
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+  create_terrain LAYER_B
+{
+  base_terrain LAYER_A
+  number_of_clumps 80
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 20
+percent_chance 50
+  land_percent 16
+end_random
+  set_scale_by_size
+}
+
+  create_terrain LAYER_A
+{
+  base_terrain LAYER_B
+  number_of_clumps 15
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 4
+percent_chance 50
+  land_percent 3
+end_random
+  set_scale_by_size
+}
+
+create_terrain MED_WATER
+{
+base_terrain WATER
+land_percent 40
+number_of_clumps 6
+spacing_to_other_terrain_types 3
+}
+
+create_terrain DEEP_WATER
+{
+base_terrain MED_WATER
+land_percent 5
+number_of_clumps 6
+spacing_to_other_terrain_types 4
+}
+
+	elseif TREELINE_GO
+
+
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+<LAND_GENERATION>
+base_terrain LAYER_A
+
+
+create_player_lands
+{
+  terrain_type LAYER_A
+  land_percent 20
+  base_size 7
+  border_fuzziness 12
+}
+
+create_land
+{
+  terrain_type WOODIES
+  land_percent 50
+if TINY_MAP
+  top_border  36
+  bottom_border 36
+  left_border  36
+  right_border 36
+elseif SMALL_MAP
+  top_border  38
+  bottom_border 38
+  left_border  38
+  right_border 38
+elseif MEDIUM_MAP
+  top_border  40
+  bottom_border 40
+  left_border  40
+  right_border 40
+else
+  top_border  42
+  bottom_border 42
+  left_border  42
+  right_border 42
+endif
+     border_fuzziness 10
+     clumping_factor 15
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain LAYER_C
+{
+base_terrain WOODIES
+land_percent 100
+number_of_clumps 100
+spacing_to_other_terrain_types 1
+}
+
+create_terrain WOODIES
+{
+base_terrain LAYER_C
+land_percent 100
+number_of_clumps 100
+spacing_to_other_terrain_types 4
+}
+
+create_terrain SLOPES_DOWN
+{
+base_terrain WOODIES
+land_percent 100
+number_of_clumps 100
+spacing_to_other_terrain_types 1
+}
+
+
+create_terrain WOODIES
+{
+base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 7
+  number_of_clumps 14
+percent_chance 20
+  land_percent 10
+  number_of_clumps 12
+percent_chance 20
+  land_percent 13
+  number_of_clumps 13
+percent_chance 20
+  land_percent 17
+  number_of_clumps 13
+percent_chance 20
+  land_percent 21
+  number_of_clumps 18
+end_random
+     spacing_to_other_terrain_types 5
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+/* WATER MIXER */
+
+create_terrain MED_WATER
+{
+base_terrain WATER
+land_percent 40
+number_of_clumps 6
+spacing_to_other_terrain_types 3
+}
+
+create_terrain DEEP_WATER
+{
+base_terrain MED_WATER
+land_percent 5
+number_of_clumps 6
+spacing_to_other_terrain_types 4
+}
+
+
+  create_terrain LAYER_B
+{
+  base_terrain LAYER_A
+  number_of_clumps 80
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 20
+percent_chance 50
+  land_percent 16
+end_random
+  set_scale_by_size
+}
+
+  create_terrain LAYER_A
+{
+  base_terrain LAYER_B
+  number_of_clumps 15
+  spacing_to_other_terrain_types 0
+start_random
+percent_chance 50
+  land_percent 4
+percent_chance 50
+  land_percent 3
+end_random
+  set_scale_by_size
+}
+
+
+	elseif FOCUS_GO
+
+
+/* ************************************ */
+<PLAYER_SETUP>
+
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain LAYER_A
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 100
+     base_size 10
+     border_fuzziness 20
+     clumping_factor 20
+     other_zone_avoidance_distance 0
+	base_elevation 7
+}
+
+start_random
+percent_chance 90  #define KILEY_WHITE
+percent_chance 10  #define KILEY_BLACK
+end_random
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+create_land
+{
+	terrain_type LAYER_B
+     land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+bottom_border	10
+top_border	10
+left_border	10
+right_border	10
+base_elevation 0
+}
+
+start_random
+percent_chance 11
+#define MEGAORDER_SPECIAL_JELENHERD_BIG_LDOWN
+end_random
+
+start_random
+percent_chance 11
+#define MEGAORDER_DISTANTGOLD_PLACEON_L_DOWN
+#define MEGAORDER_DISTANTGOLD_PLACEMENT_FIVE
+end_random
+
+start_random
+percent_chance 11
+#define MEGAORDER_DISTANTSTONE_PLACEON_L_DOWN
+#define MEGAORDER_DISTANTSTONE_PLACEMENT_FIVE
+end_random
+
+start_random
+percent_chance 11
+#define MEGAORDER_SPECIAL_DOMESTICDOWN
+end_random
+
+create_land
+{
+	terrain_type ROAD_OTHER
+number_of_tiles 20
+     border_fuzziness 10
+     clumping_factor 15
+land_position 50 50
+bottom_border	47
+top_border	47
+left_border	47
+right_border	47
+base_elevation 5
+}
+
+<TERRAIN_GENERATION>
+
+if KILEY_BLACK
+     create_terrain SLOPES_UP
+elseif KILEY_WHITE
+     create_terrain SLOPES_DOWN
+endif
+{
+spacing_to_other_terrain_types 1
+     base_terrain LAYER_B
+     land_percent 100
+number_of_clumps 100
+}
+
+if KILEY_BLACK
+     create_terrain SLOPES_UP
+elseif KILEY_WHITE
+     create_terrain SLOPES_DOWN
+endif
+{
+spacing_to_other_terrain_types 1
+     base_terrain LAYER_B
+     land_percent 100
+number_of_clumps 100
+}
+
+create_terrain LAYER_DOWN
+{
+if KILEY_BLACK
+     base_terrain SLOPES_UP
+elseif KILEY_WHITE
+     base_terrain SLOPES_DOWN
+endif
+     land_percent 100
+number_of_clumps 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 0 0
+}
+
+create_terrain LAYER_DOWN
+{
+if KILEY_BLACK
+     base_terrain SLOPES_UP
+elseif KILEY_WHITE
+     base_terrain SLOPES_DOWN
+endif
+     land_percent 100
+number_of_clumps 100
+     set_avoid_player_start_areas
+     set_scale_by_groups
+height_limits 0 0
+}
+
+start_random
+percent_chance 50
+
+create_terrain WOODIES_DOWN
+{
+     base_terrain LAYER_B
+     spacing_to_other_terrain_types 0
+     land_percent 1
+     number_of_clumps 15
+     set_avoid_player_start_areas
+     set_scale_by_groups
+}
+
+end_random
+
+start_random
+percent_chance 25 #define KILEY_REVERSED
+end_random
+
+create_terrain WOODIES_DOWN
+{
+     base_terrain LAYER_DOWN
+if KILEY_REVERSED
+start_random
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 4
+  number_of_clumps 16
+percent_chance 20
+  land_percent 5
+  number_of_clumps 18
+end_random
+else
+start_random
+percent_chance 20
+  land_percent 5
+  number_of_clumps 18
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 11
+  number_of_clumps 18
+percent_chance 20
+  land_percent 13
+  number_of_clumps 18
+end_random
+endif
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_A
+if KILEY_REVERSED
+start_random
+percent_chance 20
+  land_percent 7
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 10
+  number_of_clumps 18
+percent_chance 20
+  land_percent 11
+  number_of_clumps 18
+percent_chance 20
+  land_percent 13
+  number_of_clumps 18
+end_random
+else
+start_random
+percent_chance 20
+  land_percent 3
+  number_of_clumps 18
+percent_chance 20
+  land_percent 3
+  number_of_clumps 18
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 4
+  number_of_clumps 16
+percent_chance 20
+  land_percent 5
+  number_of_clumps 16
+end_random
+endif
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif MIGRATION_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+#define MEGAORDER_CLOSELANDSPACKAGE
+
+/* ************************************ */
+<PLAYER_SETUP>
+
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain WATER
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 18
+     base_size 10
+     border_fuzziness 20
+     clumping_factor 20
+     other_zone_avoidance_distance 9
+}
+
+create_land
+{
+	terrain_type LAYER_C
+land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+land_position 50 50
+bottom_border	26
+top_border	26
+left_border	26
+right_border	26
+other_zone_avoidance_distance 9
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain WOODIES_DOWN
+{
+     base_terrain LAYER_C
+  land_percent 1
+  number_of_clumps 5
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 1
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+/* MIXING WATER */
+
+create_terrain MED_WATER
+{
+base_terrain WATER
+number_of_clumps 6
+spacing_to_other_terrain_types 3
+land_percent 40
+}
+
+create_terrain DEEP_WATER
+{
+base_terrain MED_WATER
+number_of_clumps 6
+spacing_to_other_terrain_types 5
+land_percent 5
+}
+
+	elseif ICELAND_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+#define MEGAORDER_CLOSELANDSPACKAGE
+
+/* ************************************ */
+<PLAYER_SETUP>
+
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain SWAMPIES
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 18
+     base_size 10
+     border_fuzziness 20
+     clumping_factor 20
+     other_zone_avoidance_distance 9
+}
+
+create_land
+{
+	terrain_type ROAD_OTHER
+number_of_tiles 20
+     border_fuzziness 10
+     clumping_factor 15
+land_position 50 50
+bottom_border	47
+top_border	47
+left_border	47
+right_border	47
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 1
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif ICELANDHARD_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+#define MEGAORDER_CLOSELANDSPACKAGE
+
+/* ************************************ */
+<PLAYER_SETUP>
+
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain SWAMPIES
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 16
+     base_size 10
+     border_fuzziness 20
+     clumping_factor 20
+     other_zone_avoidance_distance 9
+}
+
+create_land
+{
+	terrain_type LAYER_C
+land_percent 100
+     border_fuzziness 10
+     clumping_factor 15
+land_position 50 50
+if TINY_MAP
+bottom_border	40
+top_border	40
+left_border	40
+right_border	40
+else
+bottom_border	44
+top_border	44
+left_border	44
+right_border	44
+endif
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_C
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 1
+}
+
+create_terrain ROAD_OTHER
+{
+     base_terrain WOODIES
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 1
+}
+
+create_terrain ROAD_OTHER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 1
+}
+
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 1
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+	endif
+elseif CTR_BATCHTWO
+	if HOLEYMIGRATION_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+#define MEGAORDER_CLOSELANDSPACKAGE
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain WATER
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 8
+     base_size 10
+     border_fuzziness 20
+     clumping_factor 20
+     other_zone_avoidance_distance 5
+}
+
+if TINY_MAP
+
+
+create_land
+{
+	terrain_type LAYER_C
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+bottom_border	40
+top_border	40
+left_border	40
+right_border	40
+     other_zone_avoidance_distance 5
+}
+
+elseif SMALL_MAP
+
+create_land
+{
+	terrain_type LAYER_C
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+bottom_border	40
+top_border	40
+left_border	40
+right_border	40
+     other_zone_avoidance_distance 5
+}
+
+else
+
+create_land
+{
+	terrain_type ROAD_OTHER
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+bottom_border	45
+top_border	45
+left_border	45
+right_border	45
+     other_zone_avoidance_distance 5
+}
+
+endif
+
+<TERRAIN_GENERATION>
+
+create_terrain LAYER_C
+{
+     base_terrain WATER
+  land_percent 100
+  number_of_clumps 100
+if MEDIUM_MAP
+     spacing_to_other_terrain_types 3
+else
+     spacing_to_other_terrain_types 5
+endif
+}
+
+
+create_terrain LAYER_C
+{
+     base_terrain WATER
+  land_percent 100
+  number_of_clumps 100
+if MEDIUM_MAP
+     spacing_to_other_terrain_types 3
+else
+     spacing_to_other_terrain_types 5
+endif
+}
+
+
+create_terrain LAYER_C
+{
+     base_terrain WATER
+  land_percent 100
+  number_of_clumps 100
+if MEDIUM_MAP
+     spacing_to_other_terrain_types 3
+else
+     spacing_to_other_terrain_types 5
+endif
+}
+
+create_terrain LAYER_C
+{
+     base_terrain WATER
+  land_percent 100
+  number_of_clumps 100
+if MEDIUM_MAP
+     spacing_to_other_terrain_types 3
+else
+     spacing_to_other_terrain_types 5
+endif
+}
+
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 1
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 18
+percent_chance 20
+  land_percent 2
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+percent_chance 20
+  land_percent 3
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_C
+start_random
+percent_chance 20
+  land_percent 5
+  number_of_clumps 18
+percent_chance 20
+  land_percent 7
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 16
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 10
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif CHEESEBURGER_GO
+
+#define MEGAORDER_CHEESE
+#define MEGAORDER_CLOSELANDSPACKAGE
+#define MEGAORDER_NO_ELEVATION
+
+<PLAYER_SETUP>
+  random_placement
+
+<LAND_GENERATION>
+
+base_terrain WOODIES
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 100
+     base_size 9
+     border_fuzziness 100
+     clumping_factor 20
+     set_zone_by_team
+right_border 20
+bottom_border 20
+left_border 20
+top_border 20
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+     terrain_type SLOPES_DOWN
+     land_percent 100
+     border_fuzziness 100
+     clumping_factor 20
+     set_zone_by_team
+right_border 44
+bottom_border 44
+left_border 44
+top_border 44
+     other_zone_avoidance_distance 4
+zone 35
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain WATER
+{
+base_terrain WOODIES
+land_percent 100
+}
+
+create_terrain LAYER_C
+{
+base_terrain WATER
+number_of_clumps 10
+spacing_to_other_terrain_types 9
+land_percent 60
+}
+
+create_terrain WOODIES_B
+{
+base_terrain LAYER_C
+number_of_clumps 100
+spacing_to_other_terrain_types 6
+land_percent 8
+}
+
+if TINY_MAP
+
+create_terrain WOODIES
+{
+base_terrain LAYER_A
+number_of_clumps 6
+land_percent 2
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+endif
+	elseif	CLOVERSTANDARD_GO
+
+
+#define MEGAORDER_NO_WATERCONTACT
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain LAYER_A
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 100
+     base_size 12
+     border_fuzziness 20
+     clumping_factor 20
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WATER
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	34
+top_border	52
+left_border	52
+right_border	34
+elseif SMALL_MAP
+bottom_border	34
+top_border	52
+left_border	52
+right_border	34
+elseif MEDIUM_MAP
+bottom_border	34
+top_border	52
+left_border	52
+right_border	34
+else
+bottom_border	34
+top_border	51
+left_border	51
+right_border	34
+endif
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WATER
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	52
+top_border	34
+left_border	34
+right_border	52
+elseif SMALL_MAP
+bottom_border	52
+top_border	34
+left_border	34
+right_border	52
+elseif MEDIUM_MAP
+bottom_border	52
+top_border	34
+left_border	34
+right_border	52
+else
+bottom_border	51
+top_border	34
+left_border	34
+right_border	51
+endif
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WATER
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	34
+top_border	52
+left_border	34
+right_border	52
+elseif SMALL_MAP
+bottom_border	34
+top_border	52
+left_border	34
+right_border	52
+elseif MEDIUM_MAP
+bottom_border	34
+top_border	52
+left_border	34
+right_border	52
+else
+bottom_border	34
+top_border	51
+left_border	34
+right_border	51
+endif
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WATER
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	52
+top_border	34
+left_border	52
+right_border	34
+elseif SMALL_MAP
+bottom_border	52
+top_border	34
+left_border	52
+right_border	34
+elseif MEDIUM_MAP
+bottom_border	52
+top_border	34
+left_border	52
+right_border	34
+else
+bottom_border	51
+top_border	34
+left_border	51
+right_border	34
+endif
+     other_zone_avoidance_distance 4
+}
+
+<TERRAIN_GENERATION>
+
+create_terrain WOODIES
+{
+     base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 12
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 4
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+/* MIXING WATER */
+
+create_terrain MED_WATER
+{
+base_terrain WATER
+number_of_clumps 100
+spacing_to_other_terrain_types 3
+land_percent 40
+}
+
+create_terrain DEEP_WATER
+{
+base_terrain MED_WATER
+number_of_clumps 100
+spacing_to_other_terrain_types 5
+land_percent 5
+}
+
+	elseif	CLOVERCHALLENGE_GO
+
+
+#define MEGAORDER_NO_WATERCONTACT
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain LAYER_A
+
+create_player_lands
+{
+     terrain_type LAYER_A
+     land_percent 5
+     base_size 6
+     border_fuzziness 20
+     clumping_factor 20
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WOODIES
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	28
+top_border	52
+left_border	52
+right_border	28
+elseif SMALL_MAP
+bottom_border	28
+top_border	52
+left_border	52
+right_border	28
+elseif MEDIUM_MAP
+bottom_border	28
+top_border	52
+left_border	52
+right_border	28
+else
+bottom_border	28
+top_border	51
+left_border	51
+right_border	28
+endif
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WOODIES
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	52
+top_border	28
+left_border	28
+right_border	52
+elseif SMALL_MAP
+bottom_border	52
+top_border	28
+left_border	28
+right_border	52
+elseif MEDIUM_MAP
+bottom_border	52
+top_border	28
+left_border	28
+right_border	52
+else
+bottom_border	51
+top_border	28
+left_border	28
+right_border	51
+endif
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WOODIES
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	28
+top_border	51
+left_border	28
+right_border	51
+elseif SMALL_MAP
+bottom_border	28
+top_border	51
+left_border	28
+right_border	51
+elseif MEDIUM_MAP
+bottom_border	28
+top_border	51
+left_border	28
+right_border	51
+else
+bottom_border	28
+top_border	50
+left_border	28
+right_border	50
+endif
+     other_zone_avoidance_distance 4
+}
+
+create_land
+{
+	terrain_type WOODIES
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 10
+if TINY_MAP
+bottom_border	51
+top_border	28
+left_border	51
+right_border	28
+elseif SMALL_MAP
+bottom_border	51
+top_border	28
+left_border	51
+right_border	28
+elseif MEDIUM_MAP
+bottom_border	51
+top_border	28
+left_border	51
+right_border	28
+else
+bottom_border	50
+top_border	28
+left_border	50
+right_border	28
+endif
+     other_zone_avoidance_distance 4
+}
+
+
+<TERRAIN_GENERATION>
+
+
+create_terrain WATER
+{
+     base_terrain WOODIES
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain WOODIES_B
+{
+     base_terrain LAYER_A
+start_random
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 12
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 6
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+
+/* MIXING WATER */
+
+create_terrain MED_WATER
+{
+base_terrain WATER
+number_of_clumps 100
+spacing_to_other_terrain_types 3
+land_percent 40
+}
+
+create_terrain DEEP_WATER
+{
+base_terrain MED_WATER
+number_of_clumps 100
+spacing_to_other_terrain_types 5
+land_percent 5
+}
+
+	elseif SPIRAL_GO
+
+
+#define MEGAORDER_NO_WATERCONTACT
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain GRASS
+
+create_player_lands
+{
+     terrain_type GRASS
+     land_percent 3
+     base_size 4
+     border_fuzziness 20
+     clumping_factor 20
+}
+
+create_land
+{
+	terrain_type GRASS2
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+land_position 50 50
+bottom_border	28
+top_border	28
+left_border 28
+right_border 28
+zone 14
+}
+
+
+<TERRAIN_GENERATION>
+
+
+create_terrain FOREST
+{
+     base_terrain GRASS2
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain GRASS3
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PALM_DESERT
+{
+     base_terrain GRASS3
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain ROAD
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain JUNGLE
+{
+     base_terrain ROAD
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT
+{
+     base_terrain JUNGLE
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PINE_FOREST
+{
+     base_terrain DIRT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+create_terrain DIRT2
+{
+     base_terrain PINE_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW_FOREST
+{
+     base_terrain DIRT2
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+/*
+
+create_terrain BAMBOO
+{
+     base_terrain SNOW
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT_SNOW
+{
+     base_terrain BAMBOO
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+*/
+
+create_terrain WATER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SHALLOW
+{
+     base_terrain FOREST
+  number_of_tiles 80
+  number_of_clumps 2
+}
+
+if TINY_MAP
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 40
+  number_of_clumps 1
+}
+elseif SMALL_MAP
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 40
+  number_of_clumps 1
+}
+else
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 80
+  number_of_clumps 2
+}
+endif
+
+create_terrain SHALLOW
+{
+     base_terrain JUNGLE
+  number_of_tiles 40
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain PINE_FOREST
+  number_of_tiles 40
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain SNOW_FOREST
+  number_of_tiles 50
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain BAMBOO
+  number_of_tiles 50
+  number_of_clumps 1
+}
+
+create_terrain DEEP_WATER
+{
+     base_terrain PINE_FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain DEEP_WATER
+{
+     base_terrain PINE_FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+
+create_terrain DEEP_WATER
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain DEEP_WATER
+{
+     base_terrain BAMBOO
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain DEEP_WATER
+{
+     base_terrain JUNGLE
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain DEEP_WATER
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain DEEP_WATER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain DEEP_WATER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain FOREST
+{
+     base_terrain GRASS
+start_random
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 12
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 6
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif SPIRALHARD_GO
+
+
+#define MEGAORDER_NO_WATERCONTACT
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain GRASS
+
+create_player_lands
+{
+     terrain_type GRASS
+     land_percent 3
+     base_size 4
+     border_fuzziness 20
+     clumping_factor 20
+}
+
+create_land
+{
+	terrain_type GRASS2
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+land_position 50 50
+bottom_border	28
+top_border	28
+left_border 28
+right_border 28
+zone 14
+}
+
+
+<TERRAIN_GENERATION>
+
+
+create_terrain FOREST
+{
+     base_terrain GRASS2
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain GRASS3
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PALM_DESERT
+{
+     base_terrain GRASS3
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain ROAD
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain JUNGLE
+{
+     base_terrain ROAD
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT
+{
+     base_terrain JUNGLE
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PINE_FOREST
+{
+     base_terrain DIRT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+create_terrain DIRT2
+{
+     base_terrain PINE_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW_FOREST
+{
+     base_terrain DIRT2
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain BAMBOO
+{
+     base_terrain SNOW
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT_SNOW
+{
+     base_terrain BAMBOO
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 2
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain WATER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SHALLOW
+{
+     base_terrain FOREST
+  number_of_tiles 40
+  number_of_clumps 2
+}
+
+if TINY_MAP
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 40
+  number_of_clumps 1
+}
+elseif SMALL_MAP
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 40
+  number_of_clumps 1
+}
+else
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 80
+  number_of_clumps 2
+}
+endif
+
+create_terrain SHALLOW
+{
+     base_terrain JUNGLE
+  number_of_tiles 20
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain PINE_FOREST
+  number_of_tiles 20
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain SNOW_FOREST
+  number_of_tiles 20
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain BAMBOO
+  number_of_tiles 20
+  number_of_clumps 1
+}
+
+create_terrain FOREST
+{
+     base_terrain GRASS
+start_random
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 12
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 6
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif SPIRALFOREST_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain GRASS
+
+create_player_lands
+{
+     terrain_type GRASS
+     land_percent 3
+     base_size 4
+     border_fuzziness 20
+     clumping_factor 20
+}
+
+create_land
+{
+	terrain_type GRASS2
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+land_position 50 50
+bottom_border	28
+top_border	28
+left_border 28
+right_border 28
+zone 14
+}
+
+
+<TERRAIN_GENERATION>
+
+
+create_terrain FOREST
+{
+     base_terrain GRASS2
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain GRASS3
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PALM_DESERT
+{
+     base_terrain GRASS3
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain ROAD
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain JUNGLE
+{
+     base_terrain ROAD
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT
+{
+     base_terrain JUNGLE
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PINE_FOREST
+{
+     base_terrain DIRT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+create_terrain DIRT2
+{
+     base_terrain PINE_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW_FOREST
+{
+     base_terrain DIRT2
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+/*
+
+create_terrain BAMBOO
+{
+     base_terrain SNOW
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT_SNOW
+{
+     base_terrain BAMBOO
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+*/
+
+create_terrain WATER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SHALLOW
+{
+     base_terrain FOREST
+  number_of_tiles 80
+  number_of_clumps 2
+}
+
+if TINY_MAP
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 40
+  number_of_clumps 1
+}
+elseif SMALL_MAP
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 40
+  number_of_clumps 1
+}
+else
+create_terrain SHALLOW
+{
+     base_terrain PALM_DESERT
+  number_of_tiles 80
+  number_of_clumps 2
+}
+endif
+
+create_terrain SHALLOW
+{
+     base_terrain JUNGLE
+  number_of_tiles 40
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain PINE_FOREST
+  number_of_tiles 40
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain SNOW_FOREST
+  number_of_tiles 50
+  number_of_clumps 1
+}
+
+create_terrain SHALLOW
+{
+     base_terrain BAMBOO
+  number_of_tiles 50
+  number_of_clumps 1
+}
+
+create_terrain FOREST
+{
+     base_terrain GRASS
+start_random
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 12
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 6
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif DOCKON_GO
+
+
+
+#define MEGAORDER_NO_WATERCONTACT
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain DESERT
+
+create_player_lands
+{
+     terrain_type DESERT
+     land_percent 3
+     base_size 4
+     border_fuzziness 20
+     clumping_factor 20
+}
+
+create_land
+{
+	terrain_type GRASS2
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+land_position 50 50
+bottom_border	24
+top_border	24
+left_border 24
+right_border 24
+zone 14
+}
+
+
+<TERRAIN_GENERATION>
+
+
+create_terrain FOREST
+{
+     base_terrain GRASS2
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 1
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain GRASS3
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PALM_DESERT
+{
+     base_terrain GRASS3
+  land_percent 100
+  number_of_clumps 100
+if LUDIKRIS_MAP
+     spacing_to_other_terrain_types 16
+else
+     spacing_to_other_terrain_types 6
+endif
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain ROAD
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain JUNGLE
+{
+     base_terrain ROAD
+  land_percent 100
+  number_of_clumps 100
+if LUDIKRIS_MAP
+     spacing_to_other_terrain_types 16
+else
+     spacing_to_other_terrain_types 6
+endif
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT
+{
+     base_terrain JUNGLE
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PINE_FOREST
+{
+     base_terrain DIRT
+  land_percent 100
+  number_of_clumps 100
+if LUDIKRIS_MAP
+     spacing_to_other_terrain_types 16
+else
+     spacing_to_other_terrain_types 6
+endif
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+
+create_terrain DIRT2
+{
+     base_terrain PINE_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW_FOREST
+{
+     base_terrain DIRT2
+  land_percent 100
+  number_of_clumps 100
+if LUDIKRIS_MAP
+     spacing_to_other_terrain_types 16
+else
+     spacing_to_other_terrain_types 6
+endif
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain SNOW
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+if LUDIKRIS_MAP
+
+create_terrain BAMBOO
+{
+     base_terrain SNOW
+  land_percent 100
+  number_of_clumps 100
+if LUDIKRIS_MAP
+     spacing_to_other_terrain_types 16
+else
+     spacing_to_other_terrain_types 6
+endif
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain DIRT_SNOW
+{
+     base_terrain BAMBOO
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+else
+endif
+
+create_terrain WATER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 5
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain WATER
+{
+     base_terrain BAMBOO
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain WATER
+{
+     base_terrain SNOW_FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain WATER
+{
+     base_terrain PINE_FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain WATER
+{
+     base_terrain JUNGLE
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain WATER
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain WATER
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain PALM_DESERT
+{
+     base_terrain DESERT
+start_random
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 12
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 6
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif DESERTCONFUSION_GO
+
+#define MEGAORDER_CLOSELANDSPACKAGE
+#define MEGAORDER_NO_WATERCONTACT
+#define MEGAODOUR_DESERTCONFUSION
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain DIRT2
+
+create_player_lands
+{
+     terrain_type DIRT
+     land_percent 100
+     base_size 12
+     border_fuzziness 20
+     clumping_factor 20
+other_zone_avoidance_distance 25
+}
+
+create_land
+{
+	terrain_type DESERT
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+land_position 50 50
+bottom_border	38
+top_border	38
+left_border 38
+right_border 38
+zone 14
+other_zone_avoidance_distance 15
+}
+
+
+<TERRAIN_GENERATION>
+
+create_terrain PALM_DESERT
+{
+     base_terrain DIRT
+  land_percent 6
+  number_of_clumps 18
+     spacing_to_other_terrain_types 6
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+	elseif TWOROWSOFBERRIES_GO
+
+#define MEGAORDER_NO_WATERCONTACT
+#define MEGAORDER_SPECIFICBERRIES
+
+/* ************************************ */
+<PLAYER_SETUP>
+  random_placement
+
+start_random
+percent_chance 10 #define NOMADIC_WAY
+end_random
+
+if NOMADIC_WAY
+ nomad_resources
+endif
+
+if NOMADIC_WAY
+ai_info_map_type CUSTOM 1 0 0
+else
+ai_info_map_type CUSTOM 0 0 0
+endif
+
+/* ************************************ */
+
+<LAND_GENERATION>
+
+base_terrain GRASS
+
+create_player_lands
+{
+     terrain_type GRASS
+     land_percent 3
+     base_size 4
+     border_fuzziness 20
+     clumping_factor 20
+}
+
+create_land
+{
+	terrain_type GRASS3
+land_percent 100
+     border_fuzziness 100
+     clumping_factor 15
+land_position 50 50
+bottom_border	32
+top_border	32
+left_border 32
+right_border 32
+zone 14
+}
+
+
+<TERRAIN_GENERATION>
+
+
+create_terrain FOREST
+{
+     base_terrain GRASS3
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 1
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain GRASS2
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 3
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain PALM_DESERT
+{
+     base_terrain GRASS2
+  land_percent 100
+  number_of_clumps 100
+if TINY_MAP
+     spacing_to_other_terrain_types 3
+elseif SMALL_MAP
+     spacing_to_other_terrain_types 6
+else
+     spacing_to_other_terrain_types 10
+endif
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain ROAD
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+     spacing_to_other_terrain_types 1
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+
+create_terrain GRASS3
+{
+     base_terrain PALM_DESERT
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain GRASS2
+{
+     base_terrain ROAD
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain GRASS2
+{
+     base_terrain FOREST
+  land_percent 100
+  number_of_clumps 100
+}
+
+create_terrain PINE_FOREST
+{
+     base_terrain GRASS
+start_random
+percent_chance 20
+  land_percent 6
+  number_of_clumps 18
+percent_chance 20
+  land_percent 8
+  number_of_clumps 18
+percent_chance 20
+  land_percent 9
+  number_of_clumps 16
+percent_chance 20
+  land_percent 11
+  number_of_clumps 16
+percent_chance 20
+  land_percent 12
+  number_of_clumps 16
+end_random
+     spacing_to_other_terrain_types 6
+     set_scale_by_groups
+     set_avoid_player_start_areas
+}
+	endif
+endif
+
+
+if MEGAORDER_CLOSELANDSPACKAGE
+#define MEGAORDER_NO_WALL
+#define MEGAORDER_NO_TOWER
+#define MEGAORDER_NOMADVILLS_STAY_PUT
+#define MEGAORDER_NO_CASTLE
+#define MEGAORDER_DOMESTIC2_NOTFAR
+#define MEGAORDER_JELEN_NOTFAR
+#define MEGAORDER_PIG_NOTFAR
+#define MEGAORDER_HOMEGOLD_NOTFAR
+#define MEGAORDER_HOMESTONE_NOTFAR
+#define MEGAORDER_APPLES_NOTFAR
+endif
+
+
+<OBJECTS_GENERATION>
+
+/* TC and NOTC simply set in PLAYER_SETUP */
+
+if NOMADIC_WAY
+ #define NOTCMODE
+else
+ #define TCMODE
+endif
+
+if NOTCMODE
+elseif TCMODE
+create_object TOWN_CENTER
+{
+  set_place_for_every_player
+  group_placement_radius 18
+  min_distance_to_players 0
+  max_distance_to_players 0
+}
+endif
+
+if MEGAORDER_NO_TOWER
+	if MEGAORDER_NO_CASTLE
+		if REGICIDE
+			if MEGAORDER_IMPOSSIBLE_REGICIDE
+			else
+
+create_object WATCH_TOWER
+{
+number_of_objects 1
+  set_place_for_every_player
+  min_distance_to_players 4
+  max_distance_to_players 8
+  min_distance_group_placement 3
+}
+
+			endif
+		endif
+	endif
+else
+
+	if REGICIDE
+		if MEGAORDER_NO_CASTLE
+start_random
+	percent_chance 100 #define VEZICKA
+end_random
+		else
+start_random
+	percent_chance 3 #define VEZICKA
+	percent_chance 1 #define BUMVEZICKA
+	percent_chance 1 #define MALAVEZICKA
+	percent_chance 1 #define LEPSIVEZICKA
+	percent_chance 1 #define MODERNIVEZICKA
+	percent_chance 93 #define ZADNAVEZICKA
+end_random
+		endif
+	else
+start_random
+	percent_chance 3 #define VEZICKA
+	percent_chance 1 #define BUMVEZICKA
+	percent_chance 1 #define MALAVEZICKA
+	percent_chance 1 #define LEPSIVEZICKA
+	percent_chance 1 #define MODERNIVEZICKA
+	percent_chance 93 #define ZADNAVEZICKA
+end_random
+	endif
+endif
+
+if VEZICKA
+create_object WATCH_TOWER
+{
+start_random
+percent_chance 50
+number_of_objects 1
+percent_chance 30
+number_of_objects 2
+percent_chance 20
+number_of_objects 3
+end_random
+  set_place_for_every_player
+  min_distance_to_players 13
+  max_distance_to_players 15
+  min_distance_group_placement 3
+}
+
+elseif BUMVEZICKA
+create_object BOMBARD_TOWER
+{
+start_random
+percent_chance 50
+number_of_objects 1
+percent_chance 30
+number_of_objects 2
+percent_chance 20
+number_of_objects 3
+end_random
+  set_place_for_every_player
+  min_distance_to_players 13
+  max_distance_to_players 15
+  min_distance_group_placement 3
+}
+
+elseif MALAVEZICKA
+create_object OUTPOST
+{
+start_random
+percent_chance 50
+number_of_objects 1
+percent_chance 30
+number_of_objects 2
+percent_chance 20
+number_of_objects 3
+end_random
+  set_place_for_every_player
+  min_distance_to_players 13
+  max_distance_to_players 15
+  min_distance_group_placement 3
+}
+
+elseif LEPSIVEZICKA
+create_object GUARD_TOWER
+{
+start_random
+percent_chance 50
+number_of_objects 1
+percent_chance 30
+number_of_objects 2
+percent_chance 20
+number_of_objects 3
+end_random
+  set_place_for_every_player
+  min_distance_to_players 13
+  max_distance_to_players 15
+  min_distance_group_placement 3
+}
+
+elseif MODERNIVEZICKA
+create_object KEEP
+{
+start_random
+percent_chance 50
+number_of_objects 1
+percent_chance 30
+number_of_objects 2
+percent_chance 20
+number_of_objects 3
+end_random
+  set_place_for_every_player
+  min_distance_to_players 13
+  max_distance_to_players 15
+  min_distance_group_placement 3
+}
+
+elseif ZADNAVEZICKA
+endif
+
+if SPECIALVILLSAPPEARANCE
+
+create_object VILLAGER
+{
+	set_place_for_every_player
+if TINY_MAP
+	terrain_to_place_on DIRT_SNOW
+elseif SMALL_MAP
+	terrain_to_place_on DIRT_SNOW
+elseif MEDIUM_MAP
+	terrain_to_place_on DIRT_SNOW
+elseif LARGE_MAP
+	terrain_to_place_on DIRT_SNOW
+else
+	terrain_to_place_on SNOW
+endif
+}
+
+else
+
+start_random
+	percent_chance 20 #define MOREVILLS
+	percent_chance 80 #define NORMALVILLS
+end_random
+
+if MOREVILLS
+
+create_object VILLAGER
+{
+start_random
+percent_chance 33
+number_of_objects 1
+percent_chance 33
+number_of_objects 2
+percent_chance 34
+number_of_objects 4
+end_random
+  set_place_for_every_player
+	if NOTCMODE
+		if MEGAORDER_NOMADVILLS_STAY_PUT
+  min_distance_to_players 6
+  max_distance_to_players 6
+		else
+  min_distance_to_players 6
+  max_distance_to_players 12
+		endif
+	else
+  min_distance_to_players 6
+  max_distance_to_players 6
+	endif
+ }
+
+	if REGICIDE
+create_object VILLAGER
+{
+  number_of_objects 4
+  set_place_for_every_player
+  min_distance_to_players 6
+  max_distance_to_players 6
+}
+	endif
+
+create_object VILLAGER
+{
+  set_place_for_every_player
+if NOTCMODE
+	if MEGAORDER_NOMADVILLS_STAY_PUT
+  min_distance_to_players 6
+  max_distance_to_players 6
+	else
+  min_distance_to_players 6
+  max_distance_to_players 12
+	endif
+else
+  min_distance_to_players 6
+  max_distance_to_players 6
+endif
+ }
+
+elseif NORMALVILLS
+
+	if REGICIDE
+create_object VILLAGER
+{
+  number_of_objects 6
+  set_place_for_every_player
+  min_distance_to_players 6
+  max_distance_to_players 6
+}
+	endif
+
+create_object VILLAGER
+{
+  set_place_for_every_player
+if NOTCMODE
+	if MEGAORDER_NOMADVILLS_STAY_PUT
+  min_distance_to_players 6
+  max_distance_to_players 6
+	else
+  min_distance_to_players 6
+  max_distance_to_players 12
+	endif
+else
+  min_distance_to_players 6
+  max_distance_to_players 6
+endif
+ }
+
+endif
+
+endif
+
+if MEGAORDER_NO_STEED
+else
+start_random
+	percent_chance 60 #define MRHORSE
+	percent_chance 9 #define MRANDMRSHORSE
+	percent_chance 10 #define NOHORSE
+	percent_chance 12 #define MRPETONHOOVES
+	percent_chance 3 #define BOUNCER
+	percent_chance 3 #define STABBER
+	percent_chance 3 #define JAVELINGUY
+end_random
+endif
+
+if MRHORSE
+create_object SCOUT
+{
+	if NOTCMODE
+	number_of_objects 0
+	else
+	number_of_objects 1
+	endif
+  set_place_for_every_player
+  min_distance_to_players 7
+  max_distance_to_players 9
+ }
+elseif MRANDMRSHORSE
+create_object SCOUT
+{
+	if NOTCMODE
+	number_of_objects 0
+	else
+	number_of_objects 2
+	endif
+  set_place_for_every_player
+  min_distance_to_players 7
+  max_distance_to_players 9
+ }
+elseif NOHORSE
+elseif MRPETONHOOVES
+create_object PETWITHHOOVES
+{
+start_random
+percent_chance 70
+	number_of_objects 1
+percent_chance 20
+	number_of_objects 2
+percent_chance 5
+	number_of_objects 3
+percent_chance 5
+	number_of_objects 4
+end_random
+  set_place_for_every_player
+  min_distance_to_players 7
+  max_distance_to_players 9
+ }
+elseif BOUNCER
+create_object MILITIA
+{
+	if NOTCMODE
+	number_of_objects 0
+	else
+	number_of_objects 1
+	endif
+  set_place_for_every_player
+  min_distance_to_players 7
+  max_distance_to_players 9
+ }
+elseif STABBER
+create_object SPEARMAN
+{
+	if NOTCMODE
+	number_of_objects 0
+	else
+	number_of_objects 1
+	endif
+  set_place_for_every_player
+  min_distance_to_players 7
+  max_distance_to_players 9
+ }
+elseif JAVELINGUY
+create_object SKIRMISHER
+{
+	if NOTCMODE
+	number_of_objects 0
+	else
+start_random
+percent_chance 80
+	number_of_objects 1
+percent_chance 20
+	number_of_objects 2
+end_random
+	endif
+  set_place_for_every_player
+  min_distance_to_players 7
+  max_distance_to_players 9
+ }
+endif
+
+if REGICIDE
+
+create_object KING
+{
+  set_place_for_every_player
+  min_distance_to_players 6
+  max_distance_to_players 6
+}
+
+endif
+
+if MEGAORDER_NO_BONUSBUILDING
+else
+start_random
+	percent_chance 3 #define BARRACKS_GG
+	percent_chance 3 #define ARCHERY_GG
+	percent_chance 4 #define BLACKSMITH_GG
+	percent_chance 4 #define STABLE_GG
+	percent_chance 4 #define MARKET_GG
+	percent_chance 82 #define NONE_GG
+end_random
+endif
+
+if CASTLE_GG
+create_object CASTLE
+{
+if NOTCMODE
+	if REGICIDE
+	number_of_objects 1
+	else
+	number_of_objects 0
+	endif
+else
+	number_of_objects 1
+endif
+     set_place_for_every_player
+     min_distance_to_players 9
+     max_distance_to_players 11
+}
+elseif HOUSE_GG
+create_object HOUSE
+{
+start_random
+percent_chance 50
+	number_of_objects 1
+percent_chance 30
+	number_of_objects 2
+percent_chance 20
+	number_of_objects 3
+end_random
+  set_loose_grouping
+  set_place_for_every_player
+  min_distance_to_players 10
+  max_distance_to_players 12
+}
+elseif NEITHER_GG
+endif
+
+if BARRACKS_GG
+create_object BARRACKS
+{
+  set_place_for_every_player
+  min_distance_to_players 8
+  max_distance_to_players 14
+}
+elseif ARCHERY_GG
+create_object ARCHERY_RANGE
+{
+  set_place_for_every_player
+  min_distance_to_players 8
+  max_distance_to_players 14
+}
+elseif BLACKSMITH_GG
+create_object BLACKSMITH
+{
+  set_place_for_every_player
+  min_distance_to_players 8
+  max_distance_to_players 14
+}
+elseif STABLE_GG
+create_object STABLE
+{
+  set_place_for_every_player
+  min_distance_to_players 8
+  max_distance_to_players 14
+}
+elseif MARKET_GG
+create_object MARKET
+{
+  set_place_for_every_player
+  min_distance_to_players 8
+  max_distance_to_players 14
+}
+elseif NONE_GG
+endif
+
+
+if MEGAORDER_NO_BONUSFARM
+else
+
+start_random
+percent_chance 2 #define BONUS_FARMING
+end_random
+
+endif
+
+if DEATH_MATCH
+else
+
+if MEGAORDER_SPECIFICBERRIES
+
+create_object FORAGE
+{
+  number_of_objects 99
+  number_of_groups 99999
+  set_gaia_object_only
+  terrain_to_place_on GRASS3
+}
+
+endif
+
+/* DOMESTIC ANIMALS */
+
+if PYRAMID_OBJECTS
+
+
+create_object BOAR
+{
+	number_of_objects				1
+	number_of_groups				999
+	set_gaia_object_only
+	temp_min_distance_group_placement	25
+}
+
+create_object SHEEP
+{
+	number_of_objects				1
+	number_of_groups				999
+	set_loose_grouping
+	set_gaia_object_only
+	temp_min_distance_group_placement	20
+}
+
+create_object DEER
+{
+	number_of_objects			3
+	group_placement_radius			3
+	number_of_groups			999
+	set_loose_grouping
+	set_gaia_object_only
+	temp_min_distance_group_placement	24
+}
+
+create_object GOLD
+{
+	  number_of_groups 100
+	  number_of_objects 4
+	group_placement_radius			2
+	set_tight_grouping
+	set_gaia_object_only
+	temp_min_distance_group_placement 30
+}
+
+create_object STONE
+{
+	  number_of_groups 100
+	  number_of_objects 3
+	group_placement_radius			2
+	set_tight_grouping
+	set_gaia_object_only
+	temp_min_distance_group_placement 30
+}
+
+/* BIRDIES */
+create_object HAWK
+{
+	number_of_objects				4
+	set_scaling_to_map_size
+}
+
+else
+
+start_random
+	percent_chance 5 #define FOODHUGE
+	percent_chance 5 #define FOODBIG
+	percent_chance 15 #define FOODCOOL
+	percent_chance 25 #define FOODNORMAL
+	percent_chance 20 #define FOODBAD
+	percent_chance 20 #define FOODTERRIBLE
+	percent_chance 10 #define FOODROTTEN
+end_random
+
+create_object DOMESTIC_ANIMAL
+{
+	if FOODHUGE
+   number_of_objects 8
+	elseif FOODBIG
+   number_of_objects 7
+	elseif FOODCOOL
+   number_of_objects 6
+	elseif FOODNORMAL
+   number_of_objects 5
+	elseif FOODBAD
+   number_of_objects 4
+	elseif FOODTERRIBLE
+   number_of_objects 3
+	elseif FOODROTTEN
+   number_of_objects 2
+	endif
+if MEGAORDER_NO_DOMESTIC1
+number_of_groups 0
+else
+number_of_groups 1
+endif
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+if NOMADIC_WAY
+   min_distance_to_players 2
+   max_distance_to_players 6
+else
+	if MEGAORDER_DOMESTIC1_CLOSE
+   min_distance_to_players 2
+   max_distance_to_players 8
+	else
+   min_distance_to_players 9
+   max_distance_to_players 11
+	endif
+endif
+}
+
+create_object DOMESTIC_ANIMAL
+{
+	if FOODHUGE
+   number_of_objects 4
+	elseif FOODBIG
+   number_of_objects 3
+	elseif FOODCOOL
+   number_of_objects 2
+	elseif FOODNORMAL
+   number_of_objects 2
+	elseif FOODBAD
+   number_of_objects 2
+	elseif FOODTERRIBLE
+   number_of_objects 2
+	elseif FOODROTTEN
+   number_of_objects 0
+	endif
+if MEGAORDER_NO_DOMESTIC2
+number_of_groups 0
+else
+number_of_groups 1
+endif
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+if MEGAORDER_DOMESTIC2_CLOSE
+   min_distance_to_players 4
+   max_distance_to_players 8
+elseif MEGAORDER_DOMESTIC2_NOTFAR
+   min_distance_to_players 6
+   max_distance_to_players 15
+else
+   min_distance_to_players 12
+   max_distance_to_players 26
+endif
+}
+
+endif /* endif Deathmatch */
+
+
+endif
+
+if DEATH_MATCH
+else
+	if MEGAORDER_NO_JELEN
+start_random
+	percent_chance 100 #define JELENROTTEN
+end_random
+	else
+start_random
+	percent_chance 25 #define JELENBIG
+	percent_chance 10 #define JELENROCKS
+	percent_chance 10 #define JELENSUCKS
+	percent_chance 10 #define JELENULTRA
+	percent_chance 10 #define JELENNOTSOBIG
+	percent_chance 10 #define JELENCOOL
+	percent_chance 9 #define JELENNORMAL
+	percent_chance 8 #define JELENBAD
+	percent_chance 5 #define JELENTERRIBLE
+	percent_chance 3 #define JELENROTTEN
+end_random
+	endif
+
+create_object DEER
+{
+if MEGAORDER_JELEN_EIGHT_ONLY
+number_of_objects 8
+number_of_groups 1
+elseif MEGAORDER_JELEN_FOUR_ONLY
+number_of_objects 4
+number_of_groups 1
+else
+	if JELENBIG
+start_random
+percent_chance 10
+number_of_objects 8
+number_of_groups 2
+percent_chance 20
+number_of_objects 7
+number_of_groups 2
+percent_chance 30
+number_of_objects 6
+number_of_groups 2
+percent_chance 40
+number_of_objects 5
+number_of_groups 2
+end_random
+	elseif JELENROCKS
+number_of_objects 8
+number_of_groups 1
+	elseif JELENSUCKS
+number_of_objects 7
+number_of_groups 1
+	elseif JELENULTRA
+number_of_objects 6
+number_of_groups 1
+	elseif JELENNOTSOBIG
+number_of_objects 5
+number_of_groups 1
+	elseif JELENCOOL
+number_of_objects 4
+number_of_groups 1
+	elseif JELENNORMAL
+number_of_objects 3
+number_of_groups 1
+	elseif JELENBAD
+number_of_objects 2
+number_of_groups 1
+	elseif JELENTERRIBLE
+number_of_objects 1
+number_of_groups 1
+	elseif JELENROTTEN
+number_of_objects 0
+number_of_groups 0
+	endif
+endif
+	set_loose_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+if MEGAORDER_JELEN_CLOSE
+  min_distance_to_players 6
+  max_distance_to_players 10
+elseif MEGAORDER_JELEN_NOTFAR
+  min_distance_to_players 9
+  max_distance_to_players 14
+else
+  min_distance_to_players 10
+  max_distance_to_players 22
+endif
+}
+endif /* endif DM */
+
+if MEGAORDER_SPECIAL_JELENHERD_SMALL_LC
+
+create_object DEER
+{
+  number_of_groups 20
+  number_of_objects 2
+  set_loose_grouping
+  set_gaia_object_only
+terrain_to_place_on LAYER_C
+temp_min_distance_group_placement 5
+}
+
+endif
+
+if MEGAORDER_SPECIAL_JELENHERD_SMALL_LUP
+
+create_object DEER
+{
+  number_of_groups 20
+  number_of_objects 2
+  set_loose_grouping
+  set_gaia_object_only
+terrain_to_place_on LAYER_UP
+temp_min_distance_group_placement 5
+}
+
+endif
+
+if MEGAORDER_SPECIAL_JELENHERD_SMALL_LDOWN
+
+create_object DEER
+{
+  number_of_groups 20
+  number_of_objects 2
+  set_loose_grouping
+  set_gaia_object_only
+terrain_to_place_on LAYER_DOWN
+temp_min_distance_group_placement 5
+}
+
+endif
+
+if MEGAORDER_SPECIAL_JELENHERD_BIG_LC
+
+create_object DEER
+{
+  number_of_groups 60
+  number_of_objects 2
+  set_loose_grouping
+  set_gaia_object_only
+terrain_to_place_on LAYER_C
+temp_min_distance_group_placement 4
+}
+
+endif
+
+if MEGAORDER_SPECIAL_JELENHERD_BIG_LUP
+
+create_object DEER
+{
+  number_of_groups 60
+  number_of_objects 2
+  set_loose_grouping
+  set_gaia_object_only
+terrain_to_place_on LAYER_UP
+temp_min_distance_group_placement 4
+}
+
+endif
+
+if MEGAORDER_SPECIAL_JELENHERD_BIG_LDOWN
+
+create_object DEER
+{
+  number_of_groups 60
+  number_of_objects 2
+  set_loose_grouping
+  set_gaia_object_only
+terrain_to_place_on LAYER_DOWN
+temp_min_distance_group_placement 4
+}
+
+endif
+
+if DEATH_MATCH
+else
+	if MEGAORDER_NO_PIG
+
+start_random
+	percent_chance 100 #define PIGROTTEN
+end_random
+
+	else
+		if JELENBIG
+start_random
+	percent_chance 40 #define PIGNORMAL
+	percent_chance 30 #define PIGBAD
+	percent_chance 20 #define PIGTERRIBLE
+	percent_chance 10 #define PIGROTTEN
+end_random
+		else
+start_random
+	percent_chance 5 #define PIGBIG
+	percent_chance 15 #define PIGNOTSOBIG
+	percent_chance 15 #define PIGCOOL
+	percent_chance 25 #define PIGNORMAL
+	percent_chance 15 #define PIGBAD
+	percent_chance 15 #define PIGTERRIBLE
+	percent_chance 10 #define PIGROTTEN
+end_random
+		endif
+	endif
+
+create_object OINKOINK
+{
+	if PIGBIG
+   number_of_objects 1
+number_of_groups 4
+	elseif PIGNOTSOBIG
+   number_of_objects 1
+number_of_groups 3
+	elseif PIGCOOL
+   number_of_objects 1
+number_of_groups 2
+	elseif PIGNORMAL
+   number_of_objects 1
+number_of_groups 2
+	elseif PIGBAD
+   number_of_objects 1
+number_of_groups 1
+	elseif PIGTERRIBLE
+   number_of_objects 1
+number_of_groups 1
+	elseif PIGROTTEN
+   number_of_objects 0
+number_of_groups 0
+	endif
+  set_loose_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+	if MEGAORDER_PIG_CLOSE
+  min_distance_to_players 3
+  max_distance_to_players 10
+	elseif MEGAORDER_PIG_NOTFAR
+  min_distance_to_players 8
+  max_distance_to_players 16
+	else
+  min_distance_to_players 15
+  max_distance_to_players 18
+	endif
+}
+endif /* endif DM */
+
+if PYRAMID_OBJECTS
+
+else
+
+if DEATH_MATCH
+start_random
+	percent_chance 100 #define GOLDGINORMOUS
+end_random
+else
+start_random
+	percent_chance 8 #define GOLDGINORMOUS
+	percent_chance 10 #define GOLDENORMOUS
+	percent_chance 14 #define GOLDALOT
+	percent_chance 16 #define GOLDENOUGH
+	percent_chance 18 #define GOLDGOOD
+	percent_chance 14 #define GOLDNOTSOGOOD
+	percent_chance 10 #define GOLDTOOLITTLE
+	percent_chance 6 #define GOLDALMOSTGONE
+	percent_chance 4 #define GOLDMISSINGDAMMIT
+end_random
+endif
+
+/* HOME GOLD A */
+
+create_object GOLD
+{
+if MEGAORDER_HOMEGOLD_2BLOCKS
+  number_of_groups 1
+  number_of_objects 2
+elseif MEGAORDER_HOMEGOLD_3BLOCKS
+  number_of_groups 1
+  number_of_objects 3
+elseif MEGAORDER_HOMEGOLD_3X2BLOCKS
+  number_of_groups 1
+  number_of_objects 3
+elseif MEGAORDER_NO_HOMEGOLD
+  number_of_groups 0
+  number_of_objects 0
+else
+	if GOLDGINORMOUS
+  number_of_groups 1
+  number_of_objects 10
+	elseif GOLDENORMOUS
+  number_of_groups 1
+  number_of_objects 9
+	elseif GOLDALOT
+  number_of_groups 1
+  number_of_objects 8
+	elseif GOLDENOUGH
+  number_of_groups 1
+  number_of_objects 7
+	elseif GOLDGOOD
+  number_of_groups 1
+  number_of_objects 7
+	elseif GOLDNOTSOGOOD
+  number_of_groups 1
+  number_of_objects 6
+	elseif GOLDTOOLITTLE
+  number_of_groups 1
+  number_of_objects 5
+	elseif GOLDALMOSTGONE
+  number_of_groups 1
+  number_of_objects 3
+	elseif GOLDMISSINGDAMMIT
+  number_of_groups 1
+  number_of_objects 2
+	endif
+endif
+  group_placement_radius 3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+if MEGAORDER_HOMEGOLD_CLOSE
+  min_distance_to_players 6
+  max_distance_to_players 8
+  min_distance_group_placement 1
+elseif MEGAORDER_HOMEGOLD_NOTFAR
+  min_distance_to_players 8
+  max_distance_to_players 12
+  min_distance_group_placement 2
+else
+  min_distance_to_players 12
+  max_distance_to_players 17
+  min_distance_group_placement 4
+endif
+if MEGAORDER_HOMEGOLD_NEARWATER2
+max_distance_to_other_zones 2
+elseif MEGAORDER_HOMEGOLD_NEARWATER4
+max_distance_to_other_zones 4
+else
+max_distance_to_other_zones 7
+endif
+}
+
+/* HOME GOLD B */
+
+create_object GOLD
+{
+if MEGAORDER_HOMEGOLD_2BLOCKS
+  number_of_groups 0
+  number_of_objects 0
+elseif MEGAORDER_HOMEGOLD_3BLOCKS
+  number_of_groups 0
+  number_of_objects 0
+elseif MEGAORDER_HOMEGOLD_3X2BLOCKS
+  number_of_groups 1
+  number_of_objects 3
+elseif MEGAORDER_NO_HOMEGOLD
+  number_of_groups 0
+  number_of_objects 0
+else
+	if GOLDGINORMOUS
+  number_of_groups 1
+  number_of_objects 10
+	elseif GOLDENORMOUS
+  number_of_groups 1
+  number_of_objects 9
+	elseif GOLDALOT
+  number_of_groups 1
+  number_of_objects 8
+	elseif GOLDENOUGH
+  number_of_groups 1
+  number_of_objects 7
+	elseif GOLDGOOD
+  number_of_groups 1
+  number_of_objects 7
+	elseif GOLDNOTSOGOOD
+  number_of_groups 1
+  number_of_objects 6
+	elseif GOLDTOOLITTLE
+  number_of_groups 0
+  number_of_objects 0
+	elseif GOLDALMOSTGONE
+  number_of_groups 0
+  number_of_objects 0
+	elseif GOLDMISSINGDAMMIT
+  number_of_groups 0
+  number_of_objects 0
+	endif
+endif
+  group_placement_radius 3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+if MEGAORDER_HOMEGOLD_CLOSE
+  min_distance_to_players 6
+  max_distance_to_players 8
+  min_distance_group_placement 1
+elseif MEGAORDER_HOMEGOLD_NOTFAR
+  min_distance_to_players 8
+  max_distance_to_players 12
+  min_distance_group_placement 2
+else
+  min_distance_to_players 16
+  max_distance_to_players 21
+  min_distance_group_placement 4
+endif
+if MEGAORDER_HOMEGOLD_NEARWATER2
+max_distance_to_other_zones 2
+elseif MEGAORDER_HOMEGOLD_NEARWATER4
+max_distance_to_other_zones 4
+else
+max_distance_to_other_zones 7
+endif
+}
+
+
+/* DISTANT GOLD */
+
+create_object GOLD
+{
+if MEGAORDER_NO_DISTANTGOLD
+  number_of_groups 0
+  number_of_objects 0
+else
+	if GOLDGINORMOUS
+		if TINY_MAP
+  number_of_groups 5
+  number_of_objects 10
+elseif SMALL_MAP
+  number_of_groups 6
+  number_of_objects 11
+elseif MEDIUM_MAP
+  number_of_groups 7
+  number_of_objects 12
+elseif LARGE_MAP
+  number_of_groups 10
+  number_of_objects 12
+elseif HUGE_MAP
+  number_of_groups 12
+  number_of_objects 12
+else
+  number_of_groups 12
+  number_of_objects 12
+endif
+elseif GOLDENORMOUS
+if TINY_MAP
+  number_of_groups 4
+  number_of_objects 9
+elseif SMALL_MAP
+  number_of_groups 5
+  number_of_objects 10
+elseif MEDIUM_MAP
+  number_of_groups 7
+  number_of_objects 10
+elseif LARGE_MAP
+  number_of_groups 9
+  number_of_objects 11
+elseif HUGE_MAP
+  number_of_groups 11
+  number_of_objects 11
+else
+  number_of_groups 12
+  number_of_objects 11
+endif
+elseif GOLDALOT
+if TINY_MAP
+  number_of_groups 4
+  number_of_objects 8
+elseif SMALL_MAP
+  number_of_groups 5
+  number_of_objects 7
+elseif MEDIUM_MAP
+  number_of_groups 6
+  number_of_objects 8
+elseif LARGE_MAP
+  number_of_groups 8
+  number_of_objects 9
+elseif HUGE_MAP
+  number_of_groups 10
+  number_of_objects 9
+else
+  number_of_groups 11
+  number_of_objects 9
+endif
+elseif GOLDENOUGH
+if TINY_MAP
+  number_of_groups 4
+  number_of_objects 6
+elseif SMALL_MAP
+  number_of_groups 5
+  number_of_objects 6
+elseif MEDIUM_MAP
+  number_of_groups 6
+  number_of_objects 6
+elseif LARGE_MAP
+  number_of_groups 8
+  number_of_objects 7
+elseif HUGE_MAP
+  number_of_groups 10
+  number_of_objects 7
+else
+  number_of_groups 11
+  number_of_objects 7
+endif
+elseif GOLDGOOD
+if TINY_MAP
+  number_of_groups 3
+  number_of_objects 5
+elseif SMALL_MAP
+  number_of_groups 4
+  number_of_objects 5
+elseif MEDIUM_MAP
+  number_of_groups 6
+  number_of_objects 5
+elseif LARGE_MAP
+  number_of_groups 8
+  number_of_objects 5
+elseif HUGE_MAP
+  number_of_groups 10
+  number_of_objects 5
+else
+  number_of_groups 11
+  number_of_objects 5
+endif
+elseif GOLDNOTSOGOOD
+if TINY_MAP
+  number_of_groups 3
+  number_of_objects 4
+elseif SMALL_MAP
+  number_of_groups 4
+  number_of_objects 4
+elseif MEDIUM_MAP
+  number_of_groups 5
+  number_of_objects 5
+elseif LARGE_MAP
+  number_of_groups 7
+  number_of_objects 5
+elseif HUGE_MAP
+  number_of_groups 9
+  number_of_objects 5
+else
+  number_of_groups 10
+  number_of_objects 5
+endif
+elseif GOLDTOOLITTLE
+if TINY_MAP
+  number_of_groups 2
+  number_of_objects 4
+elseif SMALL_MAP
+  number_of_groups 3
+  number_of_objects 4
+elseif MEDIUM_MAP
+  number_of_groups 3
+  number_of_objects 5
+elseif LARGE_MAP
+  number_of_groups 5
+  number_of_objects 5
+elseif HUGE_MAP
+  number_of_groups 7
+  number_of_objects 5
+else
+  number_of_groups 8
+  number_of_objects 5
+endif
+elseif GOLDALMOSTGONE
+if TINY_MAP
+  number_of_groups 2
+  number_of_objects 3
+elseif SMALL_MAP
+  number_of_groups 2
+  number_of_objects 3
+elseif MEDIUM_MAP
+  number_of_groups 3
+  number_of_objects 3
+elseif LARGE_MAP
+  number_of_groups 4
+  number_of_objects 4
+elseif HUGE_MAP
+  number_of_groups 6
+  number_of_objects 4
+else
+  number_of_groups 7
+  number_of_objects 4
+endif
+elseif GOLDMISSINGDAMMIT
+if TINY_MAP
+  number_of_groups 2
+  number_of_objects 2
+elseif SMALL_MAP
+  number_of_groups 2
+  number_of_objects 2
+elseif MEDIUM_MAP
+  number_of_groups 2
+  number_of_objects 2
+elseif LARGE_MAP
+  number_of_groups 3
+  number_of_objects 2
+elseif HUGE_MAP
+  number_of_groups 5
+  number_of_objects 2
+else
+  number_of_groups 6
+  number_of_objects 2
+		endif
+	endif
+endif
+	group_placement_radius 2
+	set_tight_grouping
+	set_gaia_object_only
+if MEGAORDER_DISTANTGOLD_PLACEMENT_TEN
+	min_distance_to_players 10
+	temp_min_distance_group_placement 10
+	min_distance_group_placement 5
+elseif MEGAORDER_DISTANTGOLD_PLACEMENT_FIVE
+	min_distance_to_players 10
+	min_distance_group_placement 5
+else
+	min_distance_to_players 30
+	temp_min_distance_group_placement 20
+	min_distance_group_placement 4
+endif
+
+if MEGAORDER_DISTANTGOLD_PLACEON_LC
+terrain_to_place_on LAYER_C
+elseif MEGAORDER_DISTANTGOLD_PLACEON_LB
+terrain_to_place_on LAYER_B
+elseif MEGAORDER_DISTANTGOLD_PLACEON_LA
+terrain_to_place_on LAYER_A
+elseif MEGAORDER_DISTANTGOLD_PLACEON_L_DOWN
+terrain_to_place_on LAYER_DOWN
+elseif MEGAORDER_DISTANTGOLD_PLACEON_L_UP
+terrain_to_place_on LAYER_UP
+elseif MEGAORDER_DISTANTGOLD_PLACEON_SL_DOWN
+terrain_to_place_on SLOPE_DOWN
+elseif MEGAORDER_DISTANTGOLD_PLACEON_SL_UP
+terrain_to_place_on SLOPE_UP
+endif
+
+if MEGAORDER_DISTANTGOLD_NEARWATER2
+max_distance_to_other_zones 2
+elseif MEGAORDER_DISTANTGOLD_NEARWATER4
+max_distance_to_other_zones 4
+else
+max_distance_to_other_zones 7
+endif
+}
+
+if DEATH_MATCH
+start_random
+	percent_chance 100 #define STONEGINORMOUS
+end_random
+else
+start_random
+	percent_chance 3 #define STONEGINORMOUS
+	percent_chance 4 #define STONEENORMOUS
+	percent_chance 6 #define STONEALOT
+	percent_chance 18 #define STONEENOUGH
+	percent_chance 20 #define STONEGOOD
+	percent_chance 23 #define STONENOTSOGOOD
+	percent_chance 16 #define STONETOOLITTLE
+	percent_chance 8 #define STONEALMOSTGONE
+	percent_chance 4 #define STONEMISSING
+end_random
+endif
+
+/* HOME STONE A */
+
+create_object STONE
+{
+if MEGAORDER_HOMESTONE_2BLOCKS
+  number_of_groups 1
+  number_of_objects 2
+elseif MEGAORDER_HOMESTONE_3BLOCKS
+  number_of_groups 1
+  number_of_objects 3
+elseif MEGAORDER_HOMESTONE_3X2BLOCKS
+  number_of_groups 1
+  number_of_objects 3
+elseif MEGAORDER_NO_HOMESTONE
+  number_of_groups 0
+  number_of_objects 0
+else
+if STONEGINORMOUS
+  number_of_groups 1
+  number_of_objects 10
+elseif STONEENORMOUS
+  number_of_groups 1
+  number_of_objects 9
+elseif STONEALOT
+  number_of_groups 1
+  number_of_objects 8
+elseif STONEENOUGH
+  number_of_groups 1
+  number_of_objects 6
+elseif STONEGOOD
+  number_of_groups 1
+  number_of_objects 5
+elseif STONENOTSOGOOD
+  number_of_groups 1
+  number_of_objects 4
+elseif STONETOOLITTLE
+  number_of_groups 1
+  number_of_objects 5
+elseif STONEALMOSTGONE
+  number_of_groups 1
+  number_of_objects 3
+elseif STONEMISSING
+  number_of_groups 1
+  number_of_objects 2
+endif
+endif
+  group_placement_radius 3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+if MEGAORDER_HOMESTONE_CLOSE
+  min_distance_group_placement 1
+  min_distance_to_players 4
+  max_distance_to_players 8
+elseif MEGAORDER_HOMESTONE_NOTFAR
+  min_distance_group_placement 2
+  min_distance_to_players 8
+  max_distance_to_players 12
+else
+  min_distance_group_placement 4
+  min_distance_to_players 12
+  max_distance_to_players 17
+endif
+
+if MEGAORDER_HOMESTONE_NEARWATER2
+max_distance_to_other_zones 2
+elseif MEGAORDER_HOMESTONE_NEARWATER4
+max_distance_to_other_zones 4
+else
+max_distance_to_other_zones 7
+endif
+}
+
+/* HOME STONE B */
+
+create_object STONE
+{
+if MEGAORDER_HOMESTONE_2BLOCKS
+  number_of_groups 0
+  number_of_objects 0
+elseif MEGAORDER_HOMESTONE_3BLOCKS
+  number_of_groups 0
+  number_of_objects 0
+elseif MEGAORDER_HOMESTONE_3X2BLOCKS
+  number_of_groups 1
+  number_of_objects 3
+elseif MEGAORDER_NO_HOMESTONE
+  number_of_groups 0
+  number_of_objects 0
+else
+if STONEGINORMOUS
+  number_of_groups 1
+  number_of_objects 10
+elseif STONEENORMOUS
+  number_of_groups 1
+  number_of_objects 9
+elseif STONEALOT
+  number_of_groups 1
+  number_of_objects 8
+elseif STONEENOUGH
+  number_of_groups 1
+  number_of_objects 6
+elseif STONEGOOD
+  number_of_groups 1
+  number_of_objects 5
+elseif STONENOTSOGOOD
+  number_of_groups 1
+  number_of_objects 4
+elseif STONETOOLITTLE
+  number_of_groups 0
+  number_of_objects 0
+elseif STONEALMOSTGONE
+  number_of_groups 0
+  number_of_objects 0
+elseif STONEMISSING
+  number_of_groups 0
+  number_of_objects 0
+endif
+endif
+  group_placement_radius 3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+if MEGAORDER_HOMESTONE_CLOSE
+  min_distance_group_placement 1
+  min_distance_to_players 4
+  max_distance_to_players 8
+elseif MEGAORDER_HOMESTONE_NOTFAR
+  min_distance_group_placement 2
+  min_distance_to_players 8
+  max_distance_to_players 12
+else
+  min_distance_group_placement 4
+  min_distance_to_players 16
+  max_distance_to_players 21
+endif
+
+if MEGAORDER_HOMESTONE_NEARWATER2
+max_distance_to_other_zones 2
+elseif MEGAORDER_HOMESTONE_NEARWATER4
+max_distance_to_other_zones 4
+else
+max_distance_to_other_zones 7
+endif
+}
+
+/* DISTANT STONE */
+
+create_object STONE
+{
+if MEGAORDER_NO_DISTANTSTONE
+  number_of_groups 0
+  number_of_objects 0
+else
+	if STONEGINORMOUS
+if TINY_MAP
+  number_of_groups 4
+  number_of_objects 10
+elseif SMALL_MAP
+  number_of_groups 4
+  number_of_objects 11
+elseif MEDIUM_MAP
+  number_of_groups 5
+  number_of_objects 12
+elseif LARGE_MAP
+  number_of_groups 7
+  number_of_objects 12
+elseif HUGE_MAP
+  number_of_groups 9
+  number_of_objects 12
+else
+  number_of_groups 10
+  number_of_objects 12
+endif
+	elseif STONEENORMOUS
+if TINY_MAP
+  number_of_groups 4
+  number_of_objects 9
+elseif SMALL_MAP
+  number_of_groups 4
+  number_of_objects 10
+elseif MEDIUM_MAP
+  number_of_groups 4
+  number_of_objects 10
+elseif LARGE_MAP
+  number_of_groups 6
+  number_of_objects 11
+elseif HUGE_MAP
+  number_of_groups 8
+  number_of_objects 11
+else
+  number_of_groups 9
+  number_of_objects 11
+endif
+	elseif STONEALOT
+if TINY_MAP
+  number_of_groups 3
+  number_of_objects 8
+elseif SMALL_MAP
+  number_of_groups 4
+  number_of_objects 7
+elseif MEDIUM_MAP
+  number_of_groups 5
+  number_of_objects 8
+elseif LARGE_MAP
+  number_of_groups 6
+  number_of_objects 9
+elseif HUGE_MAP
+  number_of_groups 8
+  number_of_objects 9
+else
+  number_of_groups 9
+  number_of_objects 9
+endif
+	elseif STONEENOUGH
+if TINY_MAP
+  number_of_groups 3
+  number_of_objects 6
+elseif SMALL_MAP
+  number_of_groups 3
+  number_of_objects 6
+elseif MEDIUM_MAP
+  number_of_groups 4
+  number_of_objects 6
+elseif LARGE_MAP
+  number_of_groups 5
+  number_of_objects 7
+elseif HUGE_MAP
+  number_of_groups 7
+  number_of_objects 7
+else
+  number_of_groups 8
+  number_of_objects 7
+endif
+	elseif STONEGOOD
+if TINY_MAP
+  number_of_groups 3
+  number_of_objects 5
+elseif SMALL_MAP
+  number_of_groups 3
+  number_of_objects 5
+elseif MEDIUM_MAP
+  number_of_groups 4
+  number_of_objects 5
+elseif LARGE_MAP
+  number_of_groups 5
+  number_of_objects 5
+elseif HUGE_MAP
+  number_of_groups 7
+  number_of_objects 5
+else
+  number_of_groups 8
+  number_of_objects 5
+endif
+	elseif STONENOTSOGOOD
+if TINY_MAP
+  number_of_groups 2
+  number_of_objects 4
+elseif SMALL_MAP
+  number_of_groups 2
+  number_of_objects 4
+elseif MEDIUM_MAP
+  number_of_groups 3
+  number_of_objects 5
+elseif LARGE_MAP
+  number_of_groups 4
+  number_of_objects 5
+elseif HUGE_MAP
+  number_of_groups 6
+  number_of_objects 5
+else
+  number_of_groups 7
+  number_of_objects 5
+endif
+	elseif STONETOOLITTLE
+if TINY_MAP
+  number_of_groups 2
+  number_of_objects 4
+elseif SMALL_MAP
+  number_of_groups 2
+  number_of_objects 4
+elseif MEDIUM_MAP
+  number_of_groups 3
+  number_of_objects 5
+elseif LARGE_MAP
+  number_of_groups 4
+  number_of_objects 5
+elseif HUGE_MAP
+  number_of_groups 6
+  number_of_objects 5
+else
+  number_of_groups 7
+  number_of_objects 5
+endif
+	elseif STONEALMOSTGONE
+if TINY_MAP
+  number_of_groups 2
+  number_of_objects 3
+elseif SMALL_MAP
+  number_of_groups 2
+  number_of_objects 3
+elseif MEDIUM_MAP
+  number_of_groups 3
+  number_of_objects 3
+elseif LARGE_MAP
+  number_of_groups 3
+  number_of_objects 4
+elseif HUGE_MAP
+  number_of_groups 6
+  number_of_objects 4
+else
+  number_of_groups 7
+  number_of_objects 4
+endif
+	elseif STONEMISSING
+if TINY_MAP
+  number_of_groups 2
+  number_of_objects 2
+elseif SMALL_MAP
+  number_of_groups 2
+  number_of_objects 2
+elseif MEDIUM_MAP
+  number_of_groups 2
+  number_of_objects 2
+elseif LARGE_MAP
+  number_of_groups 3
+  number_of_objects 2
+elseif HUGE_MAP
+  number_of_groups 5
+  number_of_objects 2
+else
+  number_of_groups 6
+  number_of_objects 2
+endif
+	endif
+endif
+	group_placement_radius 2
+	set_tight_grouping
+	set_gaia_object_only
+
+if MEGAORDER_DISTANTSTONE_PLACEMENT_TEN
+	min_distance_to_players 10
+	temp_min_distance_group_placement 10
+	min_distance_group_placement 5
+elseif MEGAORDER_DISTANTSTONE_PLACEMENT_FIVE
+	min_distance_to_players 10
+	min_distance_group_placement 5
+else
+	min_distance_to_players 30
+	temp_min_distance_group_placement 20
+	min_distance_group_placement 4
+endif
+
+if MEGAORDER_DISTANTSTONE_PLACEON_LC
+terrain_to_place_on LAYER_C
+elseif MEGAORDER_DISTANTSTONE_PLACEON_LB
+terrain_to_place_on LAYER_B
+elseif MEGAORDER_DISTANTSTONE_PLACEON_LA
+terrain_to_place_on LAYER_A
+elseif MEGAORDER_DISTANTSTONE_PLACEON_L_DOWN
+terrain_to_place_on LAYER_DOWN
+elseif MEGAORDER_DISTANTSTONE_PLACEON_L_UP
+terrain_to_place_on LAYER_UP
+elseif MEGAORDER_DISTANTSTONE_PLACEON_SL_DOWN
+terrain_to_place_on SLOPE_DOWN
+elseif MEGAORDER_DISTANTSTONE_PLACEON_SL_UP
+terrain_to_place_on SLOPE_UP
+endif
+
+if MEGAORDER_DISTANTSTONE_NEARWATER2
+max_distance_to_other_zones 2
+elseif MEGAORDER_DISTANTSTONE_NEARWATER4
+max_distance_to_other_zones 4
+else
+max_distance_to_other_zones 7
+endif
+}
+
+endif
+
+create_object RELIC
+{
+  number_of_objects 1
+  number_of_groups 1
+   terrain_to_place_on ROAD_OTHER
+  group_placement_radius 3
+  set_tight_grouping
+  set_gaia_object_only
+}
+
+if MEGAORDER_NO_APPLES
+
+start_random
+	percent_chance 100 #define APPLESROTTEN
+end_random
+
+elseif MEGAORDER_APPLES_2BLOCKS
+
+start_random
+	percent_chance 100 #define APPLESTERRIBLE
+end_random
+
+else
+
+start_random
+	percent_chance 2 #define APPLESHUGE
+	percent_chance 4 #define APPLESBIG
+	percent_chance 10 #define APPLESCOOL
+	percent_chance 34 #define APPLESNORMAL
+	percent_chance 25 #define APPLESBAD
+	percent_chance 15 #define APPLESTERRIBLE
+	percent_chance 10 #define APPLESROTTEN
+end_random
+
+endif
+
+create_object FORAGE
+{
+if APPLESHUGE
+  number_of_objects 9
+  number_of_groups 1
+elseif APPLESBIG
+  number_of_objects 6
+  number_of_groups 1
+elseif APPLESCOOL
+  number_of_objects 8
+  number_of_groups 1
+elseif APPLESNORMAL
+  number_of_objects 7
+  number_of_groups 1
+elseif APPLESBAD
+  number_of_objects 4
+  number_of_groups 1
+elseif APPLESTERRIBLE
+  number_of_objects 2
+  number_of_groups 1
+elseif APPLESROTTEN
+  number_of_objects 0
+  number_of_groups 0
+endif
+  group_placement_radius 3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+if MEGAORDER_APPLES_CLOSE
+  min_distance_to_players 5
+  max_distance_to_players 8
+elseif MEGAORDER_APPLES_NOTFAR
+  min_distance_to_players 8
+  max_distance_to_players 12
+else
+  min_distance_to_players 10
+  max_distance_to_players 14
+endif
+  min_distance_group_placement 6
+}
+
+if MEGAORDER_NO_STARTINGSAPLING
+else
+create_object SAPLING_A
+{
+  number_of_objects 2
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players 4
+  max_distance_to_players 5
+  min_distance_group_placement 2
+}
+
+create_object SAPLING_A
+{
+  number_of_objects 3
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players 6
+  max_distance_to_players 8
+  min_distance_group_placement 2
+}
+endif
+
+
+if MEGAORDER_SPECIAL_ENCHANTED_FOREST_LA
+
+create_object SAPLING_A
+{
+start_random
+percent_chance 80
+  number_of_objects 1
+percent_chance 20
+  number_of_objects 2
+end_random
+ number_of_groups 99999999
+group_placement_radius 1
+  set_loose_grouping
+  set_gaia_object_only
+  temp_min_distance_group_placement 1
+  terrain_to_place_on LAYER_A
+}
+
+endif
+if MEGAORDER_SPECIAL_ENCHANTED_FOREST_LC
+
+create_object SAPLING_B
+{
+start_random
+percent_chance 80
+  number_of_objects 1
+percent_chance 20
+  number_of_objects 2
+end_random
+ number_of_groups 99999999
+group_placement_radius 1
+  set_loose_grouping
+  set_gaia_object_only
+  temp_min_distance_group_placement 1
+  terrain_to_place_on LAYER_C
+}
+
+endif
+if MEGAORDER_SPECIAL_ENCHANTED_FOREST_LUP
+
+create_object SAPLING_UP
+{
+start_random
+percent_chance 80
+  number_of_objects 1
+percent_chance 20
+  number_of_objects 2
+end_random
+ number_of_groups 99999999
+group_placement_radius 1
+  set_loose_grouping
+  set_gaia_object_only
+  temp_min_distance_group_placement 1
+  terrain_to_place_on LAYER_UP
+}
+
+endif
+if MEGAORDER_SPECIAL_ENCHANTED_FOREST_LDOWN
+
+create_object SAPLING_DOWN
+{
+start_random
+percent_chance 80
+  number_of_objects 1
+percent_chance 20
+  number_of_objects 2
+end_random
+ number_of_groups 99999999
+group_placement_radius 1
+  set_loose_grouping
+  set_gaia_object_only
+  temp_min_distance_group_placement 1
+  terrain_to_place_on LAYER_DOWN
+}
+
+endif
+
+if MEGAORDER_NO_OTHERSAPLING
+
+else
+
+create_object SAPLING_A
+{
+  number_of_objects          8
+  set_gaia_object_only
+  set_scaling_to_map_size
+  min_distance_to_players    9
+  terrain_to_place_on LAYER_A
+  temp_min_distance_group_placement 10
+}
+
+create_object SAPLING_A
+{
+  number_of_objects          8
+  set_gaia_object_only
+  set_scaling_to_map_size
+  min_distance_to_players    9
+  terrain_to_place_on LAYER_B
+  temp_min_distance_group_placement 10
+}
+
+create_object SAPLING_B
+{
+  number_of_objects          12
+  set_gaia_object_only
+  set_scaling_to_map_size
+  min_distance_to_players    9
+  terrain_to_place_on LAYER_C
+  temp_min_distance_group_placement 10
+}
+
+create_object SAPLING_UP
+{
+  number_of_objects          14
+  set_gaia_object_only
+  set_scaling_to_map_size
+  min_distance_to_players    9
+  terrain_to_place_on LAYER_UP
+  temp_min_distance_group_placement 10
+}
+
+create_object SAPLING_DOWN
+{
+  number_of_objects          14
+  set_gaia_object_only
+  set_scaling_to_map_size
+  min_distance_to_players    9
+  terrain_to_place_on LAYER_DOWN
+  temp_min_distance_group_placement 10
+}
+
+endif
+
+
+if MEGAORDER_NO_BIGFISH
+
+create_object SHORE_FISH
+{
+  number_of_objects 30
+     set_scaling_to_map_size
+     temp_min_distance_group_placement 5
+     set_gaia_object_only
+}
+
+elseif MEGAORDER_NO_FISH
+else
+
+	if CAPTAINFINLIKESDORY
+
+create_object DORADO
+{
+  number_of_objects 18
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 5
+     min_distance_group_placement 8
+}
+create_object SNAPPER
+{
+  number_of_objects 140
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 4
+     min_distance_group_placement 8
+}
+
+	elseif CAPTAINFINLIKESTUNY
+
+create_object TUNA
+{
+  number_of_objects 18
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 4
+     min_distance_group_placement 8
+
+}
+create_object SNAPPER
+{
+  number_of_objects 140
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 5
+     min_distance_group_placement 8
+}
+
+	elseif CAPTAINFINLIKESSNAPPY
+
+create_object SNAPPER
+{
+  number_of_objects 18
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 5
+     min_distance_group_placement 8
+}
+
+create_object TUNA
+{
+  number_of_objects 140
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 5
+     min_distance_group_placement 8
+}
+
+	elseif CAPTAINFINLIKESSALMY
+
+
+create_object SALMON
+{
+  number_of_objects 18
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 5
+     min_distance_group_placement 8
+}
+
+create_object SNAPPER
+{
+  number_of_objects 140
+  set_scaling_to_map_size
+  set_gaia_object_only
+  max_distance_to_other_zones 5
+     min_distance_group_placement 8
+}
+
+		endif
+
+create_object SHORE_FISH
+{
+  number_of_objects 30
+     set_scaling_to_map_size
+     temp_min_distance_group_placement 5
+     set_gaia_object_only
+}
+
+endif
+
+
+if DEATH_MATCH
+else
+	if NOTCMODE
+create_object DOMESTIC_ANIMAL
+{
+   number_of_objects 1
+	if HUGE_MAP
+   number_of_groups 40
+	elseif LARGE_MAP
+   number_of_groups 30
+	else
+   number_of_groups 20
+	endif
+   set_loose_grouping
+   set_gaia_object_only
+     temp_min_distance_group_placement 8
+}
+
+create_object DOMESTIC_LURKER_UP
+{
+   number_of_objects 1
+	if HUGE_MAP
+   number_of_groups 40
+	elseif LARGE_MAP
+   number_of_groups 30
+	else
+   number_of_groups 20
+	endif
+   set_loose_grouping
+   set_gaia_object_only
+   terrain_to_place_on LAYER_UP
+     temp_min_distance_group_placement 8
+}
+
+create_object DOMESTIC_LURKER_DOWN
+{
+   number_of_objects 1
+	if HUGE_MAP
+   number_of_groups 40
+	elseif LARGE_MAP
+   number_of_groups 30
+	else
+   number_of_groups 20
+	endif
+   set_loose_grouping
+   set_gaia_object_only
+   terrain_to_place_on LAYER_DOWN
+     temp_min_distance_group_placement 8
+}
+	endif
+
+	if MEGAORDER_SPECIAL_DOMESTICUP
+
+create_object DOMESTIC_LURKER_UP
+{
+   number_of_objects 1
+   number_of_groups 40
+   set_loose_grouping
+   set_gaia_object_only
+   terrain_to_place_on LAYER_UP
+     temp_min_distance_group_placement 8
+}
+
+	endif
+
+	if MEGAORDER_SPECIAL_DOMESTICDOWN
+
+create_object DOMESTIC_LURKER_DOWN
+{
+   number_of_objects 1
+   number_of_groups 40
+   set_loose_grouping
+   set_gaia_object_only
+   terrain_to_place_on LAYER_DOWN
+     temp_min_distance_group_placement 8
+}
+
+	endif
+
+	if MEGAORDER_SPECIAL_DOMESTICLC
+
+create_object DOMESTIC_ANIMAL
+{
+   number_of_objects 1
+   number_of_groups 40
+   set_loose_grouping
+   set_gaia_object_only
+   terrain_to_place_on LAYER_C
+     temp_min_distance_group_placement 8
+}
+
+	endif
+
+
+endif /* endif deathmatch */
+
+
+if BIRDIES_HAWKIES
+
+create_object HAWK
+{
+   number_of_objects 4
+}
+
+elseif BIRDIES_MACAWIES
+
+create_object MACAW
+{
+   number_of_objects 4
+}
+
+elseif BIRDIES_VULTURES
+
+#const VULTURE 917
+
+create_object VULTURE
+{
+   number_of_objects 4
+}
+
+elseif MIXTURE_OF_BIRDIES
+
+/* keep in mind the jungle birdies only respond to terrain jungle, not object jungle */
+
+create_object HAWK
+{
+   number_of_objects 4
+}
+
+create_object MACAW
+{
+   number_of_objects 4
+terrain_to_place_on LAYER_DOWN
+}
+
+endif
+
+if MEGAORDER_NO_GROWLYBEASTS
+else
+
+start_random
+percent_chance 80 #define LETTHEBEASTOUT
+end_random
+
+endif
+
+if NOMADIC_WAY
+else
+	if LETTHEBEASTOUT
+
+create_object GROWLY_BEAST
+{
+start_random
+percent_chance 33
+  number_of_objects          1
+  number_of_groups	     3
+percent_chance 33
+  number_of_objects          1
+  number_of_groups	     4
+percent_chance 34
+  number_of_objects          1
+  number_of_groups	     5
+end_random
+  set_gaia_object_only
+  min_distance_to_players    45
+  min_distance_group_placement  20
+}
+
+create_object GROWLY_BEAST_UP
+{
+start_random
+percent_chance 50
+  number_of_objects          1
+  number_of_groups	     2
+percent_chance 50
+  number_of_objects          1
+  number_of_groups	     3
+end_random
+  set_gaia_object_only
+  min_distance_to_players    40
+terrain_to_place_on LAYER_UP
+  temp_min_distance_group_placement  20
+}
+
+create_object GROWLY_BEAST_DOWN
+{
+start_random
+percent_chance 50
+  number_of_objects          1
+  number_of_groups	     2
+percent_chance 50
+  number_of_objects          1
+  number_of_groups	     3
+end_random
+  set_gaia_object_only
+  min_distance_to_players    40
+terrain_to_place_on LAYER_DOWN
+  temp_min_distance_group_placement  20
+}
+
+	endif
+endif
+
+if NOMADIC_WAY
+else
+	if MEGAORDER_GROWLYBEASTS_SPECIAL_LUP
+
+create_object GROWLY_BEAST_UP
+{
+start_random
+percent_chance 50
+  number_of_objects          2
+  number_of_groups	     9
+percent_chance 50
+  number_of_objects          2
+  number_of_groups	     12
+end_random
+  set_gaia_object_only
+terrain_to_place_on LAYER_UP
+  temp_min_distance_group_placement  9
+}
+
+	endif
+endif
+
+if NOMADIC_WAY
+else
+	if MEGAORDER_GROWLYBEASTS_SPECIAL_LC
+
+create_object GROWLY_BEAST
+{
+start_random
+percent_chance 50
+  number_of_objects          2
+  number_of_groups	     9
+percent_chance 50
+  number_of_objects          2
+  number_of_groups	     12
+end_random
+  set_gaia_object_only
+terrain_to_place_on LAYER_C
+  temp_min_distance_group_placement  9
+}
+
+	endif
+endif
+
+if BONUS_FARMING
+
+create_object FARM
+{
+start_random
+percent_chance 33
+  number_of_objects             1
+percent_chance 33
+  number_of_objects             2
+percent_chance 34
+  number_of_objects             3
+end_random
+  set_place_for_every_player
+  group_placement_radius
+  min_distance_to_players       4
+  max_distance_to_players       4
+}
+
+endif
+
+<ELEVATION_GENERATION>
+
+if MEGAORDER_NO_ELEVATION
+endif
+
+if MEGAODOUR_DESERTCONFUSION
+
+create_elevation 7
+{
+  base_terrain DESERT
+  number_of_clumps 1000
+  number_of_tiles 20000
+}
+
+create_elevation 7
+{
+  base_terrain DESERT
+  number_of_clumps 1000
+  number_of_tiles 20000
+}
+
+create_elevation 7
+{
+  base_terrain DIRT2
+  number_of_clumps 1000
+  number_of_tiles 20000
+}
+
+create_elevation 7
+{
+  base_terrain DIRT2
+  number_of_clumps 1000
+  number_of_tiles 20000
+}
+
+endif
+
+if PYRAMID_STAIRS
+
+
+if HUGE_MAP
+create_elevation 7
+{
+     base_terrain GRASS2
+     number_of_clumps 30
+     number_of_tiles 50000
+     set_scale_by_groups
+     set_scale_by_size
+     spacing 13
+}
+elseif MEDIUM_MAP
+create_elevation 7
+{
+     base_terrain GRASS2
+     number_of_clumps 30
+     number_of_tiles 50000
+     set_scale_by_groups
+     set_scale_by_size
+     spacing 10
+}
+elseif SMALL_MAP
+create_elevation 7
+{
+     base_terrain GRASS2
+     number_of_clumps 30
+     number_of_tiles 50000
+     set_scale_by_groups
+     set_scale_by_size
+     spacing 8
+}
+elseif TINY_MAP
+create_elevation 7
+{
+     base_terrain GRASS2
+     number_of_clumps 30
+     number_of_tiles 50000
+     set_scale_by_groups
+     set_scale_by_size
+     spacing 7
+}
+elseif LARGE_MAP
+create_elevation 7
+{
+     base_terrain GRASS2
+     number_of_clumps 30
+     number_of_tiles 50000
+     set_scale_by_groups
+     set_scale_by_size
+     spacing 12
+}
+elseif GIANT_MAP
+create_elevation 7
+{
+     base_terrain GRASS2
+     number_of_clumps 30
+     number_of_tiles 50000
+     set_scale_by_groups
+     set_scale_by_size
+     spacing 15
+}
+elseif LUDIKRIS_MAP
+create_elevation 7
+{
+     base_terrain GRASS2
+     number_of_clumps 30
+     number_of_tiles 300000
+     set_scale_by_groups
+     set_scale_by_size
+     spacing 21
+}
+endif
+
+endif
+
+if MEGAORDER_FULLMAP_ELEVATION_LA /* 100% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 12
+			if SPACINGTOBUILDON
+  number_of_tiles 2250
+			else
+  number_of_tiles 1625
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 3982
+			else
+  number_of_tiles 2876
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6232
+			else
+  number_of_tiles 4501
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 50
+			if SPACINGTOBUILDON
+  number_of_tiles 9000
+			else
+  number_of_tiles 6500
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 96
+			if SPACINGTOBUILDON
+  number_of_tiles 17347
+			else
+  number_of_tiles 12528
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 149
+			if SPACINGTOBUILDON
+  number_of_tiles 26910
+			else
+  number_of_tiles 19435
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1125
+			else
+  number_of_tiles 812
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 1991
+			else
+  number_of_tiles 1438
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 17
+			if SPACINGTOBUILDON
+  number_of_tiles 3116
+			else
+  number_of_tiles 2250
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 25
+			if SPACINGTOBUILDON
+  number_of_tiles 4500
+			else
+  number_of_tiles 3250
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 48
+			if SPACINGTOBUILDON
+  number_of_tiles 8673
+			else
+  number_of_tiles 6264
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 74
+			if SPACINGTOBUILDON
+  number_of_tiles 13455
+			else
+  number_of_tiles 9717
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 4
+			if SPACINGTOBUILDON
+  number_of_tiles 675
+			else
+  number_of_tiles 487
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1194
+			else
+  number_of_tiles 862
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 10
+			if SPACINGTOBUILDON
+  number_of_tiles 1869
+			else
+  number_of_tiles 1350
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 15
+			if SPACINGTOBUILDON
+  number_of_tiles 2700
+			else
+  number_of_tiles 1950
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 28
+			if SPACINGTOBUILDON
+  number_of_tiles 5204
+			else
+  number_of_tiles 3758
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 44
+			if SPACINGTOBUILDON
+  number_of_tiles 8073
+			else
+  number_of_tiles 5830
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+
+if MEGAORDER_MAJORITYMAP_ELEVATION_LA /* 70% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 9
+			if SPACINGTOBUILDON
+  number_of_tiles 1575
+			else
+  number_of_tiles 1137
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 15
+			if SPACINGTOBUILDON
+  number_of_tiles 2787
+			else
+  number_of_tiles 2013
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 24
+			if SPACINGTOBUILDON
+  number_of_tiles 4362
+			else
+  number_of_tiles 3150
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 35
+			if SPACINGTOBUILDON
+  number_of_tiles 6300
+			else
+  number_of_tiles 4550
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 67
+			if SPACINGTOBUILDON
+  number_of_tiles 12143
+			else
+  number_of_tiles 8770
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 104
+			if SPACINGTOBUILDON
+  number_of_tiles 18837
+			else
+  number_of_tiles 13604
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 4
+			if SPACINGTOBUILDON
+  number_of_tiles 787
+			else
+  number_of_tiles 568
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1393
+			else
+  number_of_tiles 1006
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 12
+			if SPACINGTOBUILDON
+  number_of_tiles 2181
+			else
+  number_of_tiles 1575
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 18
+			if SPACINGTOBUILDON
+  number_of_tiles 3150
+			else
+  number_of_tiles 2275
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6071
+			else
+  number_of_tiles 4385
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 52
+			if SPACINGTOBUILDON
+  number_of_tiles 9418
+			else
+  number_of_tiles 6802
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 472
+			else
+  number_of_tiles 341
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 836
+			else
+  number_of_tiles 604
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1308
+			else
+  number_of_tiles 945
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 1890
+			else
+  number_of_tiles 1365
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 20
+			if SPACINGTOBUILDON
+  number_of_tiles 3643
+			else
+  number_of_tiles 2631
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 31
+			if SPACINGTOBUILDON
+  number_of_tiles 5651
+			else
+  number_of_tiles 4081
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+if MEGAORDER_MAJORITYMAP_ELEVATION_LC /* 70% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 9
+			if SPACINGTOBUILDON
+  number_of_tiles 1575
+			else
+  number_of_tiles 1137
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 15
+			if SPACINGTOBUILDON
+  number_of_tiles 2787
+			else
+  number_of_tiles 2013
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 24
+			if SPACINGTOBUILDON
+  number_of_tiles 4362
+			else
+  number_of_tiles 3150
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 35
+			if SPACINGTOBUILDON
+  number_of_tiles 6300
+			else
+  number_of_tiles 4550
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 67
+			if SPACINGTOBUILDON
+  number_of_tiles 12143
+			else
+  number_of_tiles 8770
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 104
+			if SPACINGTOBUILDON
+  number_of_tiles 18837
+			else
+  number_of_tiles 13604
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 4
+			if SPACINGTOBUILDON
+  number_of_tiles 787
+			else
+  number_of_tiles 568
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1393
+			else
+  number_of_tiles 1006
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 12
+			if SPACINGTOBUILDON
+  number_of_tiles 2181
+			else
+  number_of_tiles 1575
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 18
+			if SPACINGTOBUILDON
+  number_of_tiles 3150
+			else
+  number_of_tiles 2275
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6071
+			else
+  number_of_tiles 4385
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 52
+			if SPACINGTOBUILDON
+  number_of_tiles 9418
+			else
+  number_of_tiles 6802
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 472
+			else
+  number_of_tiles 341
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 836
+			else
+  number_of_tiles 604
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1308
+			else
+  number_of_tiles 945
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 1890
+			else
+  number_of_tiles 1365
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 20
+			if SPACINGTOBUILDON
+  number_of_tiles 3643
+			else
+  number_of_tiles 2631
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 31
+			if SPACINGTOBUILDON
+  number_of_tiles 5651
+			else
+  number_of_tiles 4081
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+if MEGAORDER_MAJORITYMAP_ELEVATION_LDOWN /* 70% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 9
+			if SPACINGTOBUILDON
+  number_of_tiles 1575
+			else
+  number_of_tiles 1137
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 15
+			if SPACINGTOBUILDON
+  number_of_tiles 2787
+			else
+  number_of_tiles 2013
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 24
+			if SPACINGTOBUILDON
+  number_of_tiles 4362
+			else
+  number_of_tiles 3150
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 35
+			if SPACINGTOBUILDON
+  number_of_tiles 6300
+			else
+  number_of_tiles 4550
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 67
+			if SPACINGTOBUILDON
+  number_of_tiles 12143
+			else
+  number_of_tiles 8770
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 104
+			if SPACINGTOBUILDON
+  number_of_tiles 18837
+			else
+  number_of_tiles 13604
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 4
+			if SPACINGTOBUILDON
+  number_of_tiles 787
+			else
+  number_of_tiles 568
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1393
+			else
+  number_of_tiles 1006
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 12
+			if SPACINGTOBUILDON
+  number_of_tiles 2181
+			else
+  number_of_tiles 1575
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 18
+			if SPACINGTOBUILDON
+  number_of_tiles 3150
+			else
+  number_of_tiles 2275
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6071
+			else
+  number_of_tiles 4385
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 52
+			if SPACINGTOBUILDON
+  number_of_tiles 9418
+			else
+  number_of_tiles 6802
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 472
+			else
+  number_of_tiles 341
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 836
+			else
+  number_of_tiles 604
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1308
+			else
+  number_of_tiles 945
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 1890
+			else
+  number_of_tiles 1365
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 20
+			if SPACINGTOBUILDON
+  number_of_tiles 3643
+			else
+  number_of_tiles 2631
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 31
+			if SPACINGTOBUILDON
+  number_of_tiles 5651
+			else
+  number_of_tiles 4081
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+if MEGAORDER_HALFMAP_ELEVATION_LA /* 45% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 6
+			if SPACINGTOBUILDON
+  number_of_tiles 1012
+			else
+  number_of_tiles 731
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 10
+			if SPACINGTOBUILDON
+  number_of_tiles 1792
+			else
+  number_of_tiles 1294
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 16
+			if SPACINGTOBUILDON
+  number_of_tiles 2804
+			else
+  number_of_tiles 2025
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 23
+			if SPACINGTOBUILDON
+  number_of_tiles 4050
+			else
+  number_of_tiles 2925
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 43
+			if SPACINGTOBUILDON
+  number_of_tiles 7806
+			else
+  number_of_tiles 5638
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 68
+			if SPACINGTOBUILDON
+  number_of_tiles 12109
+			else
+  number_of_tiles 8745
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 506
+			else
+  number_of_tiles 365
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 896
+			else
+  number_of_tiles 647
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1402
+			else
+  number_of_tiles 1012
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 2025
+			else
+  number_of_tiles 1462
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 3903
+			else
+  number_of_tiles 2818
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6054
+			else
+  number_of_tiles 4372
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 303
+			else
+  number_of_tiles 219
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 537
+			else
+  number_of_tiles 388
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 841
+			else
+  number_of_tiles 607
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1215
+			else
+  number_of_tiles 877
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 13
+			if SPACINGTOBUILDON
+  number_of_tiles 2341
+			else
+  number_of_tiles 1691
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 20
+			if SPACINGTOBUILDON
+  number_of_tiles 3632
+			else
+  number_of_tiles 2623
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+if MEGAORDER_HALFMAP_ELEVATION_LB /* 45% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_B
+		if TINY_MAP
+  number_of_clumps 6
+			if SPACINGTOBUILDON
+  number_of_tiles 1012
+			else
+  number_of_tiles 731
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 10
+			if SPACINGTOBUILDON
+  number_of_tiles 1792
+			else
+  number_of_tiles 1294
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 16
+			if SPACINGTOBUILDON
+  number_of_tiles 2804
+			else
+  number_of_tiles 2025
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 23
+			if SPACINGTOBUILDON
+  number_of_tiles 4050
+			else
+  number_of_tiles 2925
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 43
+			if SPACINGTOBUILDON
+  number_of_tiles 7806
+			else
+  number_of_tiles 5638
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 68
+			if SPACINGTOBUILDON
+  number_of_tiles 12109
+			else
+  number_of_tiles 8745
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_B
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 506
+			else
+  number_of_tiles 365
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 896
+			else
+  number_of_tiles 647
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1402
+			else
+  number_of_tiles 1012
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 2025
+			else
+  number_of_tiles 1462
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 3903
+			else
+  number_of_tiles 2818
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6054
+			else
+  number_of_tiles 4372
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_B
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 303
+			else
+  number_of_tiles 219
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 537
+			else
+  number_of_tiles 388
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 841
+			else
+  number_of_tiles 607
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1215
+			else
+  number_of_tiles 877
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 13
+			if SPACINGTOBUILDON
+  number_of_tiles 2341
+			else
+  number_of_tiles 1691
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 20
+			if SPACINGTOBUILDON
+  number_of_tiles 3632
+			else
+  number_of_tiles 2623
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+
+if MEGAORDER_HALFMAP_ELEVATION_LC /* 45% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 6
+			if SPACINGTOBUILDON
+  number_of_tiles 1012
+			else
+  number_of_tiles 731
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 10
+			if SPACINGTOBUILDON
+  number_of_tiles 1792
+			else
+  number_of_tiles 1294
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 16
+			if SPACINGTOBUILDON
+  number_of_tiles 2804
+			else
+  number_of_tiles 2025
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 23
+			if SPACINGTOBUILDON
+  number_of_tiles 4050
+			else
+  number_of_tiles 2925
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 43
+			if SPACINGTOBUILDON
+  number_of_tiles 7806
+			else
+  number_of_tiles 5638
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 68
+			if SPACINGTOBUILDON
+  number_of_tiles 12109
+			else
+  number_of_tiles 8745
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 506
+			else
+  number_of_tiles 365
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 896
+			else
+  number_of_tiles 647
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1402
+			else
+  number_of_tiles 1012
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 2025
+			else
+  number_of_tiles 1462
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 3903
+			else
+  number_of_tiles 2818
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6054
+			else
+  number_of_tiles 4372
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 303
+			else
+  number_of_tiles 219
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 537
+			else
+  number_of_tiles 388
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 841
+			else
+  number_of_tiles 607
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1215
+			else
+  number_of_tiles 877
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 13
+			if SPACINGTOBUILDON
+  number_of_tiles 2341
+			else
+  number_of_tiles 1691
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 20
+			if SPACINGTOBUILDON
+  number_of_tiles 3632
+			else
+  number_of_tiles 2623
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+if MEGAORDER_HALFMAP_ELEVATION_LDOWN /* 45% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 6
+			if SPACINGTOBUILDON
+  number_of_tiles 1012
+			else
+  number_of_tiles 731
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 10
+			if SPACINGTOBUILDON
+  number_of_tiles 1792
+			else
+  number_of_tiles 1294
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 16
+			if SPACINGTOBUILDON
+  number_of_tiles 2804
+			else
+  number_of_tiles 2025
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 23
+			if SPACINGTOBUILDON
+  number_of_tiles 4050
+			else
+  number_of_tiles 2925
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 43
+			if SPACINGTOBUILDON
+  number_of_tiles 7806
+			else
+  number_of_tiles 5638
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 68
+			if SPACINGTOBUILDON
+  number_of_tiles 12109
+			else
+  number_of_tiles 8745
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 506
+			else
+  number_of_tiles 365
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 896
+			else
+  number_of_tiles 647
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1402
+			else
+  number_of_tiles 1012
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 2025
+			else
+  number_of_tiles 1462
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 3903
+			else
+  number_of_tiles 2818
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 34
+			if SPACINGTOBUILDON
+  number_of_tiles 6054
+			else
+  number_of_tiles 4372
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 303
+			else
+  number_of_tiles 219
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 537
+			else
+  number_of_tiles 388
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 841
+			else
+  number_of_tiles 607
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1215
+			else
+  number_of_tiles 877
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 13
+			if SPACINGTOBUILDON
+  number_of_tiles 2341
+			else
+  number_of_tiles 1691
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 20
+			if SPACINGTOBUILDON
+  number_of_tiles 3632
+			else
+  number_of_tiles 2623
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+
+if MEGAORDER_TINYMAP_ELEVATION_LA /* 15% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 337
+			else
+  number_of_tiles 243
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 597
+			else
+  number_of_tiles 431
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 934
+			else
+  number_of_tiles 675
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1350
+			else
+  number_of_tiles 975
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 14
+			if SPACINGTOBUILDON
+  number_of_tiles 2602
+			else
+  number_of_tiles 1879
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 4036
+			else
+  number_of_tiles 2915
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 168
+			else
+  number_of_tiles 121
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 298
+			else
+  number_of_tiles 215
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 467
+			else
+  number_of_tiles 337
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 675
+			else
+  number_of_tiles 487
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1301
+			else
+  number_of_tiles 939
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 2018
+			else
+  number_of_tiles 1457
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_A
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 101
+			else
+  number_of_tiles 73
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 179
+			else
+  number_of_tiles 129
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 280
+			else
+  number_of_tiles 202
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 405
+			else
+  number_of_tiles 292
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 780
+			else
+  number_of_tiles 563
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1210
+			else
+  number_of_tiles 874
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+
+if MEGAORDER_TINYMAP_ELEVATION_LC /* 15% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 337
+			else
+  number_of_tiles 243
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 597
+			else
+  number_of_tiles 431
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 934
+			else
+  number_of_tiles 675
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1350
+			else
+  number_of_tiles 975
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 14
+			if SPACINGTOBUILDON
+  number_of_tiles 2602
+			else
+  number_of_tiles 1879
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 4036
+			else
+  number_of_tiles 2915
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 168
+			else
+  number_of_tiles 121
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 298
+			else
+  number_of_tiles 215
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 467
+			else
+  number_of_tiles 337
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 675
+			else
+  number_of_tiles 487
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1301
+			else
+  number_of_tiles 939
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 2018
+			else
+  number_of_tiles 1457
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_C
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 101
+			else
+  number_of_tiles 73
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 179
+			else
+  number_of_tiles 129
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 280
+			else
+  number_of_tiles 202
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 405
+			else
+  number_of_tiles 292
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 780
+			else
+  number_of_tiles 563
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1210
+			else
+  number_of_tiles 874
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+if MEGAORDER_TINYMAP_ELEVATION_LDOWN /* 15% */
+
+start_random
+	percent_chance 20 #define SUPERROCKY
+	percent_chance 30 #define ROCKY
+	percent_chance 30 #define HILLY
+	percent_chance 20 #define SMOOTH
+end_random
+
+start_random
+	percent_chance 10 #define SPACINGTOBUILDON
+end_random
+
+	if SUPERROCKY
+create_elevation 4
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 337
+			else
+  number_of_tiles 243
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 597
+			else
+  number_of_tiles 431
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 934
+			else
+  number_of_tiles 675
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 8
+			if SPACINGTOBUILDON
+  number_of_tiles 1350
+			else
+  number_of_tiles 975
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 14
+			if SPACINGTOBUILDON
+  number_of_tiles 2602
+			else
+  number_of_tiles 1879
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 22
+			if SPACINGTOBUILDON
+  number_of_tiles 4036
+			else
+  number_of_tiles 2915
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif ROCKY
+create_elevation 2
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 168
+			else
+  number_of_tiles 121
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 298
+			else
+  number_of_tiles 215
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 467
+			else
+  number_of_tiles 337
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 675
+			else
+  number_of_tiles 487
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1301
+			else
+  number_of_tiles 939
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 11
+			if SPACINGTOBUILDON
+  number_of_tiles 2018
+			else
+  number_of_tiles 1457
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif HILLY
+create_elevation 1
+{
+  base_terrain LAYER_DOWN
+		if TINY_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 101
+			else
+  number_of_tiles 73
+			endif
+		elseif SMALL_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 179
+			else
+  number_of_tiles 129
+			endif
+		elseif MEDIUM_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 280
+			else
+  number_of_tiles 202
+			endif
+		elseif LARGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 405
+			else
+  number_of_tiles 292
+			endif
+		elseif HUGE_MAP
+  number_of_clumps 5
+			if SPACINGTOBUILDON
+  number_of_tiles 780
+			else
+  number_of_tiles 563
+			endif
+		elseif GIGANTIC_MAP
+  number_of_clumps 7
+			if SPACINGTOBUILDON
+  number_of_tiles 1210
+			else
+  number_of_tiles 874
+			endif
+		endif
+		if SPACINGTOBUILDON
+  spacing 2
+		endif
+}
+	elseif SMOOTH
+	endif
+endif
+
+if MEGAORDER_SPECIFIC1_ELEVATION
+
+create_elevation 7
+{
+ base_terrain SLOPES_UP
+  number_of_clumps 3000
+  number_of_tiles 9000
+spacing_to_other_terrain_types 20
+clumping_factor 1
+}
+
+endif
+
+if MEGAORDER_SPECIFIC2_ELEVATION
+
+create_elevation 5
+{
+ base_terrain SLOPES_UP
+  number_of_clumps 3000
+  number_of_tiles 9000
+clumping_factor 1
+}
+
+endif
+
+<CONNECTION_GENERATION>
+
+if MEGAORDER_NO_WATERCONTACT
+
+elseif MEGAORDER_CHEESE
+
+#const ICY_SHORE 37
+
+if TINY_MAP
+
+elseif SMALL_MAP
+
+
+create_connect_all_players_land /* or create_connect_teams_lands or create_connect_all_lands */
+{
+     replace_terrain BEACH WOODIES_B
+     replace_terrain WOODIES_B WOODIES_B
+     replace_terrain WATER WOODIES_B
+     replace_terrain MED_WATER WOODIES_B
+     replace_terrain ICY_SHORE WOODIES_B
+     terrain_cost WOODIES_B 2
+     terrain_cost WATER 7
+     terrain_cost MED_WATER 9
+     terrain_size WOODIES_B 21 0
+}
+
+
+create_connect_all_players_land /* or create_connect_teams_lands or create_connect_all_lands */
+{
+     replace_terrain BEACH WOODIES_B
+     replace_terrain WOODIES_B WOODIES_B
+     replace_terrain WATER WOODIES_B
+     replace_terrain MED_WATER WOODIES_B
+     replace_terrain ICY_SHORE WOODIES_B
+     terrain_cost WOODIES_B 2
+     terrain_cost WATER 7
+     terrain_cost MED_WATER 9
+     terrain_size WOODIES_B 21 0
+}
+elseif MEDIUM_MAP
+
+create_connect_all_players_land /* or create_connect_teams_lands or create_connect_all_lands */
+{
+     replace_terrain BEACH WOODIES_B
+     replace_terrain WOODIES_B WOODIES_B
+     replace_terrain WATER WOODIES_B
+     replace_terrain MED_WATER WOODIES_B
+     replace_terrain ICY_SHORE WOODIES_B
+     terrain_cost WOODIES_B 2
+     terrain_cost WATER 7
+     terrain_cost MED_WATER 9
+     terrain_size WOODIES_B 21 0
+}
+
+
+create_connect_all_players_land /* or create_connect_teams_lands or create_connect_all_lands */
+{
+     replace_terrain BEACH WOODIES_B
+     replace_terrain WOODIES_B WOODIES_B
+     replace_terrain WATER WOODIES_B
+     replace_terrain MED_WATER WOODIES_B
+     replace_terrain ICY_SHORE WOODIES_B
+     terrain_cost WOODIES_B 2
+     terrain_cost WATER 7
+     terrain_cost MED_WATER 9
+     terrain_size WOODIES_B 21 0
+}
+
+else
+
+create_connect_all_players_land /* or create_connect_teams_lands or create_connect_all_lands */
+{
+     replace_terrain BEACH WOODIES_B
+     replace_terrain WOODIES_B WOODIES_B
+     replace_terrain WATER WOODIES_B
+     replace_terrain MED_WATER WOODIES_B
+     replace_terrain ICY_SHORE WOODIES_B
+     terrain_cost WOODIES_B 2
+     terrain_cost WATER 7
+     terrain_cost MED_WATER 9
+     terrain_size WOODIES_B 21 0
+}
+endif
+
+elseif MEGAORDER_ALWAYS_ALL_WATERCONTACT
+
+start_random
+	percent_chance 100 #define LINKITALL
+end_random
+
+elseif MEGAORDER_ALWAYS_PLAYERS_WATERCONTACT
+
+create_connect_all_players_land
+{
+start_random
+percent_chance 75
+  replace_terrain WATER SWAMPIES
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  replace_terrain MED_WATER SWAMPIES
+  replace_terrain DEEP_WATER SWAMPIES
+	endif
+  replace_terrain BEACH SWAMPIES
+  replace_terrain ICY_SHORE SWAMPIES
+percent_chance 25
+  replace_terrain WATER LAYER_B
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  replace_terrain MED_WATER LAYER_B
+  replace_terrain DEEP_WATER LAYER_B
+	endif
+  replace_terrain BEACH LAYER_B
+  replace_terrain ICY_SHORE LAYER_B
+end_random
+  terrain_cost WATER 7
+  terrain_cost MED_WATER 9
+  terrain_cost DEEP_WATER 15
+  terrain_cost BEACH 2
+  terrain_cost ICY_SHORE 2
+start_random
+percent_chance 20
+  terrain_size WATER 2 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 2 1
+  terrain_size DEEP_WATER 2 1
+	endif
+  terrain_size BEACH 2 1
+  terrain_size ICY_SHORE 2 1
+percent_chance 20
+  terrain_size WATER 4 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 4 1
+  terrain_size DEEP_WATER 4 1
+	endif
+  terrain_size BEACH 4 1
+  terrain_size ICY_SHORE 4 1
+percent_chance 20
+  terrain_size WATER 6 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 6 1
+  terrain_size DEEP_WATER 6 1
+	endif
+  terrain_size BEACH 6 1
+  terrain_size ICY_SHORE 6 1
+percent_chance 20
+  terrain_size WATER 9 2
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 9 2
+  terrain_size DEEP_WATER 9 2
+	endif
+  terrain_size BEACH 9 2
+  terrain_size ICY_SHORE 9 2
+percent_chance 20
+  terrain_size WATER 1 0
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 1 0
+  terrain_size DEEP_WATER 1 0
+	endif
+  terrain_size BEACH 1 0
+  terrain_size ICY_SHORE 1 0
+end_random
+}
+
+elseif MEGAORDER_ALWAYS_FRIENDS_WATERCONTACT
+
+start_random
+	percent_chance 100 #define LINKBUDDIESONLY
+end_random
+
+elseif MEGAORDER_LOWCHANCE_WATERCONTACT
+
+start_random
+	percent_chance 8 #define LINKITALL
+	percent_chance 8 #define LINKBUDDIESONLY
+	percent_chance 84 #define NOLINK
+end_random
+
+else
+
+start_random
+	percent_chance 40 #define LINKITALL
+	percent_chance 40 #define LINKBUDDIESONLY
+	percent_chance 20 #define NOLINK
+end_random
+
+endif
+
+if LINKITALL
+
+create_connect_all_lands
+{
+start_random
+percent_chance 75
+  replace_terrain WATER SWAMPIES
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  replace_terrain MED_WATER SWAMPIES
+  replace_terrain DEEP_WATER SWAMPIES
+	endif
+  replace_terrain BEACH SWAMPIES
+  replace_terrain ICY_SHORE SWAMPIES
+percent_chance 25
+  replace_terrain WATER LAYER_B
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  replace_terrain MED_WATER LAYER_B
+  replace_terrain DEEP_WATER LAYER_B
+	endif
+  replace_terrain BEACH LAYER_B
+  replace_terrain ICY_SHORE LAYER_B
+end_random
+  terrain_cost WATER 7
+  terrain_cost MED_WATER 9
+  terrain_cost DEEP_WATER 15
+  terrain_cost BEACH 2
+  terrain_cost ICY_SHORE 2
+start_random
+percent_chance 20
+  terrain_size WATER 2 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 2 1
+  terrain_size DEEP_WATER 2 1
+	endif
+  terrain_size BEACH 2 1
+  terrain_size ICY_SHORE 2 1
+percent_chance 20
+  terrain_size WATER 4 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 4 1
+  terrain_size DEEP_WATER 4 1
+	endif
+  terrain_size BEACH 4 1
+  terrain_size ICY_SHORE 4 1
+percent_chance 20
+  terrain_size WATER 6 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 6 1
+  terrain_size DEEP_WATER 6 1
+	endif
+  terrain_size BEACH 6 1
+  terrain_size ICY_SHORE 6 1
+percent_chance 20
+  terrain_size WATER 9 2
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 9 2
+  terrain_size DEEP_WATER 9 2
+	endif
+  terrain_size BEACH 9 2
+  terrain_size ICY_SHORE 9 2
+percent_chance 20
+  terrain_size WATER 1 0
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 1 0
+  terrain_size DEEP_WATER 1 0
+	endif
+  terrain_size BEACH 1 0
+  terrain_size ICY_SHORE 1 0
+end_random
+}
+
+elseif LINKBUDDIESONLY
+
+create_connect_teams_lands
+{
+start_random
+percent_chance 75
+  replace_terrain WATER SWAMPIES
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  replace_terrain MED_WATER SWAMPIES
+  replace_terrain DEEP_WATER SWAMPIES
+	endif
+  replace_terrain BEACH SWAMPIES
+  replace_terrain ICY_SHORE SWAMPIES
+percent_chance 25
+  replace_terrain WATER LAYER_B
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  replace_terrain MED_WATER LAYER_B
+  replace_terrain DEEP_WATER LAYER_B
+	endif
+  replace_terrain BEACH LAYER_B
+  replace_terrain ICY_SHORE LAYER_B
+end_random
+  terrain_cost WATER 7
+  terrain_cost MED_WATER 9
+  terrain_cost DEEP_WATER 15
+  terrain_cost BEACH 2
+  terrain_cost ICY_SHORE 2
+start_random
+percent_chance 20
+  terrain_size WATER 2 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 2 1
+  terrain_size DEEP_WATER 2 1
+	endif
+  terrain_size BEACH 2 1
+  terrain_size ICY_SHORE 2 1
+percent_chance 20
+  terrain_size WATER 4 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 4 1
+  terrain_size DEEP_WATER 4 1
+	endif
+  terrain_size BEACH 4 1
+  terrain_size ICY_SHORE 4 1
+percent_chance 20
+  terrain_size WATER 6 1
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 6 1
+  terrain_size DEEP_WATER 6 1
+	endif
+  terrain_size BEACH 6 1
+  terrain_size ICY_SHORE 6 1
+percent_chance 20
+  terrain_size WATER 9 2
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 9 2
+  terrain_size DEEP_WATER 9 2
+	endif
+  terrain_size BEACH 9 2
+  terrain_size ICY_SHORE 9 2
+percent_chance 20
+  terrain_size WATER 1 0
+	if MEGAORDER_CONTACT_LIGHTWATER_ONLY
+	else
+  terrain_size MED_WATER 1 0
+  terrain_size DEEP_WATER 1 0
+	endif
+  terrain_size BEACH 1 0
+  terrain_size ICY_SHORE 1 0
+end_random
+}
+
+elseif NOLINK
+endif
+
+if MEGAORDER_GENTLE_CLIFFING
+<CLIFF_GENERATION>
+min_number_of_cliffs 4
+max_number_of_cliffs 6
+min_length_of_cliff  2
+max_length_of_cliff  6
+min_distance_cliffs  12
+
+elseif MEGAORDER_MEDIUM_CLIFFING
+<CLIFF_GENERATION>
+min_number_of_cliffs 5
+max_number_of_cliffs 10
+min_length_of_cliff 4
+max_length_of_cliff 10
+cliff_curliness 10
+min_distance_cliffs 8
+
+endif

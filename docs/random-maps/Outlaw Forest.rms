@@ -1,0 +1,366 @@
+/* ************* */
+/* OUTLW FOREST */
+/* 06 DEC 2k15 */
+/* by: gagman */
+
+/* *************************** */
+#include_drs random_map.def 54000
+
+#const FISHX 53
+#const DWOLF 89
+#const VMLUM 123
+#const OUTLW 158
+#const VFLUM 218
+
+/* ****************************************************** */
+<PLAYER_SETUP>
+random_placement
+nomad_resources
+ai_info_map_type NOMAD 0 0 0
+
+/* ****************************************************** */
+<LAND_GENERATION>
+base_terrain LEAVES
+create_player_lands
+{
+terrain_type LEAVES
+land_percent 95
+zone 1
+base_size 8
+}
+
+/* ****************************************************** */
+<TERRAIN_GENERATION>
+create_terrain MED_WATER
+{
+base_terrain LEAVES
+number_of_clumps 1
+land_percent 1
+height_limits 0 0
+set_flat_terrain_only
+set_avoid_player_start_areas
+set_scale_by_groups
+spacing_to_other_terrain_types 1
+}
+
+create_terrain PINE_FOREST
+{
+base_terrain LEAVES
+number_of_clumps 50
+land_percent 2
+set_avoid_player_start_areas
+set_scale_by_groups
+}
+
+create_terrain DIRT3
+{
+base_terrain LEAVES
+land_percent 2
+number_of_clumps 5
+set_scale_by_groups
+spacing_to_other_terrain_types 8
+set_avoid_player_start_areas
+}
+
+create_terrain GRASS
+{
+base_terrain LEAVES
+land_percent 50
+number_of_clumps 75
+set_scale_by_size
+set_scale_by_groups
+spacing_to_other_terrain_types 0
+}
+
+create_terrain GRASS2
+{
+base_terrain GRASS
+land_percent 5
+number_of_clumps 10
+set_scale_by_groups
+spacing_to_other_terrain_types 3
+set_avoid_player_start_areas
+}
+
+create_terrain LEAVES
+{
+base_terrain GRASS
+land_percent 5
+number_of_clumps 25
+set_scale_by_size
+set_scale_by_groups
+}
+
+/* ****************************************************** */
+<OBJECTS_GENERATION>
+create_object VMLUM
+{
+number_of_objects 5
+set_place_for_every_player
+min_distance_to_players 0
+max_distance_to_players 3
+}
+
+create_object VFLUM
+{
+number_of_objects 5
+set_place_for_every_player
+min_distance_to_players 0
+max_distance_to_players 3
+}
+
+/* *************************** */
+
+create_object RELIC
+{
+number_of_objects 1
+min_distance_to_players 70
+temp_min_distance_group_placement 20
+}
+
+/* *************************** */
+
+if REGICIDE
+create_object VMLUM
+{
+number_of_objects 2
+set_place_for_every_player
+min_distance_to_players 0
+max_distance_to_players 3
+}
+
+create_object VFLUM
+{
+number_of_objects 2
+set_place_for_every_player
+min_distance_to_players 0
+max_distance_to_players 3
+}
+
+create_object ARCHER
+{
+set_place_for_every_player
+min_distance_to_players 6
+max_distance_to_players 6
+}
+
+create_object KING
+{
+set_place_for_every_player
+min_distance_to_players 6
+max_distance_to_players 6
+}
+endif
+
+/* *************************** */
+
+create_object BOAR
+{
+number_of_groups 2
+set_loose_grouping
+start_random
+percent_chance 75
+number_of_objects 2
+percent_chance 25
+number_of_objects 1
+end_random
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 10
+}
+
+create_object JAVELINA
+{
+number_of_groups 2
+set_loose_grouping
+start_random
+percent_chance 75
+number_of_objects 2
+percent_chance 25
+number_of_objects 1
+end_random
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 10
+}
+
+/* ****************************************************** */
+
+create_object GOLD
+{
+number_of_objects 16
+number_of_groups 250
+group_variance 4
+set_scaling_to_map_size
+set_gaia_object_only
+terrain_to_place_on DIRT3
+temp_min_distance_group_placement 25
+set_tight_grouping
+}
+
+create_object STONE
+{
+number_of_objects 6
+number_of_groups 250
+group_variance 3
+set_scaling_to_map_size
+set_gaia_object_only
+terrain_to_place_on DIRT3
+temp_min_distance_group_placement 15
+set_tight_grouping
+}
+
+/* *************************** */
+
+create_object ROCK
+{
+number_of_objects 20
+number_of_groups 250
+group_variance 4
+set_scaling_to_map_size
+set_gaia_object_only
+terrain_to_place_on DIRT3
+temp_min_distance_group_placement 25
+set_tight_grouping
+}
+
+/* *************************** */
+
+create_object OAK_FOREST_TREE
+{
+number_of_objects 2000
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 1
+}
+
+create_object OAK_FOREST_TREE
+{
+number_of_objects 2000
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 2
+}
+
+/* *************************** */
+
+create_object HAWK
+{
+number_of_objects 7
+set_scaling_to_map_size
+}
+
+create_object FISHX
+{
+number_of_objects 21
+set_gaia_object_only
+min_distance_group_placement 1
+set_scaling_to_map_size
+}
+
+create_object SHEEP
+{
+number_of_objects 3
+number_of_groups 6
+group_variance 1
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 15
+set_loose_grouping
+}
+
+create_object TURKEY
+{
+number_of_objects 3
+number_of_groups 6
+group_variance 1
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 15
+set_loose_grouping
+}
+
+create_object DEER
+{
+number_of_objects 7
+number_of_groups 6
+group_variance 4
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 14
+set_loose_grouping
+}
+
+create_object WILD_HORSE
+{
+number_of_objects 6
+number_of_groups 2
+group_variance 2
+set_scaling_to_map_size
+set_gaia_object_only
+temp_min_distance_group_placement 20
+set_loose_grouping
+}
+
+create_object FORAGE
+{
+number_of_objects 2
+number_of_groups 250
+set_scaling_to_map_size
+temp_min_distance_group_placement 12
+}
+
+/* *************************** */
+
+create_object OUTLW
+{
+number_of_objects 6
+set_scaling_to_map_size
+set_gaia_object_only
+min_distance_to_players 20
+temp_min_distance_group_placement 18
+}
+
+/* *************************** */
+
+create_object DWOLF
+{
+number_of_objects 6
+set_scaling_to_map_size
+set_gaia_object_only
+min_distance_to_players 20
+temp_min_distance_group_placement 18
+}
+
+/* *************************** */
+
+create_object ROCK
+{
+number_of_objects 3
+number_of_groups 4
+group_variance 2
+set_scaling_to_map_size
+set_avoid_player_start_areas
+min_distance_group_placement 10
+set_tight_grouping
+}
+
+/* ****************************************************** */
+<ELEVATION_GENERATION>
+create_elevation 7
+{
+number_of_tiles 2500
+number_of_clumps 26
+set_scale_by_size
+set_scale_by_groups
+}
+
+/* ****************************************************** */
+<CLIFF_GENERATION>
+min_number_of_cliffs 12
+max_number_of_cliffs 25
+min_length_of_cliff 6
+max_length_of_cliff 18
+cliff_curliness 25
+min_distance_cliffs 1
+/* ************* */

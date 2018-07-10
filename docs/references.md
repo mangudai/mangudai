@@ -1,6 +1,7 @@
 # Further reading
 
 - [RMS guide including all expansions](http://aok.heavengames.com/blacksmith/showfile.php?fileid=12178)
+- [RMS tutorial by Henk, mostly background info, non-technical](https://docs.google.com/document/d/1zzF-qYDnsW5s0vDsZ1bGpI55C5JefYldXQEfQaKFxU4/edit)
 - [RMS FAQ on AoKHeaven](http://aok.heavengames.com/cgi-bin/forums/display.cgi?action=ct&f=28,42485,,30)
 - [RMS commands added by UserPatch](http://userpatch.aiscripters.net/reference.html)
 - [Unit stats table for all expansions](http://aok.heavengames.com/university/game-info/stat-tables/units-table/)
