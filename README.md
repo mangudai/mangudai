@@ -43,6 +43,7 @@ Mangudai is written in [TypeScript](https://www.typescriptlang.org/) and exports
 
 - ### parse( script: `string` ) => { ast: [`Script`](docs/ast-spec.md), errors: [`ParseError[]`](docs/errors.md) }
 - ### lint( ast: [`Script`](docs/ast-spec.md) ) => [`LintError[]`](docs/errors.md)
+- ### stringify( ast: [`Script`](docs/ast-spec.md) ) => `string`
 
 ## Contribute
 
