@@ -3,30 +3,24 @@ import { LintError } from '../'
 import { Script, CommandStatement } from '../../parse'
 import { getToken, getNodes } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
+import { aocCommands, dlcCommands, userpatchCommands } from '../../lib'
 import * as meant from 'meant'
 
 const COMMAND_NAMES = [
-  'random_placement',
-  'grouped_by_team',
-  'base_terrain',
-  'create_player_lands',
-  'create_land',
-  'min_number_of_cliffs',
-  'max_number_of_cliffs',
-  'min_length_of_cliff',
-  'max_length_of_cliff',
-  'cliff_curliness',
-  'min_distance_cliffs',
-  'min_terrain_distance',
-  'create_terrain',
-  'create_object',
-  'create_connect_all_players_land',
-  'create_connect_teams_land',
-  'create_connect_same_land_zones',
-  'create_connect_all_lands',
-  'create_elevation',
-  'replace_terrain'
-]
+  aocCommands,
+  dlcCommands,
+  userpatchCommands
+].reduce((names, version) => {
+  Object.keys(version).forEach((sectionName) => {
+    const { commands } = version[sectionName]
+    if (commands != null) {
+      const keys = Object.keys(commands)
+      names.push(...keys)
+    }
+  })
+
+  return names
+}, [] as string[])
 
 function didYouMean (name: string) {
   const closest = meant(name, COMMAND_NAMES)
