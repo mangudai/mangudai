@@ -1,7 +1,7 @@
 /// <reference path="meant/index.d.ts">
 import { LintError } from '../'
 import { Script, CommandStatement } from '../../parse'
-import { getToken, getNodes, getLastToken } from '../../treeHelpers'
+import { getToken, getNodes } from '../../treeHelpers'
 import { getBoundaries } from '../../tokenHelpers'
 import * as meant from 'meant'
 
@@ -49,7 +49,7 @@ export function check (ast: Script): LintError[] {
     message: `Unknown command '${x.name}'.${didYouMean(x.name)}`,
     boundaries: {
       start: getBoundaries(getToken(x, undefined, true)).start,
-      end: getBoundaries(getLastToken(x, undefined, true)).end
+      end: getBoundaries(getToken(x, undefined, true)).end
     }
   }))
 }
