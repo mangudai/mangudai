@@ -13,7 +13,7 @@ const ATTRIBUTE_NAMES = [
 ].reduce((names, version) => {
   Object.keys(version).forEach((sectionName) => {
     const { commands } = version[sectionName]
-    if (commands == null) {
+    if (commands === undefined) {
       return
     }
     Object.keys(commands).forEach((commandName) => {
@@ -24,7 +24,7 @@ const ATTRIBUTE_NAMES = [
       // so we can warn if create_object is used inside a {} for some reason
       names.push(commandName)
       const { attributes } = commands[commandName]
-      if (attributes != null) {
+      if (attributes !== undefined) {
         names.push(...Object.keys(attributes))
       }
     })
@@ -32,7 +32,6 @@ const ATTRIBUTE_NAMES = [
 
   return names
 }, [] as string[])
-
 
 function didYouMean (name: string) {
   const closest = meant(name, ATTRIBUTE_NAMES)

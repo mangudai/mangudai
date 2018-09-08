@@ -13,7 +13,7 @@ const COMMAND_NAMES = [
 ].reduce((names, version) => {
   Object.keys(version).forEach((sectionName) => {
     const { commands } = version[sectionName]
-    if (commands != null) {
+    if (commands !== undefined) {
       const keys = Object.keys(commands)
       names.push(...keys)
     }
