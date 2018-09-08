@@ -4,6 +4,8 @@ import { TextSpanError } from '../tokenHelpers'
 const rules: { [x: string]: { check: (ast: Script, options: any) => LintError[] } } = {
   // Possible errors
   noConstantCondition: require('./rules/no-constant-condition'),
+  noUnknownAttributes: require('./rules/no-unknown-attributes'),
+  noUnknownCommands: require('./rules/no-unknown-commands'),
   noDupeAttributes: require('./rules/no-dupe-attributes'),
   noDupeCommands: require('./rules/no-dupe-commands'),
   noEmptyElse: require('./rules/no-empty-else'),

@@ -1,0 +1,18 @@
+<UNKNOWN_SECTION>
+
+<PLAYER_SETUP>
+random_placment
+
+/* typos! */
+<LAND_GENERATON>
+
+create_player_lands {
+  landid 2
+  doesnt_look_like_any_valid_attribute
+}
+
+<OBJECT_GENERATION>
+doesnt_look_like_any_valid_command
+create_objet SCOUTS {
+  number_of_objecs 10
+}
