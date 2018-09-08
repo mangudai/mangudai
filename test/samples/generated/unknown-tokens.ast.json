@@ -1,0 +1,80 @@
+{
+  "ast": {
+    "type": "Script",
+    "statements": [
+      {
+        "type": "SectionStatement",
+        "name": "UNKNOWN_SECTION",
+        "statements": []
+      },
+      {
+        "type": "SectionStatement",
+        "name": "PLAYER_SETUP",
+        "statements": [
+          {
+            "type": "CommandStatement",
+            "name": "random_placment",
+            "args": []
+          }
+        ]
+      },
+      {
+        "type": "MultilineComment",
+        "comment": " typos! "
+      },
+      {
+        "type": "SectionStatement",
+        "name": "LAND_GENERATON",
+        "statements": [
+          {
+            "type": "CommandStatement",
+            "name": "create_player_lands",
+            "args": [],
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "landid",
+                "args": [
+                  2
+                ]
+              },
+              {
+                "type": "AttributeStatement",
+                "name": "doesnt_look_like_any_valid_attribute",
+                "args": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "SectionStatement",
+        "name": "OBJECT_GENERATION",
+        "statements": [
+          {
+            "type": "CommandStatement",
+            "name": "doesnt_look_like_any_valid_command",
+            "args": []
+          },
+          {
+            "type": "CommandStatement",
+            "name": "create_objet",
+            "args": [
+              "SCOUTS"
+            ],
+            "statements": [
+              {
+                "type": "AttributeStatement",
+                "name": "number_of_objecs",
+                "args": [
+                  10
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "errors": []
+}

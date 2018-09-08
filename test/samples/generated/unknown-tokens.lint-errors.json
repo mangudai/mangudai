@@ -1,0 +1,100 @@
+[
+  {
+    "name": "LintError",
+    "message": "Unknown attribute 'landid'. Did you mean 'land_id'?",
+    "boundaries": {
+      "start": {
+        "line": 10,
+        "col": 2
+      },
+      "end": {
+        "line": 10,
+        "col": 10
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Unknown attribute 'doesnt_look_like_any_valid_attribute'.",
+    "boundaries": {
+      "start": {
+        "line": 11,
+        "col": 2
+      },
+      "end": {
+        "line": 11,
+        "col": 38
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Unknown attribute 'number_of_objecs'. Did you mean 'number_of_objects'?",
+    "boundaries": {
+      "start": {
+        "line": 17,
+        "col": 2
+      },
+      "end": {
+        "line": 17,
+        "col": 21
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Unknown command 'random_placment'. Did you mean 'random_placement'?",
+    "boundaries": {
+      "start": {
+        "line": 4,
+        "col": 0
+      },
+      "end": {
+        "line": 4,
+        "col": 15
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Unknown command 'doesnt_look_like_any_valid_command'.",
+    "boundaries": {
+      "start": {
+        "line": 15,
+        "col": 0
+      },
+      "end": {
+        "line": 15,
+        "col": 34
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Unknown command 'create_objet'. Did you mean 'create_object'?",
+    "boundaries": {
+      "start": {
+        "line": 16,
+        "col": 0
+      },
+      "end": {
+        "line": 18,
+        "col": 1
+      }
+    }
+  },
+  {
+    "name": "LintError",
+    "message": "Empty section 'UNKNOWN_SECTION'.",
+    "boundaries": {
+      "start": {
+        "line": 1,
+        "col": 0
+      },
+      "end": {
+        "line": 1,
+        "col": 17
+      }
+    }
+  }
+]
